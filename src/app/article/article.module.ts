@@ -4,6 +4,8 @@ import { MaterialModule } from '../material/material.module';
 import { ArticleLayoutComponent } from './layouts/article-layout/article-layout.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ArticleSearchComponent } from './components/article-search/article-search.component';
+import { FormsModule } from '@angular/forms';
+import { ArticleViewComponent } from './components/article-view/article-view.component';
 
 const routes: Routes = [
   {
@@ -11,8 +13,18 @@ const routes: Routes = [
     component: ArticleLayoutComponent,
     children: [
       {
+        path: 'search',
+        component: ArticleSearchComponent,
+        pathMatch: 'full',
+      },
+      {
         path: ':id',
-        component: ArticleLayoutComponent,
+        component: ArticleViewComponent,
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'search',
       },
     ],
   },
@@ -20,6 +32,11 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [ArticleLayoutComponent, ArticleSearchComponent],
-  imports: [CommonModule, MaterialModule, RouterModule.forChild(routes)], 
+  imports: [
+    FormsModule,
+    CommonModule,
+    MaterialModule,
+    RouterModule.forChild(routes),
+  ],
 })
 export class ArticleModule {}
