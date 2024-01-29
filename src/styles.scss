@@ -11,7 +11,6 @@ body {
 body {
   margin: 0;
   font-family: Radon, Roboto, "Helvetica Neue", sans-serif;
-  color: white;
 }
 
 * {
@@ -21,16 +20,4 @@ body {
 
 i {
   font-family: inherit;
-}
-
-.heading {
-  display: inline-block;
-  font-weight: 700;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 16px;
-  border-bottom: 3px solid #f26464;
-  padding-bottom: 7px;
-  margin-bottom: 23px;
 }

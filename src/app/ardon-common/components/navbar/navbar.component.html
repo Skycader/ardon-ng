@@ -8,15 +8,18 @@
     >
       <mat-icon>menu</mat-icon>
     </button>
-    <span>ArdonNG</span>
+    <a [routerLink]="['/']">
+      <span>ArdonNG</span>
+    </a>
     <span class="example-spacer"></span>
-
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with share icon"
+    <a [routerLink]="['/profile']">
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with share icon"
+      >
+        <mat-icon>face</mat-icon>
+      </button></a
     >
-      <mat-icon>face</mat-icon>
-    </button>
   </mat-toolbar>
 </p>

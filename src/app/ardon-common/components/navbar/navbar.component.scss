@@ -11,3 +11,21 @@ nav {
 .example-spacer {
   flex: 1 1 auto;
 }
+
+a {
+  color: white;
+}
+
+a:link {
+  color: white;
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}

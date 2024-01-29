@@ -9,11 +9,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { ArdonCommonModule } from './ardon-common/ardon-common.module';
+import { ProfileModule } from './profile/profile.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     ArdonCommonModule,
+    ProfileModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
