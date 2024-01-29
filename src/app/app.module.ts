@@ -11,6 +11,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { ArdonCommonModule } from './ardon-common/ardon-common.module';
 import { ProfileModule } from './profile/profile.module';
 import { MainModule } from './main/main.module';
+import { ArticleModule } from './article/article.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { MainModule } from './main/main.module';
     ArdonCommonModule,
     ProfileModule,
     MainModule,
+    ArticleModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
