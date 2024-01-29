@@ -1,0 +1,29 @@
+.container {
+  width: 100%;
+
+  .row {
+    display: flex;
+    justify-content: space-around;
+    padding: 16px;
+  }
+}
+
+h1 {
+  font-size: 25px;
+  font-weight: 400;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  margin: 0 0 24px;
+  padding: 0;
+}
+
+h1,
+p {
+  color: #0000008a;
+}
