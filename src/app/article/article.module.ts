@@ -6,6 +6,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { ArticleSearchComponent } from './components/article-search/article-search.component';
 import { FormsModule } from '@angular/forms';
 import { ArticleViewComponent } from './components/article-view/article-view.component';
+import { ImageComponent } from './components/image/image.component';
+import { HeadingComponent } from './components/heading/heading.component';
+import { TextComponent } from './components/text/text.component';
+import { ContentsComponent } from './components/contents/contents.component';
 
 const routes: Routes = [
   {
@@ -31,7 +35,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ArticleLayoutComponent, ArticleSearchComponent],
+  declarations: [ArticleViewComponent, ArticleLayoutComponent, ArticleSearchComponent, ImageComponent, HeadingComponent, TextComponent, ContentsComponent],
   imports: [
     FormsModule,
     CommonModule,
@@ -39,4 +43,4 @@ const routes: Routes = [
     RouterModule.forChild(routes),
   ],
 })
-export class ArticleModule {}
+export class ArticleModule {    }
