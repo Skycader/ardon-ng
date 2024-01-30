@@ -3,6 +3,32 @@
 }
 
 .example-header-image {
-  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
   background-size: cover;
+}
+
+.background {
+  max-height: 293px;
+  height: 293px;
+  background-size: cover;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  margin: 0 0 24px;
+  padding: 0;
+  color: #0000008a;
+}
+
+button {
+  margin-right: 5px;
+}
+
+mat-card {
+  height: 445px;
+}
+
+mat-card-actions {
+  margin-top: auto;
 }

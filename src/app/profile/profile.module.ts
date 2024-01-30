@@ -1,13 +1,15 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProfileLayoutComponent } from './layouts/profile-layout/profile-layout.component';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ArdonCommonModule } from '../ardon-common/ardon-common.module';
 import { MaterialModule } from '../material/material.module';
+import { ProfileLayoutComponent } from './layouts/profile-layout/profile-layout.component';
 
 @NgModule({
   declarations: [ProfileLayoutComponent],
   imports: [
     MaterialModule,
+    ArdonCommonModule,
     CommonModule,
     RouterModule.forChild([
       {
@@ -17,4 +19,4 @@ import { MaterialModule } from '../material/material.module';
     ]),
   ],
 })
-export class ProfileModule { }
+export class ProfileModule {}
