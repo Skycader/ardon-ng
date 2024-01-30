@@ -20,6 +20,7 @@ export class AdvantagesComponent {
         {
           icon: ' import_contacts',
           text: 'Read',
+          destination: ['/article', 'angular17'],
         },
         {
           icon: 'thumb_up',

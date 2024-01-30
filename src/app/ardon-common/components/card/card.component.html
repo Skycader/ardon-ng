@@ -21,6 +21,7 @@
     <button
       mat-flat-button
       color="primary"
+      (click)="goTo(button.destination)"
       *ngFor="let button of config.buttons"
     >
       <mat-icon>{{ button.icon }}</mat-icon

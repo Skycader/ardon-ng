@@ -10,4 +10,5 @@ export interface CardConfigInterface {
 export interface CardButtonInterface {
   icon: string;
   text: string;
+  destination?: string[];
 }

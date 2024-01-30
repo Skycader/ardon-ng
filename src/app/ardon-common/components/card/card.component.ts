@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { CardConfigInterface } from '../../models/cardConfig.interface';
 
 @Component({
@@ -17,4 +18,12 @@ export class CardComponent {
     mountainous terrain, the Shiba Inu was originally bred for hunting.`,
     buttons: [],
   };
+
+  constructor(private router: Router) {}
+
+  public goTo(route: string[] | undefined) {
+    if (!route) return;
+    this.router.navigate(route);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
 }
