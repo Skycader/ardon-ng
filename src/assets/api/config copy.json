@@ -1,0 +1,49 @@
+{
+  "appName": {
+    "title": "Ландшафтный дизайн"
+  },
+  "description": "Material Design Blog Engine",
+  "startButton": "Explore now",
+  "advantages": [
+    {
+      "header": "High quality",
+      "text": "Internationalized and accessible components for everyone. Well tested to ensure performance and reliability."
+    },
+    {
+      "header": "High quality",
+      "text": "Internationalized and accessible components for everyone. Well tested to ensure performance and reliability."
+    },
+    {
+      "header": "High quality",
+      "text": "Internationalized and accessible components for everyone. Well tested to ensure performance and reliability."
+    }
+  ],
+  "welcome-topic-name": "Most recent articles",
+  "welcome-topics": [
+    {
+      "title": "Shiba Inu",
+      "subheader": "Dog Breed",
+      "imageSrc": "https://material.angular.io/assets/img/examples/shiba2.jpg",
+      "description": "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting."
+    },
+    {
+      "title": "Shiba Inu",
+      "subheader": "Dog Breed",
+      "imageSrc": "https://material.angular.io/assets/img/examples/shiba2.jpg",
+      "description": "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting."
+    },
+    {
+      "title": "Shiba Inu",
+      "subheader": "Dog Breed",
+      "imageSrc": "https://material.angular.io/assets/img/examples/shiba2.jpg",
+      "description": "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting."
+    }
+  ],
+  "version": "0.0.1",
+  "release-year": "2024",
+  "navigation": {
+    "title": " Navigation",
+    "topics": "Topics",
+    "interesting": "You may like"
+  }
+}
