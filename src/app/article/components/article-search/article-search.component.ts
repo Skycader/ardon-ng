@@ -20,6 +20,7 @@ export class ArticleSearchComponent {
         {
           icon: ' import_contacts',
           text: 'Read',
+          destination: ['/article/angular17'],
         },
         {
           icon: 'thumb_up',
@@ -39,6 +40,7 @@ export class ArticleSearchComponent {
         {
           icon: ' import_contacts',
           text: 'Read',
+          destination: ['/article/angular17'],
         },
         {
           icon: 'thumb_up',
@@ -58,6 +60,7 @@ export class ArticleSearchComponent {
         {
           icon: ' import_contacts',
           text: 'Read',
+          destination: ['/article/angular17'],
         },
         {
           icon: 'thumb_up',
