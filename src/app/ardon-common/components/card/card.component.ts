@@ -24,6 +24,5 @@ export class CardComponent {
   public goTo(route: string[] | undefined) {
     if (!route) return;
     this.router.navigate(route);
-    window.scrollTo({ top: 0, behavior: 'instant' });
   }
 }

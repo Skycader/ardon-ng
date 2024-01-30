@@ -11,6 +11,7 @@ import { HeadingComponent } from './components/heading/heading.component';
 import { ImageComponent } from './components/image/image.component';
 import { TextComponent } from './components/text/text.component';
 import { ArticleLayoutComponent } from './layouts/article-layout/article-layout.component';
+import { articleResolver } from './utils/resolvers/article.resolver';
 
 const routes: Routes = [
   {
@@ -24,6 +25,9 @@ const routes: Routes = [
       },
       {
         path: ':id',
+        resolve: {
+          article: articleResolver,
+        },
         component: ArticleViewComponent,
       },
       {
