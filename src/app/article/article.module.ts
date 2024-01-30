@@ -1,15 +1,16 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '../material/material.module';
-import { ArticleLayoutComponent } from './layouts/article-layout/article-layout.component';
-import { RouterModule, Routes } from '@angular/router';
-import { ArticleSearchComponent } from './components/article-search/article-search.component';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { ArdonCommonModule } from '../ardon-common/ardon-common.module';
+import { MaterialModule } from '../material/material.module';
+import { ArticleSearchComponent } from './components/article-search/article-search.component';
 import { ArticleViewComponent } from './components/article-view/article-view.component';
-import { ImageComponent } from './components/image/image.component';
-import { HeadingComponent } from './components/heading/heading.component';
-import { TextComponent } from './components/text/text.component';
 import { ContentsComponent } from './components/contents/contents.component';
+import { HeadingComponent } from './components/heading/heading.component';
+import { ImageComponent } from './components/image/image.component';
+import { TextComponent } from './components/text/text.component';
+import { ArticleLayoutComponent } from './layouts/article-layout/article-layout.component';
 
 const routes: Routes = [
   {
@@ -35,12 +36,21 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ArticleViewComponent, ArticleLayoutComponent, ArticleSearchComponent, ImageComponent, HeadingComponent, TextComponent, ContentsComponent],
+  declarations: [
+    ArticleViewComponent,
+    ArticleLayoutComponent,
+    ArticleSearchComponent,
+    ImageComponent,
+    HeadingComponent,
+    TextComponent,
+    ContentsComponent,
+  ],
   imports: [
     FormsModule,
+    ArdonCommonModule,
     CommonModule,
     MaterialModule,
     RouterModule.forChild(routes),
   ],
 })
-export class ArticleModule {    }
+export class ArticleModule {}
