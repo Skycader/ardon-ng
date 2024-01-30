@@ -12,11 +12,14 @@ export class NavbarComponent {
 
   @HostListener('window:scroll', ['$event.target'])
   onScroll() {
-    this.hideNavbar = window.scrollY > this.currentScroll ? true : false;
+    this.hideNavbar =
+      window.scrollY > this.currentScroll && this.currentScroll > 56
+        ? true
+        : false;
     this.currentScroll = window.scrollY;
   }
 
-  constructor(private navbarService: NavbarService) { }
+  constructor(private navbarService: NavbarService) {}
 
   public openSideNav() {
     this.navbarService.openSideNav();
