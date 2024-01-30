@@ -55,3 +55,12 @@ img {
     margin-bottom: 2px;
   }
 }
+
+p {
+  transition-duration: 0.3s;
+  top: 0px;
+}
+
+.hide-navbar {
+  top: -70px;
+}
