@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConfigService } from './ardon-common/services/config.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'ardon';
+  public title: string = 'ardon';
+
+  constructor(private config: ConfigService) {}
+
+  public ngOnInit(): void {
+    this.config.applyConfig();
+  }
 }
