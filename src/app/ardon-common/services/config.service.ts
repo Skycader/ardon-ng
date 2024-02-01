@@ -9,8 +9,6 @@ import { VersionInterface } from '../models/version.interface';
   providedIn: 'root',
 })
 export class ConfigService {
-  private config: ArdonConfigInterface | null = null;
-
   public readonly version$ = this.http
     .get<VersionInterface>(`${environemnt.apiUrl}/version.json?${Date.now()}`)
     .pipe(

@@ -1,5 +1,6 @@
 export interface ArdonConfigInterface {
   appName: string; //i.e. Ardon Engine
+  appLogo: string; //material logo reference
   backgroundImageSrc: string; //background image
   description: string; //Make your blog look awesome today
   startButton: string; //Explore now

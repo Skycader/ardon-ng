@@ -1,5 +1,7 @@
 <div class="welcome">
-  <div class="title">Ardon Engine</div>
-  <h2>Make your Blog look awesome today</h2>
-  <button mat-raised-button [routerLink]="['/article']">Explore now</button>
+  <div class="title">{{ configService.config$ | async | get : "appName" }}</div>
+  <h2>{{ configService.config$ | async | get : "description" }}</h2>
+  <button mat-raised-button [routerLink]="['/article']">
+    {{ configService.config$ | async | get : "startButton" }}
+  </button>
 </div>

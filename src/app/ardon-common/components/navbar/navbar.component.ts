@@ -22,7 +22,7 @@ export class NavbarComponent {
 
   constructor(
     private navbarService: NavbarService,
-    public config: ConfigService
+    public configService: ConfigService
   ) {}
 
   public openSideNav() {

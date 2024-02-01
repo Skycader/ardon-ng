@@ -29,6 +29,7 @@ import { GetPipe } from './utils/pipes/get.pipe';
     FooterComponent,
     CardComponent,
     LoadingBarComponent,
+    GetPipe,
   ],
 })
 export class ArdonCommonModule {}

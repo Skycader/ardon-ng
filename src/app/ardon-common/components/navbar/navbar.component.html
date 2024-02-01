@@ -9,19 +9,12 @@
       <mat-icon>menu</mat-icon>
     </button>
     <a [routerLink]="['/']">
-      <span class="logo"><mat-icon>brightness_auto</mat-icon></span>
-      <span>
-        <!-- <img
-          _ngcontent-ng-c3202968170=""
-          matbuttonicon=""
-          src="https://material.angular.io/assets/img/homepage/angular-white-transparent.svg"
-          alt="angular"
-          aria-hidden="true"
-          class="logo"
-        /> -->
-
-        {{ config.config$ | async | get : "appName" }}</span
+      <span class="logo"
+        ><mat-icon>{{
+          configService.config$ | async | get : "appLogo"
+        }}</mat-icon></span
       >
+      <span> {{ configService.config$ | async | get : "appName" }}</span>
     </a>
     <span class="example-spacer"></span>
     <a [routerLink]="['/profile']">

@@ -1,23 +1,23 @@
 {
-  "appName": "Ardon Engine",
-  "backgroundImageSrc": "",
-  "description": "Material Design Blog Engine",
-  "startButton": "Explore now",
+  "appName": "Ваш Ландшафтник",
+  "appLogo": "book",
+  "description": "Ландшафтный дизайн",
+  "startButton": "Узнать больше",
   "advantages": [
     {
-      "header": "High quality",
-      "text": "Internationalized and accessible components for everyone. Well tested to ensure performance and reliability."
+      "header": "Преимущество 1",
+      "text": "Здесь более детальное описание"
     },
     {
-      "header": "High quality",
-      "text": "Internationalized and accessible components for everyone. Well tested to ensure performance and reliability."
+      "header": "Преимущество 2",
+      "text": "Здесь более детальное описание"
     },
     {
-      "header": "High quality",
-      "text": "Internationalized and accessible components for everyone. Well tested to ensure performance and reliability."
+      "header": "Преимущество 3",
+      "text": "Здесь более детальное описание"
     }
   ],
-  "welcomeTopicName": "Most recent articles",
+  "welcomeTopicName": "Ознакомьтесь с нашими услугами ниже",
   "welcomeTopics": [
     {
       "title": "Shiba Inu",

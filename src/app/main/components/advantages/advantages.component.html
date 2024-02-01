@@ -1,31 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 col-md-4">
-      <h1>High quality</h1>
+    <div class="col-12 col-md-4" *ngFor="let advantage of advantages | async">
+      <h1>{{ advantage.header }}</h1>
       <p>
-        Internationalized and accessible components for everyone. Well tested to
-        ensure performance and reliability.
-      </p>
-    </div>
-    <div class="col-12 col-md-4">
-      <h1>High quality</h1>
-      <p>
-        Internationalized and accessible components for everyone. Well tested to
-        ensure performance and reliability.
-      </p>
-    </div>
-    <div class="col-12 col-md-4">
-      <h1>High quality</h1>
-      <p>
-        Internationalized and accessible components for everyone. Well tested to
-        ensure performance and reliability.
+        {{ advantage.text }}
       </p>
     </div>
   </div>
 
   <hr />
 
-  <h1>Most recents articles</h1>
+  <h1>{{ configService.config$ | async | get : "welcomeTopicName" }}</h1>
 
   <div class="row">
     <div *ngFor="let article of articles" class="col-12 col-md-6 col-lg-4 mb-5">
