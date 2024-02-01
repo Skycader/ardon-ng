@@ -6,9 +6,10 @@ import { MaterialModule } from '../material/material.module';
 import { AdvantagesComponent } from './components/advantages/advantages.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { RecentArticlesComponent } from './components/recent-articles/recent-articles.component';
 
 @NgModule({
-  declarations: [MainLayoutComponent, WelcomeComponent, AdvantagesComponent],
+  declarations: [MainLayoutComponent, WelcomeComponent, AdvantagesComponent, RecentArticlesComponent],
   imports: [
     CommonModule,
     ArdonCommonModule,

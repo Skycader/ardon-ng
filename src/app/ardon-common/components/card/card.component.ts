@@ -9,10 +9,10 @@ import { CardConfigInterface } from '../../models/cardConfig.interface';
 })
 export class CardComponent {
   @Input() config: CardConfigInterface = {
-    head: 'Empty heading',
-    subhead: 'Empty subhead',
-    avatar: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-    background: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
+    title: 'Empty heading',
+    subheader: 'Empty subhead',
+    avatarSrc: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
+    backgroundSrc: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
     description: `The Shiba Inu is the smallest of the six original and distinct spitz
     breeds of dog from Japan. A small, agile dog that copes very well with
     mountainous terrain, the Shiba Inu was originally bred for hunting.`,

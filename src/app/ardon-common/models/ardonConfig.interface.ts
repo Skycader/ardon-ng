@@ -24,6 +24,14 @@ export interface AdvantageInterface {
 export interface ArticlePreviewInterface {
   title: string;
   subheader: string;
-  imageSrc: string;
+  avatarSrc: string;
+  backgroundSrc: string;
   description: string;
+  buttons: CardButtonInterface[];
+}
+
+export interface CardButtonInterface {
+  icon: string;
+  text: string;
+  destination?: string[];
 }

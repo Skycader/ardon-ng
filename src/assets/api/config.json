@@ -17,25 +17,26 @@
       "text": "Здесь более детальное описание"
     }
   ],
-  "welcomeTopicName": "Ознакомьтесь с нашими услугами ниже",
+  "welcomeTopicName": "Наши услуги",
   "welcomeTopics": [
     {
-      "title": "Shiba Inu",
-      "subheader": "Dog Breed",
-      "imageSrc": "https://material.angular.io/assets/img/examples/shiba2.jpg",
-      "description": "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting."
-    },
-    {
-      "title": "Shiba Inu",
-      "subheader": "Dog Breed",
-      "imageSrc": "https://material.angular.io/assets/img/examples/shiba2.jpg",
-      "description": "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting."
-    },
-    {
-      "title": "Shiba Inu",
-      "subheader": "Dog Breed",
-      "imageSrc": "https://material.angular.io/assets/img/examples/shiba2.jpg",
-      "description": "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting."
+      "title": "Мощение дорожек",
+      "subheader": "Услуга",
+      "avatarSrc": "https://st3.stblizko.ru/images/product/343/360/457_big.jpg",
+      "backgroundSrc": "https://st3.stblizko.ru/images/product/343/360/457_big.jpg",
+
+      "description": "Узнайте о мощении дорожек",
+      "buttons": [
+        {
+          "icon": "import_contacts",
+          "text": "Читать",
+          "destination": ["/article", "moshchenie-dorozhek"]
+        },
+        {
+          "icon": "thumb_up",
+          "text": "Нравится"
+        }
+      ]
     }
   ],
   "version": "0.0.1",

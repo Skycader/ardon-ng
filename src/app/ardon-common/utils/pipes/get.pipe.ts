@@ -9,6 +9,10 @@ export class GetPipe implements PipeTransform {
     value: ArdonConfigInterface,
     key: keyof ArdonConfigInterface
   ): ValueOf<ArdonConfigInterface> {
-    return value[key];
+    if (value) {
+      return value[key];
+    } else {
+      return '';
+    }
   }
 }

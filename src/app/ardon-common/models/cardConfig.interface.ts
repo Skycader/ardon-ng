@@ -1,8 +1,8 @@
 export interface CardConfigInterface {
-  head: string;
-  subhead: string;
-  avatar: string;
-  background: string;
+  title: string;
+  subheader: string;
+  avatarSrc: string;
+  backgroundSrc: string;
   description: string;
   buttons: CardButtonInterface[];
 }
