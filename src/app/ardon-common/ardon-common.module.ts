@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
@@ -20,6 +21,7 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
   ],
   imports: [MaterialModule, CommonModule, RouterModule],
   exports: [
+    HttpClientModule,
     NavbarComponent,
     SideNavComponent,
     FooterComponent,
