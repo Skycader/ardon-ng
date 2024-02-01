@@ -1,7 +1,7 @@
 {
   "appName": "Ваш Ландшафтник",
   "appLogo": "book",
-  "description": "Ландшафтный дизайн",
+  "description": "Старая кабыла борозды не испортит",
   "search": "Поиск услуг",
   "searchArticles": "Наиболее популярно сейчас",
   "searchPlaceholder": "Начните поиск...",
@@ -45,8 +45,10 @@
   "version": "0.0.1",
   "releaseYear": "2024",
   "navigation": {
-    "title": " Navigation",
-    "topics": "Topics",
-    "interesting": "You may like"
-  }
+    "title": " Навигация",
+    "topics": "Темы",
+    "interesting": "Вас может заинтересовать"
+  },
+  "articleContents": "Содержание",
+  "articleComments": "Комментарии"
 }

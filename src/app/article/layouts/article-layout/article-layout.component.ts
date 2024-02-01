@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'ardon-article-layout',
@@ -7,9 +6,7 @@ import { Router } from '@angular/router';
   styleUrl: './article-layout.component.scss',
 })
 export class ArticleLayoutComponent {
-  constructor(private router: Router) {}
+  constructor() {}
 
-  public ngOnInit(): void {
-    console.log(this.router);
-  }
+  public ngOnInit(): void {}
 }

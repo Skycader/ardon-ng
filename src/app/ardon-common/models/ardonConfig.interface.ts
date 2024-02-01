@@ -17,6 +17,8 @@ export interface ArdonConfigInterface {
     topics: string; //Topics
     interesting: string; //You may like
   };
+  articleContents: string; //Contents (or Содержание)
+  articleComments: string; //Comments (or Комментарии)
 }
 
 export interface AdvantageInterface {
