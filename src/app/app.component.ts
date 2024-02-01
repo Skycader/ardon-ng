@@ -10,8 +10,4 @@ export class AppComponent {
   public title: string = 'ardon';
 
   constructor(private config: ConfigService) {}
-
-  public ngOnInit(): void {
-    this.config.applyConfig();
-  }
 }

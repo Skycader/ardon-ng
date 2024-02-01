@@ -20,7 +20,7 @@
           class="logo"
         /> -->
 
-        Ardon Engine</span
+        {{ config.config$ | async | get : "appName" }}</span
       >
     </a>
     <span class="example-spacer"></span>

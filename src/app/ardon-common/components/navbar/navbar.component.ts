@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { ConfigService } from '../../services/config.service';
 import { NavbarService } from '../../services/navbar.service';
 
 @Component({
@@ -19,7 +20,10 @@ export class NavbarComponent {
     this.currentScroll = window.scrollY;
   }
 
-  constructor(private navbarService: NavbarService) {}
+  constructor(
+    private navbarService: NavbarService,
+    public config: ConfigService
+  ) {}
 
   public openSideNav() {
     this.navbarService.openSideNav();

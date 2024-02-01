@@ -9,6 +9,7 @@ import { LoadingBarComponent } from './components/loading-bar/loading-bar.compon
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
+import { GetPipe } from './utils/pipes/get.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
     NotFoundComponent,
     CardComponent,
     LoadingBarComponent,
+    GetPipe,
   ],
   imports: [MaterialModule, CommonModule, RouterModule],
   exports: [
