@@ -1,10 +1,12 @@
 <div class="container">
   <mat-form-field class="search-articles">
-    <mat-label>Search for articles</mat-label>
+    <mat-label>{{ configService.config$ | async | get : "search" }}</mat-label>
     <input
       matInput
       type="text"
-      placeholder="Best ways to..."
+      placeholder="{{
+        configService.config$ | async | get : 'searchPlaceholder'
+      }}"
       [(ngModel)]="value"
     />
     <button matSuffix mat-icon-button aria-label="Clear" (click)="value = ''">
@@ -12,10 +14,13 @@
     </button>
   </mat-form-field>
 
-  <h1>Most recents articles</h1>
+  <h1>{{ configService.config$ | async | get : "searchArticles" }}</h1>
 
   <div class="row">
-    <div *ngFor="let article of articles" class="col-12 col-md-6 col-lg-4 mb-5">
+    <div
+      *ngFor="let article of recentArticles$ | async"
+      class="col-12 col-md-6 col-lg-4 mb-5"
+    >
       <ardon-card [config]="article" />
     </div>
   </div>

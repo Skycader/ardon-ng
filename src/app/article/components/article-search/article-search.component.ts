@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { CardConfigInterface } from '../../../ardon-common/models/cardConfig.interface';
+import { Observable, map } from 'rxjs';
+import {
+  ArdonConfigInterface,
+  ArticlePreviewInterface,
+} from '../../../ardon-common/models/ardonConfig.interface';
+import { ConfigService } from '../../../ardon-common/services/config.service';
 
 @Component({
   selector: 'ardon-article-search',
@@ -8,5 +13,10 @@ import { CardConfigInterface } from '../../../ardon-common/models/cardConfig.int
 })
 export class ArticleSearchComponent {
   public value = '';
-  public articles: CardConfigInterface[] = [];
+  public recentArticles$: Observable<ArticlePreviewInterface[]> =
+    this.configService.config$.pipe(
+      map((config: ArdonConfigInterface) => config.welcomeTopics)
+    );
+
+  constructor(public configService: ConfigService) {}
 }

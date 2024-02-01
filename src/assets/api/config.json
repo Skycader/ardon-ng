@@ -2,6 +2,9 @@
   "appName": "Ваш Ландшафтник",
   "appLogo": "book",
   "description": "Ландшафтный дизайн",
+  "search": "Поиск услуг",
+  "searchArticles": "Наиболее популярно сейчас",
+  "searchPlaceholder": "Начните поиск...",
   "startButton": "Узнать больше",
   "advantages": [
     {
