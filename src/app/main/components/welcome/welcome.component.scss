@@ -42,6 +42,7 @@
   opacity: 0.2;
   position: absolute;
   content: "";
+  // background-image: attr(data-content);
   background-image: url(../../../../assets/images/background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
