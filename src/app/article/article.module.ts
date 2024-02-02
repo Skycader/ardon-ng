@@ -12,6 +12,8 @@ import { ImageComponent } from './components/image/image.component';
 import { TextComponent } from './components/text/text.component';
 import { ArticleLayoutComponent } from './layouts/article-layout/article-layout.component';
 import { articleResolver } from './utils/resolvers/article.resolver';
+import { ArdonCoverComponent } from './components/ardon-cover/ardon-cover.component';
+import { SubheadingComponent } from './components/subheading/subheading.component';
 
 const routes: Routes = [
   {
@@ -48,6 +50,8 @@ const routes: Routes = [
     HeadingComponent,
     TextComponent,
     ContentsComponent,
+    ArdonCoverComponent,
+    SubheadingComponent,
   ],
   imports: [
     FormsModule,

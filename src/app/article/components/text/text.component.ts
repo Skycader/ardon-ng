@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'ardon-text',
   templateUrl: './text.component.html',
-  styleUrl: './text.component.scss'
+  styleUrl: './text.component.scss',
 })
 export class TextComponent {
-
+  @Input() content: string = '';
 }
