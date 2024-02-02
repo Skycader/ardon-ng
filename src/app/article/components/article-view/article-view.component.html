@@ -11,6 +11,18 @@
           *ngIf="block.type === 'subheading'"
           [content]="block.content"
         />
+        <ardon-list
+          *ngIf="block.type === 'list'"
+          [list]="block.content"
+        ></ardon-list>
+        <ardon-image
+          *ngIf="block.type === 'image'"
+          [imageSrc]="block.content[0]"
+        />
+        <ardon-carousel
+          *ngIf="block.type === 'carousel'"
+          [slides]="block.content"
+        />
       </div>
     </div>
   </div>

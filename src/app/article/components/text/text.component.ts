@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './text.component.scss',
 })
 export class TextComponent {
-  @Input() content: string = '';
+  @Input() content: string[] = [];
 }

@@ -14,7 +14,9 @@ import { ArticleLayoutComponent } from './layouts/article-layout/article-layout.
 import { articleResolver } from './utils/resolvers/article.resolver';
 import { ArdonCoverComponent } from './components/ardon-cover/ardon-cover.component';
 import { SubheadingComponent } from './components/subheading/subheading.component';
-
+import { ListComponent } from './components/list/list.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 const routes: Routes = [
   {
     path: 'article',
@@ -52,9 +54,12 @@ const routes: Routes = [
     ContentsComponent,
     ArdonCoverComponent,
     SubheadingComponent,
+    ListComponent,
+    CarouselComponent,
   ],
   imports: [
     FormsModule,
+    CarouselModule,
     ArdonCommonModule,
     CommonModule,
     MaterialModule,
