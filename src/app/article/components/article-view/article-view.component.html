@@ -27,3 +27,8 @@
     </div>
   </div>
 </div>
+
+<ardon-photo-viewer
+  *ngIf="photoViewer.isOpen$ | async"
+  [imageUrl]="photoViewer.src"
+/>

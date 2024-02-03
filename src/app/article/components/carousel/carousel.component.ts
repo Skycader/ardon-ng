@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 
 import $ from 'jquery';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { PhotoViewerService } from '../../services/photo-viewer.service';
 
 interface $ {
   ownCarousel: any;
@@ -16,11 +17,11 @@ export class CarouselComponent {
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
-    touchDrag: false,
+    touchDrag: true,
     pullDrag: true,
-    dots: false,
+    dots: true,
     navSpeed: 700,
-    navText: ['', ''],
+    navText: ['⬅️', '➡️'],
     responsive: {
       0: {
         items: 1,
@@ -37,4 +38,6 @@ export class CarouselComponent {
     },
     nav: true,
   };
+
+  constructor(public photoViewer: PhotoViewerService) { }
 }

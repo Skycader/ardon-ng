@@ -36,8 +36,8 @@
           "destination": ["/article", "moshchenie-dorozhek"]
         },
         {
-          "icon": "thumb_up",
-          "text": "Нравится"
+          "icon": "share",
+          "text": "Поделиться"
         }
       ]
     }

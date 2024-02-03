@@ -1,0 +1,36 @@
+<div #photoViewer class="photo-viewer">
+  <div class="offset" (click)="closePhotoView()"></div>
+  <div class="img bg-light">
+    <p class="toolbar">
+      <mat-toolbar color="primary">
+        <button
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with menu icon"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Просмотр фото</span>
+        <span class="example-spacer"></span>
+        <button
+          mat-icon-button
+          class="example-icon favorite-icon"
+          aria-label="Example icon-button with heart icon"
+        >
+          <mat-icon>share</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          (click)="closePhotoView()"
+          class="example-icon"
+          aria-label="Example icon-button with share icon"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-toolbar>
+    </p>
+
+    <img [src]="imageUrl" />
+    <p>Подпись к фото</p>
+  </div>
+</div>

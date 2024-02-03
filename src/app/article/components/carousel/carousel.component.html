@@ -1,7 +1,7 @@
 <div class="slider">
   <owl-carousel-o [options]="customOptions">
     <ng-template carouselSlide *ngFor="let slide of slides">
-      <div class="slide">
+      <div class="slide" (click)="photoViewer.open(slide)">
         <img [src]="slide" />
       </div>
     </ng-template>

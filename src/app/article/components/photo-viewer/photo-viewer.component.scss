@@ -1,0 +1,38 @@
+.photo-viewer {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  top: 0px;
+  overflow: scroll;
+
+  .offset {
+    width: 100%;
+    height: 100%;
+  }
+
+  .toolbar {
+    width: 100%;
+  }
+
+  .img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    img {
+      border-radius: 25px;
+      max-width: 98%;
+      height: auto;
+      max-width: auto;
+      max-height: calc(70vh - 80px);
+    }
+  }
+}
+.photo-viewer::-webkit-scrollbar {
+  display: none;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}

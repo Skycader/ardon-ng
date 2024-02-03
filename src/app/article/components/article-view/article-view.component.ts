@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ArticleService } from '../../services/article.service';
 import { ArdonArticleInterface } from '../../models/article.interface';
+import { PhotoViewerService } from '../../services/photo-viewer.service';
 
 @Component({
   selector: 'ardon-article-view',
@@ -14,7 +15,10 @@ export class ArticleViewComponent {
     this.articleService.article$.subscribe((res: any) => console.log(res));
   }
 
-  constructor(public articleService: ArticleService) {}
+  constructor(
+    public articleService: ArticleService,
+    public photoViewer: PhotoViewerService,
+  ) { }
 
   public article: ArdonArticleInterface = {
     heading: 'Мощение дорожек и площадок',
@@ -49,8 +53,28 @@ export class ArticleViewComponent {
         content: ['Этапы работ по мощению на бетонное основание'],
       },
       {
+        type: 'list',
+        content: [
+          'Выемка грунта',
+          'Подготовка песчано-щебеночного основания',
+          'Монтаж бордюров',
+          'Монтаж дорожной сварной сетки',
+          'Бетонирование слоем 10-12см',
+          'Укладка отделочного материала на клей',
+          'Засыпка швов',
+        ],
+      },
+      {
+        type: 'text',
+        content: ['Ещё пара фотографий'],
+      },
+      {
         type: 'carousel',
-        content: ['https://i.imgur.com/3W5R6n9.jpeg'],
+        content: [
+          'https://i.imgur.com/3W5R6n9.jpeg',
+          'https://i.imgur.com/FkXmNFE.jpeg',
+          'https://i.imgur.com/46Fo5r8.jpeg',
+        ],
       },
     ],
   };
