@@ -21,7 +21,7 @@ export class CarouselComponent {
     pullDrag: true,
     dots: true,
     navSpeed: 700,
-    navText: ['⬅️', '➡️'],
+    nav: false,
     responsive: {
       0: {
         items: 1,
@@ -36,7 +36,6 @@ export class CarouselComponent {
         items: 4,
       },
     },
-    nav: true,
   };
 
   constructor(public photoViewer: PhotoViewerService) { }

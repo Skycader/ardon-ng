@@ -13,6 +13,9 @@ export class NavbarService {
   public openSideNav() {
     this._isSideNav = true;
   }
+  public closeSideNav() {
+    this._isSideNav = false;
+  }
   public toggleSideNav(): void {
     this._isSideNav = !this.isSideNav;
   }

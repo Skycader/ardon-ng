@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { NavbarService } from '../../services/navbar.service';
+import { of, switchMap, timer } from 'rxjs';
 
 export interface Section {
   name: string;
@@ -40,9 +41,16 @@ export class SideNavComponent {
   public get isSideNav() {
     return this.navbarService.isSideNav;
   }
+
+  @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(
+    event: KeyboardEvent,
+  ) {
+    this.closeSideNav();
+  }
+
   constructor(private navbarService: NavbarService) { }
 
-  public toggleSideNav() {
-    this.navbarService.toggleSideNav();
+  public closeSideNav() {
+    this.navbarService.closeSideNav();
   }
 }

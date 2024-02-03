@@ -1,10 +1,17 @@
+.side-nav-background {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  position: fixed;
+  top: 0px;
+}
 .side-nav {
   width: 80%;
   height: 100vh;
   position: fixed;
   top: 0px;
   transition-duration: 0.3s;
-  z-index: 10;
+  z-index: 2000;
   left: 0px;
   max-width: 300px;
 }
@@ -15,12 +22,11 @@
 }
 
 .closed {
-  left: -300px;
+  left: calc(-300px);
 }
 
 .side-nav-content {
   width: 100%;
   height: 100%;
   border-right: 1px solid rgba(0, 0, 0, 0.12);
-  background: white;
 }

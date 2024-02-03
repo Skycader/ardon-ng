@@ -11,21 +11,22 @@
     <a [routerLink]="['/']">
       <span class="logo"
         ><mat-icon>{{
-          configService.config$ | async | get : "appLogo"
+          configService.config$ | async | get: "appLogo"
         }}</mat-icon></span
       >
-      <span> {{ configService.config$ | async | get : "appName" }}</span>
+      <span> {{ configService.config$ | async | get: "appName" }}</span>
     </a>
     <span class="example-spacer"></span>
-    <a [routerLink]="['/profile']">
-      <button
-        mat-icon-button
-        class="example-icon"
-        aria-label="Example icon-button with share icon"
-      >
-        <mat-icon matBadge="8" matBadgeColor="accent">notifications</mat-icon>
-      </button></a
+
+    <button
+      mat-icon-button
+      (click)="toggleTheme()"
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
     >
+      <mat-icon *ngIf="!themeService.isDarkTheme">wb_sunny</mat-icon>
+      <mat-icon *ngIf="themeService.isDarkTheme">brightness_low</mat-icon>
+    </button>
 
     <a [routerLink]="['/profile']">
       <button
@@ -33,7 +34,7 @@
         class="example-icon"
         aria-label="Example icon-button with share icon"
       >
-        <mat-icon>face</mat-icon>
+        <mat-icon matBadge="8" matBadgeColor="accent">face</mat-icon>
       </button></a
     >
   </mat-toolbar>

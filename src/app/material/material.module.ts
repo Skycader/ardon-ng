@@ -17,6 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -33,6 +34,7 @@ const MaterialComponents = [
   MatSelectModule,
   MatTableModule,
   MatDialogModule,
+  MatSlideToggleModule,
   MatDatepickerModule,
   MatNativeDateModule,
   MatListModule,
@@ -43,4 +45,4 @@ const MaterialComponents = [
   imports: [CommonModule],
   exports: [...MaterialComponents],
 })
-export class MaterialModule {}
+export class MaterialModule { }

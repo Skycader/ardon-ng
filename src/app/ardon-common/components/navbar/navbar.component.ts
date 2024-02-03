@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { ConfigService } from '../../services/config.service';
 import { NavbarService } from '../../services/navbar.service';
+import { ThemeService } from '../../../ardon-core/services/theme.service';
 
 @Component({
   selector: 'ardon-navbar',
@@ -22,10 +23,15 @@ export class NavbarComponent {
 
   constructor(
     private navbarService: NavbarService,
-    public configService: ConfigService
-  ) {}
+    public configService: ConfigService,
+    public themeService: ThemeService,
+  ) { }
 
   public openSideNav() {
     this.navbarService.openSideNav();
+  }
+
+  public toggleTheme() {
+    this.themeService.toggleTheme();
   }
 }

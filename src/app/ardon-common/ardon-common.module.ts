@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { GetPipe } from './utils/pipes/get.pipe';
+import { ArdonCoreModule } from '../ardon-core/ardon-core.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { GetPipe } from './utils/pipes/get.pipe';
   exports: [
     HttpClientModule,
     NavbarComponent,
+    ArdonCoreModule,
     SideNavComponent,
     FooterComponent,
     CardComponent,
@@ -32,4 +34,4 @@ import { GetPipe } from './utils/pipes/get.pipe';
     GetPipe,
   ],
 })
-export class ArdonCommonModule {}
+export class ArdonCommonModule { }
