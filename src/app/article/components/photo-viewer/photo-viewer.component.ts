@@ -37,7 +37,7 @@ export class PhotoViewerComponent {
       .querySelector('.photo-viewer')!
       .scrollTo({ top: 0, behavior: 'smooth' });
 
-    setTimeout(() => this.photoViewer.close(), 300);
+    setTimeout(() => this.photoViewer.close(), 500);
   }
 
   ngOnDestroy() {

@@ -1,9 +1,12 @@
 .slide {
   margin-right: 5px;
-
+  cursor: grab;
   img {
     border-radius: 25px;
   }
+}
+.slide:active {
+  cursor: grabbing;
 }
 
 .slider {
