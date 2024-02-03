@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ResolveEnd, ResolveStart, Router, RouterEvent } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'ardon-loading-bar',
