@@ -1,12 +1,8 @@
 import { Component, Input } from '@angular/core';
 
-import $ from 'jquery';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { PhotoViewerService } from '../../services/photo-viewer.service';
 
-interface $ {
-  ownCarousel: any;
-}
 @Component({
   selector: 'ardon-carousel',
   templateUrl: './carousel.component.html',

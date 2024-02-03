@@ -21,7 +21,7 @@ export class PhotoViewerComponent {
     if (scroll === 0) this.closePhotoView();
   }
 
-  public scrollCheck: any = null;
+  public scrollCheck: ReturnType<typeof setInterval> | null = null;
   constructor(public photoViewer: PhotoViewerService) { }
   ngAfterViewInit() {
     this.scrollCheck = setInterval(() => {
@@ -41,6 +41,6 @@ export class PhotoViewerComponent {
   }
 
   ngOnDestroy() {
-    clearInterval(this.scrollCheck);
+    if (this.scrollCheck) clearInterval(this.scrollCheck);
   }
 }

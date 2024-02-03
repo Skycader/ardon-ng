@@ -26,10 +26,12 @@ export class ArticleService {
     private router: Router,
   ) { }
 
-  public getArticle(name: string): Observable<any> {
+  public getArticle(
+    name: string,
+  ): Observable<ArdonArticleInterface | null | any> {
     return this.http.get(`${environemnt.apiUrl}/article/${name}.json`).pipe(
       delay(1000),
-      catchError((error: any) => of(null)),
+      catchError(() => of(null)),
     );
   }
 }

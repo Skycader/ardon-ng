@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ResolveEnd, ResolveStart, Router } from '@angular/router';
+import { ResolveEnd, ResolveStart, Router, RouterEvent } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -9,10 +9,10 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class LoadingBarComponent {
   public loading$ = new BehaviorSubject<boolean>(false);
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   public ngOnInit() {
-    this.router.events.subscribe((event: any) => {
+    this.router.events.subscribe((event) => {
       if (event instanceof ResolveStart) {
         this.loading$.next(true);
       }

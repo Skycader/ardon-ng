@@ -26,13 +26,13 @@ export class ArticleViewComponent {
   public found = true;
 
   public ngOnInit(): void {
-    this.activatedRoute.data.subscribe((res: any) => {
-      console.log('RES:', res);
-      if (res.article === null) {
+    this.activatedRoute.data.subscribe((response) => {
+      if (response === null) return;
+      if (response['article'] === null) {
         this.found = false;
       }
 
-      this.article = res.article;
+      this.article = response['article'];
     });
   }
 }
