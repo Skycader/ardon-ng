@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, delay, of, switchMap } from 'rxjs';
+import { Observable, catchError, delay, of, switchMap } from 'rxjs';
 import { environemnt } from '../../../environments/environment';
+import { map } from 'jquery';
+import { ArdonArticleInterface } from '../models/article.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -24,10 +26,10 @@ export class ArticleService {
     private router: Router,
   ) { }
 
-  public getArticle(name: string) {
+  public getArticle(name: string): Observable<any> {
     return this.http.get(`${environemnt.apiUrl}/article/${name}.json`).pipe(
       delay(1000),
-      catchError((error: any) => of('ERROR')),
+      catchError((error: any) => of(null)),
     );
   }
 }

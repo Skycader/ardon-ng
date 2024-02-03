@@ -28,7 +28,7 @@ export class ArticleViewComponent {
   public ngOnInit(): void {
     this.activatedRoute.data.subscribe((res: any) => {
       console.log('RES:', res);
-      if (res.article === 'ERROR') {
+      if (res.article === null) {
         this.found = false;
       }
 

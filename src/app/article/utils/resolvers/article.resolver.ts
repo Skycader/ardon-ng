@@ -17,7 +17,10 @@ import { ArdonArticleInterface } from '../../models/article.interface';
 export class articleResolver implements Resolve<ArdonArticleInterface> {
   constructor(private articleService: ArticleService) { }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
+  resolve(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot,
+  ): Observable<ArdonArticleInterface> {
     return this.articleService.getArticle(route.params['id']);
   }
 }
