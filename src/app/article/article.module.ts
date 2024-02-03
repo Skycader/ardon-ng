@@ -18,6 +18,7 @@ import { ListComponent } from './components/list/list.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { PhotoViewerComponent } from './components/photo-viewer/photo-viewer.component';
+import { ArticleNotFoundComponent } from './components/article-not-found/article-not-found.component';
 const routes: Routes = [
   {
     path: 'article',
@@ -58,6 +59,7 @@ const routes: Routes = [
     ListComponent,
     CarouselComponent,
     PhotoViewerComponent,
+    ArticleNotFoundComponent,
   ],
   imports: [
     FormsModule,
@@ -68,4 +70,4 @@ const routes: Routes = [
     RouterModule.forChild(routes),
   ],
 })
-export class ArticleModule {}
+export class ArticleModule { }

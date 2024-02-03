@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="found">
   <ardon-heading [heading]="article.heading" />
 
   <ardon-cover [imageSrc]="article.themeImageSrc"></ardon-cover>
@@ -32,3 +32,5 @@
   *ngIf="photoViewer.isOpen$ | async"
   [imageUrl]="photoViewer.src"
 />
+
+<ardon-article-not-found *ngIf="!found" />
