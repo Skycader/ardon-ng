@@ -1,5 +1,9 @@
 <div #photoViewer class="photo-viewer">
-  <div class="offset" (click)="closePhotoView()"></div>
+  <div
+    class="offset"
+    [class.darkness]="darkness"
+    (click)="closePhotoView()"
+  ></div>
   <div class="img bg-body">
     <p class="toolbar">
       <mat-toolbar color="primary">

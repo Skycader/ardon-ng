@@ -15,6 +15,8 @@ export class PhotoViewerComponent {
     this.closePhotoView();
   }
 
+  public darkness: boolean = false;
+
   @HostListener('window:scroll', ['$event.target'])
   onScroll() {
     const scroll = document.querySelector('.photo-viewer')!.scrollTop;
@@ -30,6 +32,7 @@ export class PhotoViewerComponent {
       this.onScroll();
     }, 1000);
     setTimeout(() => {
+      this.darkness = true;
       document
         .querySelector('.photo-viewer')!
         .scrollTo({ top: 1000, behavior: 'smooth' });
@@ -37,6 +40,7 @@ export class PhotoViewerComponent {
   }
 
   public closePhotoView() {
+    this.darkness = false;
     document
       .querySelector('.photo-viewer')!
       .scrollTo({ top: 0, behavior: 'smooth' });
