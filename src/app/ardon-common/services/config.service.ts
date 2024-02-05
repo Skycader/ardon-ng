@@ -15,34 +15,35 @@ export class ConfigService {
       map((response: VersionInterface) => {
         localStorage.setItem('ardon-version', response.version);
         return response.version;
-      }),
+      })
     );
 
   public readonly needToUpdateConfig$ = this.version$.pipe(
     map(
       (version: string) =>
         version !== localStorage.getItem('ardon-version') ||
-        localStorage.getItem('ardon-config') === null,
-    ),
+        localStorage.getItem('ardon-config') === null ||
+        true
+    )
   );
 
   public readonly configFromServer$ = this.http
     .get<ArdonConfigInterface>(
-      `${environemnt.apiUrl}/config.json?${Date.now()}`,
+      `${environemnt.apiUrl}/config.json?${Date.now()}`
     )
     .pipe(
       tap((ardonConfig: ArdonConfigInterface) => {
         localStorage.setItem('ardon-config', JSON.stringify(ardonConfig));
-      }),
+      })
     );
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   public config$ = this.needToUpdateConfig$.pipe(
     switchMap((needToUpdate: boolean) => {
       return needToUpdate
         ? this.configFromServer$
         : of(this.getConfigFromLocalStorage());
-    }),
+    })
   );
 
   public getConfigFromLocalStorage() {

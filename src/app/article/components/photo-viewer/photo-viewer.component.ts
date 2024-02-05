@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, ViewChild } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { PhotoViewerService } from '../../services/photo-viewer.service';
 
 @Component({
@@ -8,9 +8,9 @@ import { PhotoViewerService } from '../../services/photo-viewer.service';
 })
 export class PhotoViewerComponent {
   @Input() imageUrl: string = '';
-
+  public title: string = '';
   @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(
-    event: KeyboardEvent,
+    event: KeyboardEvent
   ) {
     this.closePhotoView();
   }
@@ -20,9 +20,11 @@ export class PhotoViewerComponent {
     const scroll = document.querySelector('.photo-viewer')!.scrollTop;
     if (scroll === 0) this.closePhotoView();
   }
-
+  ngOnInit() {
+    this.title = this.photoViewer.title;
+  }
   public scrollCheck: ReturnType<typeof setInterval> | null = null;
-  constructor(public photoViewer: PhotoViewerService) { }
+  constructor(public photoViewer: PhotoViewerService) {}
   ngAfterViewInit() {
     this.scrollCheck = setInterval(() => {
       this.onScroll();

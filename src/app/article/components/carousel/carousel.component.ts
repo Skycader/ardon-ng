@@ -3,13 +3,17 @@ import { Component, Input } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { PhotoViewerService } from '../../services/photo-viewer.service';
 
+export interface SlideInterface {
+  imgSrc: string;
+  title: string;
+}
 @Component({
   selector: 'ardon-carousel',
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.scss',
 })
 export class CarouselComponent {
-  @Input() slides: string[] = [];
+  @Input() slides: SlideInterface[] = [];
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -34,5 +38,5 @@ export class CarouselComponent {
     },
   };
 
-  constructor(public photoViewer: PhotoViewerService) { }
+  constructor(public photoViewer: PhotoViewerService) {}
 }

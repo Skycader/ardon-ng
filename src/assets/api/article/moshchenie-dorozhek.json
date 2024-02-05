@@ -45,9 +45,18 @@
     {
       "type": "carousel",
       "content": [
-        "https://i.imgur.com/3W5R6n9.jpeg",
-        "https://i.imgur.com/FkXmNFE.jpeg",
-        "https://i.imgur.com/46Fo5r8.jpeg"
+        {
+          "imgSrc": "https://i.imgur.com/3W5R6n9.jpeg",
+          "title": "Описание фото"
+        },
+        {
+          "imgSrc": "https://i.imgur.com/FkXmNFE.jpeg",
+          "title": "Описание к фото"
+        },
+        {
+          "imgSrc": "https://i.imgur.com/46Fo5r8.jpeg",
+          "title": "Ещё одно описание"
+        }
       ]
     }
   ]

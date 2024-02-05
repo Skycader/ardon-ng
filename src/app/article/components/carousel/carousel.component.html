@@ -2,7 +2,10 @@
   <owl-carousel-o [options]="customOptions">
     <ng-template carouselSlide *ngFor="let slide of slides">
       <div class="slide" (click)="photoViewer.open(slide)">
-        <img [src]="slide" />
+        <img [src]="slide.imgSrc" />
+        <p class="img-description">
+          <i>{{ slide.title }}</i>
+        </p>
       </div>
     </ng-template>
   </owl-carousel-o>

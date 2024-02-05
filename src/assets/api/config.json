@@ -23,12 +23,12 @@
   "welcomeTopicName": "Наши услуги",
   "welcomeTopics": [
     {
-      "title": "Мощение дорожек",
+      "title": "Мощение дорожек и площадок",
       "subheader": "Услуга",
       "avatarSrc": "https://st3.stblizko.ru/images/product/343/360/457_big.jpg",
       "backgroundSrc": "https://st3.stblizko.ru/images/product/343/360/457_big.jpg",
 
-      "description": "Узнайте о мощении дорожек",
+      "description": "",
       "buttons": [
         {
           "icon": "import_contacts",

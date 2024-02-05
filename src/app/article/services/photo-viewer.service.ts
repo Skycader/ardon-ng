@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+import { SlideInterface } from '../components/carousel/carousel.component';
 
 @Injectable({
   providedIn: 'root',
@@ -7,10 +8,12 @@ import { BehaviorSubject, Subject } from 'rxjs';
 export class PhotoViewerService {
   public readonly isOpen$ = new BehaviorSubject(false);
   public src: string = '';
-  constructor() { }
+  public title: string = '';
+  constructor() {}
 
-  public open(src: string) {
-    this.src = src;
+  public open(slide: SlideInterface) {
+    this.src = slide.imgSrc;
+    this.title = slide.title;
     this.isOpen$.next(true);
   }
   public close() {

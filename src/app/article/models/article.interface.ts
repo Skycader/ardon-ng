@@ -6,5 +6,5 @@ export interface ArdonArticleInterface {
 
 export interface ArdonArticleBlockInterface {
   type: 'text' | 'subheading' | 'image' | 'list' | 'carousel';
-  content: string[];
+  content: any;
 }

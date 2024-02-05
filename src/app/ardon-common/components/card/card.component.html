@@ -10,10 +10,11 @@
   </mat-card-header>
   <div
     class="background"
+    (click)="goTo(config.buttons[0].destination)"
     [style.background-image]="'url(' + config.backgroundSrc + ')'"
   ></div>
   <mat-card-content>
-    <p>
+    <p *ngIf="config.description">
       {{ config.description }}
     </p>
   </mat-card-content>
