@@ -3,6 +3,7 @@
     <ng-template carouselSlide *ngFor="let slide of slides">
       <div class="slide" (click)="photoViewer.open(slide)">
         <img [src]="slide.imgSrc" />
+        <mat-icon>zoom_in</mat-icon>
         <p class="img-description">
           <i>{{ slide.title }}</i>
         </p>
