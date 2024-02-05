@@ -1,4 +1,5 @@
-<div class="welcome">
+<div class="welcome" [attr.data-content]="bg">
+  <div class="welcome2"></div>
   <div class="title">{{ configService.config$ | async | get : "appName" }}</div>
   <h2>{{ configService.config$ | async | get : "description" }}</h2>
   <button mat-raised-button [routerLink]="['/article']">

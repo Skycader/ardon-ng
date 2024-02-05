@@ -7,5 +7,6 @@ import { ConfigService } from '../../../ardon-common/services/config.service';
   styleUrl: './welcome.component.scss',
 })
 export class WelcomeComponent {
+  public bg: string = 'assets/images.background.jpg';
   constructor(public configService: ConfigService) {}
 }
