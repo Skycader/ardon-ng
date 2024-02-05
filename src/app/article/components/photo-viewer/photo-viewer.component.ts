@@ -28,10 +28,12 @@ export class PhotoViewerComponent {
   ngAfterViewInit() {
     this.scrollCheck = setInterval(() => {
       this.onScroll();
+    }, 1000);
+    setTimeout(() => {
+      document
+        .querySelector('.photo-viewer')!
+        .scrollTo({ top: 1000, behavior: 'smooth' });
     }, 100);
-    document
-      .querySelector('.photo-viewer')!
-      .scrollTo({ top: 1000, behavior: 'smooth' });
   }
 
   public closePhotoView() {
