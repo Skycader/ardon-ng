@@ -7,6 +7,9 @@ import { CardConfigInterface } from '../../../ardon-common/models/cardConfig.int
   styleUrl: './profile-layout.component.scss',
 })
 export class ProfileLayoutComponent {
+  public user = {
+    isSignedIn: false,
+  };
   public components: CardConfigInterface[] = [
     {
       title: 'Areisan Skycader',

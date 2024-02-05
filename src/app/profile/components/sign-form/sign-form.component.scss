@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+@media only screen and (min-width: 0px) {
+  .container {
+    padding: 5%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    padding: 10%;
+  }
+}
