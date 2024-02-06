@@ -1,6 +1,7 @@
 {
   "appName": "Ваш Ландшафтник",
   "appLogo": "book",
+  "appBackgroundImage": "assets/images/design.jpg",
   "description": "Старая кабыла борозды не испортит",
   "search": "Поиск услуг",
   "searchArticles": "Наиболее популярно сейчас",

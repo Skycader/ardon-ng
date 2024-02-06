@@ -12,7 +12,7 @@ export interface Section {
 export class ContentsComponent {
   folders: Section[] = [
     {
-      name: 'Мощение дорожек и площадок',
+      name: 'Часть 1',
       updated: 'Микро описание',
     },
   ];
