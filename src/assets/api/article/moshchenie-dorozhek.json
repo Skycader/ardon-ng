@@ -27,6 +27,10 @@
       "content": ["Этапы работ по мощению на бетонное основание"]
     },
     {
+      "type": "image",
+      "content": ["https://i.imgur.com/HsoU7Cd.jpeg", "Подпись к фото"]
+    },
+    {
       "type": "list",
       "content": [
         "Выемка грунта",
