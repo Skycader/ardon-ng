@@ -9,6 +9,7 @@
     <mat-card-subtitle>{{ config.subheader }} </mat-card-subtitle>
   </mat-card-header>
   <div
+    matRipple
     class="background"
     (click)="goTo(config.buttons[0].destination)"
     [style.background-image]="'url(' + config.backgroundSrc + ')'"

@@ -1,12 +1,13 @@
 <div class="slider">
   <owl-carousel-o [options]="customOptions">
     <ng-template carouselSlide *ngFor="let slide of slides">
-      <div class="slide" (click)="photoViewer.open(slide)">
+      <div class="slide">
         <div
           class="img"
+          (click)="doubleClick(slide)"
           [style.background-image]="'url(' + slide.imgSrc + ')'"
         ></div>
-        <mat-icon>zoom_in</mat-icon>
+        <mat-icon (click)="photoViewer.open(slide)">zoom_in</mat-icon>
         <p class="img-description">
           <i>{{ slide.title }}</i>
         </p>
