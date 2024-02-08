@@ -19,9 +19,13 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
+import { MatRippleModule } from '@angular/material/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 const MaterialComponents = [
   MatButtonModule,
+  MatRippleModule,
   MatMenuModule,
+  MatTooltipModule,
   MatIconModule,
   MatToolbarModule,
   MatFormFieldModule,

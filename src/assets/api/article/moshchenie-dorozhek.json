@@ -23,9 +23,14 @@
       ]
     },
     {
+      "type": "image",
+      "content": ["https://i.imgur.com/HsoU7Cd.jpeg", "Подпись к фото"]
+    },
+    {
       "type": "subheading",
       "content": ["Этапы работ по мощению на бетонное основание"]
     },
+
     {
       "type": "list",
       "content": [
@@ -40,7 +45,7 @@
     },
     {
       "type": "text",
-      "content": ["Ещё пара фотографий"]
+      "content": ["Галлерея фотографий"]
     },
     {
       "type": "carousel",

@@ -38,5 +38,13 @@ export class CarouselComponent {
     },
   };
 
-  constructor(public photoViewer: PhotoViewerService) {}
+  constructor(public photoViewer: PhotoViewerService) { }
+
+  public lastClick = 0;
+  public doubleClick(slide: SlideInterface) {
+    if (Date.now() - this.lastClick < 300) {
+      this.photoViewer.open(slide);
+    }
+    this.lastClick = Date.now();
+  }
 }

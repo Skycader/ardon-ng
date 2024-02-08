@@ -1,3 +1,10 @@
 <div class="article-image">
-  <img [src]="imageSrc" />
+  <div class="img-container">
+    <img [src]="imageConfig.imageSrc" [title]="imageConfig.imageTitle" />
+    <p>
+      <i>{{ imageConfig.imageTitle }}</i>
+    </p>
+  </div>
+
+  <p></p>
 </div>
