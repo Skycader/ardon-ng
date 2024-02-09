@@ -1,10 +1,12 @@
 export interface ArdonArticleInterface {
   heading: string;
   themeImageSrc: string;
-  blocks: ArdonArticleBlockInterface[];
+  blocks: ArdonArticleBlockInterface<any>[];
 }
 
-export interface ArdonArticleBlockInterface {
+export interface ArdonArticleBlockInterface<T> {
   type: 'text' | 'subheading' | 'image' | 'list' | 'carousel' | 'chip-list';
-  content: any;
+  content: ArdonUniformType<T>;
 }
+
+export type ArdonUniformType<T> = T;

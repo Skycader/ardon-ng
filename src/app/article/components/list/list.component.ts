@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './list.component.scss',
 })
 export class ListComponent {
-  @Input() list: string[] = [];
+  @Input() content: any;
 }

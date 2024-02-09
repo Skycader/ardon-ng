@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './subheading.component.scss',
 })
 export class SubheadingComponent {
-  @Input() content: string[] = [];
+  @Input() content: any;
 }

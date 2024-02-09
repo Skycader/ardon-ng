@@ -7,29 +7,29 @@
     <div class="content col-12 col-md-8 col-lg-8">
       <div class="article-block" *ngFor="let block of article.blocks">
         <ardon-text *ngIf="block.type === 'text'" [content]="block.content" />
-        <ardon-subheading
+        <!-- <ardon-subheading
           *ngIf="block.type === 'subheading'"
           [content]="block.content"
-        />
-        <ardon-list
+        /> -->
+        <!-- <ardon-list
           *ngIf="block.type === 'list'"
           [list]="block.content"
-        ></ardon-list>
-        <ardon-image
+        ></ardon-list> -->
+        <!-- <ardon-image
           *ngIf="block.type === 'image'"
           [imageConfig]="{
             imageSrc: block.content[0],
             imageTitle: block.content[1]
           }"
-        />
-        <ardon-chip-list
+        /> -->
+        <!-- <ardon-chip-list
           *ngIf="block.type === 'chip-list'"
           [contents]="block.content"
-        />
-        <ardon-carousel
+        /> -->
+        <!-- <ardon-carousel
           *ngIf="block.type === 'carousel'"
           [slides]="block.content"
-        />
+        /> -->
       </div>
     </div>
   </div>

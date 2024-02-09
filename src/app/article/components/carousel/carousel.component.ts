@@ -13,7 +13,7 @@ export interface SlideInterface {
   styleUrl: './carousel.component.scss',
 })
 export class CarouselComponent {
-  @Input() slides: SlideInterface[] = [];
+  @Input() content: any = {};
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -38,7 +38,7 @@ export class CarouselComponent {
     },
   };
 
-  constructor(public photoViewer: PhotoViewerService) { }
+  constructor(public photoViewer: PhotoViewerService) {}
 
   public lastClick = 0;
   public doubleClick(slide: SlideInterface) {

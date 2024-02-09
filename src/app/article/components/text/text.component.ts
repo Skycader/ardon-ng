@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ArdonUniformType } from '../../models/article.interface';
 
 @Component({
   selector: 'ardon-text',
@@ -6,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './text.component.scss',
 })
 export class TextComponent {
-  @Input() content: string[] = [];
+  @Input() content: ArdonUniformType<string[]> = [];
 }
