@@ -6,7 +6,13 @@ export interface ArdonArticleInterface {
 
 export interface ArdonArticleBlockInterface<T> {
   type: 'text' | 'subheading' | 'image' | 'list' | 'carousel' | 'chip-list';
-  content: ArdonUniformType<T>;
+  content: ArdonContentType<T>;
 }
 
-export type ArdonUniformType<T> = T;
+export type ArdonContentType<T> = { [key: string]: ArdonPropertyType<T> };
+
+export type ArdonPropertyType<T> = T extends string[]
+  ? string[]
+  : T extends string
+  ? string
+  : never;

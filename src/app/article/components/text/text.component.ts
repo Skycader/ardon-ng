@@ -1,11 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { ArdonUniformType } from '../../models/article.interface';
+import { ArdonContentType } from '../../models/article.interface';
 
+interface TextBlockInterface {
+  paragraphs: string[];
+}
 @Component({
   selector: 'ardon-text',
   templateUrl: './text.component.html',
   styleUrl: './text.component.scss',
 })
 export class TextComponent {
-  @Input() content: ArdonUniformType<string[]> = [];
+  @Input() content: ArdonContentType<TextBlockInterface> = {};
 }
