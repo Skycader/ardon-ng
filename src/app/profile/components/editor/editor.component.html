@@ -1,1 +1,28 @@
-<p>editor works!</p>
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+  @for (movie of movies; track movie) {
+
+  <div
+    class="container"
+    cdkDrag
+    [cdkDragDisabled]="preventDrag"
+    (cdkDragStarted)="grabbing = true"
+    (cdkDragEnded)="grabbing = false"
+  >
+    <div class="row example-box">
+      <div class="col-10" contenteditable="true">
+        {{ movie }}
+      </div>
+      <div
+        class="col-2 drag-handle"
+        cdkDragHandle
+        (mouseenter)="preventDrag = false"
+        (touchstart)="preventDrag = false"
+        (mouseleave)="preventDrag = true"
+        (touchend)="preventDrag = true"
+      >
+        <mat-icon>menu</mat-icon>
+      </div>
+    </div>
+  </div>
+  }
+</div>
