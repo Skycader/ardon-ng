@@ -1,13 +1,8 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  Resolve,
-  ResolveFn,
-  RouterStateSnapshot,
-} from '@angular/router';
-import { Observable, of, switchMap, timer } from 'rxjs';
-import { ArticleService } from '../../services/article.service';
+import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
+import { Observable } from 'rxjs';
 import { ArdonArticleInterface } from '../../models/article.interface';
+import { ArticleService } from '../../services/article.service';
 
 /*export const articleResolver: ResolveFn<string> = (route, state) => {
   return timer(1000).pipe(switchMap(() => this.));
@@ -15,12 +10,9 @@ import { ArdonArticleInterface } from '../../models/article.interface';
 
 @Injectable({ providedIn: 'root' })
 export class articleResolver implements Resolve<ArdonArticleInterface> {
-  constructor(private articleService: ArticleService) { }
+  constructor(private articleService: ArticleService) {}
 
-  resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot,
-  ): Observable<ArdonArticleInterface> {
+  resolve(route: ActivatedRouteSnapshot): Observable<ArdonArticleInterface> {
     return this.articleService.getArticle(route.params['id']);
   }
 }
