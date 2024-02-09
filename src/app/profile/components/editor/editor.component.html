@@ -76,7 +76,7 @@
   }
 </p> -->
 
-<div class="container">
+<div class="container" style="display: flex; flex-direction: row">
   <div class="row">
     <div class="example-container col-12">
       <h2>To do</h2>
@@ -90,7 +90,11 @@
         (cdkDropListDropped)="drop($event)"
       >
         @for (item of todo; track item) {
-        <div class="example-box" cdkDrag [cdkDragDisabled]="preventDrag">
+        <mat-toolbar
+          class="example-box"
+          cdkDrag
+          [cdkDragDisabled]="preventDrag"
+        >
           {{ item }}
           <div
             style="width: 30px"
@@ -103,7 +107,7 @@
           >
             <mat-icon>menu</mat-icon>
           </div>
-        </div>
+        </mat-toolbar>
 
         }
       </div>
@@ -122,7 +126,11 @@
         (cdkDropListDropped)="drop($event)"
       >
         @for (item of done; track item) {
-        <div class="example-box" cdkDrag [cdkDragDisabled]="preventDrag">
+        <mat-toolbar
+          class="example-box"
+          cdkDrag
+          [cdkDragDisabled]="preventDrag"
+        >
           {{ item }}
           <div
             style="width: 30px"
@@ -135,11 +143,11 @@
           >
             <mat-icon>menu</mat-icon>
           </div>
-        </div>
+        </mat-toolbar>
         }
       </div>
     </div>
   </div>
 </div>
 
-<button (click)="addToDone()">Add to done</button>
+<!-- <button (click)="addToDone()">Add to done</button> -->
