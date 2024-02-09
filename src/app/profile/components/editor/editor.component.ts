@@ -1,4 +1,8 @@
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 import { Component, HostBinding } from '@angular/core';
 
 @Component({
@@ -23,7 +27,28 @@ export class EditorComponent {
     'Episode IX – The Rise of Skywalker',
   ];
 
+  todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
+
+  done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
+
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    }
+  }
+
+  public addToDone() {
+    this.done.push(Math.random().toString());
   }
 }

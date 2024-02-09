@@ -1,19 +1,29 @@
-<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-  @for (movie of movies; track movie) {
+<!-- <br />
+<p
+  cdkDropList
+  class="example-list"
+  #doneList="cdkDropList"
+  [cdkDropListData]="todo"
+  [cdkDropListConnectedTo]="[doneList]"
+  (cdkDropListDropped)="drop($event)"
+>
+  @for (item of todo; track item) {
 
-  <div
+  <mat-toolbar
     class="container"
+    style="display: block"
     cdkDrag
     [cdkDragDisabled]="preventDrag"
     (cdkDragStarted)="grabbing = true"
     (cdkDragEnded)="grabbing = false"
   >
-    <div class="row example-box">
-      <div class="col-10" contenteditable="true">
-        {{ movie }}
+    <div class="example-box row">
+      <div class="" style="width: calc(100% - 30px)" contenteditable="true">
+        {{ item }}
       </div>
       <div
-        class="col-2 drag-handle"
+        style="width: 30px"
+        class="drag-handle"
         cdkDragHandle
         (mouseenter)="preventDrag = false"
         (touchstart)="preventDrag = false"
@@ -23,6 +33,113 @@
         <mat-icon>menu</mat-icon>
       </div>
     </div>
-  </div>
+  </mat-toolbar>
   }
+</p>
+
+<hr />
+<p
+  cdkDropList
+  class="example-list"
+  #todoList="cdkDropList"
+  [cdkDropListData]="done"
+  [cdkDropListConnectedTo]="[todoList]"
+  (cdkDropListDropped)="drop($event)"
+>
+  @for (item of done; track item) {
+
+  <mat-toolbar
+    class="container"
+    style="display: block"
+    cdkDrag
+    [cdkDragDisabled]="preventDrag"
+    (cdkDragStarted)="grabbing = true"
+    (cdkDragEnded)="grabbing = false"
+  >
+    <div class="example-box row">
+      <div class="" style="width: calc(100% - 30px)" contenteditable="true">
+        {{ item }}
+      </div>
+      <div
+        style="width: 30px"
+        class="drag-handle"
+        cdkDragHandle
+        (mouseenter)="preventDrag = false"
+        (touchstart)="preventDrag = false"
+        (mouseleave)="preventDrag = true"
+        (touchend)="preventDrag = true"
+      >
+        <mat-icon>menu</mat-icon>
+      </div>
+    </div>
+  </mat-toolbar>
+  }
+</p> -->
+
+<div class="container">
+  <div class="row">
+    <div class="example-container col-12">
+      <h2>To do</h2>
+
+      <div
+        cdkDropList
+        #todoList="cdkDropList"
+        [cdkDropListData]="todo"
+        [cdkDropListConnectedTo]="[doneList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        @for (item of todo; track item) {
+        <div class="example-box" cdkDrag [cdkDragDisabled]="preventDrag">
+          {{ item }}
+          <div
+            style="width: 30px"
+            class="drag-handle"
+            cdkDragHandle
+            (mouseenter)="preventDrag = false"
+            (touchstart)="preventDrag = false"
+            (mouseleave)="preventDrag = true"
+            (touchend)="preventDrag = true"
+          >
+            <mat-icon>menu</mat-icon>
+          </div>
+        </div>
+
+        }
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="example-container col-3">
+      <h2>Done</h2>
+
+      <div
+        cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListData]="done"
+        [cdkDropListConnectedTo]="[todoList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        @for (item of done; track item) {
+        <div class="example-box" cdkDrag [cdkDragDisabled]="preventDrag">
+          {{ item }}
+          <div
+            style="width: 30px"
+            class="drag-handle"
+            cdkDragHandle
+            (mouseenter)="preventDrag = false"
+            (touchstart)="preventDrag = false"
+            (mouseleave)="preventDrag = true"
+            (touchend)="preventDrag = true"
+          >
+            <mat-icon>menu</mat-icon>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
 </div>
+
+<button (click)="addToDone()">Add to done</button>
