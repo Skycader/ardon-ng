@@ -8,14 +8,14 @@
       <div class="article-block" *ngFor="let block of article.blocks">
         <ardon-text *ngIf="block.type === 'text'" [content]="block.content" />
         <ardon-text *ngIf="block.type === 'text'" />
-        <!-- <ardon-subheading
+        <ardon-subheading
           *ngIf="block.type === 'subheading'"
           [content]="block.content"
-        /> -->
-        <!-- <ardon-list
+        />
+        <ardon-list
           *ngIf="block.type === 'list'"
-          [list]="block.content"
-        ></ardon-list> -->
+          [content]="block.content"
+        ></ardon-list>
         <!-- <ardon-image
           *ngIf="block.type === 'image'"
           [imageConfig]="{

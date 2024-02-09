@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ArdonContentType } from '../../models/article.interface';
 
-interface TextBlockInterface {
+export interface TextBlockInterface {
   paragraphs: string[];
 }
 @Component({
