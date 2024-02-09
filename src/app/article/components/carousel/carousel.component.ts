@@ -1,19 +1,26 @@
 import { Component, Input } from '@angular/core';
 
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { ArdonContentType } from '../../models/article.interface';
 import { PhotoViewerService } from '../../services/photo-viewer.service';
+
+export interface SliderInterface {
+  title: string;
+  sldies: SlideInterface[];
+}
 
 export interface SlideInterface {
   imgSrc: string;
   title: string;
 }
+
 @Component({
   selector: 'ardon-carousel',
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.scss',
 })
 export class CarouselComponent {
-  @Input() content: any = {};
+  @Input() content: ArdonContentType<SliderInterface> = {};
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,

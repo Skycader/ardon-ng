@@ -55,20 +55,23 @@
     },
     {
       "type": "carousel",
-      "content": [
-        {
-          "imgSrc": "https://i.imgur.com/VusK2NR.jpeg",
-          "title": "Описание фото"
-        },
-        {
-          "imgSrc": "https://i.imgur.com/MfpkMvy.png",
-          "title": "Описание к фото"
-        },
-        {
-          "imgSrc": "https://i.imgur.com/nEnu6to.jpeg",
-          "title": "Ещё одно описание"
-        }
-      ]
+      "content": {
+        "title": "Галлерея изображений",
+        "slides": [
+          {
+            "imgSrc": "https://i.imgur.com/VusK2NR.jpeg",
+            "title": "Описание фото"
+          },
+          {
+            "imgSrc": "https://i.imgur.com/MfpkMvy.png",
+            "title": "Описание к фото"
+          },
+          {
+            "imgSrc": "https://i.imgur.com/nEnu6to.jpeg",
+            "title": "Ещё одно описание"
+          }
+        ]
+      }
     }
   ]
 }
