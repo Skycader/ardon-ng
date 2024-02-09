@@ -50,12 +50,6 @@
       ]
     },
     {
-      "type": "chip-list",
-      "content": {
-        "chips": ["Галлерея фотографий"]
-      }
-    },
-    {
       "type": "carousel",
       "content": {
         "title": "Галлерея изображений",

@@ -9,6 +9,4 @@ export interface ArdonArticleBlockInterface<T> {
   content: ArdonContentType<T>;
 }
 
-export type ArdonContentType<T> = { [key: string]: ArdonPropertyType<T> };
-
-export type ArdonPropertyType<T> = T extends string[] ? string[] : never;
+export type ArdonContentType<T> = T;

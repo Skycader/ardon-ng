@@ -11,5 +11,7 @@ interface ChipListInputInterface {
   styleUrl: './chip-list.component.scss',
 })
 export class ChipListComponent {
-  @Input() content: ArdonContentType<ChipListInputInterface> = {};
+  @Input() content: ArdonContentType<ChipListInputInterface> = {
+    chips: [],
+  };
 }

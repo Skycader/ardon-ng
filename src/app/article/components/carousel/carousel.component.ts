@@ -6,7 +6,7 @@ import { PhotoViewerService } from '../../services/photo-viewer.service';
 
 export interface SliderInterface {
   title: string;
-  sldies: SlideInterface[];
+  slides: SlideInterface[];
 }
 
 export interface SlideInterface {
@@ -20,7 +20,15 @@ export interface SlideInterface {
   styleUrl: './carousel.component.scss',
 })
 export class CarouselComponent {
-  @Input() content: ArdonContentType<SliderInterface> = {};
+  @Input() content: ArdonContentType<SliderInterface> = {
+    title: '',
+    slides: [
+      {
+        imgSrc: '',
+        title: '',
+      },
+    ],
+  };
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -45,7 +53,7 @@ export class CarouselComponent {
     },
   };
 
-  constructor(public photoViewer: PhotoViewerService) {}
+  constructor(public photoViewer: PhotoViewerService) { }
 
   public lastClick = 0;
   public doubleClick(slide: SlideInterface) {
