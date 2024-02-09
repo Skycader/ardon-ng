@@ -51,7 +51,9 @@
     },
     {
       "type": "chip-list",
-      "content": ["Галлерея фотографий"]
+      "content": {
+        "chips": ["Галлерея фотографий"]
+      }
     },
     {
       "type": "carousel",

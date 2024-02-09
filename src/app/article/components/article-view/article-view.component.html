@@ -6,7 +6,12 @@
     <div class="contents col-12 col-md-4 col-lg-4"><ardon-contents /></div>
     <div class="content col-12 col-md-8 col-lg-8">
       <div class="article-block" *ngFor="let block of article.blocks">
-        <ardon-text *ngIf="block.type === 'text'" [content]="block.content" />
+        <ardon-text
+          *ngIf="block.type === 'text'"
+          [content]="{
+            paragraphs: ['1']
+          }"
+        />
         <!-- <ardon-subheading
           *ngIf="block.type === 'subheading'"
           [content]="block.content"
@@ -22,10 +27,10 @@
             imageTitle: block.content[1]
           }"
         /> -->
-        <!-- <ardon-chip-list
+        <ardon-chip-list
           *ngIf="block.type === 'chip-list'"
-          [contents]="block.content"
-        /> -->
+          [content]="block.content"
+        />
         <ardon-carousel
           *ngIf="block.type === 'carousel'"
           [content]="block.content"

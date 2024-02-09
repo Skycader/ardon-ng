@@ -1,4 +1,9 @@
 import { Component, Input } from '@angular/core';
+import { ArdonContentType } from '../../../article/models/article.interface';
+
+interface ChipListInputInterface {
+  chips: string[];
+}
 
 @Component({
   selector: 'ardon-chip-list',
@@ -6,5 +11,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './chip-list.component.scss',
 })
 export class ChipListComponent {
-  @Input() contents: any = [];
+  @Input() content: ArdonContentType<ChipListInputInterface> = {};
 }
