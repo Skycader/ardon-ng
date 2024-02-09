@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 export interface ImageConfigInterface {
-  imageSrc: string;
-  imageTitle: string;
+  imgSrc: string;
+  imgTitle: string;
 }
 @Component({
   selector: 'ardon-image',
@@ -10,8 +10,8 @@ export interface ImageConfigInterface {
   styleUrl: './image.component.scss',
 })
 export class ImageComponent {
-  @Input() imageConfig: ImageConfigInterface = {
-    imageSrc: '',
-    imageTitle: '',
+  @Input() content: ImageConfigInterface = {
+    imgSrc: '',
+    imgTitle: '',
   };
 }

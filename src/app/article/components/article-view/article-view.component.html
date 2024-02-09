@@ -16,13 +16,7 @@
           *ngIf="block.type === 'list'"
           [content]="block.content"
         ></ardon-list>
-        <!-- <ardon-image
-          *ngIf="block.type === 'image'"
-          [imageConfig]="{
-            imageSrc: block.content[0],
-            imageTitle: block.content[1]
-          }"
-        /> -->
+        <ardon-image *ngIf="block.type === 'image'" [content]="block.content" />
         <ardon-chip-list
           *ngIf="block.type === 'chip-list'"
           [content]="block.content"

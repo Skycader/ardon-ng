@@ -2,8 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ArdonContentType } from '../../models/article.interface';
 
 export interface ImageInterface {
-  imgSrc: string;
-  title: string;
+  items: string[];
 }
 @Component({
   selector: 'ardon-list',
@@ -12,7 +11,6 @@ export interface ImageInterface {
 })
 export class ListComponent {
   @Input() content: ArdonContentType<ImageInterface> = {
-    imgSrc: '',
-    title: '',
+    items: [],
   };
 }
