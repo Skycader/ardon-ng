@@ -5,6 +5,6 @@ export interface ArdonArticleInterface {
 }
 
 export interface ArdonArticleBlockInterface {
-  type: 'text' | 'subheading' | 'image' | 'list' | 'carousel';
+  type: 'text' | 'subheading' | 'image' | 'list' | 'carousel' | 'chip-list';
   content: any;
 }

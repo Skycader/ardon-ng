@@ -48,7 +48,7 @@
       ]
     },
     {
-      "type": "text",
+      "type": "chip-list",
       "content": ["Галлерея фотографий"]
     },
     {

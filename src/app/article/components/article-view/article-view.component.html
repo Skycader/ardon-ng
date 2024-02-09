@@ -22,6 +22,10 @@
             imageTitle: block.content[1]
           }"
         />
+        <ardon-chip-list
+          *ngIf="block.type === 'chip-list'"
+          [contents]="block.content"
+        />
         <ardon-carousel
           *ngIf="block.type === 'carousel'"
           [slides]="block.content"
