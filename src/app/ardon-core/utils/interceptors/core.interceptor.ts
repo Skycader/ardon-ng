@@ -11,7 +11,7 @@ import { Observable, tap } from 'rxjs';
 import { environemnt } from '../../../../environments/environment';
 
 @Injectable()
-export class CaptchaInterceptor implements HttpInterceptor {
+export class CoreInterceptor implements HttpInterceptor {
   constructor() { }
 
   intercept(
@@ -19,7 +19,7 @@ export class CaptchaInterceptor implements HttpInterceptor {
     next: HttpHandler,
   ): Observable<HttpEvent<any>> {
     const authReq = req.clone({
-      url: environemnt.apiUrl + '/' + req.url,
+      url: environemnt.apiUrl + '/' + req.url + `?requestTime=${Date.now()}`,
     });
 
     return next.handle(authReq).pipe(

@@ -8,10 +8,6 @@ h1 {
   align-items: center;
 }
 
-.container::-webkit-scrollbar {
-  display: none;
-}
-
 @media only screen and (min-width: 0px) {
   .container {
     padding: 5%;

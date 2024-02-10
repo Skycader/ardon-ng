@@ -33,4 +33,4 @@ import { ArticleModule } from './article/article.module';
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

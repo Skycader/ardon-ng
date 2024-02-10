@@ -8,11 +8,13 @@ import { EditorComponent } from './components/editor/editor.component';
 import { SignFormComponent } from './components/sign-form/sign-form.component';
 import { ProfileLayoutComponent } from './layouts/profile-layout/profile-layout.component';
 import { profileResolver } from './utils/resolvers/profile.resolver';
+import { CaptchaModule } from '../captcha/captcha.module';
 
 @NgModule({
   declarations: [ProfileLayoutComponent, SignFormComponent, EditorComponent],
   imports: [
     MaterialModule,
+    CaptchaModule,
     ArdonCommonModule,
     CommonModule,
     CdkDropList,
@@ -35,4 +37,4 @@ import { profileResolver } from './utils/resolvers/profile.resolver';
     ]),
   ],
 })
-export class ProfileModule {}
+export class ProfileModule { }

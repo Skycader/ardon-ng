@@ -1,11 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpInterceptorFn } from '@angular/common/http';
 
-import { captchaInterceptor } from './captcha.interceptor';
+import { coreInterceptor } from './core.interceptor';
 
-describe('captchaInterceptor', () => {
+describe('coreInterceptor', () => {
   const interceptor: HttpInterceptorFn = (req, next) => 
-    TestBed.runInInjectionContext(() => captchaInterceptor(req, next));
+    TestBed.runInInjectionContext(() => coreInterceptor(req, next));
 
   beforeEach(() => {
     TestBed.configureTestingModule({});

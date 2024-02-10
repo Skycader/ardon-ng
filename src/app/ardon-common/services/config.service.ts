@@ -10,12 +10,12 @@ import { VersionInterface } from '../models/version.interface';
 })
 export class ConfigService {
   public readonly version$ = this.http
-    .get<VersionInterface>(`${environemnt.apiUrl}/version.json?${Date.now()}`)
+    .get<VersionInterface>('core/config/version/en.json')
     .pipe(
       map((response: VersionInterface) => {
         localStorage.setItem('ardon-version', response.version);
         return response.version;
-      })
+      }),
     );
 
   public readonly needToUpdateConfig$ = this.version$.pipe(
@@ -23,27 +23,25 @@ export class ConfigService {
       (version: string) =>
         version !== localStorage.getItem('ardon-version') ||
         localStorage.getItem('ardon-config') === null ||
-        true
-    )
+        true,
+    ),
   );
 
   public readonly configFromServer$ = this.http
-    .get<ArdonConfigInterface>(
-      `${environemnt.apiUrl}/config.json?${Date.now()}`
-    )
+    .get<ArdonConfigInterface>('core/config/en.json')
     .pipe(
       tap((ardonConfig: ArdonConfigInterface) => {
         localStorage.setItem('ardon-config', JSON.stringify(ardonConfig));
-      })
+      }),
     );
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   public config$ = this.needToUpdateConfig$.pipe(
     switchMap((needToUpdate: boolean) => {
       return needToUpdate
         ? this.configFromServer$
         : of(this.getConfigFromLocalStorage());
-    })
+    }),
   );
 
   public getConfigFromLocalStorage() {
