@@ -37,18 +37,7 @@ export class EditorComponent {
     },
   ];
 
-  public articlePreview: any[] = [
-    {
-      icon: 'dehaze',
-      value: '',
-      title: 'Text',
-    },
-    {
-      icon: 'photo',
-      value: '',
-      title: 'Image',
-    },
-  ];
+  public articlePreview: any[] = [];
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -66,5 +55,11 @@ export class EditorComponent {
       );
       this.availableComponents = [...this.availableComponentsConst];
     }
+  }
+
+  public inputEvent(event: any, item: any) {
+    console.log(event);
+    let i = this.articlePreview.find((i: any) => i === item);
+    i.value = event.target.innerHTML;
   }
 }

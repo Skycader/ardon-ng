@@ -91,9 +91,12 @@
               </div>
               <hr />
               <div class="row" style="height: auto; white-space: normal">
-                <div class="col-12" style="height: auto">
-                  {{ "lorem ipsum ".repeat(50) }}
-                </div>
+                <div
+                  class="col-12"
+                  style="height: auto; outline: none; font-size: 1rem"
+                  [contentEditable]="true"
+                  (input)="inputEvent($event, item)"
+                ></div>
               </div>
             </div>
           </mat-toolbar>
@@ -102,3 +105,5 @@
     </div>
   </div>
 </div>
+
+{{ articlePreview | json }}
