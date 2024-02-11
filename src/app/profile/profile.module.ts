@@ -1,4 +1,4 @@
-import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
+import { CdkDrag, CdkDropList, CdkDragPreview } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -18,6 +18,8 @@ import { CaptchaModule } from '../captcha/captcha.module';
     ArdonCommonModule,
     CommonModule,
     CdkDropList,
+    CdkDragPreview,
+
     CdkDrag,
     RouterModule.forChild([
       {
@@ -37,4 +39,4 @@ import { CaptchaModule } from '../captcha/captcha.module';
     ]),
   ],
 })
-export class ProfileModule { }
+export class ProfileModule {}
