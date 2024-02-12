@@ -1,5 +1,5 @@
 export const environemnt = {
-  apiUrlAssets: 'assets/api',
-  apiUrl: 'http://localhost:3000',
+  apiUrl: 'http://localhost:4200/assets',
+  apiUrlNest: 'http://localhost:3000',
   backendUrl: 'https://backend.ardon.vodri.com',
 };

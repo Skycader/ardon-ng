@@ -9,18 +9,19 @@ import { ArdonArticleInterface } from '../models/article.interface';
   providedIn: 'root',
 })
 export class ArticleService {
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+  ) { }
 
   public getArticle(
-    name: string
+    name: string,
   ): Observable<ArdonArticleInterface | null | any> {
-    return this.http
-      .get(`${environemnt.apiUrl}/article/${name}.json?${Date.now()}`)
-      .pipe(
-        delay(1000),
-        catchError((error: any) => {
-          return of(null);
-        })
-      );
+    return this.http.get(`article/${name}.json?${Date.now()}`).pipe(
+      delay(1000),
+      catchError((error: any) => {
+        return of(null);
+      }),
+    );
   }
 }
