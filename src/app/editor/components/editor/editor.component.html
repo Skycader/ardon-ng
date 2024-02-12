@@ -14,12 +14,12 @@
       <div
         cdkDropList
         #todoList="cdkDropList"
-        [cdkDropListData]="availableComponents"
+        [cdkDropListData]="currentAvailableComponents"
         [cdkDropListConnectedTo]="[doneList]"
         class="example-list"
         (cdkDropListDropped)="drop($event)"
       >
-        @for (item of availableComponents; track item) {
+        @for (item of currentAvailableComponents; track item) {
           <mat-toolbar
             class="example-box"
             cdkDrag

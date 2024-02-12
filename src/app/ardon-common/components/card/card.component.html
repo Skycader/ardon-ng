@@ -12,6 +12,7 @@
     matRipple
     class="background"
     (click)="goTo(config.buttons[0].destination)"
+    (keydown)="goTo(config.buttons[0].destination)"
     [style.background-image]="'url(' + config.backgroundSrc + ')'"
   ></div>
   <mat-card-content>

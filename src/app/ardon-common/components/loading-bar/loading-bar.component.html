@@ -3,3 +3,9 @@
   color="warn"
   *ngIf="loading$ | async"
 ></mat-progress-bar>
+
+<mat-progress-bar
+  mode="indeterminate"
+  color="warn"
+  *ngIf="overrideLoading"
+></mat-progress-bar>

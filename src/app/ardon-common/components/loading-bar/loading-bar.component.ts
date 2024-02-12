@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ResolveEnd, ResolveStart, Router, RouterEvent } from '@angular/router';
 import { BehaviorSubject, Subscription } from 'rxjs';
 
@@ -8,8 +8,9 @@ import { BehaviorSubject, Subscription } from 'rxjs';
   styleUrl: './loading-bar.component.scss',
 })
 export class LoadingBarComponent {
+  @Input() overrideLoading: boolean = false;
   public loading$ = new BehaviorSubject<boolean>(false);
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   public ngOnInit() {
     this.router.events.subscribe((event) => {

@@ -12,6 +12,7 @@ import { ArdonCommonModule } from './ardon-common/ardon-common.module';
 import { ProfileModule } from './profile/profile.module';
 import { MainModule } from './main/main.module';
 import { ArticleModule } from './article/article.module';
+import { EditorModule } from './editor/editor.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { ArticleModule } from './article/article.module';
     ProfileModule,
     MainModule,
     ArticleModule,
+    EditorModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -33,4 +35,4 @@ import { ArticleModule } from './article/article.module';
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

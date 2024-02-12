@@ -15,27 +15,23 @@ export class EditorComponent {
 
   @HostBinding('class.grabbing') grabbing: boolean = false;
 
-  public availableComponentsConst: any = [
+  ngOnInit() {
+    this.currentAvailableComponents = [...this.availableComponentsLibrary];
+  }
+  public availableComponentsLibrary: any = [
     {
       icon: 'dehaze',
+      type: 'text',
       title: 'Text',
     },
     {
       icon: 'photo',
+      type: 'image',
       title: 'Image',
     },
   ];
 
-  public availableComponents: any[] = [
-    {
-      icon: 'dehaze',
-      title: 'Text',
-    },
-    {
-      icon: 'photo',
-      title: 'Image',
-    },
-  ];
+  public currentAvailableComponents: any[] = [];
 
   public articlePreview: any[] = [];
 
@@ -53,7 +49,7 @@ export class EditorComponent {
         event.previousIndex,
         event.currentIndex,
       );
-      this.availableComponents = [...this.availableComponentsConst];
+      this.currentAvailableComponents = [...this.availableComponentsLibrary];
     }
   }
 

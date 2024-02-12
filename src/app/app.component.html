@@ -1,5 +1,15 @@
-<ardon-loading-bar></ardon-loading-bar>
-<ardon-navbar></ardon-navbar>
-<ardon-side-nav></ardon-side-nav>
-<router-outlet></router-outlet>
-<ardon-footer></ardon-footer>
+@if (configIsValid$ | async) {
+  <ardon-loading-bar></ardon-loading-bar>
+  <ardon-navbar></ardon-navbar>
+  <ardon-side-nav></ardon-side-nav>
+  <router-outlet></router-outlet>
+  <ardon-footer></ardon-footer>
+} @else {
+  <ardon-loading-bar [overrideLoading]="true"></ardon-loading-bar>
+
+  <!-- <div class="container"> -->
+  <!--   <div class="h1">500</div> -->
+  <!--   <div class="h2">App offline</div> -->
+  <!--   <div class="h5">Retrying to load config</div> -->
+  <!-- </div> -->
+}
