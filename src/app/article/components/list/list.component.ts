@@ -10,7 +10,7 @@ export interface ImageInterface {
   styleUrl: './list.component.scss',
 })
 export class ListComponent {
-  @Input() content: ArdonContentType<ImageInterface> = {
+  @Input() content: ArdonContentType<'list'> = {
     items: [],
   };
 }

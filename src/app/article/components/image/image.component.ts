@@ -1,17 +1,14 @@
 import { Component, Input } from '@angular/core';
+import { ArdonContentType } from '../../models/article.interface';
 
-export interface ImageConfigInterface {
-  imgSrc: string;
-  imgTitle: string;
-}
 @Component({
   selector: 'ardon-image',
   templateUrl: './image.component.html',
   styleUrl: './image.component.scss',
 })
 export class ImageComponent {
-  @Input() content: ImageConfigInterface = {
-    imgSrc: '',
-    imgTitle: '',
+  @Input() content: ArdonContentType<'image'> = {
+    imageSrc: '',
+    imageTitle: '',
   };
 }

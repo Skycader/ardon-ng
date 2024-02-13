@@ -10,7 +10,7 @@ export interface TextBlockInterface {
   styleUrl: './text.component.scss',
 })
 export class TextComponent {
-  @Input() content: ArdonContentType<TextBlockInterface> = {
+  @Input() content: ArdonContentType<'text'> = {
     paragraphs: [],
   };
 }

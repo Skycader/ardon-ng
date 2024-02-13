@@ -1,18 +1,11 @@
 import { Component, Input } from '@angular/core';
 
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { ArdonContentType } from '../../models/article.interface';
+import {
+  ArdonContentType,
+  ArdonSlideInterface,
+} from '../../models/article.interface';
 import { PhotoViewerService } from '../../services/photo-viewer.service';
-
-export interface SliderInterface {
-  title: string;
-  slides: SlideInterface[];
-}
-
-export interface SlideInterface {
-  imgSrc: string;
-  title: string;
-}
 
 @Component({
   selector: 'ardon-carousel',
@@ -20,7 +13,7 @@ export interface SlideInterface {
   styleUrl: './carousel.component.scss',
 })
 export class CarouselComponent {
-  @Input() content: ArdonContentType<SliderInterface> = {
+  @Input() content: ArdonContentType<'slider'> = {
     title: '',
     slides: [
       {
@@ -56,7 +49,7 @@ export class CarouselComponent {
   constructor(public photoViewer: PhotoViewerService) { }
 
   public lastClick = 0;
-  public doubleClick(slide: SlideInterface) {
+  public doubleClick(slide: ArdonSlideInterface) {
     if (Date.now() - this.lastClick < 300) {
       this.photoViewer.open(slide);
     }

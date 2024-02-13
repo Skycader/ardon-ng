@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { SlideInterface } from '../components/carousel/carousel.component';
+import { ArdonSlideInterface } from '../models/article.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -9,9 +9,9 @@ export class PhotoViewerService {
   public readonly isOpen$ = new BehaviorSubject(false);
   public src: string = '';
   public title: string = '';
-  constructor() {}
+  constructor() { }
 
-  public open(slide: SlideInterface) {
+  public open(slide: ArdonSlideInterface) {
     this.src = slide.imgSrc;
     this.title = slide.title;
     this.isOpen$.next(true);

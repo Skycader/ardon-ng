@@ -69,5 +69,20 @@ const routes: Routes = [
     MaterialModule,
     RouterModule.forChild(routes),
   ],
+  exports: [
+    ArticleViewComponent,
+    ArticleLayoutComponent,
+    ArticleSearchComponent,
+    ImageComponent,
+    HeadingComponent,
+    TextComponent,
+    ContentsComponent,
+    ArdonCoverComponent,
+    SubheadingComponent,
+    ListComponent,
+    CarouselComponent,
+    PhotoViewerComponent,
+    ArticleNotFoundComponent,
+  ],
 })
 export class ArticleModule { }

@@ -1,8 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { ArticleService } from '../../services/article.service';
-import { ArdonArticleInterface } from '../../models/article.interface';
-import { PhotoViewerService } from '../../services/photo-viewer.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import _ from 'lodash';
+import { ArdonArticleInterface } from '../../models/article.interface';
+import { ArticleService } from '../../services/article.service';
+import { PhotoViewerService } from '../../services/photo-viewer.service';
 
 @Component({
   selector: 'ardon-article-view',
@@ -10,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './article-view.component.scss',
 })
 export class ArticleViewComponent {
-  article: ArdonArticleInterface = {
+  @Input() article: ArdonArticleInterface = {
     heading: '',
     themeImageSrc: '',
     blocks: [],
@@ -27,6 +28,7 @@ export class ArticleViewComponent {
 
   public ngOnInit(): void {
     this.activatedRoute.data.subscribe((response) => {
+      if (_.isEmpty(response)) return;
       if (response === null) return;
       if (response['article'] === null) {
         this.found = false;
@@ -34,5 +36,9 @@ export class ArticleViewComponent {
 
       this.article = response['article'];
     });
+  }
+
+  public renderBlockContent(content: any):any {
+      return content;
   }
 }
