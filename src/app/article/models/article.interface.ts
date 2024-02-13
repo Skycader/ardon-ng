@@ -6,7 +6,7 @@ type ArdonTypes = (typeof animals)[number];
 export interface ArdonArticleInterface {
   heading: string;
   themeImageSrc: string;
-  blocks: ArdonArticleBlockInterface<ArdonTypes>[];
+  blocks: ArdonArticleBlockInterface[];
 }
 
 export interface ArdonTextBlockInterface {
@@ -41,11 +41,25 @@ interface ArdonChipListInputInterface {
   chips: string[];
 }
 
-export interface ArdonArticleBlockInterface<T> {
-  type: ArdonAvailableTypes<T>;
-  content: ArdonContentType<T>;
+export type ArdonArticleBlockInterface = {
+  type: 'text'
+  content: ArdonTextBlockInterface
+} | {
+  type: 'subheading'
+  content: ArdonSubheadingBlockInterface
+} | {
+  type: 'image'
+  content: ArdonImageBlockInterface
+} | {
+  type: 'list'
+  content: ArdonListInterface
+}| {
+  type: 'slider'
+  content: ArdonSliderInterface
+}| {
+  type: 'chip-list'
+  content: ArdonChipListInputInterface
 }
-
 //export type ArdonContentType<T> = T;
 
 export type ArdonAvailableTypes<T> = T extends 'text'
