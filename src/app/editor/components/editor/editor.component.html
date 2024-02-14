@@ -1,19 +1,21 @@
 <div class="container">
-  <div class="heading">
+  <div class="heading" *ngIf="displayConfig.title">
     <mat-icon>edit</mat-icon>
     <input [(ngModel)]="article.heading" />
   </div>
 
-  <div class="heading centrilize">
+  <div class="heading centrilize" *ngIf="displayConfig.theme">
     <mat-icon>photo</mat-icon>
     <img src="https://getwallpapers.com/wallpaper/full/4/7/2/639528.jpg" />
   </div>
 </div>
 
 <br />
-<div class="container">
-  <div class="row">
-    <div class="example-container col-12 col-sm-12 col-md-12 col-lg-3">
+<div class="container" *ngIf="displayConfig.content">
+  <div class="ro">
+    <div
+      class="components example-container col-12 col-sm-12 col-md-12 col-lg-3"
+    >
       <h2>Components</h2>
 
       <div
@@ -99,8 +101,10 @@
                 <textarea
                   *ngIf="item.type === 'text'"
                   cdkTextareaAutosize
+                  cdkAutosizeMinRows="5"
                   class="col-12"
                   style="height: auto; outline: none; font-size: 1rem"
+                  (input)="triggerSync()"
                   [(ngModel)]="item.value"
                 ></textarea>
 
@@ -110,6 +114,7 @@
                     class="col-12"
                     style="height: auto; outline: none; font-size: 1rem"
                     [(ngModel)]="item.imageSrc"
+                    (input)="triggerSync()"
                   ></textarea>
                   <hr />
                   <textarea
@@ -117,6 +122,7 @@
                     class="col-12"
                     style="height: auto; outline: none; font-size: 1rem"
                     [(ngModel)]="item.imageTitle"
+                    (input)="triggerSync()"
                   ></textarea>
                 </div>
               </div>

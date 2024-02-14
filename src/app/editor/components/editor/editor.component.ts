@@ -18,6 +18,12 @@ export class EditorComponent {
     blocks: [],
   };
 
+  @Input() displayConfig: any = {
+    title: true,
+    theme: true,
+    content: true,
+  };
+
   public preventDrag: boolean = true;
 
   @HostBinding('class.grabbing') grabbing: boolean = false;
@@ -38,6 +44,10 @@ export class EditorComponent {
         title: 'Image',
       },
     ];
+  }
+
+  public triggerSync() {
+    this.updateArticle();
   }
 
   public updateArticle() {
