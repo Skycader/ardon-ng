@@ -25,18 +25,33 @@ export class EditorComponent {
   ngOnInit() {
     this.currentAvailableComponents = [...this.availableComponentsLibrary];
   }
-  public availableComponentsLibrary: any = [
-    {
-      icon: 'dehaze',
-      type: 'text',
-      title: 'Text',
-    },
-    {
-      icon: 'photo',
-      type: 'image',
-      title: 'Image',
-    },
-  ];
+  public get availableComponentsLibrary() {
+    return [
+      {
+        icon: 'dehaze',
+        type: 'text',
+        title: 'Text',
+      },
+      {
+        icon: 'photo',
+        type: 'image',
+        title: 'Image',
+      },
+    ];
+  }
+
+  public updateArticle() {
+    (this.article.blocks as any) = this.articlePreview.map((item: any) => {
+      if (item.type === 'text')
+        return { type: 'text', content: { paragraphs: [item.value] } };
+      if (item.type === 'image')
+        return {
+          type: 'image',
+          content: { imageSrc: item.imageSrc, imageTitle: item.imageTitle },
+        };
+      return { paragraphs: [item.value] };
+    });
+  }
 
   public currentAvailableComponents: any[] = [];
 
@@ -62,11 +77,5 @@ export class EditorComponent {
       );
       this.currentAvailableComponents = [...this.availableComponentsLibrary];
     }
-  }
-
-  public inputEvent(value: any, item: any) {
-    console.log('value: ', value);
-    let i = this.articlePreview.find((i: any) => i === item);
-    i.value = value;
   }
 }

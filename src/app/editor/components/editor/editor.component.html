@@ -97,11 +97,28 @@
               <hr />
               <div class="row" style="height: auto; white-space: normal">
                 <textarea
+                  *ngIf="item.type === 'text'"
                   cdkTextareaAutosize
                   class="col-12"
                   style="height: auto; outline: none; font-size: 1rem"
                   [(ngModel)]="item.value"
                 ></textarea>
+
+                <div *ngIf="item.type === 'image'">
+                  <textarea
+                    cdkTextareaAutosize
+                    class="col-12"
+                    style="height: auto; outline: none; font-size: 1rem"
+                    [(ngModel)]="item.imageSrc"
+                  ></textarea>
+                  <hr />
+                  <textarea
+                    cdkTextareaAutosize
+                    class="col-12"
+                    style="height: auto; outline: none; font-size: 1rem"
+                    [(ngModel)]="item.imageTitle"
+                  ></textarea>
+                </div>
               </div>
             </div>
           </mat-toolbar>
@@ -111,4 +128,8 @@
   </div>
 </div>
 
+<button (click)="updateArticle()">Update</button>
+<hr />
 {{ articlePreview | json }}
+<hr />
+{{ article | json }}
