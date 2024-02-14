@@ -9,8 +9,7 @@ import { ArdonArticleInterface } from '../../../article/models/article.interface
 export class EditorRootComponent {
   public articleExample: ArdonArticleInterface = {
     heading: 'Article example',
-    themeImageSrc:
-      'https://images.unsplash.com/photo-1558637845-c8b7ead71a3e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8MTYlM0E5fGVufDB8fDB8fHww',
+    themeImageSrc: 'https://getwallpapers.com/wallpaper/full/4/7/2/639528.jpg',
     blocks: [
       {
         type: 'text',

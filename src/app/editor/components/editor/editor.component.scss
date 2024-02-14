@@ -133,11 +133,28 @@
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.heading {
-  overflow: hidden;
+.centrilize {
+  display: flex;
+  align-items: center;
+  mat-icon {
+    position: absolute;
+    cursor: pointer;
+  }
 
+  img {
+    width: 100%;
+  }
+}
+
+.heading {
+  mat-icon {
+    margin-left: 15px;
+  }
+
+  overflow: hidden;
+  max-height: 65px;
   input {
-    width: calc(100% - 24px);
+    width: calc(100% - 39px);
   }
   font-size: 48px;
   margin-top: 30px;
