@@ -7,6 +7,7 @@ import { CdkDrag, CdkDragPreview, CdkDropList } from '@angular/cdk/drag-drop';
 import { EditorLayoutComponent } from './layouts/editor-layout/editor-layout.component';
 import { EditorRootComponent } from './layouts/editor-root/editor-root.component';
 import { ArticleModule } from '../article/article.module';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
   declarations: [EditorComponent, EditorLayoutComponent, EditorRootComponent],
   imports: [
     CommonModule,
+    FormsModule,
     MaterialModule,
     ArticleModule,
     CdkDropList,

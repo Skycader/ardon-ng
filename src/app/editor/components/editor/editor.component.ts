@@ -3,7 +3,8 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
+import { ArdonArticleInterface } from '../../../article/models/article.interface';
 
 @Component({
   selector: 'ardon-editor',
@@ -11,6 +12,12 @@ import { Component, HostBinding } from '@angular/core';
   styleUrl: './editor.component.scss',
 })
 export class EditorComponent {
+  @Input() article: ArdonArticleInterface = {
+    heading: 'Artile heading',
+    themeImageSrc: '',
+    blocks: [],
+  };
+
   public preventDrag: boolean = true;
 
   @HostBinding('class.grabbing') grabbing: boolean = false;
@@ -35,6 +42,10 @@ export class EditorComponent {
 
   public articlePreview: any[] = [];
 
+  public editArticleHeader(event: any) {
+    this.article.heading = event.target.innerHTML;
+  }
+
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
@@ -53,9 +64,9 @@ export class EditorComponent {
     }
   }
 
-  public inputEvent(event: any, item: any) {
-    console.log(event);
+  public inputEvent(value: any, item: any) {
+    console.log('value: ', value);
     let i = this.articlePreview.find((i: any) => i === item);
-    i.value = event.target.innerHTML;
+    i.value = value;
   }
 }

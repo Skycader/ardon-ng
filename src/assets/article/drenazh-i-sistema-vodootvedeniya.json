@@ -13,8 +13,8 @@
     {
       "type": "image",
       "content": {
-        "imgSrc": "https://i.imgur.com/MfpkMvy.png",
-        "imgTitle": "Описание"
+        "imageSrc": "https://i.imgur.com/MfpkMvy.png",
+        "imageTitle": "Описание"
       }
     },
     {
@@ -63,15 +63,15 @@
         "title": "Галлерея изображений",
         "slides": [
           {
-            "imgSrc": "https://i.imgur.com/VusK2NR.jpeg",
+            "imageSrc": "https://i.imgur.com/VusK2NR.jpeg",
             "title": "Описание фото"
           },
           {
-            "imgSrc": "https://i.imgur.com/MfpkMvy.png",
+            "imageSrc": "https://i.imgur.com/MfpkMvy.png",
             "title": "Описание к фото"
           },
           {
-            "imgSrc": "https://i.imgur.com/nEnu6to.jpeg",
+            "imageSrc": "https://i.imgur.com/nEnu6to.jpeg",
             "title": "Ещё одно описание"
           }
         ]

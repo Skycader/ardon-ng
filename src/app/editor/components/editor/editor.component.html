@@ -1,7 +1,8 @@
 <div class="container">
   <div class="heading">
-    <mat-icon>edit</mat-icon
-    ><span [contentEditable]="true"> Article heading</span>
+    <mat-icon>edit</mat-icon>
+
+    <input [(ngModel)]="article.heading" />
   </div>
 </div>
 
@@ -91,12 +92,12 @@
               </div>
               <hr />
               <div class="row" style="height: auto; white-space: normal">
-                <div
+                <textarea
+                  cdkTextareaAutosize
                   class="col-12"
                   style="height: auto; outline: none; font-size: 1rem"
-                  [contentEditable]="true"
-                  (input)="inputEvent($event, item)"
-                ></div>
+                  [(ngModel)]="item.value"
+                ></textarea>
               </div>
             </div>
           </mat-toolbar>

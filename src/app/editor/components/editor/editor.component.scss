@@ -72,6 +72,7 @@
 // :host(.grabbing) {
 //   cursor: grabbing;
 // }
+
 .example-container {
   max-width: 100%;
   margin: 0 25px 25px 0;
@@ -133,14 +134,24 @@
 }
 
 .heading {
+  overflow: hidden;
+
+  input {
+    width: calc(100% - 24px);
+  }
   font-size: 48px;
   margin-top: 30px;
   line-height: 60px;
+
   span {
     width: 100%;
     outline: none;
   }
   border: 2px dashed #ccc;
+}
+
+.edit-bg {
+  margin-right: 15px;
 }
 
 .component {
@@ -169,4 +180,27 @@ mat-toolbar {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+input {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+input:focus {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+textarea {
+  overflow: hidden;
+  font-size: 1rem;
+  border: none;
+  background: none;
+}
+
+.container {
+  overflow-x: hidden;
 }
