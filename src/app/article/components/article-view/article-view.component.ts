@@ -11,6 +11,11 @@ import { PhotoViewerService } from '../../services/photo-viewer.service';
   styleUrl: './article-view.component.scss',
 })
 export class ArticleViewComponent {
+  @Input() displayConfig: any = {
+    title: true,
+    themeImage: true,
+    content: true,
+  };
   @Input() article: ArdonArticleInterface = {
     heading: '',
     themeImageSrc: '',
@@ -38,7 +43,7 @@ export class ArticleViewComponent {
     });
   }
 
-  public renderBlockContent(content: any):any {
-      return content;
+  public renderBlockContent(content: any): any {
+    return content;
   }
 }

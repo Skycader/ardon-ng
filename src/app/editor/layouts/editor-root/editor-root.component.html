@@ -1,14 +1,23 @@
 <div class="container">
   <div class="row">
-    <mat-tab-group>
+    <mat-tab-group #tabGroup>
       <mat-tab label="Edit">
         <ardon-editor [article]="articleExample" />
       </mat-tab>
       <mat-tab label="Preview">
         <div class="preview-container">
-          <ardon-article-view [article]="articleExample" />
+          <ardon-article-view
+            [displayConfig]="{ title: true, theme: true, content: false }"
+            [article]="articleExample"
+          />
         </div>
       </mat-tab>
     </mat-tab-group>
   </div>
 </div>
+
+<ardon-article-view
+  *ngIf="tabGroup.selectedIndex === 1"
+  [displayConfig]="{ title: false, theme: false, content: true }"
+  [article]="articleExample"
+/>

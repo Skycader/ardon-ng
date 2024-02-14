@@ -8,6 +8,7 @@ import { EditorLayoutComponent } from './layouts/editor-layout/editor-layout.com
 import { EditorRootComponent } from './layouts/editor-root/editor-root.component';
 import { ArticleModule } from '../article/article.module';
 import { FormsModule } from '@angular/forms';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 const routes: Routes = [
   {

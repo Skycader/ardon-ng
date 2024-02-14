@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ArdonArticleInterface } from '../../../article/models/article.interface';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'ardon-editor-root',

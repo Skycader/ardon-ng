@@ -1,16 +1,19 @@
 <div class="container" *ngIf="found">
-  <ardon-heading [heading]="article.heading" />
+  <ardon-heading *ngIf="displayConfig.title" [heading]="article.heading" />
 
-  <ardon-cover [imageSrc]="article.themeImageSrc"></ardon-cover>
-  <div class="article-body row">
+  <ardon-cover
+    *ngIf="displayConfig.theme"
+    [imageSrc]="article.themeImageSrc"
+  ></ardon-cover>
+  <div class="article-body row" *ngIf="displayConfig.content">
     <div class="contents col-12 col-md-4 col-lg-4"><ardon-contents /></div>
     <div class="content col-12 col-md-8 col-lg-8">
       <div class="article-block" *ngFor="let block of article.blocks">
         <ardon-text *ngIf="block.type === 'text'" [content]="block.content" />
-           <ardon-subheading
+        <ardon-subheading
           *ngIf="block.type === 'subheading'"
           [content]="block.content"
-        />  
+        />
         <ardon-list
           *ngIf="block.type === 'list'"
           [content]="block.content"
@@ -23,7 +26,7 @@
         <ardon-carousel
           *ngIf="block.type === 'slider'"
           [content]="block.content"
-        />  
+        />
       </div>
     </div>
   </div>
