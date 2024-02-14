@@ -53,7 +53,10 @@ export class EditorComponent {
   public updateArticle() {
     (this.article.blocks as any) = this.articlePreview.map((item: any) => {
       if (item.type === 'text')
-        return { type: 'text', content: { paragraphs: [item.value] } };
+        return {
+          type: 'text',
+          content: { paragraphs: item.value.split('\n') },
+        };
       if (item.type === 'image')
         return {
           type: 'image',
