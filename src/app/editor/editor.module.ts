@@ -1,15 +1,19 @@
-import { NgModule } from '@angular/core';
+import {
+  CdkDrag,
+  CdkDragPlaceholder,
+  CdkDragPreview,
+  CdkDropList,
+} from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
-import { EditorComponent } from './components/editor/editor.component';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { ArticleModule } from '../article/article.module';
 import { MaterialModule } from '../material/material.module';
-import { CdkDrag, CdkDragPreview, CdkDropList } from '@angular/cdk/drag-drop';
+import { EditorTextareaComponent } from './components/editor-textarea/editor-textarea.component';
+import { EditorComponent } from './components/editor/editor.component';
 import { EditorLayoutComponent } from './layouts/editor-layout/editor-layout.component';
 import { EditorRootComponent } from './layouts/editor-root/editor-root.component';
-import { ArticleModule } from '../article/article.module';
-import { FormsModule } from '@angular/forms';
-import { CarouselModule } from 'ngx-owl-carousel-o';
-import { EditorTextareaComponent } from './components/editor-textarea/editor-textarea.component';
 
 const routes: Routes = [
   {
@@ -25,7 +29,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [EditorComponent, EditorLayoutComponent, EditorRootComponent, EditorTextareaComponent],
+  declarations: [
+    EditorComponent,
+    EditorLayoutComponent,
+    EditorRootComponent,
+    EditorTextareaComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -33,8 +42,9 @@ const routes: Routes = [
     ArticleModule,
     CdkDropList,
     CdkDragPreview,
+    CdkDragPlaceholder,
     CdkDrag,
     RouterModule.forChild(routes),
   ],
 })
-export class EditorModule { }
+export class EditorModule {}

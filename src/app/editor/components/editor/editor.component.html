@@ -32,9 +32,12 @@
           cdkDrag
           [cdkDragDisabled]="preventDrag"
         >
+          <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+
           <div *cdkDragPreview class="drag-preview">
             <mat-icon>{{ item.icon }}</mat-icon>
           </div>
+
           <div class="component">
             <mat-icon>{{ item.icon }}</mat-icon>
             <span>{{ item.title }}</span>
@@ -74,6 +77,8 @@
           <div *cdkDragPreview class="drag-preview">
             <mat-icon>{{ item.icon }}</mat-icon>
           </div>
+
+          <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
 
           <div class="container">
             <div class="row">
