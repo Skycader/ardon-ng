@@ -25,8 +25,25 @@
   [displayConfig]="{ title: false, theme: false, content: true }"
 />
 
-<ardon-article-view
-  *ngIf="tabGroup.selectedIndex === 1"
-  [displayConfig]="{ title: false, theme: false, content: true }"
-  [article]="articleExample"
-/>
+<div
+  class="article-preview bg-body"
+  cdkDrag
+  style="
+    position: fixed;
+    top: 0px;
+    resize: both;
+    width: 300px;
+    height: 400px;
+    z-index: 1000;
+    border: 2px solid #ccc;
+  "
+>
+  <mat-toolbar color="primary" cdkDragHandle></mat-toolbar>
+  <div style="height: calc(100% - 64px); overflow: auto">
+    <ardon-article-view
+      *ngIf="tabGroup.selectedIndex === 1 || true"
+      [displayConfig]="{ title: true, theme: true, content: true }"
+      [article]="articleExample"
+    />
+  </div>
+</div>

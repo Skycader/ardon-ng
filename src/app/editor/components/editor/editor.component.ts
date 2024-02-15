@@ -94,5 +94,7 @@ export class EditorComponent {
       );
       this.currentAvailableComponents = [...this.availableComponentsLibrary];
     }
+
+    this.triggerSync();
   }
 }
