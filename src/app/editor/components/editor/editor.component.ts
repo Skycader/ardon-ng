@@ -5,6 +5,7 @@ import {
 } from '@angular/cdk/drag-drop';
 import { Component, HostBinding, Input } from '@angular/core';
 import { ArdonArticleInterface } from '../../../article/models/article.interface';
+import { RenderDictionaryInterface } from '../../models/renderDictionary.interface';
 
 @Component({
   selector: 'ardon-editor',
@@ -50,19 +51,22 @@ export class EditorComponent {
     this.updateArticle();
   }
 
+  public renderDictionary: RenderDictionaryInterface = {
+    text: (item: any) =>
+      Object.create({
+        type: 'text',
+        content: { paragraphs: item.value.split('\n') },
+      }),
+    image: (item: any) =>
+      Object.create({
+        type: 'image',
+        content: { imageSrc: item.imageSrc, imageTitle: item.imageTitle },
+      }),
+  };
+
   public updateArticle() {
-    (this.article.blocks as any) = this.articlePreview.map((item: any) => {
-      if (item.type === 'text')
-        return {
-          type: 'text',
-          content: { paragraphs: item.value.split('\n') },
-        };
-      if (item.type === 'image')
-        return {
-          type: 'image',
-          content: { imageSrc: item.imageSrc, imageTitle: item.imageTitle },
-        };
-      return { paragraphs: [item.value] };
+    this.article.blocks = this.articlePreview.map((item: any) => {
+      return this.renderDictionary[item.type](item);
     });
   }
 
@@ -79,14 +83,14 @@ export class EditorComponent {
       moveItemInArray(
         event.container.data,
         event.previousIndex,
-        event.currentIndex,
+        event.currentIndex
       );
     } else {
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
-        event.currentIndex,
+        event.currentIndex
       );
       this.currentAvailableComponents = [...this.availableComponentsLibrary];
     }
