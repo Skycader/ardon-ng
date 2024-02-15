@@ -17,3 +17,11 @@
   min-width: 300px;
   min-height: 300px;
 }
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-boundary {
+  border: 2px solid red;
+}

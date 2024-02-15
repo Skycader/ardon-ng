@@ -37,8 +37,39 @@
       aria-label="Example icon-button with menu icon"
     >
       <mat-icon>menu</mat-icon>
-    </button></mat-toolbar
-  >
+    </button>
+    <span class="example-spacer"></span>
+
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>minimize</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>crop_square</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar>
   <div style="height: calc(100% - 64px); overflow: auto">
     <ardon-article-view
       *ngIf="tabGroup.selectedIndex === 1 || true"
