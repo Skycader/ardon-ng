@@ -27,30 +27,30 @@
         (cdkDropListDropped)="drop($event)"
       >
         @for (item of currentAvailableComponents; track item) {
-          <mat-toolbar
-            class="example-box"
-            cdkDrag
-            [cdkDragDisabled]="preventDrag"
+        <mat-toolbar
+          class="example-box"
+          cdkDrag
+          [cdkDragDisabled]="preventDrag"
+        >
+          <div *cdkDragPreview class="drag-preview">
+            <mat-icon>{{ item.icon }}</mat-icon>
+          </div>
+          <div class="component">
+            <mat-icon>{{ item.icon }}</mat-icon>
+            <span>{{ item.title }}</span>
+          </div>
+          <div
+            style="width: 30px"
+            class="drag-handle"
+            cdkDragHandle
+            (mouseenter)="preventDrag = false"
+            (touchstart)="preventDrag = false"
+            (mouseleave)="preventDrag = true"
+            (touchend)="preventDrag = true"
           >
-            <div *cdkDragPreview class="drag-preview">
-              <mat-icon>{{ item.icon }}</mat-icon>
-            </div>
-            <div class="component">
-              <mat-icon>{{ item.icon }}</mat-icon>
-              <span>{{ item.title }}</span>
-            </div>
-            <div
-              style="width: 30px"
-              class="drag-handle"
-              cdkDragHandle
-              (mouseenter)="preventDrag = false"
-              (touchstart)="preventDrag = false"
-              (mouseleave)="preventDrag = true"
-              (touchend)="preventDrag = true"
-            >
-              <mat-icon>menu</mat-icon>
-            </div>
-          </mat-toolbar>
+            <mat-icon>menu</mat-icon>
+          </div>
+        </mat-toolbar>
         }
       </div>
     </div>
@@ -66,76 +66,47 @@
         (cdkDropListDropped)="drop($event)"
       >
         @for (item of articlePreview; track item) {
-          <mat-toolbar
-            class="example-box"
-            cdkDrag
-            [cdkDragDisabled]="preventDrag"
-          >
-            <div *cdkDragPreview class="drag-preview">
-              <mat-icon>{{ item.icon }}</mat-icon>
-            </div>
+        <mat-toolbar
+          class="example-box"
+          cdkDrag
+          [cdkDragDisabled]="preventDrag"
+        >
+          <div *cdkDragPreview class="drag-preview">
+            <mat-icon>{{ item.icon }}</mat-icon>
+          </div>
 
-            <div class="container">
-              <div class="row">
-                <div class="preview col-10 col-lg-11">
-                  <div class="component">
-                    <mat-icon>{{ item.icon }}</mat-icon>
-                    <span>{{ item.title }}</span>
-                  </div>
-                </div>
-
-                <div
-                  style="width: 30px; margin-bottom: 5px"
-                  class="drag-handle col-1"
-                  cdkDragHandle
-                  (mouseenter)="preventDrag = false"
-                  (touchstart)="preventDrag = false"
-                  (mouseleave)="preventDrag = true"
-                  (touchend)="preventDrag = true"
-                >
-                  <mat-icon>menu</mat-icon>
+          <div class="container">
+            <div class="row">
+              <div class="preview col-10 col-lg-11">
+                <div class="component">
+                  <mat-icon>{{ item.icon }}</mat-icon>
+                  <span>{{ item.title }}</span>
                 </div>
               </div>
-              <hr />
-              <div class="row" style="height: auto; white-space: normal">
-                <textarea
-                  *ngIf="item.type === 'text'"
-                  cdkTextareaAutosize
-                  cdkAutosizeMinRows="1"
-                  class="col-12"
-                  style="height: auto; outline: none; font-size: 1rem"
-                  (input)="triggerSync()"
-                  [(ngModel)]="item.value"
-                ></textarea>
 
-                <div *ngIf="item.type === 'image'">
-                  <textarea
-                    cdkTextareaAutosize
-                    class="col-12"
-                    style="height: auto; outline: none; font-size: 1rem"
-                    [(ngModel)]="item.imageSrc"
-                    (input)="triggerSync()"
-                  ></textarea>
-                  <hr />
-                  <textarea
-                    cdkTextareaAutosize
-                    class="col-12"
-                    style="height: auto; outline: none; font-size: 1rem"
-                    [(ngModel)]="item.imageTitle"
-                    (input)="triggerSync()"
-                  ></textarea>
-                </div>
+              <div
+                style="width: 30px; margin-bottom: 5px"
+                class="drag-handle col-1"
+                cdkDragHandle
+                (mouseenter)="preventDrag = false"
+                (touchstart)="preventDrag = false"
+                (mouseleave)="preventDrag = true"
+                (touchend)="preventDrag = true"
+              >
+                <mat-icon>menu</mat-icon>
               </div>
             </div>
-          </mat-toolbar>
+            <hr />
+            <div class="row" style="height: auto; white-space: normal">
+              <ardon-editor-textarea
+                [item]="item"
+                (detectChanges)="triggerSync()"
+              />
+            </div>
+          </div>
+        </mat-toolbar>
         }
       </div>
     </div>
   </div>
 </div>
-
-<button (click)="updateArticle()">Update</button>
-<hr />
-{{ articlePreview | json }}
-<hr />
-{{ article | json }}

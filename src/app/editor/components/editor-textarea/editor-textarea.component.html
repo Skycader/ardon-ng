@@ -1,0 +1,27 @@
+<textarea
+  *ngIf="item.type === 'text'"
+  cdkTextareaAutosize
+  cdkAutosizeMinRows="1"
+  class="col-12"
+  style="height: auto; outline: none; font-size: 1rem"
+  (input)="detectChanges.emit()"
+  [(ngModel)]="item.value"
+></textarea>
+
+<div *ngIf="item.type === 'image'">
+  <textarea
+    cdkTextareaAutosize
+    class="col-12"
+    style="height: auto; outline: none; font-size: 1rem"
+    [(ngModel)]="item.imageSrc"
+    (input)="detectChanges.emit()"
+  ></textarea>
+  <hr />
+  <textarea
+    cdkTextareaAutosize
+    class="col-12"
+    style="height: auto; outline: none; font-size: 1rem"
+    [(ngModel)]="item.imageTitle"
+    (input)="detectChanges.emit()"
+  ></textarea>
+</div>

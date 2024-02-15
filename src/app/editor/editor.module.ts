@@ -9,6 +9,7 @@ import { EditorRootComponent } from './layouts/editor-root/editor-root.component
 import { ArticleModule } from '../article/article.module';
 import { FormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { EditorTextareaComponent } from './components/editor-textarea/editor-textarea.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [EditorComponent, EditorLayoutComponent, EditorRootComponent],
+  declarations: [EditorComponent, EditorLayoutComponent, EditorRootComponent, EditorTextareaComponent],
   imports: [
     CommonModule,
     FormsModule,
