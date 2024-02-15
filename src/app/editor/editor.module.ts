@@ -1,5 +1,6 @@
 import {
   CdkDrag,
+  CdkDragHandle,
   CdkDragPlaceholder,
   CdkDragPreview,
   CdkDropList,
@@ -44,6 +45,7 @@ const routes: Routes = [
     CdkDragPreview,
     CdkDragPlaceholder,
     CdkDrag,
+    CdkDragHandle,
     RouterModule.forChild(routes),
   ],
 })

@@ -5,3 +5,15 @@
 .hidden {
   display: none;
 }
+
+.isResizable {
+  background: rgba(255, 0, 0, 0.2);
+  font-size: 2em;
+  border: 1px solid black;
+  overflow: hidden;
+  resize: both;
+  width: 400px;
+  height: 500px;
+  min-width: 300px;
+  min-height: 300px;
+}

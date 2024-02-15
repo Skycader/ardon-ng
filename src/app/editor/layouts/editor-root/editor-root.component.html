@@ -26,19 +26,19 @@
 />
 
 <div
-  class="article-preview bg-body"
   cdkDrag
-  style="
-    position: fixed;
-    top: 0px;
-    resize: both;
-    width: 300px;
-    height: 400px;
-    z-index: 1000;
-    border: 2px solid #ccc;
-  "
+  class="article-preview bg-body isResizable"
+  style="position: fixed; top: 0px; z-index: 1000; border: 2px solid #ccc"
 >
-  <mat-toolbar color="primary" cdkDragHandle></mat-toolbar>
+  <mat-toolbar color="primary" cdkDragHandle>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>menu</mat-icon>
+    </button></mat-toolbar
+  >
   <div style="height: calc(100% - 64px); overflow: auto">
     <ardon-article-view
       *ngIf="tabGroup.selectedIndex === 1 || true"
