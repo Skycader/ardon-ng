@@ -15,6 +15,7 @@ import { EditorTextareaComponent } from './components/editor-textarea/editor-tex
 import { EditorComponent } from './components/editor/editor.component';
 import { EditorLayoutComponent } from './layouts/editor-layout/editor-layout.component';
 import { EditorRootComponent } from './layouts/editor-root/editor-root.component';
+import { ArticlePreviewComponent } from './components/article-preview/article-preview.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,7 @@ const routes: Routes = [
     EditorLayoutComponent,
     EditorRootComponent,
     EditorTextareaComponent,
+    ArticlePreviewComponent,
   ],
   imports: [
     CommonModule,

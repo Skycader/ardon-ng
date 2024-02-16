@@ -37,11 +37,13 @@ export class EditorComponent {
       {
         icon: 'dehaze',
         type: 'text',
+        value: '',
         title: 'Text',
       },
       {
         icon: 'photo',
         type: 'image',
+        value: '',
         title: 'Image',
       },
     ];
@@ -74,23 +76,19 @@ export class EditorComponent {
 
   public articlePreview: any[] = [];
 
-  public editArticleHeader(event: any) {
-    this.article.heading = event.target.innerHTML;
-  }
-
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
         event.previousIndex,
-        event.currentIndex
+        event.currentIndex,
       );
     } else {
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
-        event.currentIndex
+        event.currentIndex,
       );
       this.currentAvailableComponents = [...this.availableComponentsLibrary];
     }
