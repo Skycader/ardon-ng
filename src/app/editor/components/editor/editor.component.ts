@@ -7,6 +7,8 @@ import { Component, HostBinding, Input } from '@angular/core';
 import { ArdonArticleInterface } from '../../../article/models/article.interface';
 import { RenderDictionaryInterface } from '../../models/renderDictionary.interface';
 import { EditBlockType } from '../../models/editorComponent.interface';
+import { BehaviorSubject } from 'rxjs';
+import { EditorService } from '../../services/editor.service';
 
 @Component({
   selector: 'ardon-editor',
@@ -30,6 +32,7 @@ export class EditorComponent {
 
   @HostBinding('class.grabbing') grabbing: boolean = false;
 
+  constructor(public editorService: EditorService) {}
   ngOnInit() {
     this.currentAvailableComponents = [...this.availableComponentsLibrary];
   }

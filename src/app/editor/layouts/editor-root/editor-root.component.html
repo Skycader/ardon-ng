@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row">
-    <mat-tab-group (selectedTabChange)="tabSelect$.next($event.index)"
-      >>
+    <mat-tab-group (selectedTabChange)="tabSelect$.next($event.index)">
       <mat-tab label="Edit">
         <ardon-editor
           [article]="articleExample"
@@ -31,4 +30,7 @@
   [displayConfig]="{ title: false, theme: false, content: true }"
 />
 
-<ardon-article-preview [article]="articleExample" />
+<ardon-article-preview
+  [article]="articleExample"
+  *ngIf="editorService.isPreview$ | async"
+/>

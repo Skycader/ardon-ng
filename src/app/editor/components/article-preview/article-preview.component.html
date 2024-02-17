@@ -45,6 +45,7 @@
     <button
       mat-icon-button
       class="example-icon"
+      (click)="editorService.isPreview$.next(false)"
       aria-label="Example icon-button with menu icon"
     >
       <mat-icon>close</mat-icon>
