@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ArdonArticleInterface } from '../../../article/models/article.interface';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'ardon-editor-root',
@@ -7,6 +8,7 @@ import { ArdonArticleInterface } from '../../../article/models/article.interface
   styleUrl: './editor-root.component.scss',
 })
 export class EditorRootComponent {
+  public tabSelect$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   public articleExample: ArdonArticleInterface = {
     heading: 'Article example',
     themeImageSrc: 'https://getwallpapers.com/wallpaper/full/4/7/2/639528.jpg',

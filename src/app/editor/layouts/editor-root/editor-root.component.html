@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
-    <mat-tab-group #tabGroup>
+    <mat-tab-group (selectedTabChange)="tabSelect$.next($event.index)"
+      >>
       <mat-tab label="Edit">
         <ardon-editor
           [article]="articleExample"
@@ -20,13 +21,12 @@
 </div>
 
 <ardon-article-view
-  [class.hidden]="tabGroup.selectedIndex !== 1"
+  [class.hidden]="(tabSelect$ | async) !== 1"
   [displayConfig]="{ title: false, theme: false, content: true }"
   [article]="articleExample"
 />
-
 <ardon-editor
-  [class.hidden]="tabGroup.selectedIndex !== 0"
+  [class.hidden]="(tabSelect$ | async) !== 0"
   [article]="articleExample"
   [displayConfig]="{ title: false, theme: false, content: true }"
 />
