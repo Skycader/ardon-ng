@@ -6,6 +6,7 @@ import {
 import { Component, HostBinding, Input } from '@angular/core';
 import { ArdonArticleInterface } from '../../../article/models/article.interface';
 import { RenderDictionaryInterface } from '../../models/renderDictionary.interface';
+import { EditBlockType } from '../../models/editorComponent.interface';
 
 @Component({
   selector: 'ardon-editor',
@@ -32,19 +33,24 @@ export class EditorComponent {
   ngOnInit() {
     this.currentAvailableComponents = [...this.availableComponentsLibrary];
   }
-  public get availableComponentsLibrary() {
+  public get availableComponentsLibrary(): EditBlockType[] {
     return [
       {
-        icon: 'dehaze',
+        icon: 'assignment',
         type: 'text',
-        value: '',
         title: 'Text',
+        content: {
+          value: '',
+        },
       },
       {
         icon: 'photo',
         type: 'image',
-        value: '',
         title: 'Image',
+        content: {
+          imageTitle: '',
+          imageSrc: '',
+        },
       },
     ];
   }
@@ -54,29 +60,36 @@ export class EditorComponent {
   }
 
   public renderDictionary: RenderDictionaryInterface = {
-    text: (item: any) =>
-      Object.create({
-        type: 'text',
-        content: { paragraphs: item.value.split('\n') },
-      }),
-    image: (item: any) =>
-      Object.create({
-        type: 'image',
-        content: { imageSrc: item.imageSrc, imageTitle: item.imageTitle },
-      }),
+    text: (item: EditBlockType) =>
+      item.type === 'text'
+        ? Object.create({
+            type: 'text',
+            content: { paragraphs: item.content.value.split('\n') },
+          })
+        : null,
+    image: (item: EditBlockType) =>
+      item.type === 'image'
+        ? Object.create({
+            type: 'image',
+            content: {
+              imageSrc: item.content.imageSrc,
+              imageTitle: item.content.imageTitle,
+            },
+          })
+        : null,
   };
 
   public updateArticle() {
-    this.article.blocks = this.articlePreview.map((item: any) => {
+    this.article.blocks = this.articlePreview.map((item: EditBlockType) => {
       return this.renderDictionary[item.type](item);
     });
   }
 
-  public currentAvailableComponents: any[] = [];
+  public currentAvailableComponents: EditBlockType[] = [];
 
-  public articlePreview: any[] = [];
+  public articlePreview: EditBlockType[] = [];
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<EditBlockType[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,

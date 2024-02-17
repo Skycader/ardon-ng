@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { EditBlockType } from '../../models/editorComponent.interface';
 
 @Component({
   selector: 'ardon-editor-textarea',
@@ -6,6 +7,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './editor-textarea.component.scss',
 })
 export class EditorTextareaComponent {
-  @Input() item: any;
+  @Input() item!: EditBlockType;
   @Output() detectChanges = new EventEmitter();
 }

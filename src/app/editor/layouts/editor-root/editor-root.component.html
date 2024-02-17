@@ -19,6 +19,12 @@
   </div>
 </div>
 
+<ardon-article-view
+  [class.hidden]="tabGroup.selectedIndex !== 1"
+  [displayConfig]="{ title: false, theme: false, content: true }"
+  [article]="articleExample"
+/>
+
 <ardon-editor
   [class.hidden]="tabGroup.selectedIndex !== 0"
   [article]="articleExample"

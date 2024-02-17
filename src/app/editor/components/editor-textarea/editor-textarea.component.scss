@@ -4,3 +4,9 @@ textarea {
   background: none;
   box-sizing: content-box;
 }
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}

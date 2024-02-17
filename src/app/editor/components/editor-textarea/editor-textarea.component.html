@@ -2,26 +2,34 @@
   *ngIf="item.type === 'text'"
   cdkTextareaAutosize
   cdkAutosizeMinRows="1"
+  placeholder="Type here..."
   class="col-12"
   style="height: auto; outline: none; font-size: 1rem"
   (input)="detectChanges.emit()"
-  [(ngModel)]="item.value"
+  [(ngModel)]="item.content.value"
 ></textarea>
 
 <div *ngIf="item.type === 'image'">
+  <div class="title"><mat-icon>photo</mat-icon> <span>Photo url</span></div>
   <textarea
+    placeholder="Paste url"
     cdkTextareaAutosize
     class="col-12"
     style="height: auto; outline: none; font-size: 1rem"
-    [(ngModel)]="item.imageSrc"
+    [(ngModel)]="item.content.imageSrc"
     (input)="detectChanges.emit()"
   ></textarea>
   <hr />
+  <div class="title">
+    <mat-icon>assignment</mat-icon> <span>Photo url</span>
+  </div>
+
   <textarea
+    placeholder="Describe photo"
     cdkTextareaAutosize
     class="col-12"
     style="height: auto; outline: none; font-size: 1rem"
-    [(ngModel)]="item.imageTitle"
+    [(ngModel)]="item.content.imageTitle"
     (input)="detectChanges.emit()"
   ></textarea>
 </div>
