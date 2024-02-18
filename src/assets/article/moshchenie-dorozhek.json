@@ -30,8 +30,8 @@
     {
       "type": "image",
       "content": {
-        "imgSrc": "https://i.imgur.com/HsoU7Cd.jpeg",
-        "imgTitle": "Подпись"
+        "imageSrc": "https://i.imgur.com/HsoU7Cd.jpeg",
+        "imageTitle": "Подпись"
       }
     },
     {
@@ -56,26 +56,20 @@
       }
     },
     {
-      "type": "text",
-      "content": {
-        "paragraphs": ["Галлерея фотографий"]
-      }
-    },
-    {
       "type": "carousel",
       "content": {
         "title": "Галерея изображений",
         "slides": [
           {
-            "imgSrc": "https://i.imgur.com/3W5R6n9.jpeg",
+            "imageSrc": "https://i.imgur.com/3W5R6n9.jpeg",
             "title": "Описание фото"
           },
           {
-            "imgSrc": "https://i.imgur.com/FkXmNFE.jpeg",
+            "imageSrc": "https://i.imgur.com/FkXmNFE.jpeg",
             "title": "Описание к фото"
           },
           {
-            "imgSrc": "https://i.imgur.com/46Fo5r8.jpeg",
+            "imageSrc": "https://i.imgur.com/46Fo5r8.jpeg",
             "title": "Ещё одно описание"
           }
         ]

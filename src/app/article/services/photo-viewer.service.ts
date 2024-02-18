@@ -12,7 +12,8 @@ export class PhotoViewerService {
   constructor() { }
 
   public open(slide: ArdonSlideInterface) {
-    this.src = slide.imgSrc;
+    this.src = slide.imageSrc;
+
     this.title = slide.title;
     this.isOpen$.next(true);
   }

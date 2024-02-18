@@ -4,6 +4,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import {
   ArdonContentType,
   ArdonSlideInterface,
+  ArdonSliderInterface,
 } from '../../models/article.interface';
 import { PhotoViewerService } from '../../services/photo-viewer.service';
 
@@ -13,11 +14,11 @@ import { PhotoViewerService } from '../../services/photo-viewer.service';
   styleUrl: './carousel.component.scss',
 })
 export class CarouselComponent {
-  @Input() content: ArdonContentType<'slider'> = {
+  @Input() content: ArdonSliderInterface = {
     title: '',
     slides: [
       {
-        imgSrc: '',
+        imageSrc: '',
         title: '',
       },
     ],

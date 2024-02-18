@@ -1,12 +1,12 @@
 <ardon-chip-list [content]="{ chips: ['Галлерея изображений'] }" />
 <div class="slider">
   <owl-carousel-o [options]="customOptions">
-    <ng-template carouselSlide *ngFor="let slide of content['slides']">
+    <ng-template carouselSlide *ngFor="let slide of content.slides">
       <div class="slide">
         <div
           class="img"
           (click)="doubleClick(slide)"
-          [style.background-image]="'url(' + slide.imgSrc + ')'"
+          [style.background-image]="'url(' + slide.imageSrc + ')'"
         ></div>
         <mat-icon (click)="photoViewer.open(slide)">zoom_in</mat-icon>
         <p class="img-description">

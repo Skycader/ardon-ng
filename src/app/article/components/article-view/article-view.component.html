@@ -1,10 +1,6 @@
 <div class="container" *ngIf="found">
   <ardon-heading *ngIf="displayConfig.title" [heading]="article.heading" />
-
-  <ardon-cover
-    *ngIf="displayConfig.theme"
-    [imageSrc]="article.themeImageSrc"
-  ></ardon-cover>
+  <ardon-cover [imageSrc]="article.themeImageSrc"></ardon-cover>
   <div class="article-body row" *ngIf="displayConfig.content">
     <div class="contents col-12 col-md-4 col-lg-4"><ardon-contents /></div>
     <div class="content col-12 col-md-8 col-lg-8">
@@ -24,7 +20,7 @@
           [content]="block.content"
         />
         <ardon-carousel
-          *ngIf="block.type === 'slider'"
+          *ngIf="block.type === 'carousel'"
           [content]="block.content"
         />
       </div>
