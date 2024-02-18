@@ -13,12 +13,12 @@ import { Observable, of, switchMap } from 'rxjs';
 export class AppComponent implements OnInit {
   public title: string = 'ardon';
   public configIsValid$: Observable<boolean> = this.configService.config$;
-
+  public showApp: boolean = false;
   constructor(
     private configService: ConfigService,
     private titleService: Title,
     private themeService: ThemeService,
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.configService.config$.subscribe((config: ArdonConfigInterface) => {
@@ -26,5 +26,6 @@ export class AppComponent implements OnInit {
     });
 
     this.themeService.applyTheme();
+    this.showApp = true;
   }
 }

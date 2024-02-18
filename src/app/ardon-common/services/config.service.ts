@@ -4,6 +4,7 @@ import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { environemnt } from '../../../environments/environment';
 import { ArdonConfigInterface } from '../models/ardonConfig.interface';
 import { VersionInterface } from '../models/version.interface';
+import { LocalStorageService } from '../../ardon-core/services/local-storage.service';
 @Injectable({
   providedIn: 'root',
 })
@@ -12,7 +13,7 @@ export class ConfigService {
     .get<VersionInterface>('core/config/version/en.json')
     .pipe(
       map((response: VersionInterface) => {
-        localStorage.setItem('ardon-version', response.version);
+        this.localStorage.setItem('ardon-version', response.version);
         return response.version;
       }),
     );
@@ -20,8 +21,8 @@ export class ConfigService {
   public readonly needToUpdateConfig$ = this.version$.pipe(
     map(
       (version: string) =>
-        version !== localStorage.getItem('ardon-version') ||
-        localStorage.getItem('ardon-config') === null ||
+        version !== this.localStorage.getItem('ardon-version') ||
+        this.localStorage.getItem('ardon-config') === null ||
         true,
     ),
   );
@@ -30,10 +31,13 @@ export class ConfigService {
     .get<ArdonConfigInterface>('core/config/en.json')
     .pipe(
       tap((ardonConfig: ArdonConfigInterface) => {
-        localStorage.setItem('ardon-config', JSON.stringify(ardonConfig));
+        this.localStorage.setItem('ardon-config', JSON.stringify(ardonConfig));
       }),
     );
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private localStorage: LocalStorageService,
+  ) {}
 
   public config$ = this.needToUpdateConfig$.pipe(
     switchMap((needToUpdate: boolean) => {
@@ -53,7 +57,7 @@ export class ConfigService {
   public localStorageConfig$ = of(this.getConfigFromLocalStorage());
 
   public getConfigFromLocalStorage() {
-    const value = localStorage.getItem('ardon-config') || '{}';
+    const value = this.localStorage.getItem('ardon-config') || '{}';
     return JSON.parse(value);
   }
 }

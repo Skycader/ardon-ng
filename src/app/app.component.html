@@ -1,4 +1,4 @@
-@if (configIsValid$ | async) {
+@if ((configIsValid$ | async) && showApp) {
   <ardon-loading-bar></ardon-loading-bar>
   <ardon-navbar></ardon-navbar>
   <ardon-side-nav></ardon-side-nav>

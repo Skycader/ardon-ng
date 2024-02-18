@@ -12,7 +12,7 @@ export class ArticleService {
   constructor(
     private http: HttpClient,
     private router: Router,
-  ) { }
+  ) {}
 
   public getArticle(
     name: string,

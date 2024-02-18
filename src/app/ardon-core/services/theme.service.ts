@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -6,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class ThemeService {
   private _isDarkTheme = false;
   public get isDarkTheme() {
-    const isDarkTheme = localStorage.getItem('ardon-theme');
+    const isDarkTheme = this.localStorage.getItem('ardon-theme');
     if (isDarkTheme === 'true') this._isDarkTheme = true;
     return this._isDarkTheme;
   }
@@ -14,7 +15,7 @@ export class ThemeService {
   public set isDarkTheme(isDark: boolean) {
     this._isDarkTheme = isDark;
   }
-  constructor() { }
+  constructor(private localStorage: LocalStorageService) { }
 
   public applyTheme() {
     this.isDarkTheme ? this.enableDarkTheme() : this.disableDarkTheme();
@@ -23,15 +24,14 @@ export class ThemeService {
   public enableDarkTheme() {
     document.querySelector('body')!.classList.add('dark-theme');
     document.querySelector('body')!.setAttribute('data-bs-theme', 'dark');
-    localStorage.setItem('ardon-theme', 'true');
+    this.localStorage.setItem('ardon-theme', 'true');
     this.isDarkTheme = true;
   }
 
   public disableDarkTheme() {
     document.querySelector('body')!.classList.remove('dark-theme');
     document.querySelector('body')!.setAttribute('data-bs-theme', 'light');
-    localStorage.removeItem('ardon-theme');
-
+    this.localStorage.removeItem('ardon-theme');
     this.isDarkTheme = false;
   }
 
