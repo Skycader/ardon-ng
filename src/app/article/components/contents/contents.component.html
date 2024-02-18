@@ -1,19 +1,19 @@
 <mat-list>
-  <div mat-subheader>Содержание</div>
-  @for (folder of folders; track folder) {
-    <mat-list-item>
+  <div mat-subheader *ngIf="chapters.length > 0">Содержание</div>
+  @for (chapter of chapters; track chapter) {
+    <mat-list-item matRipple (click)="scrollTo(chapter.name)">
       <mat-icon matListItemIcon>label</mat-icon>
-      <div matListItemTitle>{{ folder.name }}</div>
-      <div matListItemLine>{{ folder.updated }}</div>
+      <div matListItemTitle>{{ chapter.name }}</div>
+      <div matListItemLine>{{ chapter.subname }}</div>
     </mat-list-item>
   }
-  <mat-divider></mat-divider>
-  <div mat-subheader>Примечания</div>
-  @for (note of notes; track note) {
+  <mat-divider *ngIf="chapters.length > 0"></mat-divider>
+  <div mat-subheader>Действия</div>
+  @for (action of actions; track action) {
     <mat-list-item>
-      <mat-icon matListItemIcon>comment</mat-icon>
-      <div matListItemTitle>{{ note.name }}</div>
-      <div matListItemLine>{{ note.updated }}</div>
+      <mat-icon matListItemIcon>{{ action.icon }}</mat-icon>
+      <div matListItemTitle>{{ action.name }}</div>
+      <div matListItemLine>{{ action.count }} {{ action.description }}</div>
     </mat-list-item>
   }
 </mat-list>

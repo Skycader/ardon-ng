@@ -1,8 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ArdonArticleBlockInterface } from '../../models/article.interface';
 
 export interface Section {
   name: string;
-  updated: string;
+  subname: string;
+}
+export interface Action {
+  icon: string;
+  name: string;
+  count: number;
+  description: string;
 }
 @Component({
   selector: 'ardon-contents',
@@ -10,16 +17,39 @@ export interface Section {
   styleUrl: './contents.component.scss',
 })
 export class ContentsComponent {
-  folders: Section[] = [
+  @Input() blocks: ArdonArticleBlockInterface[] = [];
+  chapters: Section[] = [];
+  actions: Action[] = [
     {
-      name: 'Часть 1',
-      updated: 'Микро описание',
+      icon: 'favorite_border',
+      name: 'Нравится',
+      count: 0,
+      description: 'поставили лайк',
+    },
+    {
+      icon: 'comment',
+      name: 'Комментарии',
+      count: 0,
+      description: 'оставили комментарий',
     },
   ];
-  notes: Section[] = [
-    {
-      name: 'Примечание',
-      updated: 'Микро описание',
-    },
-  ];
+
+  ngOnInit() {
+    console.log(
+      this.blocks.filter(
+        (item: ArdonArticleBlockInterface) => item.type === 'subheading',
+      ),
+    );
+    this.chapters = this.blocks
+      .filter((item: ArdonArticleBlockInterface) => item.type === 'subheading')
+      .map((item: ArdonArticleBlockInterface) =>
+        item.type === 'subheading'
+          ? { name: item.content.title, subname: '' }
+          : { name: 'xxx', subname: '' },
+      );
+  }
+
+  public scrollTo(block: string) {
+    document.getElementById(`${block}`)?.scrollIntoView();
+  }
 }

@@ -2,3 +2,7 @@ mat-list {
   top: 60px;
   position: sticky;
 }
+
+mat-list-item {
+  cursor: pointer !important;
+}

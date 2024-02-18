@@ -10,7 +10,7 @@ interface SubHeadingInterface {
   styleUrl: './subheading.component.scss',
 })
 export class SubheadingComponent {
-  @Input() content: ArdonContentType<'subheading'> = {
+  @Input() content: SubHeadingInterface = {
     title: '',
   };
 }
