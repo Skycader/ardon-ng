@@ -9,6 +9,17 @@
   [(ngModel)]="item.content.value"
 ></textarea>
 
+<textarea
+  *ngIf="item.type === 'subheading'"
+  cdkTextareaAutosize
+  cdkAutosizeMinRows="1"
+  placeholder="Type here..."
+  class="col-12"
+  style="height: auto; outline: none; font-size: 1rem"
+  (input)="detectChanges.emit()"
+  [(ngModel)]="item.content.title"
+></textarea>
+
 <div *ngIf="item.type === 'image'">
   <div class="title"><mat-icon>photo</mat-icon> <span>Photo url</span></div>
   <textarea

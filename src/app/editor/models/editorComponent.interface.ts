@@ -1,4 +1,7 @@
-export type EditBlockType = EditBlockTextInterface | EditBlockImageInterface;
+export type EditBlockType =
+  | EditBlockTextInterface
+  | EditBlockImageInterface
+  | EditBlockSubheadingInterface;
 
 interface EditBlockTextInterface {
   title: string;
@@ -16,5 +19,14 @@ interface EditBlockImageInterface {
   content: {
     imageSrc: string;
     imageTitle: string;
+  };
+}
+
+interface EditBlockSubheadingInterface {
+  title: string;
+  type: 'subheading';
+  icon: string;
+  content: {
+    title: string;
   };
 }

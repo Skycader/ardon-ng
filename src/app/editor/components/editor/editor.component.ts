@@ -32,7 +32,7 @@ export class EditorComponent {
 
   @HostBinding('class.grabbing') grabbing: boolean = false;
 
-  constructor(public editorService: EditorService) {}
+  constructor(public editorService: EditorService) { }
   ngOnInit() {
     this.currentAvailableComponents = [...this.availableComponentsLibrary];
   }
@@ -44,6 +44,14 @@ export class EditorComponent {
         title: 'Text',
         content: {
           value: '',
+        },
+      },
+      {
+        icon: 'class',
+        type: 'subheading',
+        title: 'Heading',
+        content: {
+          title: '',
         },
       },
       {
@@ -66,19 +74,26 @@ export class EditorComponent {
     text: (item: EditBlockType) =>
       item.type === 'text'
         ? Object.create({
-            type: 'text',
-            content: { paragraphs: item.content.value.split('\n') },
-          })
+          type: 'text',
+          content: { paragraphs: item.content.value.split('\n') },
+        })
+        : null,
+    subheading: (item: EditBlockType) =>
+      item.type === 'subheading'
+        ? Object.create({
+          type: 'subheading',
+          content: item.content,
+        })
         : null,
     image: (item: EditBlockType) =>
       item.type === 'image'
         ? Object.create({
-            type: 'image',
-            content: {
-              imageSrc: item.content.imageSrc,
-              imageTitle: item.content.imageTitle,
-            },
-          })
+          type: 'image',
+          content: {
+            imageSrc: item.content.imageSrc,
+            imageTitle: item.content.imageTitle,
+          },
+        })
         : null,
   };
 

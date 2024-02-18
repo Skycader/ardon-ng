@@ -34,7 +34,7 @@ export class ContentsComponent {
     },
   ];
 
-  ngOnInit() {
+  ngOnChanges() {
     console.log(
       this.blocks.filter(
         (item: ArdonArticleBlockInterface) => item.type === 'subheading',

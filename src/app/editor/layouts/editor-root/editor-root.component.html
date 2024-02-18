@@ -10,7 +10,7 @@
       <mat-tab label="Preview">
         <div class="preview-container">
           <ardon-article-view
-            [displayConfig]="{ title: true, theme: true, content: false }"
+            [displayConfig]="{ title: true, themeImage: true, content: false }"
             [article]="articleExample"
           />
         </div>
@@ -21,13 +21,13 @@
 
 <ardon-article-view
   [class.hidden]="(tabSelect$ | async) !== 1"
-  [displayConfig]="{ title: false, theme: false, content: true }"
+  [displayConfig]="{ title: false, themeImage: false, content: true }"
   [article]="articleExample"
 />
 <ardon-editor
   [class.hidden]="(tabSelect$ | async) !== 0"
   [article]="articleExample"
-  [displayConfig]="{ title: false, theme: false, content: true }"
+  [displayConfig]="{ title: false, themeImage: false, content: true }"
 />
 
 <ardon-article-preview
