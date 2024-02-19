@@ -16,6 +16,9 @@ import { EditorComponent } from './components/editor/editor.component';
 import { EditorLayoutComponent } from './layouts/editor-layout/editor-layout.component';
 import { EditorRootComponent } from './layouts/editor-root/editor-root.component';
 import { ArticlePreviewComponent } from './components/article-preview/article-preview.component';
+import { AvailableComponentsComponent } from './components/available-components/available-components.component';
+import { PreviewComponentsComponent } from './components/preview-components/preview-components.component';
+import { DragHandleComponent } from './components/drag-handle/drag-handle.component';
 
 const routes: Routes = [
   {
@@ -37,6 +40,9 @@ const routes: Routes = [
     EditorRootComponent,
     EditorTextareaComponent,
     ArticlePreviewComponent,
+    AvailableComponentsComponent,
+    PreviewComponentsComponent,
+    DragHandleComponent,
   ],
   imports: [
     CommonModule,
