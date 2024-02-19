@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable, map } from 'rxjs';
-import {
-  AdvantageInterface,
-  ArdonConfigInterface,
-} from '../../../ardon-common/models/ardonConfig.interface';
+import { AdvantageInterface } from '../../../ardon-common/models/ardonConfig.interface';
 import { ConfigService } from '../../../ardon-common/services/config.service';
 
 @Component({
@@ -12,10 +8,7 @@ import { ConfigService } from '../../../ardon-common/services/config.service';
   styleUrl: './advantages.component.scss',
 })
 export class AdvantagesComponent {
-  public advantages$: Observable<AdvantageInterface[]> =
-    this.configService.config$.pipe(
-      map((config: ArdonConfigInterface) => config.advantages)
-    );
-
+  public advantages: AdvantageInterface[] =
+    this.configService.config.advantages;
   constructor(public configService: ConfigService) {}
 }
