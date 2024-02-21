@@ -17,4 +17,8 @@ export class PreviewCoverDragListComponent {
   isPhotoPredicate(item: CdkDrag<EditBlockType>) {
     return item.data.type === 'image';
   }
+
+  dropItem(item: any) {
+    this.dragList.drop(item);
+  }
 }

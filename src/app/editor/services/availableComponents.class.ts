@@ -1,7 +1,7 @@
 import { EditBlockType } from '../models/editorComponent.interface';
 
 export class AvailableComponents {
-  public get componens(): EditBlockType[] {
+  public get components(): EditBlockType[] {
     return [
       {
         icon: 'assignment',

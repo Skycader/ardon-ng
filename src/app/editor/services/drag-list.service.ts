@@ -14,7 +14,7 @@ import { AvailableComponents } from './availableComponents.class';
 export class DragListService {
   public availableComponents: AvailableComponents = new AvailableComponents();
   public availableComponents$ = new BehaviorSubject<EditBlockType[]>(
-    this.availableComponents.componens
+    this.availableComponents.components
   );
   constructor() {}
 
@@ -33,6 +33,6 @@ export class DragListService {
         event.currentIndex
       );
     }
-    this.availableComponents$.next(this.availableComponents.componens);
+    this.availableComponents$.next(this.availableComponents.components);
   }
 }
