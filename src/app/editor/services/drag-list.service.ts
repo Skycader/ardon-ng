@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { EditBlockType } from '../models/editorComponent.interface';
 import { AvailableComponents } from './availableComponents.class';
+import { EditorService } from './editor.service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ export class DragListService {
   public availableComponents$ = new BehaviorSubject<EditBlockType[]>(
     this.availableComponents.components
   );
-  constructor() {}
+  constructor(private editorService: EditorService) {}
 
   public drop(event: CdkDragDrop<EditBlockType[]>) {
     if (event.previousContainer === event.container) {
@@ -34,5 +35,6 @@ export class DragListService {
       );
     }
     this.availableComponents$.next(this.availableComponents.components);
+    this.editorService.updateArticle();
   }
 }

@@ -7,7 +7,7 @@
     id="doneList"
     #doneList="cdkDropList"
     [cdkDropListData]="editorService.articlePreview"
-    [cdkDropListConnectedTo]="['todoList']"
+    [cdkDropListConnectedTo]="['todoList', 'previewCover']"
     class="example-list"
     (cdkDropListDropped)="dragList.drop($event)"
   >

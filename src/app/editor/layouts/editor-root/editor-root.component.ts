@@ -12,7 +12,7 @@ export class EditorRootComponent {
   public tabSelect$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   public articleExample: ArdonArticleInterface = {
     heading: 'New article',
-    themeImageSrc: 'https://getwallpapers.com/wallpaper/full/4/7/2/639528.jpg',
+    themeImageSrc: '',
     blocks: [],
   };
 

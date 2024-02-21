@@ -51,11 +51,13 @@ export class EditorService {
   constructor() {}
 
   public updateArticle() {
+    this.article.themeImageSrc = '';
     this.article.blocks = this.articlePreview.map((item: EditBlockType) => {
       return this.renderDictionary[item.type](item);
     });
 
-    if (this.themeBox[0].type === 'image')
+    if (this.themeBox[0].type === 'image') {
       this.article.themeImageSrc = this.themeBox[0].content.imageSrc;
+    }
   }
 }

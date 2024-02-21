@@ -20,5 +20,6 @@ export class PreviewCoverDragListComponent {
 
   dropItem(item: any) {
     this.dragList.drop(item);
+    this.editorService.updateArticle();
   }
 }

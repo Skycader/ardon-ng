@@ -5,7 +5,7 @@
     [cdkDropListEnterPredicate]="isPhotoPredicate"
     #doneList="cdkDropList"
     [cdkDropListData]="editorService.themeBox"
-    cdkDropListConnectedTo="todoList"
+    [cdkDropListConnectedTo]="['todoList', 'previewCover', 'doneList']"
     class="example-list"
     (cdkDropListDropped)="dropItem($event)"
   >
