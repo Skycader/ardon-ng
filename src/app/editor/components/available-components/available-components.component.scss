@@ -218,3 +218,9 @@ input:focus {
   min-height: 60px;
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
+
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}

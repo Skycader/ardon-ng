@@ -10,3 +10,14 @@ textarea {
   align-items: center;
   gap: 3px;
 }
+
+.image-preview {
+  min-height: 200px;
+  border: 2px dashed #ccc;
+  padding: 5px;
+
+  img {
+    border-radius: 10px;
+    width: 100%;
+  }
+}

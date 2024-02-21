@@ -1,6 +1,9 @@
 <div class="heading centrilize" *ngIf="theme">
-  <mat-icon>photo</mat-icon>
-  <img id="theme-image" [src]="theme" *ngIf="theme.length > 0" />
+  <div class="title">
+    <mat-icon>photo</mat-icon>
+    <span>Article theme image</span>
+  </div>
+  <br />
 
   <ardon-preview-cover-drag-list />
 </div>
