@@ -4,6 +4,11 @@ import { NotFoundComponent } from './ardon-common/components/not-found/not-found
 
 const routes: Routes = [
   {
+    path: 'edit',
+    loadChildren: () =>
+      import('./editor/editor.module').then((x) => x.EditorModule),
+  },
+  {
     path: '**',
     component: NotFoundComponent,
   },
@@ -13,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
