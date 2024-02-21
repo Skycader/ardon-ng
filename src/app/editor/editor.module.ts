@@ -19,6 +19,9 @@ import { ArticlePreviewComponent } from './components/article-preview/article-pr
 import { AvailableComponentsComponent } from './components/available-components/available-components.component';
 import { PreviewComponentsComponent } from './components/preview-components/preview-components.component';
 import { DragHandleComponent } from './components/drag-handle/drag-handle.component';
+import { PreviewCoverComponent } from './components/preview-cover/preview-cover.component';
+import { DragImageComponent } from './components/drag-image/drag-image.component';
+import { PreviewCoverDragListComponent } from './components/preview-cover-drag-list/preview-cover-drag-list.component';
 
 const routes: Routes = [
   {
@@ -43,6 +46,9 @@ const routes: Routes = [
     AvailableComponentsComponent,
     PreviewComponentsComponent,
     DragHandleComponent,
+    PreviewCoverComponent,
+    DragImageComponent,
+    PreviewCoverDragListComponent,
   ],
   imports: [
     CommonModule,

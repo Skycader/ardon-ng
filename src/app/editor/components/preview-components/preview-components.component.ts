@@ -12,4 +12,8 @@ export class PreviewComponentsComponent {
     public editorService: EditorService,
     public dragList: DragListService
   ) {}
+
+  public allowAll() {
+    return true;
+  }
 }

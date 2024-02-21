@@ -1,17 +1,17 @@
-<div class="example-container col-12 col-sm-12 col-md-12 col-lg-8">
+<div class="col-12">
   <h2>Article Preview</h2>
 
   <div
     cdkDropList
-    [cdkDropListEnterPredicate]="allowAll"
-    id="doneList"
+    id="previewCover"
+    [cdkDropListEnterPredicate]="isPhotoPredicate"
     #doneList="cdkDropList"
-    [cdkDropListData]="editorService.articlePreview"
-    [cdkDropListConnectedTo]="['todoList']"
+    [cdkDropListData]="editorService.themeBox"
+    cdkDropListConnectedTo="todoList"
     class="example-list"
     (cdkDropListDropped)="dragList.drop($event)"
   >
-    @for (item of editorService.articlePreview; track item) {
+    @for (item of editorService.themeBox; track item) {
     <mat-toolbar class="example-box" cdkDrag [cdkDragData]="item">
       <div *cdkDragPreview class="drag-preview">
         <mat-icon>{{ item.icon }}</mat-icon>

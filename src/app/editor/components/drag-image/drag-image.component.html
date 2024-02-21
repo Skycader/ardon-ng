@@ -1,0 +1,24 @@
+<div *ngIf="item.type === 'image'">
+  <div class="title"><mat-icon>photo</mat-icon> <span>Photo url</span></div>
+  <textarea
+    placeholder="Paste url"
+    cdkTextareaAutosize
+    class="col-12"
+    style="height: auto; outline: none; font-size: 1rem"
+    [(ngModel)]="item.content.imageSrc"
+    (input)="detectChanges.emit(1)"
+  ></textarea>
+  <hr />
+  <div class="title">
+    <mat-icon>assignment</mat-icon> <span>Photo url</span>
+  </div>
+
+  <textarea
+    placeholder="Describe photo"
+    cdkTextareaAutosize
+    class="col-12"
+    style="height: auto; outline: none; font-size: 1rem"
+    [(ngModel)]="item.content.imageTitle"
+    (input)="detectChanges.emit(1)"
+  ></textarea>
+</div>

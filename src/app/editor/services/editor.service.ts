@@ -19,6 +19,7 @@ export class EditorService {
   };
 
   public articlePreview: EditBlockType[] = [];
+  public themeBox: EditBlockType[] = [];
 
   public renderDictionary: RenderDictionaryInterface = {
     text: (item: EditBlockType) =>

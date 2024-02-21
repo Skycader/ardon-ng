@@ -4,10 +4,8 @@
     <input [(ngModel)]="article.heading" />
   </div>
 
-  <div class="heading centrilize" *ngIf="displayConfig.theme">
-    <mat-icon>photo</mat-icon>
-    <img src="https://getwallpapers.com/wallpaper/full/4/7/2/639528.jpg" />
-  </div>
+  <br />
+  <ardon-preview-cover [theme]="displayConfig.theme" />
 </div>
 
 <br />
