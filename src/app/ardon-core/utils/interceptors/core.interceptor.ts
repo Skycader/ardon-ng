@@ -9,10 +9,17 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { environemnt } from '../../../../environments/environment';
+import { LocalStorageService } from '../../services/local-storage.service';
 
 @Injectable()
 export class CoreInterceptor implements HttpInterceptor {
-  constructor() { }
+  constructor(private localStorage: LocalStorageService) { }
+
+  private buildCaptcha(): string {
+    return `${this.localStorage.getItem(
+      'ardon-captcha-answer',
+    )}.${this.localStorage.getItem('ardon-captcha-credentials')}`;
+  }
 
   intercept(
     req: HttpRequest<any>,
@@ -20,13 +27,14 @@ export class CoreInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     const authReq = req.clone({
       url: environemnt.apiUrl + '/' + req.url + `?requestTime=${Date.now()}`,
+      headers: req.headers
+        .set('captcha', this.buildCaptcha())
+        .set('auth-token', localStorage.getItem('auth-token') || ''),
     });
 
     return next.handle(authReq).pipe(
       tap(
-        (event) => {
-          if (event instanceof HttpResponse) console.log('Server response');
-        },
+        (event) => { },
         (err) => {
           if (err instanceof HttpErrorResponse) {
             if (err.status == 400) console.error('Wrong captcha');

@@ -22,7 +22,6 @@ export class LocalStorageService {
   }
 
   public setItem(key: string, data: any) {
-    console.log('SETTING KEY', key, 'VALUE: ', data);
     if (this.isBrowser) {
       if (data instanceof Object) {
         localStorage.setItem(key, JSON.stringify(data));

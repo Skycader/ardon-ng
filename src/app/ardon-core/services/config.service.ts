@@ -1,6 +1,15 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, of, switchMap, tap } from 'rxjs';
+import {
+  catchError,
+  debounceTime,
+  delay,
+  exhaustMap,
+  map,
+  of,
+  switchMap,
+  tap,
+} from 'rxjs';
 import { LocalStorageService } from '../../ardon-core/services/local-storage.service';
 import { VersionInterface } from '../../ardon-common/models/version.interface';
 import { ArdonConfigInterface } from '../../ardon-common/models/ardonConfig.interface';
@@ -32,6 +41,7 @@ export class ConfigService {
   public readonly configFromServer$ = this.http
     .get<ArdonConfigInterface>('core/config/default.json')
     .pipe(
+      debounceTime(1000),
       tap((ardonConfig: ArdonConfigInterface) => {
         this.localStorage.setItem('ardon-config', ardonConfig);
       }),

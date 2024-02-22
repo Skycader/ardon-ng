@@ -12,11 +12,8 @@ export class CaptchaViewComponent {
   public captcha$: Observable<CaptchaInterface> =
     this.captchaService.captcha$.pipe(
       tap((captcha: CaptchaInterface) => {
-        const captchaSnapshot = {
-          hashed: captcha.hashed,
-          expiresIn: captcha.expiresIn,
-        };
-        this.localStorage.setItem('ardon-captcha', captchaSnapshot);
+        const captchaSnapshot = `${captcha.expiresIn}.${captcha.hashed}`;
+        this.localStorage.setItem('ardon-captcha-credentials', captchaSnapshot);
       }),
     );
   public captchaBase64$ = this.captcha$.pipe(

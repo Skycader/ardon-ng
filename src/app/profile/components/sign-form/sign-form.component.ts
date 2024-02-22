@@ -18,6 +18,11 @@ export class SignFormComponent {
       Validators.required,
       Validators.minLength(6),
     ]),
+    captchaAnswer: new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.maxLength(4),
+    ]),
   });
 
   public submitForm() { }
