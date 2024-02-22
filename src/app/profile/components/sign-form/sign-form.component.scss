@@ -19,3 +19,8 @@ h1 {
     padding: 10%;
   }
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+}

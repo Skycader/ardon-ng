@@ -9,7 +9,7 @@ import { ArdonConfigInterface } from '../../ardon-common/models/ardonConfig.inte
 })
 export class ConfigService {
   public get config() {
-    return JSON.parse(this.localStorage.getItem('ardon-config') || '{}');
+    return this.localStorage.getItem('ardon-config');
   }
   public readonly version$ = this.http
     .get<VersionInterface>('core/config/version/default.json')
@@ -33,7 +33,7 @@ export class ConfigService {
     .get<ArdonConfigInterface>('core/config/default.json')
     .pipe(
       tap((ardonConfig: ArdonConfigInterface) => {
-        this.localStorage.setItem('ardon-config', JSON.stringify(ardonConfig));
+        this.localStorage.setItem('ardon-config', ardonConfig);
       }),
     );
   constructor(
@@ -59,7 +59,6 @@ export class ConfigService {
   public localStorageConfig$ = of(this.getConfigFromLocalStorage());
 
   public getConfigFromLocalStorage() {
-    const value = this.localStorage.getItem('ardon-config') || '{}';
-    return JSON.parse(value);
+    return this.localStorage.getItem('ardon-config');
   }
 }

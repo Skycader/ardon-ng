@@ -8,11 +8,15 @@ import { SignFormComponent } from './components/sign-form/sign-form.component';
 import { ProfileLayoutComponent } from './layouts/profile-layout/profile-layout.component';
 import { profileResolver } from './utils/resolvers/profile.resolver';
 import { CaptchaModule } from '../captcha/captcha.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ProfileLayoutComponent, SignFormComponent],
   imports: [
     MaterialModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     CaptchaModule,
     ArdonCommonModule,
     CommonModule,
