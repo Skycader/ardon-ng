@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ConfigService } from '../../services/config.service';
+import { ConfigService } from '../../../ardon-core/services/config.service';
 
 @Component({
   selector: 'ardon-footer',
@@ -7,5 +7,5 @@ import { ConfigService } from '../../services/config.service';
   styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
-  constructor(public configService: ConfigService) {}
+  constructor(public configService: ConfigService) { }
 }

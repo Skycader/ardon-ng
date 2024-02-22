@@ -4,7 +4,7 @@ import {
   ArdonConfigInterface,
   ArticlePreviewInterface,
 } from '../../../ardon-common/models/ardonConfig.interface';
-import { ConfigService } from '../../../ardon-common/services/config.service';
+import { ConfigService } from '../../../ardon-core/services/config.service';
 
 @Component({
   selector: 'ardon-article-search',
@@ -15,8 +15,8 @@ export class ArticleSearchComponent {
   public value = '';
   public recentArticles$: Observable<ArticlePreviewInterface[]> =
     this.configService.config$.pipe(
-      map((config: ArdonConfigInterface) => config.welcomeTopics)
+      map((config: ArdonConfigInterface) => config.welcomeTopics),
     );
 
-  constructor(public configService: ConfigService) {}
+  constructor(public configService: ConfigService) { }
 }

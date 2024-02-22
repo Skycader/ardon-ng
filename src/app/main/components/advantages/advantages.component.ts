@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AdvantageInterface } from '../../../ardon-common/models/ardonConfig.interface';
-import { ConfigService } from '../../../ardon-common/services/config.service';
+import { ConfigService } from '../../../ardon-core/services/config.service';
 
 @Component({
   selector: 'ardon-advantages',
@@ -10,5 +10,5 @@ import { ConfigService } from '../../../ardon-common/services/config.service';
 export class AdvantagesComponent {
   public advantages: AdvantageInterface[] =
     this.configService.config.advantages;
-  constructor(public configService: ConfigService) {}
+  constructor(public configService: ConfigService) { }
 }

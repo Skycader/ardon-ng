@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ConfigService } from '../../../ardon-common/services/config.service';
+import { ConfigService } from '../../../ardon-core/services/config.service';
 
 @Component({
   selector: 'ardon-main-layout',
@@ -7,5 +7,5 @@ import { ConfigService } from '../../../ardon-common/services/config.service';
   styleUrl: './main-layout.component.scss',
 })
 export class MainLayoutComponent {
-  constructor(public configService: ConfigService) {}
+  constructor(public configService: ConfigService) { }
 }

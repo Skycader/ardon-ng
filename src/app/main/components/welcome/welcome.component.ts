@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ConfigService } from '../../../ardon-common/services/config.service';
 import { Observable, of, switchMap } from 'rxjs';
 import { ArdonConfigInterface } from '../../../ardon-common/models/ardonConfig.interface';
+import { ConfigService } from '../../../ardon-core/services/config.service';
 
 @Component({
   selector: 'ardon-welcome',
