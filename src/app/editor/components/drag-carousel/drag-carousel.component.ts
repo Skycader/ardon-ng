@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input } from '@angular/core';
-import { EditBlockType } from '../../models/editorComponent.interface';
+import {
+  EditBlockCarouselInterface,
+  EditBlockType,
+} from '../../models/editorComponent.interface';
 import { BehaviorSubject } from 'rxjs';
 import { DragListService } from '../../services/drag-list.service';
 import { CdkDrag } from '@angular/cdk/drag-drop';
@@ -10,7 +13,14 @@ import { CdkDrag } from '@angular/cdk/drag-drop';
   styleUrl: './drag-carousel.component.scss',
 })
 export class DragCarouselComponent {
-  @Input() item!: EditBlockType;
+  @Input() item: EditBlockCarouselInterface = {
+    title: '',
+    type: 'carousel',
+    icon: 'view-carousel',
+    content: {
+      slides: [],
+    },
+  };
   @Input() detectChanges: EventEmitter<number> = new EventEmitter();
 
   public carouselComponents$ = new BehaviorSubject<EditBlockType[]>([]);
@@ -22,5 +32,16 @@ export class DragCarouselComponent {
   }
   public dropItem(item: any) {
     this.dragList.drop(item);
+  }
+
+  ngOnInit() {
+    this.detectChanges.subscribe(() => this.updateSlides());
+  }
+
+  updateSlides() {
+    this.item.content.slides = [];
+    this.carouselComponents$
+      .getValue()
+      .forEach((item: any) => this.item.content.slides.push(item.content));
   }
 }

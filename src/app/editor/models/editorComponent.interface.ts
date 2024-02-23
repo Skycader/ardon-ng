@@ -34,7 +34,7 @@ interface EditBlockSubheadingInterface {
   };
 }
 
-interface EditBlockCarouselInterface {
+export interface EditBlockCarouselInterface {
   title: string;
   type: 'carousel';
   icon: string;

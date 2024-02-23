@@ -19,7 +19,7 @@ export class CarouselComponent {
     slides: [
       {
         imageSrc: '',
-        title: '',
+        imageTitle: '',
       },
     ],
   };

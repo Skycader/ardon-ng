@@ -52,7 +52,7 @@ export class EditorService {
         ? {
           type: 'carousel',
           content: {
-            slides: [],
+            slides: item.content.slides,
           },
         }
         : null,
@@ -63,13 +63,14 @@ export class EditorService {
   public updateArticle() {
     this.article.themeImageSrc = '';
     this.article.blocks = this.articlePreview.map((item: EditBlockType) => {
-      console.log('ITEM', item);
       return this.renderDictionary[item.type](item);
     });
 
     if (this.themeBox.length > 0 && this.themeBox[0].type === 'image') {
       this.article.themeImageSrc = this.themeBox[0].content.imageSrc;
     }
+
+    console.log('ARTICLE AFTER UPDATE', this.article);
   }
 
   downloadObjectAsJson(exportObj: ArdonArticleInterface, exportName: string) {

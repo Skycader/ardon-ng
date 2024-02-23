@@ -64,15 +64,15 @@
         "slides": [
           {
             "imageSrc": "https://i.imgur.com/VusK2NR.jpeg",
-            "title": "Описание фото"
+            "imageTitle": "Описание фото"
           },
           {
             "imageSrc": "https://i.imgur.com/MfpkMvy.png",
-            "title": "Описание к фото"
+            "imageTitle": "Описание к фото"
           },
           {
             "imageSrc": "https://i.imgur.com/nEnu6to.jpeg",
-            "title": "Ещё одно описание"
+            "imageTitle": "Ещё одно описание"
           }
         ]
       }

@@ -28,4 +28,8 @@
   [detectChanges]="detectChanges"
 />
 
-<ardon-drag-carousel [item]="item" [detectChanges]="detectChanges" />
+<ardon-drag-carousel
+  *ngIf="item.type === 'carousel'"
+  [item]="item"
+  [detectChanges]="detectChanges"
+/>
