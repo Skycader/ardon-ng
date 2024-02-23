@@ -10,11 +10,7 @@ import { EditorService } from '../../services/editor.service';
 })
 export class EditorRootComponent {
   public tabSelect$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  public articleExample: ArdonArticleInterface = {
-    heading: 'New article',
-    themeImageSrc: '',
-    blocks: [],
-  };
+  public article: ArdonArticleInterface = this.editorService.article;
 
-  constructor(public editorService: EditorService) {}
+  constructor(public editorService: EditorService) { }
 }

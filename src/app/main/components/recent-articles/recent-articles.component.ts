@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { Observable, map } from 'rxjs';
-import {
-  ArdonConfigInterface,
-  ArticlePreviewInterface,
-} from '../../../ardon-common/models/ardonConfig.interface';
+import { map } from 'rxjs';
+import { ArticlePreviewInterface } from '../../../ardon-common/models/ardonConfig.interface';
 import { ConfigService } from '../../../ardon-core/services/config.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'ardon-recent-articles',
@@ -12,10 +10,12 @@ import { ConfigService } from '../../../ardon-core/services/config.service';
   styleUrl: './recent-articles.component.scss',
 })
 export class RecentArticlesComponent {
-  public recentArticles$: Observable<ArticlePreviewInterface[]> =
-    this.configService.config$.pipe(
-      map((config: ArdonConfigInterface) => config.welcomeTopics),
-    );
+  public recentArticles$ = this.http
+    .get<ArticlePreviewInterface[]>('topic/welcome.json')
+    .pipe(map((response: any) => response.articles));
 
-  constructor(public configService: ConfigService) { }
+  constructor(
+    public configService: ConfigService,
+    private http: HttpClient,
+  ) { }
 }

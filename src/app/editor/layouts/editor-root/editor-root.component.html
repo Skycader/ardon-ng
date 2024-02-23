@@ -3,7 +3,7 @@
     <mat-tab-group (selectedTabChange)="tabSelect$.next($event.index)">
       <mat-tab label="Edit">
         <ardon-editor
-          [article]="articleExample"
+          [article]="article"
           [displayConfig]="{ title: true, theme: true, content: false }"
         />
       </mat-tab>
@@ -11,7 +11,7 @@
         <div class="preview-container">
           <ardon-article-view
             [displayConfig]="{ title: true, themeImage: true, content: false }"
-            [article]="articleExample"
+            [article]="article"
           />
         </div>
       </mat-tab>
@@ -22,15 +22,15 @@
 <ardon-article-view
   [class.hidden]="(tabSelect$ | async) !== 1"
   [displayConfig]="{ title: false, themeImage: false, content: true }"
-  [article]="articleExample"
+  [article]="article"
 />
 <ardon-editor
   [class.hidden]="(tabSelect$ | async) !== 0"
-  [article]="articleExample"
+  [article]="article"
   [displayConfig]="{ title: false, themeImage: false, content: true }"
 />
 
 <ardon-article-preview
-  [article]="articleExample"
+  [article]="article"
   *ngIf="editorService.isPreview$ | async"
 />

@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { EditBlockType } from '../../models/editorComponent.interface';
 import { DragListService } from '../../services/drag-list.service';
 import { EditorService } from '../../services/editor.service';
+import { ArdonArticleInterface } from '../../../article/models/article.interface';
 
 @Component({
   selector: 'ardon-available-components',
@@ -15,10 +16,17 @@ export class AvailableComponentsComponent {
 
   constructor(
     public dragList: DragListService,
-    public editorService: EditorService
-  ) {}
+    public editorService: EditorService,
+  ) { }
 
   public dropItem(item: any) {
     this.dragList.drop(item);
+  }
+
+  public downloadBlankArticle() {
+    this.editorService.downloadObjectAsJson(
+      this.editorService.article,
+      this.editorService.article.heading,
+    );
   }
 }

@@ -10,8 +10,8 @@ import { EditorService } from '../../services/editor.service';
 export class PreviewComponentsComponent {
   constructor(
     public editorService: EditorService,
-    public dragList: DragListService
-  ) {}
+    public dragList: DragListService,
+  ) { }
 
   public allowAll() {
     return true;

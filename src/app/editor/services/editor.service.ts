@@ -9,11 +9,11 @@ import { RenderDictionaryInterface } from '../models/renderDictionary.interface'
 })
 export class EditorService {
   public isPreview$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
-    false
+    false,
   );
 
   public article: ArdonArticleInterface = {
-    heading: 'Artile heading',
+    heading: 'New article',
     themeImageSrc: '',
     blocks: [],
   };
@@ -24,31 +24,31 @@ export class EditorService {
   public renderDictionary: RenderDictionaryInterface = {
     text: (item: EditBlockType) =>
       item.type === 'text'
-        ? Object.create({
-            type: 'text',
-            content: { paragraphs: item.content.value.split('\n') },
-          })
+        ? {
+          type: 'text',
+          content: { paragraphs: item.content.value.split('\n') },
+        }
         : null,
     subheading: (item: EditBlockType) =>
       item.type === 'subheading'
-        ? Object.create({
-            type: 'subheading',
-            content: item.content,
-          })
+        ? {
+          type: 'subheading',
+          content: item.content,
+        }
         : null,
     image: (item: EditBlockType) =>
       item.type === 'image'
-        ? Object.create({
-            type: 'image',
-            content: {
-              imageSrc: item.content.imageSrc,
-              imageTitle: item.content.imageTitle,
-            },
-          })
+        ? {
+          type: 'image',
+          content: {
+            imageSrc: item.content.imageSrc,
+            imageTitle: item.content.imageTitle,
+          },
+        }
         : null,
   };
 
-  constructor() {}
+  constructor() { }
 
   public updateArticle() {
     this.article.themeImageSrc = '';
@@ -56,8 +56,20 @@ export class EditorService {
       return this.renderDictionary[item.type](item);
     });
 
-    if (this.themeBox[0].type === 'image') {
+    if (this.themeBox.length > 0 && this.themeBox[0].type === 'image') {
       this.article.themeImageSrc = this.themeBox[0].content.imageSrc;
     }
+  }
+
+  downloadObjectAsJson(exportObj: ArdonArticleInterface, exportName: string) {
+    var dataStr =
+      'data:text/json;charset=utf-8,' +
+      encodeURIComponent(JSON.stringify(exportObj));
+    var downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute('href', dataStr);
+    downloadAnchorNode.setAttribute('download', exportName + '.json');
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
   }
 }

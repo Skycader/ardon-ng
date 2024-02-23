@@ -1,29 +1,35 @@
-<div class="components example-container col-12 col-sm-12 col-md-12 col-lg-3">
+<div
+  class="bg-body components example-container col-12 col-sm-12 col-md-12 col-lg-3"
+>
   <h2><mat-icon>add_to_photos</mat-icon>Components</h2>
 
   <div
     cdkDropList
-    id="todoList"
+    id="availableComponents"
     #todoList="cdkDropList"
     [cdkDropListData]="availableComponents$ | async"
-    [cdkDropListConnectedTo]="['doneList', 'previewCover']"
+    [cdkDropListConnectedTo]="[
+      'carouselDropList',
+      'articleConstructor',
+      'previewCover'
+    ]"
     class="example-list"
     (cdkDropListDropped)="dropItem($event)"
   >
     @for (item of availableComponents$ | async; track item) {
-    <mat-toolbar class="example-box" cdkDrag [cdkDragData]="item">
-      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+      <mat-toolbar class="example-box" cdkDrag [cdkDragData]="item">
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
 
-      <div *cdkDragPreview class="drag-preview">
-        <mat-icon>{{ item.icon }}</mat-icon>
-      </div>
+        <div *cdkDragPreview class="drag-preview">
+          <mat-icon>{{ item.icon }}</mat-icon>
+        </div>
 
-      <div class="component">
-        <mat-icon>{{ item.icon }}</mat-icon>
-        <span>{{ item.title }}</span>
-      </div>
-      <ardon-drag-handle />
-    </mat-toolbar>
+        <div class="component">
+          <mat-icon>{{ item.icon }}</mat-icon>
+          <span>{{ item.title }}</span>
+        </div>
+        <ardon-drag-handle />
+      </mat-toolbar>
     }
   </div>
   <br />
@@ -35,6 +41,17 @@
       editorService.isPreview$.next(!editorService.isPreview$.getValue())
     "
   >
-    Open preview
+    <mat-icon>eye</mat-icon>
+    {{ editorService.isPreview$.getValue() ? "Close preview" : "Open preview" }}
+  </button>
+  <br />
+  <br />
+  <button
+    mat-raised-button
+    color="primary"
+    style="width: 100%"
+    (click)="downloadBlankArticle()"
+  >
+    <mat-icon>download</mat-icon>Download blank
   </button>
 </div>

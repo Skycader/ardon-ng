@@ -28,6 +28,14 @@ export class AvailableComponents {
           imageSrc: '',
         },
       },
+      {
+        icon: 'view_carousel',
+        type: 'carousel',
+        title: 'Carousel',
+        content: {
+          title: '',
+        },
+      },
     ];
   }
 }

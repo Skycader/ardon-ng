@@ -1,7 +1,8 @@
 export type EditBlockType =
   | EditBlockTextInterface
   | EditBlockImageInterface
-  | EditBlockSubheadingInterface;
+  | EditBlockSubheadingInterface
+  | EditBlockCarouselInterface;
 
 interface EditBlockTextInterface {
   title: string;
@@ -25,6 +26,15 @@ interface EditBlockImageInterface {
 interface EditBlockSubheadingInterface {
   title: string;
   type: 'subheading';
+  icon: string;
+  content: {
+    title: string;
+  };
+}
+
+interface EditBlockCarouselInterface {
+  title: string;
+  type: 'carousel';
   icon: string;
   content: {
     title: string;
