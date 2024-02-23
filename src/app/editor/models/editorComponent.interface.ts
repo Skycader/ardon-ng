@@ -1,3 +1,5 @@
+import { ArdonSlideInterface } from '../../article/models/article.interface';
+
 export type EditBlockType =
   | EditBlockTextInterface
   | EditBlockImageInterface
@@ -37,6 +39,6 @@ interface EditBlockCarouselInterface {
   type: 'carousel';
   icon: string;
   content: {
-    title: string;
+    slides: ArdonSlideInterface[];
   };
 }

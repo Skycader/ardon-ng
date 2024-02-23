@@ -33,7 +33,7 @@ export class AvailableComponents {
         type: 'carousel',
         title: 'Carousel',
         content: {
-          title: '',
+          slides: [],
         },
       },
     ];

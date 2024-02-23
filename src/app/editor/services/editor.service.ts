@@ -46,6 +46,16 @@ export class EditorService {
           },
         }
         : null,
+
+    carousel: (item: EditBlockType) =>
+      item.type === 'carousel'
+        ? {
+          type: 'carousel',
+          content: {
+            slides: [],
+          },
+        }
+        : null,
   };
 
   constructor() { }
@@ -53,6 +63,7 @@ export class EditorService {
   public updateArticle() {
     this.article.themeImageSrc = '';
     this.article.blocks = this.articlePreview.map((item: EditBlockType) => {
+      console.log('ITEM', item);
       return this.renderDictionary[item.type](item);
     });
 

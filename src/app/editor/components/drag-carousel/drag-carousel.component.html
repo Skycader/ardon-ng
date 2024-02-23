@@ -2,12 +2,14 @@
   cdkDropList
   *ngIf="item.type === 'carousel'"
   id="carouselDropList"
+  [cdkDropListEnterPredicate]="isPhotoPredicate"
   [cdkDropListData]="carouselComponents$ | async"
   [cdkDropListConnectedTo]="['availableComponents']"
   class="example-list"
   (cdkDropListDropped)="dropItem($event)"
 >
-  @for (item of carouselComponents$ | async; track item) {
+  <p class="hint text-secondary p-3">Drag picture here</p>
+  @for (picture of carouselComponents$ | async; track item) {
     <mat-toolbar class="example-box" cdkDrag [cdkDragData]="item">
       <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
 
@@ -17,7 +19,12 @@
 
       <div class="container">
         <div class="row">
-          <div class="col-11"><ardon-editor-textarea [item]="item" /></div>
+          <div class="col-11">
+            <ardon-drag-image
+              [item]="picture"
+              [detectChanges]="detectChanges"
+            />
+          </div>
           <ardon-drag-handle />
         </div>
       </div>
