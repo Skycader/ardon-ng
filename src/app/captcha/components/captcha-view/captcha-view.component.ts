@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CaptchaService } from '../../services/captcha.service';
 import { CaptchaInterface } from '../../models/captcha.interface';
 import { Observable, map, tap } from 'rxjs';
@@ -9,16 +9,24 @@ import { LocalStorageService } from '../../../ardon-core/services/local-storage.
   styleUrl: './captcha-view.component.scss',
 })
 export class CaptchaViewComponent {
+  @Output() captcha: EventEmitter<CaptchaInterface> = new EventEmitter();
   public captcha$: Observable<CaptchaInterface> =
     this.captchaService.captcha$.pipe(
       tap((captcha: CaptchaInterface) => {
-        const captchaSnapshot = `${captcha.expiresIn}.${captcha.hashed}`;
-        this.localStorage.setItem('ardon-captcha-credentials', captchaSnapshot);
+        this.captcha.emit(captcha);
       }),
     );
   public captchaBase64$ = this.captcha$.pipe(
     map((captcha: CaptchaInterface) => captcha.base),
   );
+
+  public showCaptcha = true;
+  public updateCaptcha() {
+    this.showCaptcha = false;
+    setTimeout(() => {
+      this.showCaptcha = true;
+    });
+  }
 
   constructor(
     private captchaService: CaptchaService,

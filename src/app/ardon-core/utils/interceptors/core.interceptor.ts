@@ -15,21 +15,16 @@ import { LocalStorageService } from '../../services/local-storage.service';
 export class CoreInterceptor implements HttpInterceptor {
   constructor(private localStorage: LocalStorageService) { }
 
-  private buildCaptcha(): string {
-    return `${this.localStorage.getItem(
-      'ardon-captcha-answer',
-    )}.${this.localStorage.getItem('ardon-captcha-credentials')}`;
-  }
-
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler,
   ): Observable<HttpEvent<any>> {
     const authReq = req.clone({
       url: environemnt.apiUrl + '/' + req.url + `?requestTime=${Date.now()}`,
-      headers: req.headers
-        .set('captcha', this.buildCaptcha())
-        .set('auth-token', localStorage.getItem('auth-token') || ''),
+      headers: req.headers.set(
+        'auth-token',
+        localStorage.getItem('auth-token') || '',
+      ),
     });
 
     return next.handle(authReq).pipe(
