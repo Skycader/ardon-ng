@@ -16,7 +16,9 @@
             [(ngModel)]="item.content.imageSrc"
             (input)="detectChanges.emit(1)"
           ></textarea>
-          <mat-icon class="add-photo">add_photo_alternate</mat-icon>
+          <mat-icon class="add-photo" (click)="fillUrl()"
+            >add_photo_alternate</mat-icon
+          >
         </div>
         <hr />
         <div class="title">

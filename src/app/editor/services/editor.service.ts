@@ -1,8 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ArdonArticleInterface } from '../../article/models/article.interface';
+import {
+  ArdonArticleBlockInterface,
+  ArdonArticleInterface,
+} from '../../article/models/article.interface';
 import { EditBlockType } from '../models/editorComponent.interface';
 import { RenderDictionaryInterface } from '../models/renderDictionary.interface';
+import { HttpClient } from '@angular/common/http';
+import _ from 'lodash';
+import { Router } from '@angular/router';
+import { AriaDescriber } from '@angular/cdk/a11y';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +18,8 @@ export class EditorService {
   public isPreview$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false,
   );
+
+  public found: boolean = true;
 
   public article: ArdonArticleInterface = {
     heading: 'New article',
@@ -26,7 +35,7 @@ export class EditorService {
       item.type === 'text'
         ? {
           type: 'text',
-          content: { paragraphs: item.content.value.split('\n') },
+          content: { paragraphs: item.content.value?.split('\n') },
         }
         : null,
     subheading: (item: EditBlockType) =>
@@ -58,7 +67,55 @@ export class EditorService {
         : null,
   };
 
-  constructor() { }
+  public renderDictionary2: RenderDictionaryInterface = {
+    text: (item: ArdonArticleBlockInterface) =>
+      item.type === 'text'
+        ? {
+          icon: 'assignment',
+          title: 'Text',
+          type: 'text',
+          content: { value: item.content.paragraphs?.join('\n') },
+        }
+        : null,
+  };
+
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+  ) {
+    const articleName = this.router.url.split('/')[2];
+    this.downloadArticle(articleName).subscribe((article: any) => {
+      this.article.heading = article.heading;
+      this.article.themeImageSrc = article.themeImageSrc;
+      this.article.blocks = article.blocks;
+      this.article.blocks = this.article.blocks.filter(
+        (block: any) => block.type === 'text',
+      );
+      this.importArticle();
+    });
+  }
+
+  public downloadArticle(name: string) {
+    return this.http.get('article/' + name + '.json');
+  }
+
+  public importArticle() {
+    if (this.article.themeImageSrc) {
+      this.themeBox[0] = {
+        title: 'Image',
+        icon: 'photo',
+        type: 'image',
+        content: {
+          imageSrc: this.article.themeImageSrc,
+          imageTitle: '',
+        },
+      };
+    }
+    this.articlePreview = this.article.blocks.map(
+      (block: ArdonArticleBlockInterface) =>
+        this.renderDictionary2[block.type](block),
+    );
+  }
 
   public updateArticle() {
     this.article.themeImageSrc = '';
@@ -69,8 +126,6 @@ export class EditorService {
     if (this.themeBox.length > 0 && this.themeBox[0].type === 'image') {
       this.article.themeImageSrc = this.themeBox[0].content.imageSrc;
     }
-
-    console.log('ARTICLE AFTER UPDATE', this.article);
   }
 
   downloadObjectAsJson(exportObj: ArdonArticleInterface, exportName: string) {

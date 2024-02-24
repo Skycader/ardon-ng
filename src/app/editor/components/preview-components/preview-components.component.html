@@ -7,7 +7,11 @@
     id="articleConstructor"
     #doneList="cdkDropList"
     [cdkDropListData]="editorService.articlePreview"
-    [cdkDropListConnectedTo]="['availableComponents', 'previewCover']"
+    [cdkDropListConnectedTo]="[
+      'carouselDropList',
+      'availableComponents',
+      'previewCover'
+    ]"
     class="example-list"
     (cdkDropListDropped)="dragList.drop($event)"
   >

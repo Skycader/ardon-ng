@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input } from '@angular/core';
-import { EditBlockType } from '../../models/editorComponent.interface';
+import {
+  EditBlockImageInterface,
+  EditBlockType,
+} from '../../models/editorComponent.interface';
 import { PhotoViewerService } from '../../../ardon-common/services/photo-viewer.service';
 
 @Component({
@@ -8,7 +11,7 @@ import { PhotoViewerService } from '../../../ardon-common/services/photo-viewer.
   styleUrl: './drag-image.component.scss',
 })
 export class DragImageComponent {
-  @Input() item: EditBlockType = {
+  @Input() item: EditBlockImageInterface = {
     title: '',
     type: 'image',
     icon: 'photo',
@@ -20,4 +23,10 @@ export class DragImageComponent {
   @Input() detectChanges: EventEmitter<number> = new EventEmitter();
 
   constructor() { }
+
+  public fillUrl() {
+    this.item.content.imageSrc =
+      'https://static.vecteezy.com/system/resources/previews/001/416/673/original/angular-emblem-white-letter-on-red-vector.jpg';
+    for (let i = 0; i < 2; i++) this.detectChanges.emit(1);
+  }
 }

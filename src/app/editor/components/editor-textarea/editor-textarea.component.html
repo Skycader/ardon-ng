@@ -23,6 +23,7 @@
 ></textarea>
 
 <ardon-drag-image
+  *ngIf="item.type === 'image'"
   class="drag-image"
   [item]="item"
   [detectChanges]="detectChanges"

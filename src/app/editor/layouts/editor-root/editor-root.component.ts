@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ArdonArticleInterface } from '../../../article/models/article.interface';
 import { EditorService } from '../../services/editor.service';
+import { ActivatedRoute } from '@angular/router';
+import _ from 'lodash';
 
 @Component({
   selector: 'ardon-editor-root',
@@ -11,6 +13,6 @@ import { EditorService } from '../../services/editor.service';
 export class EditorRootComponent {
   public tabSelect$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   public article: ArdonArticleInterface = this.editorService.article;
-
+  public found: boolean = true;
   constructor(public editorService: EditorService) { }
 }

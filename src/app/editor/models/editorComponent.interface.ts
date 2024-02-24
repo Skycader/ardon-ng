@@ -15,7 +15,7 @@ interface EditBlockTextInterface {
   };
 }
 
-interface EditBlockImageInterface {
+export interface EditBlockImageInterface {
   title: string;
   type: 'image';
   icon: string;
