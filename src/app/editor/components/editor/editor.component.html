@@ -1,7 +1,12 @@
 <div class="container">
   <div class="heading" *ngIf="displayConfig.title">
     <mat-icon>edit</mat-icon>
-    <input [(ngModel)]="article.heading" />
+
+    <textarea
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="1"
+      [(ngModel)]="article.heading"
+    ></textarea>
   </div>
 
   <br />
