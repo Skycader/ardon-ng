@@ -65,6 +65,16 @@ export class EditorService {
           },
         }
         : null,
+
+    list: (item: EditBlockType) =>
+      item.type === 'list'
+        ? {
+          type: 'list',
+          content: {
+            items: item.content.value?.split('\n'),
+          },
+        }
+        : null,
   };
 
   public renderDictionary2: RenderDictionaryInterface = {
@@ -86,6 +96,16 @@ export class EditorService {
           content: { title: item.content.title },
         }
         : null,
+    list: (item: ArdonArticleBlockInterface) =>
+      item.type === 'list'
+        ? {
+          icon: 'list',
+          title: 'List',
+          type: 'list',
+          content: { value: item.content.items.join('\n') },
+        }
+        : null,
+
     image: (item: ArdonArticleBlockInterface) =>
       item.type === 'image'
         ? {

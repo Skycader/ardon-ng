@@ -29,6 +29,14 @@ export class AvailableComponents {
         },
       },
       {
+        icon: 'list',
+        type: 'list',
+        title: 'List',
+        content: {
+          value: '',
+        },
+      },
+      {
         icon: 'view_carousel',
         type: 'carousel',
         title: 'Carousel',

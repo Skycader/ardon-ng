@@ -22,6 +22,18 @@
   [(ngModel)]="item.content.title"
 ></textarea>
 
+<textarea
+  class="drag-subheading"
+  *ngIf="item.type === 'list'"
+  cdkTextareaAutosize
+  cdkAutosizeMinRows="1"
+  placeholder="Place your list here, line by line"
+  class="col-12"
+  style="height: auto; outline: none; font-size: 1rem"
+  (input)="detectChanges.emit()"
+  [(ngModel)]="item.content.value"
+></textarea>
+
 <ardon-drag-image
   *ngIf="item.type === 'image'"
   class="drag-image"
