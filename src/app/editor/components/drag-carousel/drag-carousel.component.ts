@@ -3,7 +3,7 @@ import {
   EditBlockCarouselInterface,
   EditBlockType,
 } from '../../models/editorComponent.interface';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, delay, delayWhen, tap } from 'rxjs';
 import { DragListService } from '../../services/drag-list.service';
 import { CdkDrag } from '@angular/cdk/drag-drop';
 
@@ -31,8 +31,18 @@ export class DragCarouselComponent {
     return item.data.type === 'image';
   }
   public dropItem(item: any) {
+    this.detectChanges.emit(1);
+    this.updateSlides();
     this.dragList.drop(item);
   }
+
+  public update$ = this.dragList.dropEvent.pipe(
+    delay(10),
+    tap(() => {
+      this.updateSlides();
+      this.detectChanges.emit(1);
+    }),
+  );
 
   ngOnInit() {
     this.detectChanges.subscribe(() => this.updateSlides());
@@ -55,6 +65,7 @@ export class DragCarouselComponent {
   }
 
   updateSlides() {
+    console.log('X', this.carouselComponents$.getValue());
     this.item.content.slides = [];
     this.carouselComponents$
       .getValue()
