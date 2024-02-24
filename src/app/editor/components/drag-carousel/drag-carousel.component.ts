@@ -36,6 +36,22 @@ export class DragCarouselComponent {
 
   ngOnInit() {
     this.detectChanges.subscribe(() => this.updateSlides());
+    this.importSlides();
+  }
+
+  importSlides() {
+    const result: any = this.item.content.slides.map((slide: any) => {
+      return {
+        icon: 'photo',
+        title: 'Image',
+        type: 'image',
+        content: {
+          imageSrc: slide.imageSrc,
+          imageTitle: slide.imageTitle,
+        },
+      };
+    });
+    this.carouselComponents$.next(result);
   }
 
   updateSlides() {

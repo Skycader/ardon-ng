@@ -77,6 +77,39 @@ export class EditorService {
           content: { value: item.content.paragraphs?.join('\n') },
         }
         : null,
+    subheading: (item: ArdonArticleBlockInterface) =>
+      item.type === 'subheading'
+        ? {
+          icon: 'class',
+          title: 'Heading',
+          type: 'subheading',
+          content: { title: item.content.title },
+        }
+        : null,
+    image: (item: ArdonArticleBlockInterface) =>
+      item.type === 'image'
+        ? {
+          icon: 'photo',
+          title: 'Image',
+          type: 'image',
+          content: {
+            imageSrc: item.content.imageSrc,
+            imageTitle: item.content.imageTitle,
+          },
+        }
+        : null,
+    carousel: (item: ArdonArticleBlockInterface) =>
+      item.type === 'carousel'
+        ? {
+          icon: 'view_carousel',
+          title: 'Carousel',
+          type: 'carousel',
+          content: {
+            title: '',
+            slides: item.content.slides,
+          },
+        }
+        : null,
   };
 
   constructor(
@@ -88,8 +121,8 @@ export class EditorService {
       this.article.heading = article.heading;
       this.article.themeImageSrc = article.themeImageSrc;
       this.article.blocks = article.blocks;
-      this.article.blocks = this.article.blocks.filter(
-        (block: any) => block.type === 'text',
+      this.article.blocks = this.article.blocks.filter((block: any) =>
+        Object.keys(this.renderDictionary2).includes(block.type),
       );
       this.importArticle();
     });
