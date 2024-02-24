@@ -20,7 +20,7 @@
 </div>
 
 <ardon-article-view
-  [class.hidden]="(tabSelect$ | async) !== 1"
+  *ngIf="(tabSelect$ | async) === 1"
   [displayConfig]="{ title: false, themeImage: false, content: true }"
   [article]="article"
 />

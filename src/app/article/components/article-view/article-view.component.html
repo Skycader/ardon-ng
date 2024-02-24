@@ -33,9 +33,4 @@
   </div>
 </div>
 
-<ardon-photo-viewer
-  *ngIf="photoViewer.isOpen$ | async"
-  [imageUrl]="photoViewer.src"
-/>
-
 <ardon-article-not-found *ngIf="!found" />

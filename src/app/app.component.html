@@ -13,3 +13,8 @@
   <!--   <div class="h5">Retrying to load config</div> -->
   <!-- </div> -->
 }
+
+<ardon-photo-viewer
+  *ngIf="photoViewer.isOpen$ | async"
+  [imageUrl]="photoViewer.src"
+/>

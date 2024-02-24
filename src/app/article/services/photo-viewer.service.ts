@@ -12,6 +12,7 @@ export class PhotoViewerService {
   constructor() { }
 
   public open(slide: ArdonSlideInterface) {
+    console.log('OPENING');
     this.src = slide.imageSrc;
 
     this.title = slide.imageTitle;

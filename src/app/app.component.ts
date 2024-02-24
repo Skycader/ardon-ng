@@ -5,6 +5,7 @@ import { ArdonConfigInterface } from './ardon-common/models/ardonConfig.interfac
 import { LocalStorageService } from './ardon-core/services/local-storage.service';
 import { ThemeService } from './ardon-core/services/theme.service';
 import { ConfigService } from './ardon-core/services/config.service';
+import { PhotoViewerService } from './article/services/photo-viewer.service';
 
 @Component({
   selector: 'ardon-root',
@@ -22,6 +23,7 @@ export class AppComponent implements OnInit {
     private titleService: Title,
     private themeService: ThemeService,
     private localStorage: LocalStorageService,
+    public photoViewer: PhotoViewerService,
   ) { }
 
   ngOnInit() {
