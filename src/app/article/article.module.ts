@@ -17,7 +17,6 @@ import { SubheadingComponent } from './components/subheading/subheading.componen
 import { ListComponent } from './components/list/list.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { PhotoViewerComponent } from './components/photo-viewer/photo-viewer.component';
 import { ArticleNotFoundComponent } from './components/article-not-found/article-not-found.component';
 const routes: Routes = [
   {
@@ -58,7 +57,6 @@ const routes: Routes = [
     SubheadingComponent,
     ListComponent,
     CarouselComponent,
-    PhotoViewerComponent,
     ArticleNotFoundComponent,
   ],
   imports: [
@@ -81,7 +79,6 @@ const routes: Routes = [
     SubheadingComponent,
     ListComponent,
     CarouselComponent,
-    PhotoViewerComponent,
     ArticleNotFoundComponent,
   ],
 })

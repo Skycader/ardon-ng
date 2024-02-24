@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ArdonSlideInterface } from '../models/article.interface';
+import { ArdonSlideInterface } from '../../article/models/article.interface';
 
 @Injectable({
   providedIn: 'root',

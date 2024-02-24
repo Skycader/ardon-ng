@@ -12,6 +12,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { GetPipe } from './utils/pipes/get.pipe';
+import { PopUpsComponent } from './pop-ups/pop-ups.component';
+import { PhotoViewerComponent } from './components/photo-viewer/photo-viewer.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { GetPipe } from './utils/pipes/get.pipe';
     LoadingBarComponent,
     GetPipe,
     ChipListComponent,
+    PopUpsComponent,
+    PhotoViewerComponent,
   ],
   imports: [MaterialModule, CommonModule, RouterModule],
   exports: [
@@ -35,6 +39,7 @@ import { GetPipe } from './utils/pipes/get.pipe';
     LoadingBarComponent,
     GetPipe,
     ChipListComponent,
+    PopUpsComponent,
   ],
 })
-export class ArdonCommonModule {}
+export class ArdonCommonModule { }
