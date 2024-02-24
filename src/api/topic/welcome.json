@@ -36,6 +36,24 @@
           "text": "Поделиться"
         }
       ]
+    },
+    {
+      "title": "Система полива участка",
+      "subheader": "Услуга",
+      "avatarSrc": "https://i.imgur.com/BcGFe3G.png",
+      "backgroundSrc": "https://i.imgur.com/BcGFe3G.png",
+      "description": "",
+      "buttons": [
+        {
+          "icon": "import_contacts",
+          "text": "Читать",
+          "destination": ["/article", "sistema-poliva-uchastka"]
+        },
+        {
+          "icon": "share",
+          "text": "Поделиться"
+        }
+      ]
     }
   ]
 }
