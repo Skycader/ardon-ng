@@ -21,3 +21,13 @@ textarea {
     width: 100%;
   }
 }
+
+.textarea-container {
+  position: relative;
+  .add-photo {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    cursor: pointer;
+  }
+}

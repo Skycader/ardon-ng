@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input } from '@angular/core';
 import { EditBlockType } from '../../models/editorComponent.interface';
+import { PhotoViewerService } from '../../../ardon-common/services/photo-viewer.service';
 
 @Component({
   selector: 'ardon-drag-image',
@@ -17,4 +18,6 @@ export class DragImageComponent {
     },
   };
   @Input() detectChanges: EventEmitter<number> = new EventEmitter();
+
+  constructor() { }
 }
