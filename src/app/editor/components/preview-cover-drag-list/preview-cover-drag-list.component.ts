@@ -11,11 +11,13 @@ import { EditorService } from '../../services/editor.service';
 export class PreviewCoverDragListComponent {
   constructor(
     public editorService: EditorService,
-    public dragList: DragListService
-  ) {}
+    public dragList: DragListService,
+  ) { }
 
   isPhotoPredicate(item: CdkDrag<EditBlockType>) {
-    return item.data.type === 'image';
+    return (
+      item.data.type === 'image' && this.editorService.themeBox.length === 0
+    );
   }
 
   dropItem(item: any) {

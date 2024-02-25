@@ -65,7 +65,6 @@ export class DragCarouselComponent {
   }
 
   updateSlides() {
-    console.log('X', this.carouselComponents$.getValue());
     this.item.content.slides = [];
     this.carouselComponents$
       .getValue()

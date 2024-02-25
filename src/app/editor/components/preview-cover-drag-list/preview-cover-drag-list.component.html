@@ -2,7 +2,7 @@
   <div
     cdkDropList
     id="previewCover"
-    [cdkDropListEnterPredicate]="isPhotoPredicate"
+    [cdkDropListEnterPredicate]="isPhotoPredicate.bind(this)"
     #doneList="cdkDropList"
     [cdkDropListData]="editorService.themeBox"
     [cdkDropListConnectedTo]="[
