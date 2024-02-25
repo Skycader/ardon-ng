@@ -21,22 +21,12 @@ export class PhotoViewerComponent {
     event.stopPropagation();
   }
   zoom() {
-    this.panzoom.pan(0, 0, { animate: true });
-    this.panzoom.zoom(1.5, { animate: true });
+    this.panzoom.zoom(1.7, { animate: true });
+    this.panzoom.pan(-this.world.nativeElement.width / 5, 0, { animate: true });
   }
+
   initPanzoom() {
     const elem: any = this.world.nativeElement;
-
-    const elementIsVisibleInViewport = (el: any, partiallyVisible = false) => {
-      const { top, left, bottom, right } = el.getBoundingClientRect();
-      const { innerHeight, innerWidth } = window;
-      return partiallyVisible
-        ? ((top > 0 && top < innerHeight) ||
-          (bottom > 0 && bottom < innerHeight)) &&
-        ((left > 0 && left < innerWidth) ||
-          (right > 0 && right < innerWidth))
-        : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
-    };
 
     this.panzoom = Panzoom(elem, {
       maxScale: 100,
@@ -47,7 +37,9 @@ export class PhotoViewerComponent {
       boundsDisabledForZoom: true,
     });
 
-    this.zoom();
+    setTimeout(() => {
+      this.zoom();
+    });
     elem.parentElement.addEventListener('wheel', this.panzoom.zoomWithWheel);
   }
 
@@ -70,7 +62,7 @@ export class PhotoViewerComponent {
     this.title = this.photoViewer.title;
   }
   public scrollCheck: ReturnType<typeof setInterval> | null = null;
-  constructor(public photoViewer: PhotoViewerService) { }
+  constructor(public photoViewer: PhotoViewerService) {}
   ngAfterViewInit() {
     this.initPanzoom();
     ///
