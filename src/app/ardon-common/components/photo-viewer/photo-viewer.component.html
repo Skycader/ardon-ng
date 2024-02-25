@@ -16,6 +16,16 @@
         </button>
         <span>Просмотр фото</span>
         <span class="example-spacer"></span>
+
+        <button
+          mat-icon-button
+          (click)="zoom()"
+          class="example-icon favorite-icon"
+          aria-label="Example icon-button with heart icon"
+        >
+          <mat-icon>center_focus_strong</mat-icon>
+        </button>
+
         <button
           mat-icon-button
           class="example-icon favorite-icon"
@@ -33,8 +43,16 @@
         </button>
       </mat-toolbar>
     </p>
-
-    <img [src]="imageUrl" />
-    <p>{{ title }}</p>
+    <div class="photo-container">
+      <div class="image-viewer" (mousedown)="zoom()" (touchstart)="zoom()">
+        <img
+          #world
+          [src]="imageUrl"
+          (click)="stopPropagation($event)"
+          (touchstart)="stopPropagation($event)"
+        />
+      </div>
+      <p>{{ title }}</p>
+    </div>
   </div>
 </div>
