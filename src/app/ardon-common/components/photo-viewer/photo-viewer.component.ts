@@ -6,7 +6,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { PhotoViewerService } from '../../services/photo-viewer.service';
-
+import $ from 'jquery';
 import Panzoom from '@panzoom/panzoom';
 @Component({
   selector: 'ardon-photo-viewer',
@@ -22,7 +22,11 @@ export class PhotoViewerComponent {
   }
   zoom() {
     this.panzoom.pan(0, 0, { animate: true });
-    this.panzoom.zoom(1.5, { animate: true });
+    this.panzoom.zoom(2, { animate: true });
+
+    var w = $('.container').width();
+    var h = $('.container').height();
+    console.log(w, h);
   }
   initPanzoom() {
     const elem: any = this.world.nativeElement;
