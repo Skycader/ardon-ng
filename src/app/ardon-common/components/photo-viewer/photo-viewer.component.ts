@@ -23,10 +23,6 @@ export class PhotoViewerComponent {
   zoom() {
     this.panzoom.pan(0, 0, { animate: true });
     this.panzoom.zoom(2.8, { animate: true });
-
-    var w = $('.container').width();
-    var h = $('.container').height();
-    console.log(w, h);
   }
   initPanzoom() {
     const elem: any = this.world.nativeElement;
@@ -51,16 +47,8 @@ export class PhotoViewerComponent {
       boundsDisabledForZoom: true,
     });
 
-    document.querySelector('body')?.addEventListener('touchend', () => {
-      this.panzoom.pause();
-    });
-
     this.zoom();
     elem.parentElement.addEventListener('wheel', this.panzoom.zoomWithWheel);
-    elem.addEventListener('panzoomend', (event: any) => {
-      //   console.log(elementIsVisibleInViewport(this.world.nativeElement, true));
-      // if (!elementIsVisibleInViewport(this.world.nativeElement)) this.zoom();
-    });
   }
 
   @Input() imageUrl: string = '';
