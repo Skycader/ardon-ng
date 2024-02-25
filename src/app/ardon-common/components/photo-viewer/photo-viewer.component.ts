@@ -21,7 +21,7 @@ export class PhotoViewerComponent {
     event.stopPropagation();
   }
   zoom() {
-    this.panzoom.zoom(2, { animate: true });
+    this.panzoom.zoom(1.5, { animate: true });
     this.panzoom.pan(0, 0, { animate: true });
   }
 
