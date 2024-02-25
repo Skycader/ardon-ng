@@ -22,7 +22,7 @@ export class PhotoViewerComponent {
   }
   zoom() {
     this.panzoom.pan(0, 0, { animate: true });
-    this.panzoom.zoom(2.8, { animate: true });
+    this.panzoom.zoom(1.5, { animate: true });
   }
   initPanzoom() {
     const elem: any = this.world.nativeElement;
