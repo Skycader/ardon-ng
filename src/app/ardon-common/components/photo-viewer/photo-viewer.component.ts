@@ -21,8 +21,8 @@ export class PhotoViewerComponent {
     event.stopPropagation();
   }
   zoom() {
-    this.panzoom.zoom(1.7, { animate: true });
-    this.panzoom.pan(-this.world.nativeElement.width / 5, 0, { animate: true });
+    this.panzoom.zoom(2, { animate: true });
+    this.panzoom.pan(0, 0, { animate: true });
   }
 
   initPanzoom() {
@@ -31,10 +31,8 @@ export class PhotoViewerComponent {
     this.panzoom = Panzoom(elem, {
       maxScale: 100,
       minScale: 0.5,
-      center: 1,
       bounds: true,
-      boundsPadding: 1,
-      boundsDisabledForZoom: true,
+      fit: 1,
     });
 
     setTimeout(() => {
