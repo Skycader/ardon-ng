@@ -11,10 +11,10 @@
     <a [routerLink]="['/']">
       <span class="logo"
         ><mat-icon>{{
-          configService.config$ | async | get: "appLogo"
+          configService.config$ | async | get : "appLogo"
         }}</mat-icon></span
       >
-      <span> {{ configService.config$ | async | get: "appName" }}</span>
+      <span> {{ configService.config$ | async | get : "appName" }}</span>
     </a>
     <span class="example-spacer"></span>
     <mat-icon class="d-none d-sm-block d-lg-block d-md-block d-xl-block"
@@ -22,20 +22,19 @@
     >
 
     <div class="d-none d-lg-block d-md-block d-xl-block">
-      +7 (963) 168 59-41
+      <a href="tel:+79112868536">+7 911 286-85-36</a>
     </div>
 
-    <button
+    <!-- <button
       mat-icon-button
       (click)="toggleTheme()"
       class="example-icon"
       aria-label="Example icon-button with share icon"
     >
       <mat-icon>settings</mat-icon>
-    </button>
+    </button> -->
 
     <button
-      *ngIf="false"
       mat-icon-button
       (click)="toggleTheme()"
       class="example-icon"
@@ -51,7 +50,8 @@
         class="example-icon"
         aria-label="Example icon-button with share icon"
       >
-        <mat-icon matBadge="8" matBadgeColor="accent">face</mat-icon>
+        <mat-icon matBadgeColor="accent">face</mat-icon>
+        <!-- <mat-icon matBadge="0" matBadgeColor="accent">face</mat-icon> -->
       </button></a
     >
   </mat-toolbar>
