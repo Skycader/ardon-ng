@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { ResolveEnd, ResolveStart, Router, RouterEvent } from '@angular/router';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { ResolveEnd, ResolveStart, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { LoadingBarService } from '../../services/loading-bar.service';
 
 @Component({
   selector: 'ardon-loading-bar',
@@ -10,7 +11,10 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 export class LoadingBarComponent {
   @Input() overrideLoading: boolean = false;
   public loading$ = new BehaviorSubject<boolean>(false);
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    public readonly loadingBarService: LoadingBarService
+  ) {}
 
   public ngOnInit() {
     this.router.events.subscribe((event) => {

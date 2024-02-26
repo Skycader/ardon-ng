@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import _ from 'lodash';
+import { PhotoViewerService } from '../../../ardon-common/services/photo-viewer.service';
 import { ArdonArticleInterface } from '../../models/article.interface';
 import { ArticleService } from '../../services/article.service';
-import { PhotoViewerService } from '../../../ardon-common/services/photo-viewer.service';
 
 @Component({
   selector: 'ardon-article-view',
@@ -26,8 +26,8 @@ export class ArticleViewComponent {
     public articleService: ArticleService,
     public photoViewer: PhotoViewerService,
     public activatedRoute: ActivatedRoute,
-    public router: Router,
-  ) { }
+    public router: Router
+  ) {}
 
   public found = true;
 
