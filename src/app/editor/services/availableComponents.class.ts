@@ -6,7 +6,7 @@ export class AvailableComponents {
       {
         icon: 'assignment',
         type: 'text',
-        title: 'Text',
+        title: 'Текст',
         content: {
           value: '',
         },
@@ -14,7 +14,7 @@ export class AvailableComponents {
       {
         icon: 'class',
         type: 'subheading',
-        title: 'Heading',
+        title: 'Заголовок',
         content: {
           title: '',
         },
@@ -22,7 +22,7 @@ export class AvailableComponents {
       {
         icon: 'photo',
         type: 'image',
-        title: 'Image',
+        title: 'Фото',
         content: {
           imageTitle: '',
           imageSrc: '',
@@ -31,7 +31,7 @@ export class AvailableComponents {
       {
         icon: 'list',
         type: 'list',
-        title: 'List',
+        title: 'Список',
         content: {
           value: '',
         },
@@ -39,7 +39,7 @@ export class AvailableComponents {
       {
         icon: 'view_carousel',
         type: 'carousel',
-        title: 'Carousel',
+        title: 'Карусель',
         content: {
           slides: [],
         },

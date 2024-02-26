@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
     <mat-tab-group (selectedTabChange)="tabSelect$.next($event.index)">
-      <mat-tab label="Edit">
+      <mat-tab label="Редактор">
         <ardon-editor
           [article]="article"
           [displayConfig]="{ title: true, theme: true, content: false }"
         />
       </mat-tab>
-      <mat-tab label="Preview">
+      <mat-tab label="Предпросмотр">
         <div class="preview-container">
           <ardon-article-view
             [displayConfig]="{ title: true, themeImage: true, content: false }"
