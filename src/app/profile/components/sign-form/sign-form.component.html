@@ -1,55 +1,55 @@
 <div class="container">
   <mat-tab-group>
-    <mat-tab label="Sign in">
+    <mat-tab label="Войти">
       <div class="container">
-        <h1><mat-icon>assignment_ind</mat-icon>Sign in</h1>
+        <h1><mat-icon>assignment_ind</mat-icon>Войти</h1>
         <mat-form-field>
-          <mat-label>E-mail</mat-label>
+          <mat-label>Имя пользователя</mat-label>
           <input matInput />
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>Password</mat-label>
+          <mat-label>Пароль</mat-label>
           <input matInput />
         </mat-form-field>
 
         <ardon-captcha-view />
 
         <mat-form-field>
-          <mat-label>Answer the captcha</mat-label>
+          <mat-label>Введите 4 цифры капчи</mat-label>
           <input matInput />
         </mat-form-field>
-        <button mat-raised-button color="primary">Sign in</button>
+        <button mat-raised-button color="primary">Войти</button>
       </div>
     </mat-tab>
-    <mat-tab label="Sign up">
+    <mat-tab label="Зарегестрироваться">
       <div class="container">
-        <h1><mat-icon>assignment_ind</mat-icon>Sign up</h1>
+        <h1><mat-icon>assignment_ind</mat-icon>Зарегестрироваться</h1>
         <form [formGroup]="form" (ngSubmit)="submitForm()">
           <mat-form-field>
-            <mat-label>Username</mat-label>
+            <mat-label>Имя пользователя</mat-label>
             <input matInput formControlName="username" type="text" />
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Password</mat-label>
+            <mat-label>Пароль</mat-label>
             <input matInput formControlName="password" type="password" />
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Password again</mat-label>
+            <mat-label>Ещё раз пароль</mat-label>
             <input matInput formControlName="passwordAgain" type="password" />
           </mat-form-field>
 
           <ardon-captcha-view (captcha)="setCaptcha($event)" />
 
           <mat-form-field>
-            <mat-label>Answer the captcha</mat-label>
+            <mat-label>Введите 4 цифры капчи</mat-label>
             <input matInput formControlName="captchaAnswer" />
           </mat-form-field>
 
           <button mat-raised-button color="primary" type="submit">
-            Sign up
+            Зарегестироваться
           </button>
         </form>
       </div>
