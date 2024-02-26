@@ -10,7 +10,9 @@
     width: fit-content;
     img {
       width: 100%;
-      border-radius: 25px;
+      max-height: 550px;
+      cursor: pointer;
+      border-radius: 10px;
     }
 
     p {

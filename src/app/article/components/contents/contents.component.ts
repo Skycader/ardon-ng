@@ -35,17 +35,12 @@ export class ContentsComponent {
   ];
 
   ngOnChanges() {
-    console.log(
-      this.blocks.filter(
-        (item: ArdonArticleBlockInterface) => item.type === 'subheading',
-      ),
-    );
     this.chapters = this.blocks
       .filter((item: ArdonArticleBlockInterface) => item.type === 'subheading')
       .map((item: ArdonArticleBlockInterface) =>
         item.type === 'subheading'
           ? { name: item.content.title, subname: '' }
-          : { name: 'xxx', subname: '' },
+          : { name: '', subname: '' },
       );
   }
 

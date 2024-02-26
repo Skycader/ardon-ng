@@ -1,7 +1,7 @@
 import { Component, HostListener } from '@angular/core';
-import { ConfigService } from '../../services/config.service';
 import { NavbarService } from '../../services/navbar.service';
 import { ThemeService } from '../../../ardon-core/services/theme.service';
+import { ConfigService } from '../../../ardon-core/services/config.service';
 
 @Component({
   selector: 'ardon-navbar',

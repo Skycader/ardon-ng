@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-import { Observable, map } from 'rxjs';
-import {
-  AdvantageInterface,
-  ArdonConfigInterface,
-} from '../../../ardon-common/models/ardonConfig.interface';
-import { ConfigService } from '../../../ardon-common/services/config.service';
+import { AdvantageInterface } from '../../../ardon-common/models/ardonConfig.interface';
+import { ConfigService } from '../../../ardon-core/services/config.service';
 
 @Component({
   selector: 'ardon-advantages',
@@ -12,10 +8,7 @@ import { ConfigService } from '../../../ardon-common/services/config.service';
   styleUrl: './advantages.component.scss',
 })
 export class AdvantagesComponent {
-  public advantages$: Observable<AdvantageInterface[]> =
-    this.configService.config$.pipe(
-      map((config: ArdonConfigInterface) => config.advantages)
-    );
-
-  constructor(public configService: ConfigService) {}
+  public advantages: AdvantageInterface[] =
+    this.configService.config.advantages;
+  constructor(public configService: ConfigService) { }
 }

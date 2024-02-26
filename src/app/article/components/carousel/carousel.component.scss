@@ -6,7 +6,7 @@
     aspect-ratio: 1;
     background-size: cover;
     background-position: center center;
-    border-radius: 25px;
+    border-radius: 10px;
   }
 }
 .slide:active {
@@ -15,18 +15,19 @@
 
 .slider {
   overflow: hidden;
-  border-radius: 25px;
+  border-radius: 10px;
 }
 
 .img-description {
   width: 100%;
+  font-size: 1rem;
   text-align: center;
 }
 
 mat-icon {
   position: absolute;
   right: 15px;
-  bottom: 40px;
+  top: 12px;
 }
 
 mat-icon {

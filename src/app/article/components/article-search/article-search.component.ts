@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, filter, map } from 'rxjs';
 import {
   ArdonConfigInterface,
   ArticlePreviewInterface,
 } from '../../../ardon-common/models/ardonConfig.interface';
-import { ConfigService } from '../../../ardon-common/services/config.service';
+import { ConfigService } from '../../../ardon-core/services/config.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'ardon-article-search',
@@ -12,11 +13,14 @@ import { ConfigService } from '../../../ardon-common/services/config.service';
   styleUrl: './article-search.component.scss',
 })
 export class ArticleSearchComponent {
-  public value = '';
-  public recentArticles$: Observable<ArticlePreviewInterface[]> =
-    this.configService.config$.pipe(
-      map((config: ArdonConfigInterface) => config.welcomeTopics)
-    );
+  public recentArticles$ = this.http
+    .get<ArticlePreviewInterface[]>('topic/welcome.json')
+    .pipe(map((response: any) => response.articles));
 
-  constructor(public configService: ConfigService) {}
+  public value = '';
+
+  constructor(
+    public configService: ConfigService,
+    private http: HttpClient,
+  ) { }
 }

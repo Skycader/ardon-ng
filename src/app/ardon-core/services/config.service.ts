@@ -1,16 +1,27 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, of, switchMap, tap } from 'rxjs';
-import { environemnt } from '../../../environments/environment';
-import { ArdonConfigInterface } from '../models/ardonConfig.interface';
-import { VersionInterface } from '../models/version.interface';
+import {
+  catchError,
+  debounceTime,
+  delay,
+  exhaustMap,
+  map,
+  of,
+  switchMap,
+  tap,
+} from 'rxjs';
 import { LocalStorageService } from '../../ardon-core/services/local-storage.service';
+import { VersionInterface } from '../../ardon-common/models/version.interface';
+import { ArdonConfigInterface } from '../../ardon-common/models/ardonConfig.interface';
 @Injectable({
   providedIn: 'root',
 })
 export class ConfigService {
+  public get config() {
+    return this.localStorage.getItem('ardon-config');
+  }
   public readonly version$ = this.http
-    .get<VersionInterface>('core/config/version/en.json')
+    .get<VersionInterface>('core/config/version/default.json')
     .pipe(
       map((response: VersionInterface) => {
         this.localStorage.setItem('ardon-version', response.version);
@@ -28,16 +39,17 @@ export class ConfigService {
   );
 
   public readonly configFromServer$ = this.http
-    .get<ArdonConfigInterface>('core/config/en.json')
+    .get<ArdonConfigInterface>('core/config/default.json')
     .pipe(
+      debounceTime(1000),
       tap((ardonConfig: ArdonConfigInterface) => {
-        this.localStorage.setItem('ardon-config', JSON.stringify(ardonConfig));
+        this.localStorage.setItem('ardon-config', ardonConfig);
       }),
     );
   constructor(
     private http: HttpClient,
     private localStorage: LocalStorageService,
-  ) {}
+  ) { }
 
   public config$ = this.needToUpdateConfig$.pipe(
     switchMap((needToUpdate: boolean) => {
@@ -57,7 +69,6 @@ export class ConfigService {
   public localStorageConfig$ = of(this.getConfigFromLocalStorage());
 
   public getConfigFromLocalStorage() {
-    const value = this.localStorage.getItem('ardon-config') || '{}';
-    return JSON.parse(value);
+    return this.localStorage.getItem('ardon-config');
   }
 }

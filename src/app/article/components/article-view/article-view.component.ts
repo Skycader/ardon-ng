@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import _ from 'lodash';
 import { ArdonArticleInterface } from '../../models/article.interface';
 import { ArticleService } from '../../services/article.service';
-import { PhotoViewerService } from '../../services/photo-viewer.service';
+import { PhotoViewerService } from '../../../ardon-common/services/photo-viewer.service';
 
 @Component({
   selector: 'ardon-article-view',

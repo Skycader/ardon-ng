@@ -1,0 +1,48 @@
+<div class="example-container col-12 col-sm-12 col-md-12 col-lg-8">
+  <h2><mat-icon>extension</mat-icon>Article constructor</h2>
+
+  <div
+    cdkDropList
+    [cdkDropListEnterPredicate]="allowAll"
+    id="articleConstructor"
+    #doneList="cdkDropList"
+    [cdkDropListData]="editorService.articlePreview"
+    [cdkDropListConnectedTo]="[
+      'carouselDropList',
+      'availableComponents',
+      'previewCover'
+    ]"
+    class="example-list"
+    (cdkDropListDropped)="dragList.drop($event)"
+  >
+    @for (item of editorService.articlePreview; track item) {
+      <mat-toolbar class="example-box" cdkDrag [cdkDragData]="item">
+        <div *cdkDragPreview class="drag-preview">
+          <mat-icon>{{ item.icon }}</mat-icon>
+        </div>
+
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+
+        <div class="container">
+          <div class="row">
+            <div class="preview col-10 col-lg-11">
+              <div class="component">
+                <mat-icon>{{ item.icon }}</mat-icon>
+                <span>{{ item.title }}</span>
+              </div>
+            </div>
+
+            <ardon-drag-handle />
+          </div>
+          <hr />
+          <div class="row" style="height: auto; white-space: normal">
+            <ardon-editor-textarea
+              [item]="item"
+              (detectChanges)="editorService.updateArticle()"
+            />
+          </div>
+        </div>
+      </mat-toolbar>
+    }
+  </div>
+</div>

@@ -1,11 +1,11 @@
 <div class="container">
   <mat-form-field class="search-articles">
-    <mat-label>{{ configService.config$ | async | get : "search" }}</mat-label>
+    <mat-label>{{ configService.config$ | async | get: "search" }}</mat-label>
     <input
       matInput
       type="text"
       placeholder="{{
-        configService.config$ | async | get : 'searchPlaceholder'
+        configService.config$ | async | get: 'searchPlaceholder'
       }}"
       [(ngModel)]="value"
     />
@@ -14,8 +14,7 @@
     </button>
   </mat-form-field>
 
-  <h1>{{ configService.config$ | async | get : "searchArticles" }}</h1>
-
+  <h1>{{ configService.config$ | async | get: "searchArticles" }}</h1>
   <div class="row">
     <div
       *ngFor="let article of recentArticles$ | async"

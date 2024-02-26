@@ -1,0 +1,59 @@
+{
+  "articles": [
+    {
+      "title": "Мощение дорожек и площадок",
+      "subheader": "Услуга",
+      "avatarSrc": "https://st3.stblizko.ru/images/product/343/360/457_big.jpg",
+      "backgroundSrc": "https://i.imgur.com/HsoU7Cd.jpeg",
+
+      "description": "",
+      "buttons": [
+        {
+          "icon": "import_contacts",
+          "text": "Читать",
+          "destination": ["/article", "moshchenie-dorozhek"]
+        },
+        {
+          "icon": "share",
+          "text": "Поделиться"
+        }
+      ]
+    },
+    {
+      "title": "Дренаж и система водоотведения",
+      "subheader": "Услуга",
+      "avatarSrc": "https://i.imgur.com/MfpkMvy.png",
+      "backgroundSrc": "https://i.imgur.com/MfpkMvy.png",
+      "description": "",
+      "buttons": [
+        {
+          "icon": "import_contacts",
+          "text": "Читать",
+          "destination": ["/article", "drenazh-i-sistema-vodootvedeniya"]
+        },
+        {
+          "icon": "share",
+          "text": "Поделиться"
+        }
+      ]
+    },
+    {
+      "title": "Система полива участка",
+      "subheader": "Услуга",
+      "avatarSrc": "https://i.imgur.com/BcGFe3G.png",
+      "backgroundSrc": "https://i.imgur.com/BcGFe3G.png",
+      "description": "",
+      "buttons": [
+        {
+          "icon": "import_contacts",
+          "text": "Читать",
+          "destination": ["/article", "sistema-poliva-uchastka"]
+        },
+        {
+          "icon": "share",
+          "text": "Поделиться"
+        }
+      ]
+    }
+  ]
+}

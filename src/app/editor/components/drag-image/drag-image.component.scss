@@ -1,0 +1,33 @@
+textarea {
+  font-size: 1rem;
+  border: none;
+  background: none;
+  box-sizing: content-box;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.image-preview {
+  min-height: 200px;
+  border: 2px dashed #ccc;
+  padding: 5px;
+
+  img {
+    border-radius: 10px;
+    width: 100%;
+  }
+}
+
+.textarea-container {
+  position: relative;
+  .add-photo {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    cursor: pointer;
+  }
+}

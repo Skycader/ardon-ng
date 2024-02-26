@@ -7,8 +7,8 @@ import { LocalStorageService } from './local-storage.service';
 export class ThemeService {
   private _isDarkTheme = false;
   public get isDarkTheme() {
-    const isDarkTheme = this.localStorage.getItem('ardon-theme');
-    if (isDarkTheme === 'true') this._isDarkTheme = true;
+    const isDarkTheme = this.localStorage.getItem('ardon-dark-theme');
+    if (isDarkTheme) this._isDarkTheme = true;
     return this._isDarkTheme;
   }
 
@@ -24,14 +24,14 @@ export class ThemeService {
   public enableDarkTheme() {
     document.querySelector('body')!.classList.add('dark-theme');
     document.querySelector('body')!.setAttribute('data-bs-theme', 'dark');
-    this.localStorage.setItem('ardon-theme', 'true');
+    this.localStorage.setItem('ardon-dark-theme', 'true');
     this.isDarkTheme = true;
   }
 
   public disableDarkTheme() {
     document.querySelector('body')!.classList.remove('dark-theme');
     document.querySelector('body')!.setAttribute('data-bs-theme', 'light');
-    this.localStorage.removeItem('ardon-theme');
+    this.localStorage.setItem('ardon-dark-theme', 'false');
     this.isDarkTheme = false;
   }
 

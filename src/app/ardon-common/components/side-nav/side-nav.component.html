@@ -6,7 +6,7 @@
 <div class="side-nav" [class.closed]="!isSideNav">
   <mat-toolbar color="secondary">
     <mat-toolbar-row class="navigation">
-      <span>Navigation</span>
+      <span>Навигация</span>
 
       <button
         mat-icon-button
@@ -21,21 +21,19 @@
 
   <div class="side-nav-content bg-body">
     <mat-list>
-      <div mat-subheader>Topics</div>
+      <div mat-subheader>Темы</div>
       @for (folder of folders; track folder) {
         <mat-list-item>
           <mat-icon matListItemIcon>folder</mat-icon>
           <div matListItemTitle>{{ folder.name }}</div>
-          <div matListItemLine>{{ folder.updated | date }}</div>
         </mat-list-item>
       }
       <mat-divider></mat-divider>
-      <div mat-subheader>You may find it interesting</div>
+      <div mat-subheader>Вас может заинтересовать</div>
       @for (note of notes; track note) {
         <mat-list-item>
           <mat-icon matListItemIcon>note</mat-icon>
           <div matListItemTitle>{{ note.name }}</div>
-          <div matListItemLine>{{ note.updated | date }}</div>
         </mat-list-item>
       }
     </mat-list>

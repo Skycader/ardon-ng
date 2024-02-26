@@ -1,0 +1,10 @@
+<div
+  style="width: 30px; margin-bottom: 5px"
+  class="drag-handle col-1"
+  (mouseenter)="preventDrag = false"
+  (touchstart)="preventDrag = false"
+  (mouseleave)="preventDrag = true"
+  (touchend)="preventDrag = true"
+>
+  <mat-icon>menu</mat-icon>
+</div>

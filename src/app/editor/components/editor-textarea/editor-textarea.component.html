@@ -1,5 +1,6 @@
 <textarea
   *ngIf="item.type === 'text'"
+  class="drag-text"
   cdkTextareaAutosize
   cdkAutosizeMinRows="1"
   placeholder="Type here..."
@@ -10,6 +11,7 @@
 ></textarea>
 
 <textarea
+  class="drag-subheading"
   *ngIf="item.type === 'subheading'"
   cdkTextareaAutosize
   cdkAutosizeMinRows="1"
@@ -20,27 +22,27 @@
   [(ngModel)]="item.content.title"
 ></textarea>
 
-<div *ngIf="item.type === 'image'">
-  <div class="title"><mat-icon>photo</mat-icon> <span>Photo url</span></div>
-  <textarea
-    placeholder="Paste url"
-    cdkTextareaAutosize
-    class="col-12"
-    style="height: auto; outline: none; font-size: 1rem"
-    [(ngModel)]="item.content.imageSrc"
-    (input)="detectChanges.emit()"
-  ></textarea>
-  <hr />
-  <div class="title">
-    <mat-icon>assignment</mat-icon> <span>Photo url</span>
-  </div>
+<textarea
+  class="drag-subheading"
+  *ngIf="item.type === 'list'"
+  cdkTextareaAutosize
+  cdkAutosizeMinRows="1"
+  placeholder="Place your list here, line by line"
+  class="col-12"
+  style="height: auto; outline: none; font-size: 1rem"
+  (input)="detectChanges.emit()"
+  [(ngModel)]="item.content.value"
+></textarea>
 
-  <textarea
-    placeholder="Describe photo"
-    cdkTextareaAutosize
-    class="col-12"
-    style="height: auto; outline: none; font-size: 1rem"
-    [(ngModel)]="item.content.imageTitle"
-    (input)="detectChanges.emit()"
-  ></textarea>
-</div>
+<ardon-drag-image
+  *ngIf="item.type === 'image'"
+  class="drag-image"
+  [item]="item"
+  [detectChanges]="detectChanges"
+/>
+
+<ardon-drag-carousel
+  *ngIf="item.type === 'carousel'"
+  [item]="item"
+  [detectChanges]="detectChanges"
+/>

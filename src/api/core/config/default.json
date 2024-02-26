@@ -1,3 +1,36 @@
 {
-  "useLanguage": "ru"
+  "appLanguage": "ru",
+  "appName": "Ваш Ландшафтник",
+  "appLogo": "book",
+  "description": "Старый конь борозды не испортит",
+  "appBackgroundImage": "assets/images/design.jpg",
+  "search": "Поиск услуг",
+  "searchArticles": "Наиболее популярно сейчас",
+  "searchPlaceholder": "Начните поиск...",
+  "startButton": "Узнать больше",
+  "advantages": [
+    {
+      "header": "Преимущество 1",
+      "text": "Здесь более детальное описание"
+    },
+    {
+      "header": "Преимущество 2",
+      "text": "Здесь более детальное описание"
+    },
+    {
+      "header": "Преимущество 3",
+      "text": "Здесь более детальное описание"
+    }
+  ],
+  "rootTopic": "welcome.json",
+  "version": "0.0.1",
+  "lastUpdate": 1708342073255,
+  "releaseYear": "2024",
+  "navigation": {
+    "title": " Навигация",
+    "topics": "Темы",
+    "interesting": "Вас может заинтересовать"
+  },
+  "articleContents": "Содержание",
+  "articleComments": "Комментарии"
 }

@@ -24,7 +24,7 @@ export interface ArdonSliderInterface {
 
 export interface ArdonSlideInterface {
   imageSrc: string;
-  title: string;
+  imageTitle: string;
 }
 
 export interface ArdonListInterface {

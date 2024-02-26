@@ -1,16 +1,50 @@
-import { Component, HostListener, Input } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  ViewChild,
+} from '@angular/core';
 import { PhotoViewerService } from '../../services/photo-viewer.service';
-
+import $ from 'jquery';
+import Panzoom from '@panzoom/panzoom';
 @Component({
   selector: 'ardon-photo-viewer',
   templateUrl: './photo-viewer.component.html',
   styleUrl: './photo-viewer.component.scss',
 })
 export class PhotoViewerComponent {
+  public panzoom: any;
+  @ViewChild('world') world!: ElementRef;
+
+  public stopPropagation(event: any) {
+    event.stopPropagation();
+  }
+  zoom() {
+    this.panzoom.zoom(1.5, { animate: true });
+    this.panzoom.pan(0, 0, { animate: true });
+  }
+
+  initPanzoom() {
+    const elem: any = this.world.nativeElement;
+
+    this.panzoom = Panzoom(elem, {
+      maxScale: 100,
+      minScale: 0.5,
+      bounds: true,
+      fit: 1,
+    });
+
+    setTimeout(() => {
+      this.zoom();
+    });
+    elem.parentElement.addEventListener('wheel', this.panzoom.zoomWithWheel);
+  }
+
   @Input() imageUrl: string = '';
   public title: string = '';
   @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(
-    event: KeyboardEvent
+    event: KeyboardEvent,
   ) {
     this.closePhotoView();
   }
@@ -28,6 +62,8 @@ export class PhotoViewerComponent {
   public scrollCheck: ReturnType<typeof setInterval> | null = null;
   constructor(public photoViewer: PhotoViewerService) {}
   ngAfterViewInit() {
+    this.initPanzoom();
+    ///
     this.scrollCheck = setInterval(() => {
       this.onScroll();
     }, 1000);

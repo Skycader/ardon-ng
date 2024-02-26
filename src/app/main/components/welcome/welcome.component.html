@@ -1,8 +1,8 @@
 <div class="welcome">
   <div class="welcome2" [style.background-image]="bg$ | async"></div>
-  <div class="title">{{ configService.config$ | async | get: "appName" }}</div>
-  <h2>{{ configService.config$ | async | get: "description" }}</h2>
+  <div class="title">{{ configService.config | get : "appName" }}</div>
+  <h2>{{ configService.config | get : "description" }}</h2>
   <button mat-raised-button [routerLink]="['/article']">
-    {{ configService.config$ | async | get: "startButton" }}
+    {{ configService.config | get : "startButton" }}
   </button>
 </div>

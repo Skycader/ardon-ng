@@ -12,7 +12,10 @@ export class LocalStorageService {
 
   public getItem(key: string) {
     if (this.isBrowser) {
-      return localStorage.getItem(key);
+      const item = localStorage.getItem(key);
+      if (!item) return null;
+      if (this.isJson(item)) return JSON.parse(item);
+      return item;
     } else {
       return null;
     }
@@ -20,7 +23,11 @@ export class LocalStorageService {
 
   public setItem(key: string, data: any) {
     if (this.isBrowser) {
-      localStorage.setItem(key, data);
+      if (data instanceof Object) {
+        localStorage.setItem(key, JSON.stringify(data));
+      } else {
+        localStorage.setItem(key, data);
+      }
     }
   }
 
@@ -28,5 +35,15 @@ export class LocalStorageService {
     if (this.isBrowser) {
       localStorage.removeItem(key);
     }
+  }
+
+  public isJson(string: string | null) {
+    if (!string) return false;
+    try {
+      JSON.parse(string);
+    } catch (e) {
+      return false;
+    }
+    return true;
   }
 }
