@@ -9,7 +9,12 @@
       <ardon-contents [blocks]="article.blocks" />
     </div>
     <div class="content col-12 col-md-8 col-lg-8">
-      <div class="article-block" *ngFor="let block of article.blocks">
+      <div
+        class="article-block"
+        *ngFor="let block of article.blocks; let i = index"
+      >
+        <ardon-photo-collage *ngIf="i === 0" />
+
         <ardon-text *ngIf="block.type === 'text'" [content]="block.content" />
         <ardon-subheading
           *ngIf="block.type === 'subheading'"

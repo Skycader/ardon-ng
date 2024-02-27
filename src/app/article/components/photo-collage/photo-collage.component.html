@@ -1,0 +1,20 @@
+<div
+  class="gallery__container"
+  fxLayout="row wrap"
+  [ngStyle]="{
+    'max-width': '1180px',
+    height: '35rem'
+  }"
+>
+  <div
+    class="gallery__image"
+    (click)="openPhoto(image)"
+    *ngFor="let image of images"
+    [fxFlex]="image.grow + ' ' + image.shrink + ' ' + image.basis"
+    [ngStyle]="{
+      background: 'url(' + image.src + ') no-repeat scroll center center',
+      margin: '0.25rem'
+    }"
+  ></div>
+</div>
+<hr />

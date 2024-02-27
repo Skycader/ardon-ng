@@ -6,6 +6,7 @@ import {
 import { BehaviorSubject, delay, delayWhen, tap } from 'rxjs';
 import { DragListService } from '../../services/drag-list.service';
 import { CdkDrag } from '@angular/cdk/drag-drop';
+import { DynemicDragService } from '../../services/dynemic-drag.service';
 
 @Component({
   selector: 'ardon-drag-carousel',
@@ -22,10 +23,13 @@ export class DragCarouselComponent {
     },
   };
   @Input() detectChanges: EventEmitter<number> = new EventEmitter();
-
+  public carouselId: string = '';
   public carouselComponents$ = new BehaviorSubject<EditBlockType[]>([]);
 
-  constructor(private dragList: DragListService) { }
+  constructor(
+    private dragList: DragListService,
+    private dynemicDrag: DynemicDragService,
+  ) { }
 
   isPhotoPredicate(item: CdkDrag<EditBlockType>) {
     return item.data.type === 'image';
@@ -45,6 +49,7 @@ export class DragCarouselComponent {
   );
 
   ngOnInit() {
+    this.carouselId = this.dynemicDrag.generateId('carousel');
     this.detectChanges.subscribe(() => this.updateSlides());
     this.importSlides();
   }
@@ -69,5 +74,9 @@ export class DragCarouselComponent {
     this.carouselComponents$
       .getValue()
       .forEach((item: any) => this.item.content.slides.push(item.content));
+  }
+
+  ngOnDestroy() {
+    this.dynemicDrag.removeId(this.carouselId);
   }
 }

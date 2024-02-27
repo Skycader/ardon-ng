@@ -5,6 +5,7 @@ export type EditBlockType =
   | EditBlockImageInterface
   | EditBlockSubheadingInterface
   | EditBlockListInterface
+  | EditBlockCollageInterface
   | EditBlockCarouselInterface;
 
 interface EditBlockTextInterface {
@@ -41,6 +42,15 @@ interface EditBlockListInterface {
   icon: string;
   content: {
     value: '';
+  };
+}
+
+export interface EditBlockCollageInterface {
+  title: string;
+  type: 'collage';
+  icon: string;
+  content: {
+    photos: ArdonSlideInterface[];
   };
 }
 

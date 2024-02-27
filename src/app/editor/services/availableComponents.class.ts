@@ -37,6 +37,14 @@ export class AvailableComponents {
         },
       },
       {
+        icon: 'dashboard',
+        type: 'collage',
+        title: 'Коллаж',
+        content: {
+          photos: [],
+        },
+      },
+      {
         icon: 'view_carousel',
         type: 'carousel',
         title: 'Карусель',
