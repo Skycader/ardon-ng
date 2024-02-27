@@ -120,7 +120,7 @@ export class EditorService {
           icon: 'dashboard',
           title: 'Коллаж',
           type: 'collage',
-          content: { value: item.content.photos.join('\n') },
+          content: { photos: item.content.photos },
         }
         : null,
 
