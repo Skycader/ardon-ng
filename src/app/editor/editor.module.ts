@@ -23,6 +23,7 @@ import { PreviewCoverComponent } from './components/preview-cover/preview-cover.
 import { EditorLayoutComponent } from './layouts/editor-layout/editor-layout.component';
 import { EditorRootComponent } from './layouts/editor-root/editor-root.component';
 import { DragCarouselComponent } from './components/drag-carousel/drag-carousel.component';
+import { DragCollageComponent } from './components/drag-collage/drag-collage.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,7 @@ const routes: Routes = [
     DragImageComponent,
     PreviewCoverDragListComponent,
     DragCarouselComponent,
+    DragCollageComponent,
   ],
   imports: [
     CommonModule,
@@ -65,4 +67,4 @@ const routes: Routes = [
     RouterModule.forChild(routes),
   ],
 })
-export class EditorModule {}
+export class EditorModule { }

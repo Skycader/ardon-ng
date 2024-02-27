@@ -41,6 +41,12 @@
   [detectChanges]="detectChanges"
 />
 
+<ardon-drag-collage
+  *ngIf="item.type === 'collage'"
+  [item]="item"
+  [detectChanges]="detectChanges"
+/>
+
 <ardon-drag-carousel
   *ngIf="item.type === 'carousel'"
   [item]="item"

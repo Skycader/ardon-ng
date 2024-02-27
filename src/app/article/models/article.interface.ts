@@ -31,6 +31,10 @@ export interface ArdonListInterface {
   items: string[];
 }
 
+export interface ArdonCollageInterface {
+  photos: ArdonSlideInterface[];
+}
+
 interface ArdonChipListInputInterface {
   chips: string[];
 }
@@ -51,6 +55,10 @@ export type ArdonArticleBlockInterface =
   | {
     type: 'list';
     content: ArdonListInterface;
+  }
+  | {
+    type: 'collage';
+    content: ArdonCollageInterface;
   }
   | {
     type: 'carousel';

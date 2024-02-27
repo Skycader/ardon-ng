@@ -14,7 +14,7 @@ import { RenderDictionaryInterface } from '../models/renderDictionary.interface'
 })
 export class EditorService {
   public isPreview$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
-    false
+    false,
   );
 
   public found: boolean = true;
@@ -32,46 +32,56 @@ export class EditorService {
     text: (item: EditBlockType) =>
       item.type === 'text'
         ? {
-            type: 'text',
-            content: { paragraphs: item.content.value?.split('\n') },
-          }
+          type: 'text',
+          content: { paragraphs: item.content.value?.split('\n') },
+        }
         : null,
     subheading: (item: EditBlockType) =>
       item.type === 'subheading'
         ? {
-            type: 'subheading',
-            content: item.content,
-          }
+          type: 'subheading',
+          content: item.content,
+        }
         : null,
     image: (item: EditBlockType) =>
       item.type === 'image'
         ? {
-            type: 'image',
-            content: {
-              imageSrc: item.content.imageSrc,
-              imageTitle: item.content.imageTitle,
-            },
-          }
+          type: 'image',
+          content: {
+            imageSrc: item.content.imageSrc,
+            imageTitle: item.content.imageTitle,
+          },
+        }
         : null,
 
     carousel: (item: EditBlockType) =>
       item.type === 'carousel'
         ? {
-            type: 'carousel',
-            content: {
-              slides: item.content.slides,
-            },
-          }
+          type: 'carousel',
+          content: {
+            slides: item.content.slides,
+          },
+        }
+        : null,
+
+    collage: (item: EditBlockType) =>
+      item.type === 'collage'
+        ? {
+          type: 'collage',
+          content: {
+            photos: item.content.photos,
+          },
+        }
         : null,
 
     list: (item: EditBlockType) =>
       item.type === 'list'
         ? {
-            type: 'list',
-            content: {
-              items: item.content.value?.split('\n'),
-            },
-          }
+          type: 'list',
+          content: {
+            items: item.content.value?.split('\n'),
+          },
+        }
         : null,
   };
 
@@ -79,65 +89,78 @@ export class EditorService {
     text: (item: ArdonArticleBlockInterface) =>
       item.type === 'text'
         ? {
-            icon: 'assignment',
-            title: 'Текст',
-            type: 'text',
-            content: { value: item.content.paragraphs?.join('\n') },
-          }
+          icon: 'assignment',
+          title: 'Текст',
+          type: 'text',
+          content: { value: item.content.paragraphs?.join('\n') },
+        }
         : null,
     subheading: (item: ArdonArticleBlockInterface) =>
       item.type === 'subheading'
         ? {
-            icon: 'class',
-            title: 'Заголовок',
-            type: 'subheading',
-            content: { title: item.content.title },
-          }
+          icon: 'class',
+          title: 'Заголовок',
+          type: 'subheading',
+          content: { title: item.content.title },
+        }
         : null,
     list: (item: ArdonArticleBlockInterface) =>
       item.type === 'list'
         ? {
-            icon: 'list',
-            title: 'Список',
-            type: 'list',
-            content: { value: item.content.items.join('\n') },
-          }
+          icon: 'list',
+          title: 'Список',
+          type: 'list',
+          content: { value: item.content.items.join('\n') },
+        }
+        : null,
+
+    collage: (item: ArdonArticleBlockInterface) =>
+      item.type === 'collage'
+        ? {
+          icon: 'dashboard',
+          title: 'Коллаж',
+          type: 'collage',
+          content: { value: item.content.photos.join('\n') },
+        }
         : null,
 
     image: (item: ArdonArticleBlockInterface) =>
       item.type === 'image'
         ? {
-            icon: 'photo',
-            title: 'Фото',
-            type: 'image',
-            content: {
-              imageSrc: item.content.imageSrc,
-              imageTitle: item.content.imageTitle,
-            },
-          }
+          icon: 'photo',
+          title: 'Фото',
+          type: 'image',
+          content: {
+            imageSrc: item.content.imageSrc,
+            imageTitle: item.content.imageTitle,
+          },
+        }
         : null,
     carousel: (item: ArdonArticleBlockInterface) =>
       item.type === 'carousel'
         ? {
-            icon: 'view_carousel',
-            title: 'Карусель',
-            type: 'carousel',
-            content: {
-              title: '',
-              slides: item.content.slides,
-            },
-          }
+          icon: 'view_carousel',
+          title: 'Карусель',
+          type: 'carousel',
+          content: {
+            title: '',
+            slides: item.content.slides,
+          },
+        }
         : null,
   };
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+  ) {
     const articleName = this.router.url.split('/')[2];
     this.downloadArticle(articleName).subscribe((article: any) => {
       this.article.heading = article.heading;
       this.article.themeImageSrc = article.themeImageSrc;
       this.article.blocks = article.blocks;
       this.article.blocks = this.article.blocks.filter((block: any) =>
-        Object.keys(this.renderDictionary2).includes(block.type)
+        Object.keys(this.renderDictionary2).includes(block.type),
       );
       this.importArticle();
     });
@@ -161,7 +184,7 @@ export class EditorService {
     }
     this.articlePreview = this.article.blocks.map(
       (block: ArdonArticleBlockInterface) =>
-        this.renderDictionary2[block.type](block)
+        this.renderDictionary2[block.type](block),
     );
   }
 

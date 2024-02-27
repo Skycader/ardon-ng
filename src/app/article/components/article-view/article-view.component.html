@@ -13,8 +13,6 @@
         class="article-block"
         *ngFor="let block of article.blocks; let i = index"
       >
-        <ardon-photo-collage *ngIf="i === 0" />
-
         <ardon-text *ngIf="block.type === 'text'" [content]="block.content" />
         <ardon-subheading
           *ngIf="block.type === 'subheading'"
@@ -24,6 +22,11 @@
           *ngIf="block.type === 'list'"
           [content]="block.content"
         ></ardon-list>
+        <ardon-photo-collage
+          *ngIf="block.type === 'collage'"
+          [content]="block.content"
+        />
+
         <ardon-image *ngIf="block.type === 'image'" [content]="block.content" />
         <ardon-chip-list
           *ngIf="block.type === 'chip-list'"

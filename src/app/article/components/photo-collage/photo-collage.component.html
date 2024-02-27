@@ -9,12 +9,12 @@
   <div
     class="gallery__image"
     (click)="openPhoto(image)"
-    *ngFor="let image of images"
-    [fxFlex]="image.grow + ' ' + image.shrink + ' ' + image.basis"
+    *ngFor="let image of content.photos"
+    [fxFlex]="1 + ' ' + 0 + ' ' + 'calc(50% - 0.5rem)'"
     [ngStyle]="{
-      background: 'url(' + image.src + ') no-repeat scroll center center',
+      backgroundImage: 'url(' + image.imageSrc + ')',
+      backgroundSize: 'cover',
       margin: '0.25rem'
     }"
   ></div>
 </div>
-<hr />
