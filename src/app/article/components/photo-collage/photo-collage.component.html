@@ -1,9 +1,9 @@
 <div
   class="gallery__container"
   fxLayout="row wrap"
+  [style.height]="(20 * content.photos.length) / 2 + 'rem'"
   [ngStyle]="{
-    'max-width': '1180px',
-    height: '35rem'
+    'max-width': '1180px'
   }"
 >
   <div
@@ -17,4 +17,29 @@
       margin: '0.25rem'
     }"
   ></div>
+
+  <!--
+  <div
+    class="gallery__image d-block d-sm-none"
+    (click)="openPhoto(image)"
+    *ngFor="let image of content.photos"
+    [fxFlex]="1 + ' ' + 0 + ' ' + 'calc(100% - 0.5rem)'"
+    [ngStyle]="{
+      backgroundImage: 'url(' + image.imageSrc + ')',
+      backgroundSize: 'cover',
+      margin: '0.25rem'
+    }"
+  ></div>
+
+  <div
+    class="gallery__image d-none d-sm-block d-md-block d-lg-block d-xl-block"
+    (click)="openPhoto(image)"
+    *ngFor="let image of content.photos"
+    [fxFlex]="1 + ' ' + 0 + ' ' + 'calc(50% - 0.5rem)'"
+    [ngStyle]="{
+      backgroundImage: 'url(' + image.imageSrc + ')',
+      backgroundSize: 'cover',
+      margin: '0.25rem'
+    }"
+  ></div>-->
 </div>
