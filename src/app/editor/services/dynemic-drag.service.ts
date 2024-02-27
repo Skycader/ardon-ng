@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class DynemicDragService {
   public ids: string[] = [];
-  private debug = true;
+  private debug = false;
   constructor() {
     if (this.debug)
       setInterval(() => {

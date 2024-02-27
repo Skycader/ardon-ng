@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BehaviorSubject, Subscription, map, of, switchMap, tap } from 'rxjs';
+import { Observable, Subject, delay, switchMap, tap } from 'rxjs';
 import { EditBlockType } from '../../models/editorComponent.interface';
 import { DragListService } from '../../services/drag-list.service';
 import { EditorService } from '../../services/editor.service';
@@ -11,22 +11,20 @@ import { DynemicDragService } from '../../services/dynemic-drag.service';
   styleUrl: './available-components.component.scss',
 })
 export class AvailableComponentsComponent {
-  public availableComponents$: BehaviorSubject<EditBlockType[]> =
-    this.dragList.availableComponents$;
+  public availableComponents$: Observable<EditBlockType[]> =
+    this.dragList.availableComponents$.pipe(
+      delay(0),
+      tap(() => {
+        this.updateList();
+      }),
+    );
 
   public connectedTo: string[] = [];
-  public subscription!: Subscription;
   constructor(
     public dragList: DragListService,
     public editorService: EditorService,
     private dynemicDrop: DynemicDragService,
   ) { }
-
-  ngOnInit() {
-    this.subscription = this.dragList.availableComponents$.subscribe(() => {
-      setTimeout(() => this.updateList());
-    });
-  }
 
   public dropItem(item: any) {
     this.dragList.drop(item);
@@ -45,9 +43,5 @@ export class AvailableComponentsComponent {
       this.editorService.article,
       this.editorService.article.heading,
     );
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 }

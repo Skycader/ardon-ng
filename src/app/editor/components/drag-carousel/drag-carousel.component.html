@@ -8,9 +8,7 @@
   class="example-list"
   (cdkDropListDropped)="dropItem($event)"
 >
-  <p class="hint text-secondary p-3">
-    Перетащите сюда фотографии {{ carouselId }}
-  </p>
+  <p class="hint text-secondary p-3">Перетащите сюда фотографии</p>
 
   <hr *ngIf="(carouselComponents$ | async)!.length > 0" />
   @for (picture of carouselComponents$ | async; track item) {
