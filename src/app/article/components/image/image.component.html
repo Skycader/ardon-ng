@@ -9,7 +9,8 @@
   >
     <img
       #img
-      [style.height]="img.naturalHeight + 'px'"
+      [style.width]="windowInnerWidth + 'px'"
+      [style.max-width]="img.naturalWidth + 'px'"
       [style.opacity]="0"
       [src]="content.imageSrc"
       [title]="content.imageTitle"

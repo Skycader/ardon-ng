@@ -14,5 +14,8 @@ export class ImageComponent {
   };
   Math: any;
 
+  public get windowInnerWidth() {
+    return window.innerWidth;
+  }
   constructor(public readonly photoViewer: PhotoViewerService) {}
 }
