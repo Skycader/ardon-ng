@@ -1,4 +1,5 @@
 .article-image {
+  cursor: pointer;
   display: block;
   position: relative;
   width: 100%;
@@ -20,7 +21,6 @@
     img {
       max-width: 100vw;
       max-height: 450px;
-      cursor: pointer;
     }
 
     p {

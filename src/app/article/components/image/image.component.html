@@ -1,4 +1,4 @@
-<div class="article-image">
+<div class="article-image" (click)="photoViewer.open(content)">
   <div
     class="article-image-before"
     [style.background-image]="'url(' + content.imageSrc + ')'"
@@ -11,7 +11,6 @@
       [style.opacity]="0"
       [src]="content.imageSrc"
       [title]="content.imageTitle"
-      (click)="photoViewer.open(content)"
     />
     <p>
       <i>{{ content.imageTitle }}</i>
