@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { NavbarService } from '../../services/navbar.service';
 import { of, switchMap, timer } from 'rxjs';
+import { ThemeService } from '../../../ardon-core/services/theme.service';
 
 export interface Section {
   name: string;
@@ -36,9 +37,16 @@ export class SideNavComponent {
     this.closeSideNav();
   }
 
-  constructor(private navbarService: NavbarService) { }
+  constructor(
+    private navbarService: NavbarService,
+    public readonly themeService: ThemeService,
+  ) { }
 
   public closeSideNav() {
     this.navbarService.closeSideNav();
+  }
+
+  public toggleTheme() {
+    this.themeService.toggleTheme();
   }
 }

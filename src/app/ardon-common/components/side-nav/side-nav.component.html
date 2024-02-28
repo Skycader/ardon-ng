@@ -8,14 +8,26 @@
     <mat-toolbar-row class="navigation">
       <span>Навигация</span>
 
-      <button
-        mat-icon-button
-        class="example-icon"
-        (click)="closeSideNav()"
-        aria-label="Example icon-button with share icon"
-      >
-        <mat-icon>close</mat-icon>
-      </button>
+      <div>
+        <button
+          mat-icon-button
+          (click)="toggleTheme()"
+          class="example-icon"
+          aria-label="Example icon-button with share icon"
+        >
+          <mat-icon *ngIf="!themeService.isDarkTheme">wb_sunny</mat-icon>
+          <mat-icon *ngIf="themeService.isDarkTheme">brightness_2</mat-icon>
+        </button>
+
+        <button
+          mat-icon-button
+          class="example-icon"
+          (click)="closeSideNav()"
+          aria-label="Example icon-button with share icon"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
     </mat-toolbar-row>
   </mat-toolbar>
 

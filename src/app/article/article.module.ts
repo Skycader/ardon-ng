@@ -21,6 +21,7 @@ import { SubheadingComponent } from './components/subheading/subheading.componen
 import { TextComponent } from './components/text/text.component';
 import { ArticleLayoutComponent } from './layouts/article-layout/article-layout.component';
 import { articleResolver } from './utils/resolvers/article.resolver';
+import { SearchResolver } from './utils/resolvers/search.resolver';
 const routes: Routes = [
   {
     path: 'article',
@@ -30,6 +31,9 @@ const routes: Routes = [
         path: 'search',
         component: ArticleSearchComponent,
         pathMatch: 'full',
+        resolve: {
+          articlesList: SearchResolver,
+        },
       },
       {
         path: ':id',
@@ -88,4 +92,4 @@ const routes: Routes = [
     ArticleNotFoundComponent,
   ],
 })
-export class ArticleModule {}
+export class ArticleModule { }
