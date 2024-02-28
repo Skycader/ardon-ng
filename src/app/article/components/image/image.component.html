@@ -1,6 +1,10 @@
 <div class="article-image">
-  <div class="img-container">
+  <div
+    class="img-container"
+    [style.background-image]="'url(' + content.imageSrc + ')'"
+  >
     <img
+      [style.opacity]="0"
       [src]="content.imageSrc"
       [title]="content.imageTitle"
       (click)="photoViewer.open(content)"
@@ -9,6 +13,4 @@
       <i>{{ content.imageTitle }}</i>
     </p>
   </div>
-
-  <p></p>
 </div>
