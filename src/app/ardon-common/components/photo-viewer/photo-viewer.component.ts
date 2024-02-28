@@ -5,9 +5,8 @@ import {
   Input,
   ViewChild,
 } from '@angular/core';
-import { PhotoViewerService } from '../../services/photo-viewer.service';
-import $ from 'jquery';
 import Panzoom from '@panzoom/panzoom';
+import { PhotoViewerService } from '../../services/photo-viewer.service';
 @Component({
   selector: 'ardon-photo-viewer',
   templateUrl: './photo-viewer.component.html',
@@ -21,7 +20,7 @@ export class PhotoViewerComponent {
     event.stopPropagation();
   }
   zoom() {
-    this.panzoom.zoom(1.5, { animate: true });
+    this.panzoom.zoom(2, { animate: true });
     this.panzoom.pan(0, 0, { animate: true });
   }
 
@@ -29,10 +28,10 @@ export class PhotoViewerComponent {
     const elem: any = this.world.nativeElement;
 
     this.panzoom = Panzoom(elem, {
-      maxScale: 100,
-      minScale: 0.5,
+      maxScale: 10,
+      minScale: 1,
       bounds: true,
-      fit: 1,
+      boundsPadding: 1000,
     });
 
     setTimeout(() => {
@@ -44,7 +43,7 @@ export class PhotoViewerComponent {
   @Input() imageUrl: string = '';
   public title: string = '';
   @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(
-    event: KeyboardEvent,
+    event: KeyboardEvent
   ) {
     this.closePhotoView();
   }
