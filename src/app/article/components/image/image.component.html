@@ -1,9 +1,15 @@
 <div class="article-image">
   <div
+    class="article-image-before"
+    [style.background-image]="'url(' + content.imageSrc + ')'"
+  ></div>
+  <div
     class="img-container"
     [style.background-image]="'url(' + content.imageSrc + ')'"
   >
     <img
+      #img
+      [style.height]="img.naturalHeight + 'px'"
       [style.opacity]="0"
       [src]="content.imageSrc"
       [title]="content.imageTitle"

@@ -11,8 +11,11 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { ArticleModule } from '../article/article.module';
 import { MaterialModule } from '../material/material.module';
+import { ArticleCoverListComponent } from './components/article-cover-list/article-cover-list.component';
 import { ArticlePreviewComponent } from './components/article-preview/article-preview.component';
 import { AvailableComponentsComponent } from './components/available-components/available-components.component';
+import { DragCarouselComponent } from './components/drag-carousel/drag-carousel.component';
+import { DragCollageComponent } from './components/drag-collage/drag-collage.component';
 import { DragHandleComponent } from './components/drag-handle/drag-handle.component';
 import { DragImageComponent } from './components/drag-image/drag-image.component';
 import { EditorTextareaComponent } from './components/editor-textarea/editor-textarea.component';
@@ -22,8 +25,6 @@ import { PreviewCoverDragListComponent } from './components/preview-cover-drag-l
 import { PreviewCoverComponent } from './components/preview-cover/preview-cover.component';
 import { EditorLayoutComponent } from './layouts/editor-layout/editor-layout.component';
 import { EditorRootComponent } from './layouts/editor-root/editor-root.component';
-import { DragCarouselComponent } from './components/drag-carousel/drag-carousel.component';
-import { DragCollageComponent } from './components/drag-collage/drag-collage.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,7 @@ const routes: Routes = [
     PreviewCoverDragListComponent,
     DragCarouselComponent,
     DragCollageComponent,
+    ArticleCoverListComponent,
   ],
   imports: [
     CommonModule,
@@ -67,4 +69,4 @@ const routes: Routes = [
     RouterModule.forChild(routes),
   ],
 })
-export class EditorModule { }
+export class EditorModule {}

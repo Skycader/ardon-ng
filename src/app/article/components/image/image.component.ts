@@ -1,9 +1,6 @@
 import { Component, Input } from '@angular/core';
-import {
-  ArdonContentType,
-  ArdonImageBlockInterface,
-} from '../../models/article.interface';
 import { PhotoViewerService } from '../../../ardon-common/services/photo-viewer.service';
+import { ArdonImageBlockInterface } from '../../models/article.interface';
 
 @Component({
   selector: 'ardon-image',
@@ -15,6 +12,7 @@ export class ImageComponent {
     imageSrc: '',
     imageTitle: '',
   };
+  Math: any;
 
-  constructor(public readonly photoViewer: PhotoViewerService) { }
+  constructor(public readonly photoViewer: PhotoViewerService) {}
 }

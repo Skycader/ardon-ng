@@ -27,18 +27,24 @@
         "slides": [
           {
             "imageSrc": "https://i.imgur.com/RNgYMFP.png",
-            "imageTitle": "Система водопровода"
+            "imageTitle": "Накопительные емкости, насосное оборудование и систему управления"
           },
           {
             "imageSrc": "https://i.imgur.com/f1g9PJF.png",
-            "imageTitle": "Дождеватели для орошения газона"
+            "imageTitle": "Система водопровода"
           },
           {
             "imageSrc": "https://i.imgur.com/VawDgus.png",
-            "imageTitle": "Капельный полив для деревьев , кустарников, теплицы."
+            "imageTitle": "Дождеватели для орошения газона"
           },
-          { "imageSrc": "https://i.imgur.com/LmRWfAw.png", "imageTitle": "" },
-          { "imageSrc": "https://i.imgur.com/IJuyFBV.png", "imageTitle": "" }
+          {
+            "imageSrc": "https://i.imgur.com/LmRWfAw.png",
+            "imageTitle": "Капельный полив для деревьев , кустарников, теплицы"
+          },
+          {
+            "imageSrc": "https://i.imgur.com/IJuyFBV.png",
+            "imageTitle": "Капельный полив для деревьев , кустарников, теплицы"
+          }
         ]
       }
     }

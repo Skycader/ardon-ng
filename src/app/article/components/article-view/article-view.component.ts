@@ -18,6 +18,7 @@ export class ArticleViewComponent {
   };
   @Input() article: ArdonArticleInterface = {
     heading: '',
+    coverImageSrc: '',
     themeImageSrc: '',
     blocks: [],
   };
