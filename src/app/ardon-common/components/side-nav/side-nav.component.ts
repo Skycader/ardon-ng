@@ -13,12 +13,12 @@ export interface Section {
   styleUrl: './side-nav.component.scss',
 })
 export class SideNavComponent {
-  folders: Section[] = [
+  topics: Section[] = [
     {
       name: 'Услуги',
     },
   ];
-  notes: Section[] = [
+  articles: Section[] = [
     {
       name: 'Мощение дорожек и площадок',
     },

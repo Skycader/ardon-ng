@@ -44,4 +44,16 @@ export class AvailableComponentsComponent {
       this.editorService.article.heading,
     );
   }
+
+  public read(event: any) {
+    console.log(event);
+    let fileReader = new FileReader();
+    fileReader.onload = (e) => {
+      console.log(fileReader.result);
+      const article = JSON.parse(fileReader.result as string);
+      this.editorService.importArticle(article);
+      console.log(this.editorService.article);
+    };
+    fileReader.readAsText(event.target.files[0]);
+  }
 }

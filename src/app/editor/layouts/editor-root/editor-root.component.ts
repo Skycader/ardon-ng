@@ -12,5 +12,5 @@ export class EditorRootComponent {
   public tabSelect$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   public article: ArdonArticleInterface = this.editorService.article;
   public found: boolean = true;
-  constructor(public editorService: EditorService) {}
+  constructor(public editorService: EditorService) { }
 }

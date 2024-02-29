@@ -1,7 +1,7 @@
 <div class="col-12">
   <div
     cdkDropList
-    id="previewCover"
+    id="articleCover"
     #doneList="cdkDropList"
     [cdkDropListData]="articleCardComponents"
     [cdkDropListConnectedTo]="[
@@ -13,38 +13,38 @@
     (cdkDropListDropped)="dropItem($event)"
   >
     @for (item of articleCardComponents; track item) {
-    <mat-toolbar
-      class="example-box"
-      cdkDrag
-      [cdkDragData]="item"
-      [cdkDragDisabled]="true"
-    >
-      <div *cdkDragPreview class="drag-preview">
-        <mat-icon>{{ item.icon }}</mat-icon>
-      </div>
+      <mat-toolbar
+        class="example-box"
+        cdkDrag
+        [cdkDragData]="item"
+        [cdkDragDisabled]="true"
+      >
+        <div *cdkDragPreview class="drag-preview">
+          <mat-icon>{{ item.icon }}</mat-icon>
+        </div>
 
-      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
 
-      <div class="container">
-        <div class="row">
-          <div class="preview col-10 col-lg-11">
-            <div class="component">
-              <mat-icon>{{ item.icon }}</mat-icon>
-              <span>{{ item.title }}</span>
+        <div class="container">
+          <div class="row">
+            <div class="preview col-10 col-lg-11">
+              <div class="component">
+                <mat-icon>{{ item.icon }}</mat-icon>
+                <span>{{ item.title }}</span>
+              </div>
             </div>
-          </div>
 
-          <!-- <ardon-drag-handle cdkDragHandle /> -->
+            <!-- <ardon-drag-handle cdkDragHandle /> -->
+          </div>
+          <hr />
+          <div class="row" style="height: auto; white-space: normal">
+            <ardon-editor-textarea
+              [item]="item"
+              (detectChanges)="editorService.updateArticle()"
+            />
+          </div>
         </div>
-        <hr />
-        <div class="row" style="height: auto; white-space: normal">
-          <ardon-editor-textarea
-            [item]="item"
-            (detectChanges)="editorService.updateArticle()"
-          />
-        </div>
-      </div>
-    </mat-toolbar>
+      </mat-toolbar>
     }
   </div>
 </div>

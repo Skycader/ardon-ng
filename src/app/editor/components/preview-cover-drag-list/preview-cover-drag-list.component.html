@@ -3,7 +3,6 @@
     cdkDropList
     id="previewCover"
     [cdkDropListEnterPredicate]="isPhotoPredicate.bind(this)"
-    #doneList="cdkDropList"
     [cdkDropListData]="editorService.themeBox"
     [cdkDropListConnectedTo]="[
       'availableComponents',

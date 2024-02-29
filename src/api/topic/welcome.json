@@ -72,6 +72,24 @@
           "text": "Поделиться"
         }
       ]
+    },
+    {
+      "title": "Освещение участка",
+      "subheader": "Услуга",
+      "avatarSrc": "https://i.imgur.com/wYZFhsw.png",
+      "backgroundSrc": "https://i.imgur.com/wYZFhsw.png",
+      "description": "",
+      "buttons": [
+        {
+          "icon": "import_contacts",
+          "text": "Читать",
+          "destination": ["/article", "osveshchenie-uchastka"]
+        },
+        {
+          "icon": "share",
+          "text": "Поделиться"
+        }
+      ]
     }
   ]
 }

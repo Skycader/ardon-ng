@@ -27,8 +27,8 @@ export class ArticleViewComponent {
     public articleService: ArticleService,
     public photoViewer: PhotoViewerService,
     public activatedRoute: ActivatedRoute,
-    public router: Router
-  ) {}
+    public router: Router,
+  ) { }
 
   public found = true;
 
@@ -44,6 +44,9 @@ export class ArticleViewComponent {
     });
   }
 
+  ngOnChanges() {
+    console.log('changes');
+  }
   public renderBlockContent(content: any): any {
     return content;
   }

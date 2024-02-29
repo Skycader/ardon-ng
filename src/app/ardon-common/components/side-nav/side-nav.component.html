@@ -34,7 +34,7 @@
   <div class="side-nav-content bg-body">
     <mat-list>
       <div mat-subheader>Темы</div>
-      @for (folder of folders; track folder) {
+      @for (folder of topics; track folder) {
         <mat-list-item>
           <mat-icon matListItemIcon>folder</mat-icon>
           <div matListItemTitle>{{ folder.name }}</div>
@@ -42,7 +42,7 @@
       }
       <mat-divider></mat-divider>
       <div mat-subheader>Вас может заинтересовать</div>
-      @for (note of notes; track note) {
+      @for (note of articles; track note) {
         <mat-list-item>
           <mat-icon matListItemIcon>note</mat-icon>
           <div matListItemTitle>{{ note.name }}</div>
