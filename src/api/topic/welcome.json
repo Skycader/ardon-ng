@@ -90,6 +90,24 @@
           "text": "Поделиться"
         }
       ]
+    },
+    {
+      "title": "Рельефные решения",
+      "subheader": "Услуга",
+      "avatarSrc": "https://i.imgur.com/zDc6zYn.png",
+      "backgroundSrc": "https://i.imgur.com/zDc6zYn.png",
+      "description": "",
+      "buttons": [
+        {
+          "icon": "import_contacts",
+          "text": "Читать",
+          "destination": ["/article", "relefnye-resheniya"]
+        },
+        {
+          "icon": "share",
+          "text": "Поделиться"
+        }
+      ]
     }
   ]
 }

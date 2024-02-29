@@ -1,10 +1,25 @@
 import { Component, HostListener } from '@angular/core';
 import { NavbarService } from '../../services/navbar.service';
-import { of, switchMap, timer } from 'rxjs';
+import { map, of, switchMap, timer } from 'rxjs';
 import { ThemeService } from '../../../ardon-core/services/theme.service';
+import { ArticlePreviewInterface } from '../../models/ardonConfig.interface';
+import { HttpClient } from '@angular/common/http';
 
 export interface Section {
   name: string;
+}
+
+export interface ArdonNavList {
+  topic: ArdonNavTopic[];
+  articles: ArdonNavArticle[];
+}
+
+export interface ArdonNavTopic {
+  name: string;
+}
+export interface ArdonNavArticle {
+  name: string;
+  route: string;
 }
 
 @Component({
@@ -13,17 +28,40 @@ export interface Section {
   styleUrl: './side-nav.component.scss',
 })
 export class SideNavComponent {
-  topics: Section[] = [
+  public recentArticles$ = this.http
+    .get<ArticlePreviewInterface[]>('topic/welcome.json')
+    .pipe(map((response: any) => response.articles));
+
+  public lists: ArdonNavList[] = [
     {
-      name: 'Услуги',
+      topic: [
+        {
+          name: 'Основная',
+        },
+      ],
+      articles: [
+        {
+          name: 'О нас',
+          route: 'about',
+        },
+      ],
     },
-  ];
-  articles: Section[] = [
     {
-      name: 'Мощение дорожек и площадок',
-    },
-    {
-      name: 'Дренаж и система водоотведения',
+      topic: [
+        {
+          name: 'Услуги',
+        },
+      ],
+      articles: [
+        {
+          name: 'Мощение дорожек и площадок',
+          route: 'moshchenie-dorozhek',
+        },
+        {
+          name: 'Дренаж и система водоотведения',
+          route: 'drenazh-i-sistema-vodootvedeniya',
+        },
+      ],
     },
   ];
 
@@ -38,6 +76,7 @@ export class SideNavComponent {
   }
 
   constructor(
+    private http: HttpClient,
     private navbarService: NavbarService,
     public readonly themeService: ThemeService,
   ) { }

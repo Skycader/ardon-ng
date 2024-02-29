@@ -30,7 +30,23 @@
   height: 100%;
   border-right: 1px solid rgba(0, 0, 0, 0.12);
 }
-
-mat-list-item {
+mat-list {
+  overflow: hidden;
+}
+.article {
+  margin-left: 10px;
+  transition-duration: 0.3s;
   cursor: pointer !important;
+  transform: translateX(-50px);
+}
+
+.article:hover {
+  margin-left: 10px;
+  cursor: pointer !important;
+  transform: translateX(0px);
+}
+
+.side-nav-footer {
+  position: absolute;
+  bottom: 0px;
 }

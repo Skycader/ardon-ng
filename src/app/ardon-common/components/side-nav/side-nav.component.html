@@ -32,22 +32,48 @@
   </mat-toolbar>
 
   <div class="side-nav-content bg-body">
-    <mat-list>
-      <div mat-subheader>Темы</div>
-      @for (folder of topics; track folder) {
+    <mat-list *ngFor="let list of lists">
+      @for (topic of list.topic; track topic) {
         <mat-list-item>
-          <mat-icon matListItemIcon>folder</mat-icon>
-          <div matListItemTitle>{{ folder.name }}</div>
+          <mat-icon matListItemIcon>book</mat-icon>
+          <div matListItemTitle>{{ topic.name }}</div>
         </mat-list-item>
       }
+      <!--<mat-divider></mat-divider>-->
+      @for (article of list.articles; track article) {
+        <mat-list-item
+          class="article"
+          mat-ripple
+          (click)="closeSideNav()"
+          [routerLink]="['article', article.route]"
+        >
+          <mat-icon matListItemIcon>label</mat-icon>
+
+          <mat-icon matListItemIcon>description</mat-icon>
+
+          <div matListItemTitle>
+            {{ article.name }}
+          </div>
+        </mat-list-item>
+      }
+
       <mat-divider></mat-divider>
-      <div mat-subheader>Вас может заинтересовать</div>
-      @for (note of articles; track note) {
-        <mat-list-item>
-          <mat-icon matListItemIcon>note</mat-icon>
-          <div matListItemTitle>{{ note.name }}</div>
-        </mat-list-item>
-      }
     </mat-list>
   </div>
+
+  <mat-toolbar class="side-nav-footer" color="secondary">
+    <mat-toolbar-row class="navigation">
+      <span>Настройки</span>
+
+      <div>
+        <button
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with share icon"
+        >
+          <mat-icon>settings</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
 </div>
