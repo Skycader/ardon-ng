@@ -1,5 +1,6 @@
 {
   "heading": "Мощение дорожек и площадок",
+  "coverImageSrc": "",
   "themeImageSrc": "https://i.imgur.com/bMLsIRP.jpeg",
   "blocks": [
     {
@@ -69,32 +70,80 @@
       "content": {
         "slides": [
           {
+            "imageSrc": "https://i.imgur.com/HRac597.jpeg",
+            "imageTitle": "Мощение натуральным камнем (плитняком)"
+          },
+          {
+            "imageSrc": "https://i.imgur.com/Lx4lFCI.jpeg",
+            "imageTitle": "Мощение гранитной галтованной брусчаткой"
+          },
+          {
+            "imageSrc": "https://i.imgur.com/Zf6xMLf.jpeg",
+            "imageTitle": "Мощение гранитной колотой брусчаткой"
+          },
+          {
+            "imageSrc": "https://i.imgur.com/7NsiXhA.jpeg",
+            "imageTitle": "Мощение гранитной галтованной брусчаткой"
+          },
+          {
+            "imageSrc": "https://i.imgur.com/9SCJ3wO.jpeg",
+            "imageTitle": "Мощение булыжником и полно-пиленной гранитной брусчаткой"
+          },
+          {
+            "imageSrc": "https://i.imgur.com/gvECM0G.jpeg",
+            "imageTitle": "Мощение булыжником"
+          },
+          {
+            "imageSrc": "https://i.imgur.com/mljthvY.png",
+            "imageTitle": "Мощение булыжником"
+          },
+          {
             "imageTitle": "Мощение натуральным камнем (плитняком)",
-            "imageSrc": "https://i.imgur.com/HRac597.jpeg"
+            "imageSrc": "https://i.imgur.com/nzSS8rV.png"
           },
           {
-            "imageTitle": "Мощение гранитной галтованной брусчаткой",
-            "imageSrc": "https://i.imgur.com/Lx4lFCI.jpeg"
+            "imageTitle": "Пошаговое мощение",
+            "imageSrc": "https://i.imgur.com/MQUtPil.png"
           },
           {
-            "imageTitle": "Мощение  гранитной колотой брусчаткой",
-            "imageSrc": "https://i.imgur.com/Zf6xMLf.jpeg"
+            "imageTitle": "Мощение тротуарной плиткой",
+            "imageSrc": "https://i.imgur.com/KP7wtYU.jpeg"
           },
           {
-            "imageTitle": "Мощение гранитной галтованной брусчаткой",
-            "imageSrc": "https://i.imgur.com/7NsiXhA.jpeg"
+            "imageTitle": "Пошаговое мощение",
+            "imageSrc": "https://i.imgur.com/12hnwLs.png"
+          },
+          {
+            "imageTitle": "Мощение гранитной полно-пиленной, термообработанной брусчаткой",
+            "imageSrc": "https://i.imgur.com/7R5LUGs.png"
+          },
+          {
+            "imageTitle": "Мощение тротуарной плиткой",
+            "imageSrc": "https://i.imgur.com/ITepKkL.jpeg"
+          },
+          {
+            "imageTitle": "Мощение булыжником",
+            "imageSrc": "https://i.imgur.com/X6dSlyf.png"
           },
           {
             "imageTitle": "Мощение булыжником и полно-пиленной гранитной брусчаткой",
-            "imageSrc": "https://i.imgur.com/9SCJ3wO.jpeg"
+            "imageSrc": "https://i.imgur.com/aIlBMjv.png"
+          },
+          {
+            "imageTitle": "Мощение натуральным камнем (плитняком)",
+            "imageSrc": "https://i.imgur.com/6D8V3tW.png"
+          },
+          {
+            "imageTitle": "Мощение гранитной полно-пиленной, термообработанной брусчаткой",
+            "imageSrc": "https://i.imgur.com/e8h5ida.png"
           },
           {
             "imageTitle": "Мощение булыжником",
-            "imageSrc": "https://i.imgur.com/gvECM0G.jpeg"
+            "imageSrc": "https://i.imgur.com/0svdhgP.jpeg"
           },
           {
-            "imageTitle": "Мощение булыжником",
-            "imageSrc": "https://i.imgur.com/mljthvY.png"
+            "imageTitle": "Мощение тротуарной плиткой соты",
+            "imageSrc": "https://i.imgur.com/zdshRrz.png"
           }
         ]
       }
