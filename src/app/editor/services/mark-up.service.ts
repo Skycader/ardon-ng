@@ -67,6 +67,7 @@ export class MarkUpService {
   }
 
   private unbold = /\*\*\*\*(.*?)\*\*\*\*/g;
+  private unitalic = /\_\_\_\_(.*?)\_\_\_\_/g;
 
   public replaceSelectedText(el: any, text: any) {
     var sel = this.getInputSelection(el),
@@ -78,7 +79,7 @@ export class MarkUpService {
     this.currentTextarea = textarea;
   }
 
-  public render(item: any) {
+  public render(item: any, mode: string) {
     const el: any = window.getSelection()?.anchorNode?.childNodes[0];
 
     if (!el) {
@@ -90,11 +91,15 @@ export class MarkUpService {
       this.snakcBar.inform('Для начала выделите текст');
       return;
     }
-    const rendered = `**${window.getSelection()?.toString()}**`;
+    let rendered = '';
+
+    if (mode === 'bold') rendered = `**${window.getSelection()?.toString()}**`;
+    if (mode === 'italic')
+      rendered = `__${window.getSelection()?.toString()}__`;
     this.replaceSelectedText(el, rendered);
 
-    el.value = el.value.replace();
-    item.content.value = el.value.replace(this.unbold, '$1');
+    el.value = el.value.replace(this.unbold, '$1').replace(this.unitalic, '$1');
+    item.content.value = el.value;
     this.editor.updateArticle();
   }
 }
