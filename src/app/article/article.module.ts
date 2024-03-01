@@ -90,6 +90,7 @@ const routes: Routes = [
     ListComponent,
     CarouselComponent,
     ArticleNotFoundComponent,
+    ArdonCommonModule,
   ],
 })
-export class ArticleModule { }
+export class ArticleModule {}

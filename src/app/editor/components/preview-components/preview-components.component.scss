@@ -36,10 +36,8 @@
 .cdk-drag-preview {
   box-sizing: border-box;
   border-radius: 4px;
-  box-shadow:
-    0 5px 5px -3px rgba(0, 0, 0, 0.2),
-    0 8px 10px 1px rgba(0, 0, 0, 0.14),
-    0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
 .cdk-drag-animating {
@@ -150,4 +148,24 @@ h2 {
   display: flex;
   align-items: center;
   gap: 3px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  cursor: default !important;
+}
+
+mat-icon {
+  cursor: pointer;
+}
+
+ardon-drag-handle {
+  cursor: grab !important;
+}
+
+ardon-drag-handle:active {
+  cursor: grabbing !important;
 }

@@ -10,10 +10,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoadingBarComponent } from './components/loading-bar/loading-bar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { SideNavComponent } from './components/side-nav/side-nav.component';
-import { GetPipe } from './utils/pipes/get.pipe';
-import { PopUpsComponent } from './pop-ups/pop-ups.component';
 import { PhotoViewerComponent } from './components/photo-viewer/photo-viewer.component';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
+import { PopUpsComponent } from './pop-ups/pop-ups.component';
+import { GetPipe } from './utils/pipes/get.pipe';
+import { MarkUpDirective } from './utils/pipes/mark-up.directive';
+import { MarkUpPipe } from './utils/pipes/mark-up.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { PhotoViewerComponent } from './components/photo-viewer/photo-viewer.com
     ChipListComponent,
     PopUpsComponent,
     PhotoViewerComponent,
+    MarkUpPipe,
+    MarkUpDirective,
   ],
   imports: [MaterialModule, CommonModule, RouterModule],
   exports: [
@@ -40,6 +44,8 @@ import { PhotoViewerComponent } from './components/photo-viewer/photo-viewer.com
     GetPipe,
     ChipListComponent,
     PopUpsComponent,
+    MarkUpPipe,
+    MarkUpDirective,
   ],
 })
-export class ArdonCommonModule { }
+export class ArdonCommonModule {}
