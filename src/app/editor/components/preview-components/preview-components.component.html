@@ -30,10 +30,14 @@
               <mat-icon>{{ item.icon }}</mat-icon>
               <span>{{ item.title }}</span>
               <span class="example-spacer"></span>
-              <mat-icon (click)="markUp.render(item, 'bold')"
+              <mat-icon
+                *ngIf="item.type === 'text'"
+                (click)="markUp.render(item, 'bold')"
                 >format_bold</mat-icon
               >
-              <mat-icon (click)="markUp.render(item, 'italic')"
+              <mat-icon
+                *ngIf="item.type === 'text'"
+                (click)="markUp.render(item, 'italic')"
                 >format_italic</mat-icon
               >
             </div>
