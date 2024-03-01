@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { SnackbarService } from '../../../ardon-common/services/snackbar.service';
 import { DragListService } from '../../services/drag-list.service';
 import { EditorService } from '../../services/editor.service';
+import { MarkUpService } from '../../services/mark-up.service';
 
 @Component({
   selector: 'ardon-preview-components',
@@ -11,9 +13,15 @@ export class PreviewComponentsComponent {
   constructor(
     public editorService: EditorService,
     public dragList: DragListService,
-  ) { }
+    public snackBar: SnackbarService,
+    private markUp: MarkUpService
+  ) {}
 
   public allowAll() {
     return true;
+  }
+
+  public makeTextBold() {
+    this.markUp.render();
   }
 }
