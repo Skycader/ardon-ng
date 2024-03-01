@@ -96,6 +96,9 @@ export class MarkUpService {
     if (mode === 'bold') rendered = `**${window.getSelection()?.toString()}**`;
     if (mode === 'italic')
       rendered = `__${window.getSelection()?.toString()}__`;
+    if (mode === 'link')
+      rendered = `[Заголовок ссылки](${window.getSelection()?.toString()})`;
+
     this.replaceSelectedText(el, rendered);
 
     el.value = el.value.replace(this.unbold, '$1').replace(this.unitalic, '$1');

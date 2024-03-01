@@ -40,6 +40,11 @@
                 (click)="markUp.render(item, 'italic')"
                 >format_italic</mat-icon
               >
+              <mat-icon
+                *ngIf="item.type === 'text'"
+                (click)="markUp.render(item, 'link')"
+                >link</mat-icon
+              >
             </div>
           </div>
 
