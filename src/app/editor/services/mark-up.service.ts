@@ -66,6 +66,8 @@ export class MarkUpService {
     };
   }
 
+  private unbold = /\*\*\*\*(.*?)\*\*\*\*/g;
+
   public replaceSelectedText(el: any, text: any) {
     var sel = this.getInputSelection(el),
       val = el.value;
@@ -76,8 +78,8 @@ export class MarkUpService {
     this.currentTextarea = textarea;
   }
 
-  public render() {
-    const el = window.getSelection()?.anchorNode?.childNodes[0];
+  public render(item: any) {
+    const el: any = window.getSelection()?.anchorNode?.childNodes[0];
 
     if (!el) {
       this.snakcBar.inform('Для начала сфокусируйте текстовое поле');
@@ -88,7 +90,11 @@ export class MarkUpService {
       this.snakcBar.inform('Для начала выделите текст');
       return;
     }
-    this.replaceSelectedText(el, `**${window.getSelection()?.toString()}**`);
+    const rendered = `**${window.getSelection()?.toString()}**`;
+    this.replaceSelectedText(el, rendered);
+
+    el.value = el.value.replace();
+    item.content.value = el.value.replace(this.unbold, '$1');
     this.editor.updateArticle();
   }
 }

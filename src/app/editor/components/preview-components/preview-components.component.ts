@@ -14,14 +14,10 @@ export class PreviewComponentsComponent {
     public editorService: EditorService,
     public dragList: DragListService,
     public snackBar: SnackbarService,
-    private markUp: MarkUpService
+    public markUp: MarkUpService
   ) {}
 
   public allowAll() {
     return true;
-  }
-
-  public makeTextBold() {
-    this.markUp.render();
   }
 }

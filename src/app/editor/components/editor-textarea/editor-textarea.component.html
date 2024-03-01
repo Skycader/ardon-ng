@@ -1,6 +1,7 @@
 <textarea
   *ngIf="item.type === 'text'"
   class="drag-text"
+  #text
   cdkTextareaAutosize
   cdkAutosizeMinRows="1"
   placeholder="Начните печатать..."

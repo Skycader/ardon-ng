@@ -11,6 +11,7 @@ import { BehaviorSubject } from 'rxjs';
 import { EditBlockType } from '../../models/editorComponent.interface';
 import { DragListService } from '../../services/drag-list.service';
 import { EditorService } from '../../services/editor.service';
+import { MarkUpService } from '../../services/mark-up.service';
 
 @Component({
   selector: 'ardon-editor-textarea',
@@ -27,7 +28,8 @@ export class EditorTextareaComponent {
 
   constructor(
     private dragList: DragListService,
-    private editor: EditorService
+    private editor: EditorService,
+    private markUp: MarkUpService
   ) {}
 
   public dropItem(item: CdkDragDrop<EditBlockType[]>) {
