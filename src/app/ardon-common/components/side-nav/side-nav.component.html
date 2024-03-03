@@ -11,6 +11,14 @@
       <div>
         <button
           mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with share icon"
+        >
+          <mat-icon>settings</mat-icon>
+        </button>
+
+        <button
+          mat-icon-button
           (click)="toggleTheme()"
           class="example-icon"
           aria-label="Example icon-button with share icon"
@@ -60,20 +68,4 @@
       <mat-divider></mat-divider>
     </mat-list>
   </div>
-
-  <mat-toolbar class="side-nav-footer" color="secondary">
-    <mat-toolbar-row class="navigation">
-      <span>Настройки</span>
-
-      <div>
-        <button
-          mat-icon-button
-          class="example-icon"
-          aria-label="Example icon-button with share icon"
-        >
-          <mat-icon>settings</mat-icon>
-        </button>
-      </div>
-    </mat-toolbar-row>
-  </mat-toolbar>
 </div>
