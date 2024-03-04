@@ -3,29 +3,32 @@
     <mat-tab label="Войти">
       <div class="container">
         <h1><mat-icon>assignment_ind</mat-icon>Войти</h1>
-        <mat-form-field>
-          <mat-label>Имя пользователя</mat-label>
-          <input matInput />
-        </mat-form-field>
+        <form [formGroup]="signInForm" (ngSubmit)="submitSignInForm()">
+          <mat-form-field>
+            <mat-label>Имя пользователя</mat-label>
+            <input matInput formControlName="username" type="text" />
+          </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>Пароль</mat-label>
-          <input matInput />
-        </mat-form-field>
+          <mat-form-field>
+            <mat-label>Пароль</mat-label>
+            <input matInput formControlName="password" type="password" />
+          </mat-form-field>
 
-        <ardon-captcha-view />
+          <ardon-captcha-view (captcha)="setCaptcha($event)" />
 
-        <mat-form-field>
-          <mat-label>Введите 4 цифры капчи</mat-label>
-          <input matInput />
-        </mat-form-field>
-        <button mat-raised-button color="primary">Войти</button>
+          <mat-form-field>
+            <mat-label>Введите 4 цифры капчи</mat-label>
+            <input matInput formControlName="captchaAnswer" />
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" type="submit">Войти</button>
+        </form>
       </div>
     </mat-tab>
     <mat-tab label="Зарегестрироваться">
       <div class="container">
         <h1><mat-icon>assignment_ind</mat-icon>Зарегестрироваться</h1>
-        <form [formGroup]="form" (ngSubmit)="submitForm()">
+        <form [formGroup]="signUpForm" (ngSubmit)="submitSignUpForm()">
           <mat-form-field>
             <mat-label>Имя пользователя</mat-label>
             <input matInput formControlName="username" type="text" />
