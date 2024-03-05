@@ -1,5 +1,6 @@
 <div
   class="gallery__container"
+  [class.flex-column]="content.photos.length === 3"
   fxLayout="row wrap"
   [style.height]="(20 * content.photos.length) / 2 + 'rem'"
   [ngStyle]="{
