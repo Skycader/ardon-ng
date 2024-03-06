@@ -78,6 +78,11 @@ export class DragTableComponent {
       (head: string) => new EditBlockText(head) as EditBlockType,
     );
     this.tableColumns$.next(headers);
+    this.tableRows$.next(
+      new Array(this.item.content.table.length - 1).map(
+        (item) => new EditBlockText(''),
+      ) as EditBlockType[],
+    );
   }
 
   @ViewChild('table') table!: ElementRef;
