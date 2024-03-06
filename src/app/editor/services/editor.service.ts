@@ -160,6 +160,17 @@ export class EditorService {
           },
         }
         : null,
+    table: (item: ArdonArticleBlockInterface) =>
+      item.type === 'table'
+        ? {
+          icon: 'table_chart',
+          title: 'Таблица',
+          type: 'table',
+          content: {
+            table: item.content.table,
+          },
+        }
+        : null,
   };
 
   constructor(

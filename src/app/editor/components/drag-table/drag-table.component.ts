@@ -24,14 +24,9 @@ export class DragTableComponent {
   @Input() item: EditBlockTableInterface = {
     title: 'Таблица',
     type: 'table',
-    icon: 'table_chart',
+    icon: 'table_chat',
     content: {
-      table: [
-        ['#', 'Продукт', 'Цена'],
-        ['1', 'Яблоко', '40 рублей'],
-        ['2', 'Апельсин', '20 рублей'],
-        ['3', 'Томат', '30 рублей'],
-      ],
+      table: [],
     },
   };
   @Input() detectChanges: EventEmitter<number> = new EventEmitter();
@@ -72,6 +67,7 @@ export class DragTableComponent {
   }
 
   importTable() {
+    console.log('this', this);
     let headers = this.item.content.table[0].map(
       (head: string) => new EditBlockText(head) as EditBlockType,
     );

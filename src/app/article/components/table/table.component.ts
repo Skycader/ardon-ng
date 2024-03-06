@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { EditBlockTableInterface } from '../../../editor/models/editorComponent.interface';
 
 const ELEMENT_DATA = [{ номер: 1, продукт: 'Яблоко' }];
 @Component({
@@ -7,11 +8,9 @@ const ELEMENT_DATA = [{ номер: 1, продукт: 'Яблоко' }];
   styleUrl: './table.component.scss',
 })
 export class TableComponent {
-  @Input() item: any = [
-    ['#', 'Продукт', 'Цена'],
-    ['1', 'Яблоко', '40 рублей'],
-    ['2', 'Апельсин', '20 рублей'],
-  ];
+  @Input() item: any = {
+    table: [],
+  };
 
   dataSource: any;
   matrixToObject(matrix: any[][]): object[] {
@@ -30,7 +29,7 @@ export class TableComponent {
   }
 
   ngOnInit() {
+    this.dataSource = this.matrixToObject(this.item.table);
     console.log(this);
-    this.dataSource = this.matrixToObject(this.item);
   }
 }
