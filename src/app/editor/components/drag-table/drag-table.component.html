@@ -54,6 +54,7 @@
   <p class="hint text-secondary p-3">Перетащите сюда ряды</p>
 
   <hr *ngIf="(tableRows$ | async)!.length > 0" />
+
   @for (row of tableRows$ | async; let row_idx = $index; track row) {
   <mat-toolbar class="example-box" cdkDrag [cdkDragData]="row">
     <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
@@ -78,13 +79,11 @@
             [style.width]="
               100 / ((tableColumns$ | async)?.length || 1) - 1 + '%'
             "
-            style="
-              height: auto;
-              outline: none;
-              font-size: 1rem;
-              border: 2px solid red;
-            "
+            style="height: auto; outline: none; font-size: 1rem"
           >
+            <p *ngIf="column.type === 'text' && row_idx === 0">
+              {{ column.content.value }}
+            </p>
             <ardon-editor-textarea
               [item]="{
                 icon: 'assigmnent',
