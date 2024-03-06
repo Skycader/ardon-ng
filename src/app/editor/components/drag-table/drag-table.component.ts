@@ -100,7 +100,11 @@ export class DragTableComponent {
       }
     }
 
-    this.item.content.table = [['Номер', 'Продукт'], ...objs];
+    let headers = this.tableColumns$
+      .getValue()
+      .map((item: any) => item.content.value);
+    console.log(headers);
+    this.item.content.table = [headers, ...objs];
     this.detectChanges.next(1);
     this.edit.updateArticle();
   }
