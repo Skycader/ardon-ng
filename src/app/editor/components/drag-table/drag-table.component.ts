@@ -55,6 +55,7 @@ export class DragTableComponent {
     return item.data.type === 'text';
   }
   public dropItem(item: any) {
+    console.log(item);
     this.detectChanges.emit(1);
     this.updateTable();
     this.dragList.drop(item);
