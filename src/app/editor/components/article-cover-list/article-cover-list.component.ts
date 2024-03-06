@@ -10,29 +10,6 @@ import { EditorService } from '../../services/editor.service';
   styleUrl: './article-cover-list.component.scss',
 })
 export class ArticleCoverListComponent {
-  @Input() articleCardComponents: EditBlockType[] = [
-    {
-      icon: 'assignment',
-      title: 'Тема статьи',
-      type: 'text',
-      content: { value: '' },
-    },
-    {
-      icon: 'photo',
-      type: 'image',
-      title: 'Обложка статьи',
-      content: {
-        imageTitle: '',
-        imageSrc: '',
-      },
-    },
-    {
-      icon: 'assignment',
-      title: 'Микроописание статьи',
-      type: 'text',
-      content: { value: '' },
-    },
-  ];
   constructor(
     public editorService: EditorService,
     public dragList: DragListService,

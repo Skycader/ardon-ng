@@ -6,6 +6,7 @@
       cdkTextareaAutosize
       cdkAutosizeMinRows="1"
       [(ngModel)]="article.heading"
+      (input)="editorService.updateArticleEvent.next(true)"
     ></textarea>
   </div>
 

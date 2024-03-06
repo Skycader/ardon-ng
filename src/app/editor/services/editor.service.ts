@@ -215,7 +215,12 @@ export class EditorService {
   }
 
   public importArticle(article: ArdonArticleInterface) {
+    console.log('got article', article);
     this.article.heading = article.heading;
+    this.article.subheader = article.subheader;
+    console.log('after: ', this.article);
+
+    this.article.coverImageSrc = article.coverImageSrc;
     this.article.themeImageSrc = article.themeImageSrc;
     this.article.blocks = article.blocks;
     this.article.blocks = this.article.blocks.filter((block: any) =>

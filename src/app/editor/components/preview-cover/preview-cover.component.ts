@@ -35,29 +35,7 @@ export class PreviewCoverComponent {
     ],
   };
 
-  @Input() articleCardComponents: EditBlockType[] = [
-    {
-      icon: 'assignment',
-      title: 'Тема статьи',
-      type: 'text',
-      content: { value: '' },
-    },
-    {
-      icon: 'photo',
-      type: 'image',
-      title: 'Обложка статьи',
-      content: {
-        imageTitle: '',
-        imageSrc: '',
-      },
-    },
-    {
-      icon: 'assignment',
-      title: 'Микроописание статьи',
-      type: 'text',
-      content: { value: '' },
-    },
-  ];
+  @Input() articleCardComponents: EditBlockType[] = [];
 
   availableComponents$ = new BehaviorSubject([{}]);
 
@@ -68,6 +46,15 @@ export class PreviewCoverComponent {
     this.editor.updateArticleEvent.subscribe(() => {
       this.updatePreview();
     });
+
+    this.importPreview();
+  }
+
+  public importPreview() {
+    console.log(this.editor.article);
+    if (this.articleCardComponents[0].type === 'text')
+      this.articleCardComponents[0].content.value =
+        this.editor.article.subheader;
   }
 
   public updatePreview() {

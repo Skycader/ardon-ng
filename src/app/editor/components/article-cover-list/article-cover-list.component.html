@@ -3,7 +3,7 @@
     cdkDropList
     id="articleCover"
     #doneList="cdkDropList"
-    [cdkDropListData]="articleCardComponents"
+    [cdkDropListData]="editorService.articleCardComponents"
     [cdkDropListConnectedTo]="[
       'availableComponents',
       'previewCover',
@@ -12,7 +12,7 @@
     class="example-list"
     (cdkDropListDropped)="dropItem($event)"
   >
-    @for (item of articleCardComponents; track item) {
+    @for (item of editorService.articleCardComponents; track item) {
       <mat-toolbar
         class="example-box"
         cdkDrag
