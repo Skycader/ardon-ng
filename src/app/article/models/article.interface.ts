@@ -23,6 +23,13 @@ export interface ArdonSliderInterface {
   slides: ArdonSlideInterface[];
 }
 
+export interface ArdonTableInterface {
+  table: {
+    columns: string[];
+    rows: string[];
+  };
+}
+
 export interface ArdonSlideInterface {
   imageSrc: string;
   imageTitle: string;
@@ -64,6 +71,10 @@ export type ArdonArticleBlockInterface =
   | {
       type: 'carousel';
       content: ArdonSliderInterface;
+    }
+  | {
+      type: 'table';
+      content: ArdonTableInterface;
     }
   | {
       type: 'chip-list';

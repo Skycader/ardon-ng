@@ -22,6 +22,7 @@ import { TextComponent } from './components/text/text.component';
 import { ArticleLayoutComponent } from './layouts/article-layout/article-layout.component';
 import { articleResolver } from './utils/resolvers/article.resolver';
 import { SearchResolver } from './utils/resolvers/search.resolver';
+import { TableComponent } from './components/table/table.component';
 const routes: Routes = [
   {
     path: 'article',
@@ -66,6 +67,7 @@ const routes: Routes = [
     CarouselComponent,
     ArticleNotFoundComponent,
     PhotoCollageComponent,
+    TableComponent,
   ],
   imports: [
     FormsModule,

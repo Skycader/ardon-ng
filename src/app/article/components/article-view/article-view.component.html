@@ -36,6 +36,7 @@
           *ngIf="block.type === 'carousel'"
           [content]="block.content"
         />
+        <ardon-table *ngIf="block.type === 'table'" />
       </div>
     </div>
   </div>

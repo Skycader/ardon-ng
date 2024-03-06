@@ -7,7 +7,8 @@ export type EditBlockType =
   | EditBlockListInterface
   | EditBlockCollageInterface
   | EditBlockCollageInterface
-  | EditBlockCarouselInterface;
+  | EditBlockCarouselInterface
+  | EditBlockTableInterface;
 
 interface EditBlockTextInterface {
   title: string;
@@ -70,5 +71,17 @@ export interface EditBlockCarouselInterface {
   icon: string;
   content: {
     slides: ArdonSlideInterface[];
+  };
+}
+
+export interface EditBlockTableInterface {
+  title: string;
+  type: 'table';
+  icon: string;
+  content: {
+    table: {
+      columns: string[];
+      rows: string[];
+    };
   };
 }

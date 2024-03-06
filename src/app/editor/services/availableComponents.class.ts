@@ -52,6 +52,17 @@ export class AvailableComponents {
           slides: [],
         },
       },
+      {
+        icon: 'table_chart',
+        type: 'table',
+        title: 'Таблица',
+        content: {
+          table: {
+            columns: [],
+            rows: [],
+          },
+        },
+      },
     ];
   }
 }

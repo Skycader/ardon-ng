@@ -1,0 +1,111 @@
+<div
+  cdkDropList
+  *ngIf="item.type === 'table'"
+  [id]="tablelIdColumns"
+  [cdkDropListEnterPredicate]="isTextPredicate"
+  [cdkDropListData]="tableColumns$ | async"
+  [cdkDropListConnectedTo]="['availableComponents']"
+  class="example-list"
+  (cdkDropListDropped)="dropItem($event)"
+>
+  <p class="hint text-secondary p-3">
+    <mat-icon style="transform: translateY(7px)">view_column</mat-icon
+    >Перетащите сюда колонки
+  </p>
+
+  <pre>{{ tableColumns$ | async | json }}</pre>
+
+  <hr *ngIf="(tableColumns$ | async)!.length > 0" />
+  @for (column of tableColumns$ | async; track item) {
+  <mat-toolbar class="example-box" cdkDrag [cdkDragData]="item">
+    <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+
+    <div *cdkDragPreview class="drag-preview">
+      <mat-icon>{{ item.icon }}</mat-icon>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-11">
+          <mat-icon style="transform: translateY(-7px)">view_column</mat-icon>
+          <textarea
+            class="drag-text"
+            #text
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="1"
+            placeholder="Введите наименование колонки"
+            class="col-12"
+            style="border: none; height: auto; outline: none; font-size: 1rem"
+            (input)="detectChanges.emit()"
+          ></textarea>
+        </div>
+        <ardon-drag-handle cdkDragHandle />
+      </div>
+    </div>
+  </mat-toolbar>
+  }
+</div>
+
+<p class="hint text-secondary p-3">
+  <mat-icon style="transform: translateY(7px)">view_module</mat-icon>Перетащите
+  сюда ряды
+</p>
+
+<div
+  cdkDropList
+  *ngIf="item.type === 'table'"
+  [id]="tablelIdRows"
+  [cdkDropListEnterPredicate]="isTextPredicate"
+  [cdkDropListData]="tableRows$ | async"
+  [cdkDropListConnectedTo]="['availableComponents']"
+  class="example-list"
+  (cdkDropListDropped)="dropItem($event)"
+>
+  <p class="hint text-secondary p-3">Перетащите сюда ряды</p>
+
+  <hr *ngIf="(tableRows$ | async)!.length > 0" />
+  @for (row of tableRows$ | async; track item) {
+  <mat-toolbar class="example-box" cdkDrag [cdkDragData]="item">
+    <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+
+    <div *cdkDragPreview class="drag-preview">
+      <mat-icon>{{ item.icon }}</mat-icon>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-11 justify-content-center rows"
+          *ngIf="tableColumns$ | async"
+        >
+          <textarea
+            *ngFor="let item of tableColumns$ | async"
+            class="drag-text border"
+            #text
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="1"
+            [style.minWidth]="'150px'"
+            [style.width]="
+              100 / ((tableColumns$ | async)?.length || 1) - 1 + '%'
+            "
+            style="height: auto; outline: none; font-size: 1rem"
+            (input)="detectChanges.emit()"
+          ></textarea>
+        </div>
+        <div
+          class="col-11 justify-content-center"
+          *ngIf="(tableColumns$ | async)?.length === 0"
+        >
+          <div class="alert alert-warning" role="alert">
+            В таблице отсутствуют колонки!
+          </div>
+        </div>
+
+        <ardon-drag-handle cdkDragHandle />
+      </div>
+    </div>
+  </mat-toolbar>
+  }
+</div>
+
+<span *ngIf="update$ | async"></span>

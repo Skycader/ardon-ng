@@ -25,6 +25,7 @@ import { PreviewCoverDragListComponent } from './components/preview-cover-drag-l
 import { PreviewCoverComponent } from './components/preview-cover/preview-cover.component';
 import { EditorLayoutComponent } from './layouts/editor-layout/editor-layout.component';
 import { EditorRootComponent } from './layouts/editor-root/editor-root.component';
+import { DragTableComponent } from './components/drag-table/drag-table.component';
 
 const routes: Routes = [
   {
@@ -55,6 +56,7 @@ const routes: Routes = [
     DragCarouselComponent,
     DragCollageComponent,
     ArticleCoverListComponent,
+    DragTableComponent,
   ],
   imports: [
     CommonModule,
