@@ -85,7 +85,14 @@
               border: 2px solid red;
             "
           >
-            <ardon-editor-textarea [item]="column" />
+            <ardon-editor-textarea
+              [item]="{
+                icon: 'assigmnent',
+                type: 'text',
+                content: { value: '' },
+                title: 'Текст'
+              }"
+            />
           </div>
         </div>
         <div
