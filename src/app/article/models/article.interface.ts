@@ -1,5 +1,6 @@
 export interface ArdonArticleInterface {
   heading: string;
+  subheader: string;
   coverImageSrc: string;
   themeImageSrc: string;
   blocks: ArdonArticleBlockInterface[];
@@ -49,37 +50,37 @@ interface ArdonChipListInputInterface {
 
 export type ArdonArticleBlockInterface =
   | {
-      type: 'text';
-      content: ArdonTextBlockInterface;
-    }
+    type: 'text';
+    content: ArdonTextBlockInterface;
+  }
   | {
-      type: 'subheading';
-      content: ArdonSubheadingBlockInterface;
-    }
+    type: 'subheading';
+    content: ArdonSubheadingBlockInterface;
+  }
   | {
-      type: 'image';
-      content: ArdonImageBlockInterface;
-    }
+    type: 'image';
+    content: ArdonImageBlockInterface;
+  }
   | {
-      type: 'list';
-      content: ArdonListInterface;
-    }
+    type: 'list';
+    content: ArdonListInterface;
+  }
   | {
-      type: 'collage';
-      content: ArdonCollageInterface;
-    }
+    type: 'collage';
+    content: ArdonCollageInterface;
+  }
   | {
-      type: 'carousel';
-      content: ArdonSliderInterface;
-    }
+    type: 'carousel';
+    content: ArdonSliderInterface;
+  }
   | {
-      type: 'table';
-      content: ArdonTableInterface;
-    }
+    type: 'table';
+    content: ArdonTableInterface;
+  }
   | {
-      type: 'chip-list';
-      content: ArdonChipListInputInterface;
-    };
+    type: 'chip-list';
+    content: ArdonChipListInputInterface;
+  };
 //export type ArdonContentType<T> = T;
 
 export type ArdonAvailableTypes<T> = T extends 'text'

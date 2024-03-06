@@ -1,5 +1,5 @@
 import { CdkDrag } from '@angular/cdk/drag-drop';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { EditBlockType } from '../../models/editorComponent.interface';
 import { DragListService } from '../../services/drag-list.service';
 import { EditorService } from '../../services/editor.service';
@@ -10,7 +10,7 @@ import { EditorService } from '../../services/editor.service';
   styleUrl: './article-cover-list.component.scss',
 })
 export class ArticleCoverListComponent {
-  public articleCardComponents: EditBlockType[] = [
+  @Input() articleCardComponents: EditBlockType[] = [
     {
       icon: 'assignment',
       title: 'Тема статьи',
@@ -35,8 +35,8 @@ export class ArticleCoverListComponent {
   ];
   constructor(
     public editorService: EditorService,
-    public dragList: DragListService
-  ) {}
+    public dragList: DragListService,
+  ) { }
 
   isPhotoPredicate(item: CdkDrag<EditBlockType>) {
     return (

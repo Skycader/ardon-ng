@@ -7,7 +7,9 @@
       </div>
       <br />
 
-      <ardon-article-cover-list />
+      <ardon-article-cover-list
+        [articleCardComponents]="articleCardComponents"
+      />
     </div>
 
     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xs-6">
@@ -17,7 +19,7 @@
       </div>
       <br />
 
-      <ardon-card />
+      <ardon-card [config]="card" />
     </div>
   </div>
   <br />

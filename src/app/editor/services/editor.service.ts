@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import {
   ArdonArticleBlockInterface,
   ArdonArticleInterface,
@@ -17,10 +17,37 @@ export class EditorService {
     false,
   );
 
+  public updateArticleEvent: Subject<boolean> = new Subject<boolean>();
+
+  articleCardComponents: EditBlockType[] = [
+    {
+      icon: 'assignment',
+      title: 'Тема статьи',
+      type: 'text',
+      content: { value: '123' },
+    },
+    {
+      icon: 'photo',
+      type: 'image',
+      title: 'Обложка статьи',
+      content: {
+        imageTitle: '',
+        imageSrc: '',
+      },
+    },
+    {
+      icon: 'assignment',
+      title: 'Микроописание статьи',
+      type: 'text',
+      content: { value: '' },
+    },
+  ];
+
   public found: boolean = true;
 
   public article: ArdonArticleInterface = {
     heading: 'New article',
+    subheader: '',
     coverImageSrc: '',
     themeImageSrc: '',
     blocks: [],
@@ -213,6 +240,8 @@ export class EditorService {
       (block: ArdonArticleBlockInterface) =>
         this.renderDictionary2[block.type](block),
     );
+
+    this.updateArticleEvent.next(true);
   }
 
   public updateArticle() {
@@ -228,6 +257,8 @@ export class EditorService {
     if (this.coverBox.length > 0 && this.coverBox[0].type === 'image') {
       this.article.coverImageSrc = this.coverBox[0].content.imageSrc;
     }
+
+    this.updateArticleEvent.next(true);
   }
 
   downloadObjectAsJson(exportObj: ArdonArticleInterface, exportName: string) {

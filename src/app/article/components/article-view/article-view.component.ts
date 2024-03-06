@@ -18,6 +18,7 @@ export class ArticleViewComponent {
   };
   @Input() article: ArdonArticleInterface = {
     heading: '',
+    subheader: '',
     coverImageSrc: '',
     themeImageSrc: '',
     blocks: [],
@@ -27,8 +28,8 @@ export class ArticleViewComponent {
     public articleService: ArticleService,
     public photoViewer: PhotoViewerService,
     public activatedRoute: ActivatedRoute,
-    public router: Router
-  ) {}
+    public router: Router,
+  ) { }
 
   public found = true;
 
