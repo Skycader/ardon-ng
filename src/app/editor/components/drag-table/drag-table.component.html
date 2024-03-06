@@ -15,24 +15,27 @@
   </p>
 
   <hr *ngIf="(tableColumns$ | async)!.length > 0" />
-  @for (column of tableColumns$ | async; let idx = $index; track item) {
-  <mat-toolbar class="example-box" cdkDrag [cdkDragData]="item">
-    <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+  @for (column of tableColumns$ | async; track column) {
+    <mat-toolbar class="example-box" cdkDrag [cdkDragData]="item">
+      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
 
-    <div *cdkDragPreview class="drag-preview">
-      <mat-icon>{{ item.icon }}</mat-icon>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-11">
-          <mat-icon style="transform: translateY(-7px)">view_column</mat-icon>
-          <ardon-editor-textarea [item]="column" />
-        </div>
-        <ardon-drag-handle cdkDragHandle />
+      <div *cdkDragPreview class="drag-preview">
+        <mat-icon>{{ item.icon }}</mat-icon>
       </div>
-    </div>
-  </mat-toolbar>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-11">
+            <mat-icon style="transform: translateY(-7px)">view_column</mat-icon>
+            <ardon-editor-textarea
+              [item]="column"
+              (detectChanges)="syncTable()"
+            />
+          </div>
+          <ardon-drag-handle cdkDragHandle />
+        </div>
+      </div>
+    </mat-toolbar>
   }
 </div>
 
@@ -42,6 +45,7 @@
 </p>
 
 <div
+  #table
   cdkDropList
   *ngIf="item.type === 'table'"
   [id]="tablelIdRows"
@@ -55,58 +59,62 @@
 
   <hr *ngIf="(tableRows$ | async)!.length > 0" />
 
-  @for (row of tableRows$ | async; let row_idx = $index; track row) {
-  <mat-toolbar class="example-box" cdkDrag [cdkDragData]="row">
-    <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+  @for (row of tableRows$ | async; track row; let row_idx = $index) {
+    <mat-toolbar class="example-box" cdkDrag [cdkDragData]="row">
+      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
 
-    <div *cdkDragPreview class="drag-preview">
-      <mat-icon>{{ item.icon }}</mat-icon>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div
-          class="col-11 justify-content-center rows d-flex"
-          *ngIf="tableRows$ | async"
-        >
-          <div
-            *ngFor="let column of tableColumns$ | async; let column_idx = index"
-            class="drag-text"
-            #text
-            cdkTextareaAutosize
-            cdkAutosizeMinRows="1"
-            [style.minWidth]="'150px'"
-            [style.width]="
-              100 / ((tableColumns$ | async)?.length || 1) - 1 + '%'
-            "
-            style="height: auto; outline: none; font-size: 1rem"
-          >
-            <p *ngIf="column.type === 'text' && row_idx === 0">
-              {{ column.content.value || "⠀" }}
-            </p>
-            <ardon-editor-textarea
-              [item]="{
-                icon: 'assigmnent',
-                type: 'text',
-                content: { value: '' },
-                title: 'Текст'
-              }"
-            />
-          </div>
-        </div>
-        <div
-          class="col-11 justify-content-center"
-          *ngIf="(tableColumns$ | async)?.length === 0"
-        >
-          <div class="alert alert-warning" role="alert">
-            В таблице отсутствуют колонки!
-          </div>
-        </div>
-
-        <ardon-drag-handle cdkDragHandle />
+      <div *cdkDragPreview class="drag-preview">
+        <mat-icon>{{ item.icon }}</mat-icon>
       </div>
-    </div>
-  </mat-toolbar>
+
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-11 justify-content-center rows d-flex"
+            *ngIf="tableRows$ | async"
+          >
+            <div
+              *ngFor="
+                let column of tableColumns$ | async;
+                let column_idx = index
+              "
+              class="drag-text"
+              #text
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="1"
+              [style.minWidth]="'150px'"
+              [style.width]="
+                100 / ((tableColumns$ | async)?.length || 1) - 1 + '%'
+              "
+              style="height: auto; outline: none; font-size: 1rem"
+            >
+              <p *ngIf="column.type === 'text' && row_idx === 0">
+                {{ column.content.value || "⠀" }}
+              </p>
+              <ardon-editor-textarea
+                [item]="{
+                  icon: 'assigmnent',
+                  type: 'text',
+                  content: { value: '' },
+                  title: 'Текст'
+                }"
+                (detectChanges)="syncTable()"
+              />
+            </div>
+          </div>
+          <div
+            class="col-11 justify-content-center"
+            *ngIf="(tableColumns$ | async)?.length === 0"
+          >
+            <div class="alert alert-warning" role="alert">
+              В таблице отсутствуют колонки!
+            </div>
+          </div>
+
+          <ardon-drag-handle cdkDragHandle />
+        </div>
+      </div>
+    </mat-toolbar>
   }
 </div>
 

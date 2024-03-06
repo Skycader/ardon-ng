@@ -8,7 +8,6 @@ export class MarkUpPipe implements PipeTransform {
   private italic = /\_\_(.*?)\_\_/g;
   private link = /\[(.*?)\]\((.*?)\)/g;
   transform(value: string): string {
-    console.log('transform', value);
     return value
       .replace(this.bold, '<b>$1</b>')
       .replace(this.italic, '<i>$1</i>')

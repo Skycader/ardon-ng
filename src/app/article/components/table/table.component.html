@@ -3,12 +3,12 @@
         The actual rendered columns are set as a property on the row definition" -->
 
   <!-- Position Column -->
-  <ng-container *ngFor="let column of item.columns" [matColumnDef]="column">
+  <ng-container *ngFor="let column of item[0]" [matColumnDef]="column">
     <pre>123</pre>
     <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
     <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="item.columns"></tr>
-  <tr mat-row *matRowDef="let row; columns: item.columns"></tr>
+  <tr mat-header-row *matHeaderRowDef="item[0]"></tr>
+  <tr mat-row *matRowDef="let row; columns: item[0]"></tr>
 </table>

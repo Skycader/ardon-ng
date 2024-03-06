@@ -79,10 +79,7 @@ export interface EditBlockTableInterface {
   type: 'table';
   icon: string;
   content: {
-    table: {
-      columns: EditBlockTextInterface[];
-      rows: EditBlockTextInterface[];
-    };
+    table: string[][];
   };
 }
 

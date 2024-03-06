@@ -1,5 +1,18 @@
 import { EditBlockType } from '../models/editorComponent.interface';
 
+export class EditBlockText {
+  icon = 'assignment';
+  type = 'text';
+  title = 'Текст';
+  content = {
+    value: '',
+  };
+
+  constructor(public value: string) {
+    this.content.value = value;
+  }
+}
+
 export class AvailableComponents {
   public get components(): EditBlockType[] {
     return [
@@ -57,10 +70,7 @@ export class AvailableComponents {
         type: 'table',
         title: 'Таблица',
         content: {
-          table: {
-            columns: [],
-            rows: [],
-          },
+          table: [],
         },
       },
     ];

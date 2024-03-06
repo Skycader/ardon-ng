@@ -1,5 +1,11 @@
 import { CdkDrag } from '@angular/cdk/drag-drop';
-import { Component, EventEmitter, Input } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  ViewChild,
+} from '@angular/core';
 import { BehaviorSubject, delay, tap } from 'rxjs';
 import {
   EditBlockTableInterface,
@@ -7,6 +13,7 @@ import {
 } from '../../models/editorComponent.interface';
 import { DragListService } from '../../services/drag-list.service';
 import { DynemicDragService } from '../../services/dynemic-drag.service';
+import { EditBlockText } from '../../services/availableComponents.class';
 
 @Component({
   selector: 'ardon-drag-table',
@@ -19,10 +26,11 @@ export class DragTableComponent {
     type: 'table',
     icon: 'table_chart',
     content: {
-      table: {
-        columns: [],
-        rows: [],
-      },
+      table: [
+        ['#', 'Продукт', 'Цена'],
+        ['1', 'Яблоко', '40 рублей'],
+        ['2', 'Апельсин', '20 рублей'],
+      ],
     },
   };
   @Input() detectChanges: EventEmitter<number> = new EventEmitter();
@@ -34,19 +42,17 @@ export class DragTableComponent {
 
   constructor(
     private dragList: DragListService,
-    private dynemicDrag: DynemicDragService
-  ) {}
-
-  rows: any;
+    private dynemicDrag: DynemicDragService,
+  ) { }
 
   isTextPredicate(item: CdkDrag<EditBlockType>) {
     return item.data.type === 'text';
   }
   public dropItem(item: any) {
-    console.log(item);
     this.detectChanges.emit(1);
     this.updateTable();
     this.dragList.drop(item);
+    this.syncTable();
   }
 
   public update$ = this.dragList.dropEvent.pipe(
@@ -54,7 +60,7 @@ export class DragTableComponent {
     tap(() => {
       this.updateTable();
       this.detectChanges.emit(1);
-    })
+    }),
   );
 
   ngOnInit() {
@@ -65,23 +71,20 @@ export class DragTableComponent {
   }
 
   importTable() {
-    const result: any = this.item.content.table.columns.map((column: any) => {
-      return {
-        icon: 'more_horiz',
-        title: 'Ряд',
-        type: 'table',
-        content: {
-          table: {
-            columns: [],
-            rows: [],
-          },
-        },
-      };
-    });
-    // this.tableComponents$.next(result);
+    let headers = this.item.content.table[0].map(
+      (head: string) => new EditBlockText(head) as EditBlockType,
+    );
+    this.tableColumns$.next(headers);
   }
 
-  updateTable() {}
+  updateTable() { }
+
+  @ViewChild('table') table!: ElementRef;
+  syncTable() {
+    this.table.nativeElement
+      .querySelectorAll('textarea')
+      .forEach((textarea: any) => console.log(textarea.value));
+  }
 
   ngOnDestroy() {
     this.dynemicDrag.removeId(this.tablelIdColumns);
