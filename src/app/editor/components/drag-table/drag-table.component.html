@@ -72,6 +72,8 @@
           <div
             class="col-11 justify-content-center rows d-flex"
             *ngIf="tableRows$ | async"
+            #text
+            id="text"
           >
             <div
               *ngFor="
@@ -79,7 +81,6 @@
                 let column_idx = index
               "
               class="drag-text"
-              #text
               cdkTextareaAutosize
               cdkAutosizeMinRows="1"
               [style.minWidth]="'150px'"
@@ -95,7 +96,9 @@
                 [item]="{
                   icon: 'assigmnent',
                   type: 'text',
-                  content: { value: '' },
+                  content: {
+                    value: ''
+                  },
                   title: 'Текст'
                 }"
                 (detectChanges)="syncTable()"
