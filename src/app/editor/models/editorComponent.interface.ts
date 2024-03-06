@@ -8,7 +8,6 @@ export type EditBlockType =
   | EditBlockCollageInterface
   | EditBlockCollageInterface
   | EditBlockCarouselInterface
-  | EditBlockTableRowInterface
   | EditBlockTableInterface;
 
 interface EditBlockTextInterface {

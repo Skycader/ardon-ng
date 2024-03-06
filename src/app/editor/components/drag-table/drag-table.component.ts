@@ -3,7 +3,6 @@ import { Component, EventEmitter, Input } from '@angular/core';
 import { BehaviorSubject, delay, tap } from 'rxjs';
 import {
   EditBlockTableInterface,
-  EditBlockTableRowInterface,
   EditBlockType,
 } from '../../models/editorComponent.interface';
 import { DragListService } from '../../services/drag-list.service';
@@ -29,26 +28,31 @@ export class DragTableComponent {
   @Input() detectChanges: EventEmitter<number> = new EventEmitter();
   public tablelIdColumns: string = '';
   public tablelIdRows: string = '';
-  public tableAvailableItems$ = new BehaviorSubject<EditBlockType[]>([
-    {
-      type: 'tableRow',
-      icon: 'assigmnent',
-      content: { values: [] },
-      title: ' Ряд',
-    },
-  ]);
 
   public tableColumns$ = new BehaviorSubject<EditBlockType[]>([]);
-  public tableRows$ = new BehaviorSubject<EditBlockTableRowInterface[]>([]);
+  public tableRows$ = new BehaviorSubject<EditBlockType[]>([]);
 
   constructor(
     private dragList: DragListService,
     private dynemicDrag: DynemicDragService
   ) {}
 
+  public rows: any = {};
+  public createRow(row: any) {
+    let obj = {
+      icon: 'assigmnemt',
+      type: 'text',
+      title: 'Текст',
+      content: {
+        value: '',
+      },
+    };
+    this.rows[row] = obj;
+    return obj;
+  }
+
   isTextPredicate(item: CdkDrag<EditBlockType>) {
-    return true;
-    // return item.data.type === 'text';
+    return item.data.type === 'text';
   }
   public dropItem(item: any) {
     this.detectChanges.emit(1);
