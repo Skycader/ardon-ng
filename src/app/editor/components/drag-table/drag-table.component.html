@@ -69,12 +69,7 @@
 
       <div class="container">
         <div class="row">
-          <div
-            class="col-11 justify-content-center rows d-flex"
-            *ngIf="tableRows$ | async"
-            #text
-            id="text"
-          >
+          <div class="col-11 rows d-flex" *ngIf="tableRows$ | async" #text>
             <div
               *ngFor="
                 let column of tableColumns$ | async;
@@ -83,7 +78,7 @@
               class="drag-text"
               cdkTextareaAutosize
               cdkAutosizeMinRows="1"
-              [style.minWidth]="'150px'"
+              [style.minWidth]="'fit-content'"
               [style.width]="
                 100 / ((tableColumns$ | async)?.length || 1) - 1 + '%'
               "
