@@ -14,6 +14,7 @@ import {
 import { DragListService } from '../../services/drag-list.service';
 import { DynemicDragService } from '../../services/dynemic-drag.service';
 import { EditBlockText } from '../../services/availableComponents.class';
+import { EditorService } from '../../services/editor.service';
 
 @Component({
   selector: 'ardon-drag-table',
@@ -38,6 +39,7 @@ export class DragTableComponent {
 
   constructor(
     private dragList: DragListService,
+    private edit: EditorService,
     private dynemicDrag: DynemicDragService,
   ) { }
 
@@ -45,16 +47,21 @@ export class DragTableComponent {
     return item.data.type === 'text';
   }
   public dropItem(item: any) {
-    this.detectChanges.emit(1);
-    this.updateTable();
-    this.dragList.drop(item);
     this.syncTable();
+    this.dragList.drop(item);
+
+    setTimeout(() => {
+      this.detectChanges.emit(1);
+      this.syncTable();
+    });
+    setTimeout(() => {
+      this.detectChanges.emit(1);
+    }, 200);
   }
 
   public update$ = this.dragList.dropEvent.pipe(
     delay(0),
     tap(() => {
-      this.updateTable();
       this.detectChanges.emit(1);
     }),
   );
@@ -62,7 +69,6 @@ export class DragTableComponent {
   ngOnInit() {
     this.tablelIdColumns = this.dynemicDrag.generateId('tableColumns');
     this.tablelIdRows = this.dynemicDrag.generateId('tableRows');
-    this.detectChanges.subscribe(() => this.updateTable());
     this.importTable();
   }
 
@@ -74,13 +80,29 @@ export class DragTableComponent {
     this.tableColumns$.next(headers);
   }
 
-  updateTable() { }
-
   @ViewChild('table') table!: ElementRef;
   syncTable() {
-    this.table.nativeElement
-      .querySelectorAll('textarea')
-      .forEach((textarea: any) => console.log(textarea.value));
+    let textareas = this.table.nativeElement.querySelectorAll('textarea');
+
+    let objs: any = [];
+
+    let rowSize = this.tableColumns$.getValue().length;
+
+    let index = 0;
+    let obj = [];
+    for (let textarea of textareas) {
+      obj.push(textarea.value);
+      index++;
+      if (index === rowSize) {
+        objs.push(obj);
+        obj = [];
+        index = 0;
+      }
+    }
+
+    this.item.content.table = [['Номер', 'Продукт'], ...objs];
+    this.detectChanges.next(1);
+    this.edit.updateArticle();
   }
 
   ngOnDestroy() {
