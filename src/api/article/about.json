@@ -21,6 +21,7 @@
         ]
       }
     },
+    { "type": "text", "content": { "paragraphs": [""] } },
     { "type": "subheading", "content": { "title": "Цены" } },
     {
       "type": "text",
