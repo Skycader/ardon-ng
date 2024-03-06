@@ -34,6 +34,7 @@ export class DragTableComponent {
   public tablelIdColumns: string = '';
   public tablelIdRows: string = '';
 
+  @ViewChild('table') table!: ElementRef;
   public tableColumns$ = new BehaviorSubject<EditBlockType[]>([]);
   public tableRows$ = new BehaviorSubject<EditBlockType[]>([]);
 
@@ -77,15 +78,15 @@ export class DragTableComponent {
     let headers = this.item.content.table[0].map(
       (head: string) => new EditBlockText(head) as EditBlockType,
     );
+
     this.tableColumns$.next(headers);
     this.tableRows$.next(
-      new Array(this.item.content.table.length - 1).map(
-        (item) => new EditBlockText(''),
-      ) as EditBlockType[],
+      this.item.content.table
+        .slice(1)
+        .map((item: any) => new EditBlockText(item)) as EditBlockType[],
     );
   }
 
-  @ViewChild('table') table!: ElementRef;
   syncTable() {
     let textareas = this.table.nativeElement.querySelectorAll('textarea');
 
@@ -117,5 +118,22 @@ export class DragTableComponent {
   ngOnDestroy() {
     this.dynemicDrag.removeId(this.tablelIdColumns);
     this.dynemicDrag.removeId(this.tablelIdRows);
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => this.importTableDOM());
+  }
+
+  importTableDOM() {
+    let textareas = this.table.nativeElement.querySelectorAll('textarea');
+
+    let objs: any = [];
+
+    let rowSize = this.tableColumns$.getValue().length;
+    let index = 0;
+    for (let textarea of textareas) {
+      textarea.value = this.item.content.table.slice(1).flat()[index];
+      index++;
+    }
   }
 }
