@@ -82,7 +82,7 @@
             style="height: auto; outline: none; font-size: 1rem"
           >
             <p *ngIf="column.type === 'text' && row_idx === 0">
-              {{ column.content.value }}
+              {{ column.content.value || "⠀" }}
             </p>
             <ardon-editor-textarea
               [item]="{

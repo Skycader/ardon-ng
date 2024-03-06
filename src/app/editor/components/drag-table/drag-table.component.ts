@@ -37,19 +37,7 @@ export class DragTableComponent {
     private dynemicDrag: DynemicDragService
   ) {}
 
-  public rows: any = {};
-  public createRow(row: any) {
-    let obj = {
-      icon: 'assigmnemt',
-      type: 'text',
-      title: 'Текст',
-      content: {
-        value: '',
-      },
-    };
-    this.rows[row] = obj;
-    return obj;
-  }
+  rows: any;
 
   isTextPredicate(item: CdkDrag<EditBlockType>) {
     return item.data.type === 'text';
@@ -70,8 +58,8 @@ export class DragTableComponent {
   );
 
   ngOnInit() {
-    this.tablelIdColumns = this.dynemicDrag.generateId('table');
-    this.tablelIdRows = this.dynemicDrag.generateId('table');
+    this.tablelIdColumns = this.dynemicDrag.generateId('tableColumns');
+    this.tablelIdRows = this.dynemicDrag.generateId('tableRows');
     this.detectChanges.subscribe(() => this.updateTable());
     this.importTable();
   }
