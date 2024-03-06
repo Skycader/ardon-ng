@@ -24,7 +24,7 @@ export class EditorService {
       icon: 'assignment',
       title: 'Тема статьи',
       type: 'text',
-      content: { value: '123' },
+      content: { value: '' },
     },
     {
       icon: 'photo',
@@ -215,11 +215,8 @@ export class EditorService {
   }
 
   public importArticle(article: ArdonArticleInterface) {
-    console.log('got article', article);
     this.article.heading = article.heading;
     this.article.subheader = article.subheader;
-    console.log('after: ', this.article);
-
     this.article.coverImageSrc = article.coverImageSrc;
     this.article.themeImageSrc = article.themeImageSrc;
     this.article.blocks = article.blocks;

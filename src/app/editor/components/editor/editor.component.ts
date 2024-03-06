@@ -22,25 +22,6 @@ export class EditorComponent {
     content: true,
   };
 
-  public card = {
-    title: '',
-    subheader: '',
-    avatarSrc: '',
-    backgroundSrc: '',
-    description: '',
-    buttons: [
-      {
-        icon: 'import_contacts',
-        text: 'Читать',
-        destination: [],
-      },
-      {
-        icon: 'share',
-        text: 'Поделиться',
-      },
-    ],
-  };
-
   @HostBinding('class.grabbing') grabbing: boolean = false;
 
   constructor(public editorService: EditorService) { }

@@ -16,7 +16,7 @@ import { EditorService } from '../../services/editor.service';
 })
 export class PreviewCoverComponent {
   @Input() theme: string = '';
-  @Input() card: CardConfigInterface = {
+  card: CardConfigInterface = {
     title: this.editor.article.heading,
     subheader: '',
     avatarSrc: '',
@@ -35,7 +35,7 @@ export class PreviewCoverComponent {
     ],
   };
 
-  @Input() articleCardComponents: EditBlockType[] = [];
+  public articleCardComponents: EditBlockType[] = [];
 
   availableComponents$ = new BehaviorSubject([{}]);
 
@@ -46,15 +46,6 @@ export class PreviewCoverComponent {
     this.editor.updateArticleEvent.subscribe(() => {
       this.updatePreview();
     });
-
-    this.importPreview();
-  }
-
-  public importPreview() {
-    console.log(this.editor.article);
-    if (this.articleCardComponents[0].type === 'text')
-      this.articleCardComponents[0].content.value =
-        this.editor.article.subheader;
   }
 
   public updatePreview() {
