@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input } from '@angular/core';
 import { BehaviorSubject, delay, tap } from 'rxjs';
 import {
   EditBlockTableInterface,
+  EditBlockTableRowInterface,
   EditBlockType,
 } from '../../models/editorComponent.interface';
 import { DragListService } from '../../services/drag-list.service';
@@ -15,9 +16,9 @@ import { DynemicDragService } from '../../services/dynemic-drag.service';
 })
 export class DragTableComponent {
   @Input() item: EditBlockTableInterface = {
-    title: '',
+    title: 'Таблица',
     type: 'table',
-    icon: 'view-carousel',
+    icon: 'table_chart',
     content: {
       table: {
         columns: [],
@@ -28,8 +29,17 @@ export class DragTableComponent {
   @Input() detectChanges: EventEmitter<number> = new EventEmitter();
   public tablelIdColumns: string = '';
   public tablelIdRows: string = '';
+  public tableAvailableItems$ = new BehaviorSubject<EditBlockType[]>([
+    {
+      type: 'tableRow',
+      icon: 'assigmnent',
+      content: { values: [] },
+      title: ' Ряд',
+    },
+  ]);
+
   public tableColumns$ = new BehaviorSubject<EditBlockType[]>([]);
-  public tableRows$ = new BehaviorSubject<EditBlockType[]>([]);
+  public tableRows$ = new BehaviorSubject<EditBlockTableRowInterface[]>([]);
 
   constructor(
     private dragList: DragListService,
@@ -37,7 +47,8 @@ export class DragTableComponent {
   ) {}
 
   isTextPredicate(item: CdkDrag<EditBlockType>) {
-    return item.data.type === 'text';
+    return true;
+    // return item.data.type === 'text';
   }
   public dropItem(item: any) {
     this.detectChanges.emit(1);
@@ -77,15 +88,7 @@ export class DragTableComponent {
     // this.tableComponents$.next(result);
   }
 
-  updateTable() {
-    // this.item.content.table = {
-    //   columns: [],
-    //   rows: [],
-    // };
-    // this.tableComponents$
-    //   .getValue()
-    //   .forEach((item: any) => this.item.content.table.rows.push(item.content));
-  }
+  updateTable() {}
 
   ngOnDestroy() {
     this.dynemicDrag.removeId(this.tablelIdColumns);

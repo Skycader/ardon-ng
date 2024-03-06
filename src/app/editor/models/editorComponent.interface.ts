@@ -8,6 +8,7 @@ export type EditBlockType =
   | EditBlockCollageInterface
   | EditBlockCollageInterface
   | EditBlockCarouselInterface
+  | EditBlockTableRowInterface
   | EditBlockTableInterface;
 
 interface EditBlockTextInterface {
@@ -80,8 +81,17 @@ export interface EditBlockTableInterface {
   icon: string;
   content: {
     table: {
-      columns: string[];
-      rows: string[];
+      columns: EditBlockTextInterface[];
+      rows: EditBlockTextInterface[];
     };
+  };
+}
+
+export interface EditBlockTableRowInterface {
+  title: string;
+  type: 'tableRow';
+  icon: string;
+  content: {
+    values: EditBlockTextInterface[];
   };
 }

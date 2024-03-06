@@ -10,13 +10,12 @@
 >
   <p class="hint text-secondary p-3">
     <mat-icon style="transform: translateY(7px)">view_column</mat-icon
-    >Перетащите сюда колонки
+    >Перетащите сюда колонки (
+    <mat-icon style="transform: translateY(7px)">assignment</mat-icon>Текст )
   </p>
 
-  <pre>{{ tableColumns$ | async | json }}</pre>
-
   <hr *ngIf="(tableColumns$ | async)!.length > 0" />
-  @for (column of tableColumns$ | async; track item) {
+  @for (column of tableColumns$ | async; let idx = $index; track item) {
   <mat-toolbar class="example-box" cdkDrag [cdkDragData]="item">
     <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
 
@@ -28,16 +27,7 @@
       <div class="row">
         <div class="col-11">
           <mat-icon style="transform: translateY(-7px)">view_column</mat-icon>
-          <textarea
-            class="drag-text"
-            #text
-            cdkTextareaAutosize
-            cdkAutosizeMinRows="1"
-            placeholder="Введите наименование колонки"
-            class="col-12"
-            style="border: none; height: auto; outline: none; font-size: 1rem"
-            (input)="detectChanges.emit()"
-          ></textarea>
+          <ardon-editor-textarea [item]="column" />
         </div>
         <ardon-drag-handle cdkDragHandle />
       </div>
@@ -64,8 +54,8 @@
   <p class="hint text-secondary p-3">Перетащите сюда ряды</p>
 
   <hr *ngIf="(tableRows$ | async)!.length > 0" />
-  @for (row of tableRows$ | async; track item) {
-  <mat-toolbar class="example-box" cdkDrag [cdkDragData]="item">
+  @for (row of tableRows$ | async; let row_idx = $index; track row) {
+  <mat-toolbar class="example-box" cdkDrag [cdkDragData]="row">
     <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
 
     <div *cdkDragPreview class="drag-preview">
@@ -75,12 +65,12 @@
     <div class="container">
       <div class="row">
         <div
-          class="col-11 justify-content-center rows"
-          *ngIf="tableColumns$ | async"
+          class="col-11 justify-content-center rows d-flex"
+          *ngIf="tableRows$ | async"
         >
-          <textarea
-            *ngFor="let item of tableColumns$ | async"
-            class="drag-text border"
+          <div
+            *ngFor="let column of tableColumns$ | async; let column_idx = index"
+            class="drag-text"
             #text
             cdkTextareaAutosize
             cdkAutosizeMinRows="1"
@@ -88,9 +78,15 @@
             [style.width]="
               100 / ((tableColumns$ | async)?.length || 1) - 1 + '%'
             "
-            style="height: auto; outline: none; font-size: 1rem"
-            (input)="detectChanges.emit()"
-          ></textarea>
+            style="
+              height: auto;
+              outline: none;
+              font-size: 1rem;
+              border: 2px solid red;
+            "
+          >
+            <ardon-editor-textarea [item]="row" />
+          </div>
         </div>
         <div
           class="col-11 justify-content-center"

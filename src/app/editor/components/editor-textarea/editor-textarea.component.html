@@ -7,7 +7,7 @@
   placeholder="Начните печатать..."
   class="col-12"
   style="height: auto; outline: none; font-size: 1rem"
-  (input)="detectChanges.emit()"
+  (input)="detectChanges.emit(item.content.value)"
   [(ngModel)]="item.content.value"
 ></textarea>
 
@@ -55,3 +55,5 @@
 />
 
 <ardon-drag-table *ngIf="item.type === 'table'" />
+
+<div *ngIf="item.type === 'tableRow'"></div>

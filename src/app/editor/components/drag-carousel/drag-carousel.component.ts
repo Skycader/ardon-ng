@@ -1,11 +1,11 @@
+import { CdkDrag } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input } from '@angular/core';
+import { BehaviorSubject, delay, tap } from 'rxjs';
 import {
   EditBlockCarouselInterface,
   EditBlockType,
 } from '../../models/editorComponent.interface';
-import { BehaviorSubject, delay, delayWhen, tap } from 'rxjs';
 import { DragListService } from '../../services/drag-list.service';
-import { CdkDrag } from '@angular/cdk/drag-drop';
 import { DynemicDragService } from '../../services/dynemic-drag.service';
 
 @Component({
@@ -28,8 +28,8 @@ export class DragCarouselComponent {
 
   constructor(
     private dragList: DragListService,
-    private dynemicDrag: DynemicDragService,
-  ) { }
+    private dynemicDrag: DynemicDragService
+  ) {}
 
   isPhotoPredicate(item: CdkDrag<EditBlockType>) {
     return item.data.type === 'image';
@@ -45,7 +45,7 @@ export class DragCarouselComponent {
     tap(() => {
       this.updateSlides();
       this.detectChanges.emit(1);
-    }),
+    })
   );
 
   ngOnInit() {
