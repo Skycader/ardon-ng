@@ -28,9 +28,9 @@ export class EditorTextareaComponent {
 
   constructor(
     private dragList: DragListService,
-    private editor: EditorService,
-    private markUp: MarkUpService
-  ) {}
+    public editor: EditorService,
+    private markUp: MarkUpService,
+  ) { }
 
   public dropItem(item: CdkDragDrop<EditBlockType[]>) {
     this.dragList.drop(item);

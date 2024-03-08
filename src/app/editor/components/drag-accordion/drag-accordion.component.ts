@@ -37,13 +37,8 @@ export class DragAccordionComponent {
 
   public dropItem(item: any) {
     this.detectChanges.emit(1);
-    this.updateBlocks();
     this.dragList.drop(item);
-    this.editorService.updateArticle();
-
-    this.detectChanges.emit(1);
     this.updateBlocks();
-    this.dragList.drop(item);
     this.editorService.updateArticle();
   }
 
