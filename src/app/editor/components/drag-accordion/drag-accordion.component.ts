@@ -32,12 +32,18 @@ export class DragAccordionComponent {
     private dragList: DragListService,
     private dynemicDrag: DynemicDragService,
     public readonly editorService: EditorService,
-  ) {}
+  ) { }
 
   public dropItem(item: any) {
     this.detectChanges.emit(1);
     this.updateBlocks();
     this.dragList.drop(item);
+    this.editorService.updateArticle();
+
+    this.detectChanges.emit(1);
+    this.updateBlocks();
+    this.dragList.drop(item);
+    this.editorService.updateArticle();
   }
 
   public update$ = this.dragList.dropEvent.pipe(
