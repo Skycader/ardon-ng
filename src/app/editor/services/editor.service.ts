@@ -210,6 +210,19 @@ export class EditorService {
           },
         }
         : null,
+
+    accordion: (item: ArdonArticleBlockInterface) =>
+      item.type === 'accordion'
+        ? {
+          icon: 'table_chart',
+          title: 'Аккордион',
+          type: 'accordion',
+          content: {
+            title: item.content.title,
+            blocks: item.content.blocks,
+          },
+        }
+        : null,
   };
 
   constructor(

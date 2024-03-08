@@ -57,14 +57,13 @@ export class DragAccordionComponent {
   }
 
   importBlocks() {
-    const result: any = this.item.content.blocks.map((slide: any) => {
+    const result: any = this.item.content.blocks.map((block: any) => {
+      console.log('IMPORTING BLOCK', block);
       return {
-        icon: 'photo',
-        title: 'Image',
-        type: 'block',
-        content: {
-          blocks: [],
-        },
+        icon: block.icon,
+        title: block.title,
+        type: block.type,
+        content: block.content,
       };
     });
     this.accordionComponents$.next(result);

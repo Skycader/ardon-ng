@@ -46,15 +46,19 @@ export class DragTableComponent {
     private dragList: DragListService,
     private edit: EditorService,
     private dynemicDrag: DynemicDragService,
-  ) { }
+  ) {}
 
   public syncRowsScroll() {
-    this.tableRows.toArray()[0].nativeElement.addEventListener('scroll', () => {
-      this.syncRows();
-    });
+    if (this.tableRows.toArray().length)
+      this.tableRows
+        .toArray()[0]
+        .nativeElement.addEventListener('scroll', () => {
+          this.syncRows();
+        });
   }
 
   public syncRows() {
+    if (!this.tableRows.toArray().length) return;
     const left = this.tableRows.toArray()[0].nativeElement.scrollLeft;
     this.tableRows
       .toArray()
@@ -96,6 +100,7 @@ export class DragTableComponent {
   }
 
   importTable() {
+    console.log(this.item);
     let headers = this.item.content.table[0].map(
       (head: string) => new EditBlockText(head) as EditBlockType,
     );
