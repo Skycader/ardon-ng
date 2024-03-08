@@ -4,7 +4,9 @@ import {
   ElementRef,
   EventEmitter,
   Input,
+  QueryList,
   ViewChild,
+  ViewChildren,
 } from '@angular/core';
 import { BehaviorSubject, delay, tap } from 'rxjs';
 import {
@@ -35,6 +37,7 @@ export class DragTableComponent {
   public tablelIdRows: string = '';
 
   @ViewChild('table') table!: ElementRef;
+  @ViewChildren('tableRow') tableRows!: QueryList<any>;
   public tableColumns$ = new BehaviorSubject<EditBlockType[]>([]);
   public tableRows$ = new BehaviorSubject<EditBlockType[]>([]);
 
@@ -74,7 +77,12 @@ export class DragTableComponent {
   }
 
   importTable() {
-    console.log('this', this);
+    setInterval(() => {
+      const left = this.tableRows.toArray()[0].nativeElement.scrollLeft;
+      this.tableRows
+        .toArray()
+        .forEach((element: any) => element.nativeElement.scrollTo(left, 0));
+    }, 1);
     let headers = this.item.content.table[0].map(
       (head: string) => new EditBlockText(head) as EditBlockType,
     );
