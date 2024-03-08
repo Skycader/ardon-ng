@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  HostListener,
   Input,
   QueryList,
   ViewChild,
@@ -47,6 +48,15 @@ export class DragTableComponent {
     private dynemicDrag: DynemicDragService,
   ) { }
 
+  public syncRowsScroll() {
+    this.tableRows.toArray()[0].nativeElement.addEventListener('scroll', () => {
+      const left = this.tableRows.toArray()[0].nativeElement.scrollLeft;
+      this.tableRows
+        .toArray()
+        .forEach((element: any) => element.nativeElement.scrollTo(left, 0));
+    });
+  }
+
   isTextPredicate(item: CdkDrag<EditBlockType>) {
     return item.data.type === 'text';
   }
@@ -77,12 +87,6 @@ export class DragTableComponent {
   }
 
   importTable() {
-    setInterval(() => {
-      const left = this.tableRows.toArray()[0].nativeElement.scrollLeft;
-      this.tableRows
-        .toArray()
-        .forEach((element: any) => element.nativeElement.scrollTo(left, 0));
-    }, 1);
     let headers = this.item.content.table[0].map(
       (head: string) => new EditBlockText(head) as EditBlockType,
     );
@@ -130,6 +134,7 @@ export class DragTableComponent {
 
   ngAfterViewInit() {
     setTimeout(() => this.importTableDOM());
+    this.syncRowsScroll();
   }
 
   importTableDOM() {
