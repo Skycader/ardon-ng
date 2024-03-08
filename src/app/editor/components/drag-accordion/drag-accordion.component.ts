@@ -73,7 +73,9 @@ export class DragAccordionComponent {
     this.item.content.blocks = [];
     this.accordionComponents$
       .getValue()
-      .forEach((item: any) => this.item.content.blocks.push(item));
+      .forEach((item: any) =>
+        this.item.content.blocks.push(this.editorService.renderBlock(item)),
+      );
   }
 
   ngOnDestroy() {
