@@ -1,0 +1,38 @@
+<div
+  cdkDropList
+  *ngIf="item.type === 'accordion'"
+  [id]="accordionlId"
+  [cdkDropListData]="accordionComponents$ | async"
+  [cdkDropListConnectedTo]="['availableComponents']"
+  class="example-list"
+  (cdkDropListDropped)="dropItem($event)"
+>
+  <p class="hint text-secondary p-3">Перетащите сюда блоки статьи</p>
+
+  <hr *ngIf="(accordionComponents$ | async)!.length > 0" />
+  @for (block of accordionComponents$ | async; track block) {
+    <mat-toolbar class="example-box" cdkDrag [cdkDragData]="item">
+      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+
+      <div *cdkDragPreview class="drag-preview">
+        <mat-icon>{{ item.icon }}</mat-icon>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-11">
+            <ardon-editor-textarea
+              [item]="block"
+              (detectChanges)="
+                detectChanges.emit(1); editorService.updateArticle()
+              "
+            />
+          </div>
+          <ardon-drag-handle cdkDragHandle />
+        </div>
+      </div>
+    </mat-toolbar>
+  }
+</div>
+
+<span *ngIf="update$ | async"></span>

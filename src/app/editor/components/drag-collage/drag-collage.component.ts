@@ -7,6 +7,7 @@ import { BehaviorSubject, delay, tap } from 'rxjs';
 import { DragListService } from '../../services/drag-list.service';
 import { DynemicDragService } from '../../services/dynemic-drag.service';
 import { CdkDrag } from '@angular/cdk/drag-drop';
+import { EditorService } from '../../services/editor.service';
 
 @Component({
   selector: 'ardon-drag-collage',
@@ -29,7 +30,7 @@ export class DragCollageComponent {
   constructor(
     private dragList: DragListService,
     private dynemicDrag: DynemicDragService,
-  ) { }
+  ) {}
 
   isPhotoPredicate(item: CdkDrag<EditBlockType>) {
     return item.data.type === 'image';

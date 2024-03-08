@@ -13,5 +13,5 @@ export class AccordionComponent {
   @Input() item: Accordion = {
     blocks: [],
   };
-  panelOpenState = false;
+  panelOpenState = true;
 }

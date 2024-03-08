@@ -73,6 +73,14 @@ export class AvailableComponents {
           table: [],
         },
       },
+      {
+        icon: 'expand_more',
+        type: 'accordion',
+        title: 'Аккордион',
+        content: {
+          blocks: [],
+        },
+      },
     ];
   }
 }

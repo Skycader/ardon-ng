@@ -8,7 +8,6 @@
   class="col-12"
   style="height: auto; outline: none; font-size: 1rem"
   (input)="detectChanges.emit(item.content.value)"
-  [(ngModel)]="item.content.value"
 ></textarea>
 
 <textarea
@@ -55,3 +54,4 @@
 />
 
 <ardon-drag-table *ngIf="item.type === 'table'" [item]="item" />
+<ardon-drag-accordion *ngIf="item.type === 'accordion'" [item]="item" />

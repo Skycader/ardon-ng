@@ -1,4 +1,7 @@
-import { ArdonSlideInterface } from '../../article/models/article.interface';
+import {
+  ArdonArticleBlockInterface,
+  ArdonSlideInterface,
+} from '../../article/models/article.interface';
 
 export type EditBlockType =
   | EditBlockTextInterface
@@ -8,6 +11,7 @@ export type EditBlockType =
   | EditBlockCollageInterface
   | EditBlockCollageInterface
   | EditBlockCarouselInterface
+  | EditBlockAccordionInterface
   | EditBlockTableInterface;
 
 interface EditBlockTextInterface {
@@ -80,6 +84,15 @@ export interface EditBlockTableInterface {
   icon: string;
   content: {
     table: string[][];
+  };
+}
+
+export interface EditBlockAccordionInterface {
+  title: string;
+  type: 'accordion';
+  icon: string;
+  content: {
+    blocks: ArdonArticleBlockInterface[];
   };
 }
 
