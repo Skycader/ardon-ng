@@ -68,8 +68,13 @@
       </div>
 
       <div class="container">
-        <div class="row">
-          <div class="col-11 rows d-flex" *ngIf="tableRows$ | async" #tableRow>
+        <div class="row table-container">
+          <div
+            class="col-11 rows d-flex"
+            [class.hide-scrollbar]="row_idx > 0"
+            *ngIf="tableRows$ | async"
+            #tableRow
+          >
             <div
               *ngFor="
                 let column of tableColumns$ | async;
