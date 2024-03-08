@@ -7,7 +7,7 @@ export interface ArdonConfigInterface {
   searchPlaceholder: string; //placeholder for search
   backgroundImageSrc: string; //background image
   description: string; //Make your blog look awesome today
-  startButton: string; //Explore now
+  startButtons: StartButton[]; //Explore now
   advantages: AdvantageInterface[];
   welcomeTopicName: string; //most recent articles
   welcomeTopics: ArticlePreviewInterface[];
@@ -20,6 +20,11 @@ export interface ArdonConfigInterface {
   };
   articleContents: string; //Contents (or Содержание)
   articleComments: string; //Comments (or Комментарии)
+}
+
+export interface StartButton {
+  title: string;
+  destionation: string;
 }
 
 export interface AdvantageInterface {

@@ -7,7 +7,20 @@
   "search": "Поиск услуг",
   "searchArticles": "Наиболее популярно сейчас",
   "searchPlaceholder": "Начните поиск...",
-  "startButton": "Наши услуги",
+  "startButtons": [
+    {
+      "title": "О нас",
+      "destionation": ["/article", "about"]
+    },
+    {
+      "title": "Наши услуги",
+      "destionation": ["/article", "search"]
+    },
+    {
+      "title": "Цены",
+      "destionation": ["/article", "price-list"]
+    }
+  ],
   "advantages": [
     {
       "header": "Преимущество 1",
