@@ -63,7 +63,7 @@ export class DragAccordionComponent {
         icon: block.icon,
         title: block.title,
         type: block.type,
-        content: block.content,
+        content: this.editorService.renderBlock2(block).content,
       };
     });
     this.accordionComponents$.next(result);

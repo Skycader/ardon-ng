@@ -284,6 +284,10 @@ export class EditorService {
     return this.renderDictionary[item.type](item);
   }
 
+  public renderBlock2(item: EditBlockType) {
+    return this.renderDictionary2[item.type](item);
+  }
+
   public updateArticle() {
     this.article.themeImageSrc = '';
     console.log('ARTICLE PREVIEW', this.articlePreview);
