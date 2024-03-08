@@ -47,6 +47,7 @@ export class EditorService {
 
   public article: ArdonArticleInterface = {
     heading: 'New article',
+    description: '',
     subheader: '',
     coverImageSrc: '',
     themeImageSrc: '',
@@ -217,6 +218,7 @@ export class EditorService {
   public importArticle(article: ArdonArticleInterface) {
     this.article.heading = article.heading;
     this.article.subheader = article.subheader;
+    this.article.description = article.description;
     this.article.coverImageSrc = article.coverImageSrc;
     this.article.themeImageSrc = article.themeImageSrc;
     this.article.blocks = article.blocks;
@@ -243,6 +245,14 @@ export class EditorService {
         this.renderDictionary2[block.type](block),
     );
 
+    if (this.articleCardComponents[0].type === 'text')
+      this.articleCardComponents[0].content.value = article.subheader;
+
+    if (this.articleCardComponents[1].type === 'image')
+      this.articleCardComponents[1].content.imageSrc = article.coverImageSrc;
+
+    if (this.articleCardComponents[2].type === 'text')
+      this.articleCardComponents[2].content.value = article.description;
     this.updateArticleEvent.next(true);
   }
 

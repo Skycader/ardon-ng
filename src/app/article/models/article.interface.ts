@@ -1,5 +1,6 @@
 export interface ArdonArticleInterface {
   heading: string;
+  description: string;
   subheader: string;
   coverImageSrc: string;
   themeImageSrc: string;

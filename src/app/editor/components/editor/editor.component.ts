@@ -10,6 +10,7 @@ import { EditorService } from '../../services/editor.service';
 export class EditorComponent {
   @Input() article: ArdonArticleInterface = {
     heading: 'Artile heading',
+    description: '',
     subheader: '',
     coverImageSrc: '',
     themeImageSrc: '',

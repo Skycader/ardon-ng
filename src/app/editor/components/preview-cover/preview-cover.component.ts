@@ -26,7 +26,7 @@ export class PreviewCoverComponent {
       {
         icon: 'import_contacts',
         text: 'Читать',
-        destination: ['/article', 'sistema-poliva-uchastka'],
+        destination: [],
       },
       {
         icon: 'share',
@@ -59,7 +59,11 @@ export class PreviewCoverComponent {
       this.card.backgroundSrc = this.articleCardComponents[1].content.imageSrc;
     }
 
+    if (this.articleCardComponents[2].type === 'text')
+      this.card.description = this.articleCardComponents[2].content.value;
+
     this.editor.article.subheader = this.card.subheader;
+    this.editor.article.description = this.card.description;
     this.editor.article.coverImageSrc = this.card.avatarSrc;
   }
   public drop(event: CdkDragDrop<any>) {

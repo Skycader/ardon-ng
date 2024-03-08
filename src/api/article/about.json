@@ -1,7 +1,8 @@
 {
   "heading": "О нас",
-  "subheader": "",
-  "coverImageSrc": "",
+  "subheader": "О нас",
+  "description": "Узнайте о компании",
+  "coverImageSrc": "https://static.vecteezy.com/system/resources/previews/001/416/673/original/angular-emblem-white-letter-on-red-vector.jpg",
   "themeImageSrc": "",
   "blocks": [
     { "type": "subheading", "content": { "title": "О нас" } },
