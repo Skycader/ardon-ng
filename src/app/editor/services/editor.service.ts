@@ -62,76 +62,77 @@ export class EditorService {
     text: (item: EditBlockType) =>
       item.type === 'text'
         ? {
-            type: 'text',
-            content: { paragraphs: item.content.value?.split('\n') },
-          }
+          type: 'text',
+          content: { paragraphs: item.content.value?.split('\n') },
+        }
         : null,
     subheading: (item: EditBlockType) =>
       item.type === 'subheading'
         ? {
-            type: 'subheading',
-            content: item.content,
-          }
+          type: 'subheading',
+          content: item.content,
+        }
         : null,
     image: (item: EditBlockType) =>
       item.type === 'image'
         ? {
-            type: 'image',
-            content: {
-              imageSrc: item.content.imageSrc,
-              imageTitle: item.content.imageTitle,
-            },
-          }
+          type: 'image',
+          content: {
+            imageSrc: item.content.imageSrc,
+            imageTitle: item.content.imageTitle,
+          },
+        }
         : null,
 
     carousel: (item: EditBlockType) =>
       item.type === 'carousel'
         ? {
-            type: 'carousel',
-            content: {
-              slides: item.content.slides,
-            },
-          }
+          type: 'carousel',
+          content: {
+            slides: item.content.slides,
+          },
+        }
         : null,
 
     collage: (item: EditBlockType) =>
       item.type === 'collage'
         ? {
-            type: 'collage',
-            content: {
-              photos: item.content.photos,
-            },
-          }
+          type: 'collage',
+          content: {
+            photos: item.content.photos,
+          },
+        }
         : null,
 
     list: (item: EditBlockType) =>
       item.type === 'list'
         ? {
-            type: 'list',
-            content: {
-              items: item.content.value?.split('\n'),
-            },
-          }
+          type: 'list',
+          content: {
+            items: item.content.value?.split('\n'),
+          },
+        }
         : null,
 
     table: (item: EditBlockType) =>
       item.type === 'table'
         ? {
-            type: 'table',
-            content: {
-              table: item.content.table,
-            },
-          }
+          type: 'table',
+          content: {
+            table: item.content.table,
+          },
+        }
         : null,
 
     accordion: (item: EditBlockType) =>
       item.type === 'accordion'
         ? {
-            type: 'accordion',
-            content: {
-              blocks: item.content.blocks,
-            },
-          }
+          type: 'accordion',
+          content: {
+            title: item.content.title,
+            blocks: item.content.blocks,
+          },
+        }
         : null,
   };
 
@@ -139,75 +140,75 @@ export class EditorService {
     text: (item: ArdonArticleBlockInterface) =>
       item.type === 'text'
         ? {
-            icon: 'assignment',
-            title: 'Текст',
-            type: 'text',
-            content: { value: item.content.paragraphs?.join('\n') },
-          }
+          icon: 'assignment',
+          title: 'Текст',
+          type: 'text',
+          content: { value: item.content.paragraphs?.join('\n') },
+        }
         : null,
     subheading: (item: ArdonArticleBlockInterface) =>
       item.type === 'subheading'
         ? {
-            icon: 'class',
-            title: 'Заголовок',
-            type: 'subheading',
-            content: { title: item.content.title },
-          }
+          icon: 'class',
+          title: 'Заголовок',
+          type: 'subheading',
+          content: { title: item.content.title },
+        }
         : null,
     list: (item: ArdonArticleBlockInterface) =>
       item.type === 'list'
         ? {
-            icon: 'list',
-            title: 'Список',
-            type: 'list',
-            content: { value: item.content.items.join('\n') },
-          }
+          icon: 'list',
+          title: 'Список',
+          type: 'list',
+          content: { value: item.content.items.join('\n') },
+        }
         : null,
 
     collage: (item: ArdonArticleBlockInterface) =>
       item.type === 'collage'
         ? {
-            icon: 'dashboard',
-            title: 'Коллаж',
-            type: 'collage',
-            content: { photos: item.content.photos },
-          }
+          icon: 'dashboard',
+          title: 'Коллаж',
+          type: 'collage',
+          content: { photos: item.content.photos },
+        }
         : null,
 
     image: (item: ArdonArticleBlockInterface) =>
       item.type === 'image'
         ? {
-            icon: 'photo',
-            title: 'Фото',
-            type: 'image',
-            content: {
-              imageSrc: item.content.imageSrc,
-              imageTitle: item.content.imageTitle,
-            },
-          }
+          icon: 'photo',
+          title: 'Фото',
+          type: 'image',
+          content: {
+            imageSrc: item.content.imageSrc,
+            imageTitle: item.content.imageTitle,
+          },
+        }
         : null,
     carousel: (item: ArdonArticleBlockInterface) =>
       item.type === 'carousel'
         ? {
-            icon: 'view_carousel',
-            title: 'Карусель',
-            type: 'carousel',
-            content: {
-              title: '',
-              slides: item.content.slides,
-            },
-          }
+          icon: 'view_carousel',
+          title: 'Карусель',
+          type: 'carousel',
+          content: {
+            title: '',
+            slides: item.content.slides,
+          },
+        }
         : null,
     table: (item: ArdonArticleBlockInterface) =>
       item.type === 'table'
         ? {
-            icon: 'table_chart',
-            title: 'Таблица',
-            type: 'table',
-            content: {
-              table: item.content.table,
-            },
-          }
+          icon: 'table_chart',
+          title: 'Таблица',
+          type: 'table',
+          content: {
+            table: item.content.table,
+          },
+        }
         : null,
   };
 

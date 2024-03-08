@@ -92,6 +92,7 @@ export interface EditBlockAccordionInterface {
   type: 'accordion';
   icon: string;
   content: {
+    title: string;
     blocks: ArdonArticleBlockInterface[];
   };
 }

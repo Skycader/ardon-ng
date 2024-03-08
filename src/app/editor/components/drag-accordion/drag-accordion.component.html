@@ -1,3 +1,14 @@
+<textarea
+  class="drag-text"
+  #text
+  cdkTextareaAutosize
+  cdkAutosizeMinRows="1"
+  placeholder="Введите имя аккордиона..."
+  class="col-12"
+  style="height: auto; outline: none; font-size: 1rem"
+  [(ngModel)]="item.content.title"
+  (input)="detectChanges.emit(1); editorService.updateArticle()"
+></textarea>
 <div
   cdkDropList
   *ngIf="item.type === 'accordion'"

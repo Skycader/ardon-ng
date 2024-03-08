@@ -81,6 +81,7 @@ export type ArdonArticleBlockInterface =
   | {
     type: 'accordion';
     content: {
+      title: string;
       blocks: ArdonArticleBlockInterface[];
     };
   }

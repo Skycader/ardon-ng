@@ -17,10 +17,11 @@ import { EditorService } from '../../services/editor.service';
 })
 export class DragAccordionComponent {
   @Input() item: any = {
-    title: '',
+    title: 'Аккордион',
     type: 'accordion',
     icon: 'view-carousel',
     content: {
+      title: '',
       blocks: [],
     },
   };

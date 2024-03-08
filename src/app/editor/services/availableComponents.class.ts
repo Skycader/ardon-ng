@@ -78,6 +78,7 @@ export class AvailableComponents {
         type: 'accordion',
         title: 'Аккордион',
         content: {
+          title: '',
           blocks: [],
         },
       },
