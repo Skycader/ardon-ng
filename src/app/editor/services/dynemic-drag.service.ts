@@ -20,7 +20,8 @@ export class DynemicDragService {
   }
 
   public getIds() {
-    return this.ids;
+    console.log(this.ids.sort().reverse());
+    return this.ids.sort().reverse();
   }
 
   public removeId(id: string) {
