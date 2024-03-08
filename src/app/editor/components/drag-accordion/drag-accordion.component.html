@@ -3,7 +3,7 @@
   *ngIf="item.type === 'accordion'"
   [id]="accordionlId"
   [cdkDropListData]="accordionComponents$ | async"
-  [cdkDropListConnectedTo]="['availableComponents']"
+  [cdkDropListConnectedTo]="['availableComponents', 'articleConstructor']"
   class="example-list"
   (cdkDropListDropped)="dropItem($event)"
 >

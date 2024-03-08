@@ -7,58 +7,54 @@
     id="articleConstructor"
     #doneList="cdkDropList"
     [cdkDropListData]="editorService.articlePreview"
-    [cdkDropListConnectedTo]="[
-      'carouselDropList',
-      'availableComponents',
-      'previewCover'
-    ]"
+    [cdkDropListConnectedTo]="connectedTo"
     class="example-list"
-    (cdkDropListDropped)="dragList.drop($event)"
+    (cdkDropListDropped)="updateList(); dragList.drop($event)"
   >
     @for (item of editorService.articlePreview; track item) {
-    <mat-toolbar class="example-box" cdkDrag [cdkDragData]="item">
-      <div *cdkDragPreview class="drag-preview">
-        <mat-icon>{{ item.icon }}</mat-icon>
-      </div>
+      <mat-toolbar class="example-box" cdkDrag [cdkDragData]="item">
+        <div *cdkDragPreview class="drag-preview">
+          <mat-icon>{{ item.icon }}</mat-icon>
+        </div>
 
-      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
 
-      <div class="container">
-        <div class="row">
-          <div class="preview col-10 col-lg-11">
-            <div class="component">
-              <mat-icon>{{ item.icon }}</mat-icon>
-              <span>{{ item.title }}</span>
-              <span class="example-spacer"></span>
-              <mat-icon
-                *ngIf="item.type === 'text'"
-                (click)="markUp.render(item, 'bold')"
-                >format_bold</mat-icon
-              >
-              <mat-icon
-                *ngIf="item.type === 'text'"
-                (click)="markUp.render(item, 'italic')"
-                >format_italic</mat-icon
-              >
-              <mat-icon
-                *ngIf="item.type === 'text'"
-                (click)="markUp.render(item, 'link')"
-                >link</mat-icon
-              >
+        <div class="container">
+          <div class="row">
+            <div class="preview col-10 col-lg-11">
+              <div class="component">
+                <mat-icon>{{ item.icon }}</mat-icon>
+                <span>{{ item.title }}</span>
+                <span class="example-spacer"></span>
+                <mat-icon
+                  *ngIf="item.type === 'text'"
+                  (click)="markUp.render(item, 'bold')"
+                  >format_bold</mat-icon
+                >
+                <mat-icon
+                  *ngIf="item.type === 'text'"
+                  (click)="markUp.render(item, 'italic')"
+                  >format_italic</mat-icon
+                >
+                <mat-icon
+                  *ngIf="item.type === 'text'"
+                  (click)="markUp.render(item, 'link')"
+                  >link</mat-icon
+                >
+              </div>
             </div>
-          </div>
 
-          <ardon-drag-handle cdkDragHandle />
+            <ardon-drag-handle cdkDragHandle />
+          </div>
+          <hr />
+          <div class="row" style="height: auto; white-space: normal">
+            <ardon-editor-textarea
+              [item]="item"
+              (detectChanges)="editorService.updateArticle()"
+            />
+          </div>
         </div>
-        <hr />
-        <div class="row" style="height: auto; white-space: normal">
-          <ardon-editor-textarea
-            [item]="item"
-            (detectChanges)="editorService.updateArticle()"
-          />
-        </div>
-      </div>
-    </mat-toolbar>
+      </mat-toolbar>
     }
   </div>
 </div>
