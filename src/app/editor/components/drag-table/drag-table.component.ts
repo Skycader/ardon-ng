@@ -46,7 +46,7 @@ export class DragTableComponent {
     private dragList: DragListService,
     private edit: EditorService,
     private dynemicDrag: DynemicDragService,
-  ) {}
+  ) { }
 
   public syncRowsScroll() {
     this.tableRows.toArray()[0].nativeElement.addEventListener('scroll', () => {
@@ -77,8 +77,8 @@ export class DragTableComponent {
     }, 200);
 
     setTimeout(() => {
-      //  this.syncRowsScroll();
-      // this.syncRows();
+      this.syncRowsScroll();
+      this.syncRows();
     });
   }
 
@@ -92,7 +92,7 @@ export class DragTableComponent {
   ngOnInit() {
     this.tablelIdColumns = this.dynemicDrag.generateId('tableColumns');
     this.tablelIdRows = this.dynemicDrag.generateId('tableRows');
-    //this.importTable();
+    this.importTable();
   }
 
   importTable() {
@@ -142,7 +142,7 @@ export class DragTableComponent {
 
   ngAfterViewInit() {
     setTimeout(() => this.importTableDOM());
-    // this.syncRowsScroll();
+    this.syncRowsScroll();
   }
 
   importTableDOM() {
