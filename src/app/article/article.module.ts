@@ -23,6 +23,8 @@ import { ArticleLayoutComponent } from './layouts/article-layout/article-layout.
 import { articleResolver } from './utils/resolvers/article.resolver';
 import { SearchResolver } from './utils/resolvers/search.resolver';
 import { TableComponent } from './components/table/table.component';
+import { ArticleRenderComponent } from './components/article-render/article-render.component';
+import { AccordionComponent } from './components/accordion/accordion.component';
 const routes: Routes = [
   {
     path: 'article',
@@ -68,6 +70,8 @@ const routes: Routes = [
     ArticleNotFoundComponent,
     PhotoCollageComponent,
     TableComponent,
+    AccordionComponent,
+    ArticleRenderComponent,
   ],
   imports: [
     FormsModule,

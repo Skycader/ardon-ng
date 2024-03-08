@@ -79,6 +79,12 @@ export type ArdonArticleBlockInterface =
     content: ArdonTableInterface;
   }
   | {
+    type: 'accordion';
+    content: {
+      blocks: ArdonArticleBlockInterface[];
+    };
+  }
+  | {
     type: 'chip-list';
     content: ArdonChipListInputInterface;
   };

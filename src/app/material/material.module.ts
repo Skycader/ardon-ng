@@ -22,6 +22,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { MatRippleModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 const MaterialComponents = [
   MatButtonModule,
   MatRippleModule,
@@ -44,6 +46,7 @@ const MaterialComponents = [
   MatNativeDateModule,
   MatListModule,
   MatChipsModule,
+  MatExpansionModule,
 ];
 
 @NgModule({
@@ -51,4 +54,4 @@ const MaterialComponents = [
   imports: [CommonModule],
   exports: [...MaterialComponents],
 })
-export class MaterialModule {}
+export class MaterialModule { }

@@ -50,11 +50,15 @@ export class DragTableComponent {
 
   public syncRowsScroll() {
     this.tableRows.toArray()[0].nativeElement.addEventListener('scroll', () => {
-      const left = this.tableRows.toArray()[0].nativeElement.scrollLeft;
-      this.tableRows
-        .toArray()
-        .forEach((element: any) => element.nativeElement.scrollTo(left, 0));
+      this.syncRows();
     });
+  }
+
+  public syncRows() {
+    const left = this.tableRows.toArray()[0].nativeElement.scrollLeft;
+    this.tableRows
+      .toArray()
+      .forEach((element: any) => element.nativeElement.scrollTo(left, 0));
   }
 
   isTextPredicate(item: CdkDrag<EditBlockType>) {
@@ -71,6 +75,11 @@ export class DragTableComponent {
     setTimeout(() => {
       this.detectChanges.emit(1);
     }, 200);
+
+    setTimeout(() => {
+      this.syncRowsScroll();
+      this.syncRows();
+    });
   }
 
   public update$ = this.dragList.dropEvent.pipe(
@@ -121,7 +130,6 @@ export class DragTableComponent {
     let headers = this.tableColumns$
       .getValue()
       .map((item: any) => item.content.value);
-    console.log(headers);
     this.item.content.table = [headers, ...objs];
     this.detectChanges.next(1);
     this.edit.updateArticle();

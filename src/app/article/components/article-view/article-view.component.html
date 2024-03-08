@@ -9,35 +9,7 @@
       <ardon-contents [blocks]="article.blocks" />
     </div>
     <div class="content col-12 col-md-8 col-lg-8">
-      <div
-        class="article-block"
-        *ngFor="let block of article.blocks; let i = index"
-      >
-        <ardon-text *ngIf="block.type === 'text'" [content]="block.content" />
-        <ardon-subheading
-          *ngIf="block.type === 'subheading'"
-          [content]="block.content"
-        />
-        <ardon-list
-          *ngIf="block.type === 'list'"
-          [content]="block.content"
-        ></ardon-list>
-        <ardon-photo-collage
-          *ngIf="block.type === 'collage'"
-          [content]="block.content"
-        />
-
-        <ardon-image *ngIf="block.type === 'image'" [content]="block.content" />
-        <ardon-chip-list
-          *ngIf="block.type === 'chip-list'"
-          [content]="block.content"
-        />
-        <ardon-carousel
-          *ngIf="block.type === 'carousel'"
-          [content]="block.content"
-        />
-        <ardon-table *ngIf="block.type === 'table'" [item]="block.content" />
-      </div>
+      <ardon-article-render [blocks]="article.blocks" />
     </div>
   </div>
 </div>
