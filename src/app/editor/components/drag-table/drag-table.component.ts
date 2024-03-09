@@ -18,6 +18,7 @@ import { DragListService } from '../../services/drag-list.service';
 import { DynemicDragService } from '../../services/dynemic-drag.service';
 import { EditBlockText } from '../../services/availableComponents.class';
 import { EditorService } from '../../services/editor.service';
+import { EditBlockTable } from '../../services/components/table.class';
 
 @Component({
   selector: 'ardon-drag-table',
@@ -25,14 +26,7 @@ import { EditorService } from '../../services/editor.service';
   styleUrl: './drag-table.component.scss',
 })
 export class DragTableComponent {
-  @Input() item: EditBlockTableInterface = {
-    title: 'Таблица',
-    type: 'table',
-    icon: 'table_chat',
-    content: {
-      table: [],
-    },
-  };
+  @Input() item: EditBlockTableInterface = new EditBlockTable();
   @Input() detectChanges: EventEmitter<number> = new EventEmitter();
   public tablelIdColumns: string = '';
   public tablelIdRows: string = '';
