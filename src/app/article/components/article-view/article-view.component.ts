@@ -44,6 +44,8 @@ export class ArticleViewComponent {
 
       this.article = response['article'];
     });
+
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
   public renderBlockContent(content: any): any {
