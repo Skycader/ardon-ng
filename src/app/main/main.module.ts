@@ -7,14 +7,28 @@ import { AdvantagesComponent } from './components/advantages/advantages.componen
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { RecentArticlesComponent } from './components/recent-articles/recent-articles.component';
+import { MainResolver } from './utils/resolvers/main.resolver';
 
 @NgModule({
-  declarations: [MainLayoutComponent, WelcomeComponent, AdvantagesComponent, RecentArticlesComponent],
+  declarations: [
+    MainLayoutComponent,
+    WelcomeComponent,
+    AdvantagesComponent,
+    RecentArticlesComponent,
+  ],
   imports: [
     CommonModule,
     ArdonCommonModule,
     MaterialModule,
-    RouterModule.forChild([{ path: '', component: MainLayoutComponent }]),
+    RouterModule.forChild([
+      {
+        path: '',
+        resolve: {
+          mainData: MainResolver,
+        },
+        component: MainLayoutComponent,
+      },
+    ]),
   ],
 })
 export class MainModule {}
