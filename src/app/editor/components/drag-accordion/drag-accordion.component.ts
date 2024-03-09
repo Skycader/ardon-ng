@@ -16,7 +16,7 @@ import { EditorService } from '../../services/editor.service';
   styleUrl: './drag-accordion.component.scss',
 })
 export class DragAccordionComponent {
-  @Input() item: any = {
+  @Input() item: EditBlockAccordionInterface = {
     title: 'Аккордион',
     type: 'accordion',
     icon: 'view-carousel',
@@ -33,7 +33,7 @@ export class DragAccordionComponent {
     private dragList: DragListService,
     private dynemicDrag: DynemicDragService,
     public readonly editorService: EditorService,
-  ) { }
+  ) {}
 
   public dropItem(item: any) {
     this.detectChanges.emit(1);
