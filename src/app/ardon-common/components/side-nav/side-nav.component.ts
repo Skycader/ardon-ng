@@ -44,12 +44,16 @@ export class SideNavComponent {
           name: 'О нас',
           route: 'about',
         },
+        {
+          name: 'Наши цены',
+          route: 'price-list',
+        },
       ],
     },
     {
       topic: [
         {
-          name: 'Услуги',
+          name: 'Популярные услуги',
         },
       ],
       articles: [
@@ -59,6 +63,10 @@ export class SideNavComponent {
         },
         {
           name: 'Дренаж и система водоотведения',
+          route: 'drenazh-i-sistema-vodootvedeniya',
+        },
+        {
+          name: 'Система полива участка',
           route: 'drenazh-i-sistema-vodootvedeniya',
         },
       ],
@@ -79,7 +87,7 @@ export class SideNavComponent {
     private http: HttpClient,
     private navbarService: NavbarService,
     public readonly themeService: ThemeService,
-  ) { }
+  ) {}
 
   public closeSideNav() {
     this.navbarService.closeSideNav();
