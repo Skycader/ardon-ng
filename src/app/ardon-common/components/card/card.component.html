@@ -5,30 +5,32 @@
       [style.background-image]="'url(' + config.avatarSrc + ')'"
       class="example-header-image"
     ></div>
-    <mat-card-title>{{ config.title }}</mat-card-title>
+    <mat-card-title>{{ config.title }} </mat-card-title>
     <mat-card-subtitle>{{ config.subheader }} </mat-card-subtitle>
   </mat-card-header>
-  <div
+  <a
     matRipple
     class="background"
+    [routerLink]="config.buttons[0].destination"
     (click)="goTo(config.buttons[0].destination)"
     (keydown)="goTo(config.buttons[0].destination)"
     [style.background-image]="'url(' + config.backgroundSrc + ')'"
-  ></div>
+  ></a>
   <mat-card-content>
     <p *ngIf="config.description">
       {{ config.description }}
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button
+    <a
       mat-flat-button
       color="primary"
+      [routerLink]="config.buttons[0].destination"
       (click)="goTo(button.destination)"
       *ngFor="let button of config.buttons"
     >
       <mat-icon>{{ button.icon }}</mat-icon
       >{{ button.text }}
-    </button>
+    </a>
   </mat-card-actions>
 </mat-card>

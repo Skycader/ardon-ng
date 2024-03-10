@@ -35,4 +35,6 @@ mat-card {
 
 mat-card-actions {
   margin-top: auto;
+  display: flex;
+  gap: 5px;
 }

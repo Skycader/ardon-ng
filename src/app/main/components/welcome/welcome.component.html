@@ -8,12 +8,12 @@
 
   <h2>{{ configService.config | get: "description" }}</h2>
   <div class="d-flex p-2">
-    <button
+    <a
       *ngFor="let button of configService.config.startButtons"
       mat-raised-button
       [routerLink]="button.destionation"
     >
-      <a [routerLink]="button.destionation"> {{ button.title }}</a>
-    </button>
+      {{ button.title }}</a
+    >
   </div>
 </div>
