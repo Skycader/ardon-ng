@@ -40,7 +40,7 @@ export class DragTableComponent {
     private dragList: DragListService,
     private edit: EditorService,
     private dynemicDrag: DynemicDragService,
-  ) {}
+  ) { }
 
   public syncRowsScroll() {
     if (this.tableRows.toArray().length)
@@ -94,7 +94,6 @@ export class DragTableComponent {
   }
 
   importTable() {
-    console.log(this.item);
     let headers = this.item.content.table[0].map(
       (head: string) => new EditBlockText(head) as EditBlockType,
     );

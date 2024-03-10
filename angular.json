@@ -53,6 +53,9 @@
           },
           "configurations": {
             "assets": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
               "budgets": [
                 {
                   "type": "initial",

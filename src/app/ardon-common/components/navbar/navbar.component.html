@@ -19,7 +19,9 @@
 
     <ng-container
       class="left"
-      *ngFor="let btn of (configService.config$ | async).navbarButtonsLeft"
+      *ngFor="
+        let btn of (configService.config$ | async)?.navbarButtonsLeft || []
+      "
     >
       <span
         class="vr d-none d-sm-block d-lg-block d-md-block d-xl-block"
@@ -36,7 +38,9 @@
 
     <ng-container
       class="left"
-      *ngFor="let btn of (configService.config$ | async).navbarButtonsRight"
+      *ngFor="
+        let btn of (configService.config$ | async)?.navbarButtonsRight || []
+      "
     >
       <span
         class="vr d-none d-sm-block d-lg-block d-md-block d-xl-block"
