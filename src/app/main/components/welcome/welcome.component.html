@@ -11,9 +11,8 @@
     <button
       *ngFor="let button of configService.config.startButtons"
       mat-raised-button
-      [routerLink]="button.destionation"
     >
-      {{ button.title }}
+      <a [routerLink]="button.destionation"> {{ button.title }}</a>
     </button>
   </div>
 </div>
