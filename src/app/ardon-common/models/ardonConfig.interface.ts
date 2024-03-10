@@ -13,6 +13,8 @@ export interface ArdonConfigInterface {
   welcomeTopics: ArticlePreviewInterface[];
   version: string; // 0.0.1
   releaseYear: string;
+  navbarButtonsLeft: NavbarButton[];
+  navbarButtonsRight: NavbarButton[];
   navigation: {
     title: string; //Navigation
     topics: string; //Topics
@@ -20,6 +22,13 @@ export interface ArdonConfigInterface {
   };
   articleContents: string; //Contents (or Содержание)
   articleComments: string; //Comments (or Комментарии)
+}
+
+interface NavbarButton {
+  icon: string;
+  title: string;
+  href: string;
+  routerLink: string[];
 }
 
 export interface StartButton {

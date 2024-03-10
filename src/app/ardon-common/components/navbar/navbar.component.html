@@ -17,33 +17,39 @@
       <span> {{ configService.config$ | async | get: "appName" }}</span>
     </a>
 
-    <span class="vr d-none d-sm-block d-lg-block d-md-block d-xl-block"></span>
-    <mat-icon class="d-none d-sm-block d-lg-block d-md-block d-xl-block"
-      >phone</mat-icon
+    <ng-container
+      class="left"
+      *ngFor="let btn of (configService.config$ | async).navbarButtonsLeft"
     >
-    <div class="d-none d-lg-block d-md-block d-xl-block">
-      <a href="tel:+79112868536">+7 911 286-85-36</a>
-    </div>
+      <span
+        class="vr d-none d-sm-block d-lg-block d-md-block d-xl-block"
+      ></span>
+      <mat-icon class="d-none d-sm-block d-lg-block d-md-block d-xl-block">{{
+        btn.icon
+      }}</mat-icon>
+      <div class="d-none d-lg-block d-md-block d-xl-block">
+        <a [href]="btn.href">{{ btn.title }}</a>
+      </div>
+    </ng-container>
 
     <span class="example-spacer"></span>
 
-    <mat-icon class="d-none d-sm-block d-lg-block d-md-block d-xl-block"
-      >supervisor_account</mat-icon
+    <ng-container
+      class="left"
+      *ngFor="let btn of (configService.config$ | async).navbarButtonsRight"
     >
-    <div class="ml-1 d-none d-lg-block d-md-block d-xl-block">
-      <a routerLink="article/about">О нас</a>
-    </div>
+      <span
+        class="vr d-none d-sm-block d-lg-block d-md-block d-xl-block"
+      ></span>
+      <mat-icon class="d-none d-sm-block d-lg-block d-md-block d-xl-block">{{
+        btn.icon
+      }}</mat-icon>
+      <div class="d-none d-lg-block d-md-block d-xl-block">
+        <a [href]="btn.href" [routerLink]="btn.routerLink">{{ btn.title }}</a>
+      </div>
+    </ng-container>
 
     <span class="vr d-none d-sm-block d-lg-block d-md-block d-xl-block"></span>
-
-    <!-- <button
-      mat-icon-button
-      (click)="toggleTheme()"
-      class="example-icon"
-      aria-label="Example icon-button with share icon"
-    >
-      <mat-icon>settings</mat-icon>
-    </button> -->
 
     <button
       mat-icon-button
@@ -52,16 +58,6 @@
     >
       <mat-icon>search</mat-icon>
     </button>
-
-    <!-- <button
-      mat-icon-button
-      (click)="toggleTheme()"
-      class="example-icon"
-      aria-label="Example icon-button with share icon"
-    >
-      <mat-icon *ngIf="!themeService.isDarkTheme">wb_sunny</mat-icon>
-      <mat-icon *ngIf="themeService.isDarkTheme">brightness_2</mat-icon>
-    </button> -->
 
     <a [routerLink]="['/profile']">
       <button

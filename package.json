@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port=4500 --watch --live-reload --poll 500",
+    "start-default": "ng serve --port=4500 --watch --live-reload --poll 500",
+    "start-assets": "ng serve --port=4500 --watch --live-reload --poll 500 --configuration=assets",
+    "start-nest": "ng serve --port=4500 --watch --live-reload --poll 500 --configuration=nest",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",

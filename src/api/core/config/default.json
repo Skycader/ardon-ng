@@ -21,6 +21,22 @@
       "destionation": ["/article", "price-list"]
     }
   ],
+  "navbarButtonsLeft": [
+    {
+      "icon": "phone",
+      "title": "+7 911 286-85-36",
+      "routerLink": [],
+      "href": "tel:+79112868536"
+    }
+  ],
+  "navbarButtonsRight": [
+    {
+      "icon": "supervisor_account",
+      "title": "О нас",
+      "routerLink": ["article", "about"],
+      "href": ""
+    }
+  ],
   "advantages": [
     {
       "header": "Преимущество 1",

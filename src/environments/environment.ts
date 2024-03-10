@@ -1,6 +1,6 @@
 export const environemnt = {
-  // apiUrl: 'http://localhost:3000', //local NEST.JS APP
-  apiUrl: 'api',
-  // apiUrlNest: 'http://localhost:3000',
-  // backendUrl: 'https://backend.ardon.vodri.com',
+  // apiurl: 'http://localhost:3000', //local nest.js app
+  apiurl: 'api',
+  // apiurlnest: 'http://localhost:3000',
+  // backendurl: 'https://backend.ardon.vodri.com',
 };
