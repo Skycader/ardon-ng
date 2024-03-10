@@ -1,6 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { CardConfigInterface } from '../../models/cardConfig.interface';
+import {
+  ButtonTypes,
+  CardConfigInterface,
+} from '../../models/cardConfig.interface';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @Component({
   selector: 'ardon-card',
@@ -19,19 +23,31 @@ export class CardComponent {
       {
         icon: 'import_contacts',
         text: 'Читать',
+        type: ButtonTypes.visit,
         destination: ['/article', 'moshchenie-dorozhek'],
       },
       {
         icon: 'share',
+        type: ButtonTypes.share,
         text: 'Поделиться',
       },
     ],
   };
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private snackBar: SnackbarService,
+  ) { }
 
   public goTo(route: string[] | undefined) {
     if (!route) return;
     this.router.navigate(route);
+  }
+
+  public shareLink(link: string[] | undefined) {
+    if (!link) return;
+    const url = location.host + link.join('/');
+    this.snackBar.inform('Ссылка скопирована!');
+    navigator.clipboard.writeText(url);
   }
 }

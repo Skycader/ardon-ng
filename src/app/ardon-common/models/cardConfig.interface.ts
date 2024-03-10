@@ -9,6 +9,12 @@ export interface CardConfigInterface {
 
 export interface CardButtonInterface {
   icon: string;
+  type: ButtonTypes;
   text: string;
   destination?: string[];
+}
+
+export enum ButtonTypes {
+  visit = 'visit',
+  share = 'share',
 }

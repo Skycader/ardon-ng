@@ -5,7 +5,10 @@ import {
 } from '@angular/cdk/drag-drop';
 import { Component, Input } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { CardConfigInterface } from '../../../ardon-common/models/cardConfig.interface';
+import {
+  ButtonTypes,
+  CardConfigInterface,
+} from '../../../ardon-common/models/cardConfig.interface';
 import { EditBlockType } from '../../models/editorComponent.interface';
 import { EditorService } from '../../services/editor.service';
 
@@ -26,10 +29,12 @@ export class PreviewCoverComponent {
       {
         icon: 'import_contacts',
         text: 'Читать',
+        type: ButtonTypes.visit,
         destination: [],
       },
       {
         icon: 'share',
+        type: ButtonTypes.share,
         text: 'Поделиться',
       },
     ],

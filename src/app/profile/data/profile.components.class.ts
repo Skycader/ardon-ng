@@ -1,3 +1,5 @@
+import { ButtonTypes } from '../../ardon-common/models/cardConfig.interface';
+
 export class ProfileComponentsClass {
   public components = [
     {
@@ -10,10 +12,12 @@ export class ProfileComponentsClass {
       buttons: [
         {
           icon: 'edit',
+          type: ButtonTypes.visit,
           text: 'Edit',
         },
         {
           icon: 'exit_to_app',
+          type: ButtonTypes.visit,
           text: 'Exit',
         },
       ],
@@ -30,10 +34,12 @@ export class ProfileComponentsClass {
       buttons: [
         {
           icon: 'note_add',
+          type: ButtonTypes.visit,
           text: 'Add post',
         },
         {
           icon: 'edit',
+          type: ButtonTypes.visit,
           text: 'Edit posts',
         },
       ],
@@ -49,6 +55,7 @@ export class ProfileComponentsClass {
       buttons: [
         {
           icon: 'table_chart',
+          type: ButtonTypes.visit,
           text: 'Open table',
         },
       ],
@@ -64,6 +71,8 @@ export class ProfileComponentsClass {
       buttons: [
         {
           icon: 'edit',
+          type: ButtonTypes.visit,
+
           text: 'Edit',
         },
       ],
@@ -79,10 +88,12 @@ export class ProfileComponentsClass {
       buttons: [
         {
           icon: 'cloud_upload',
+          type: ButtonTypes.visit,
           text: 'Upload',
         },
         {
           icon: 'folder',
+          type: ButtonTypes.visit,
           text: 'Open gallery',
         },
       ],

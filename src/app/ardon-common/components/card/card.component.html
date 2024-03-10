@@ -22,15 +22,27 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <a
-      mat-flat-button
-      color="primary"
-      [routerLink]="config.buttons[0].destination"
-      (click)="goTo(button.destination)"
-      *ngFor="let button of config.buttons"
-    >
-      <mat-icon>{{ button.icon }}</mat-icon
-      >{{ button.text }}
-    </a>
+    <ng-container *ngFor="let button of config.buttons">
+      <a
+        *ngIf="button.type === 'visit'"
+        mat-flat-button
+        color="primary"
+        [routerLink]="config.buttons[0].destination"
+        (click)="goTo(button.destination)"
+      >
+        <mat-icon>{{ button.icon }}</mat-icon
+        >{{ button.text }}
+      </a>
+
+      <a
+        *ngIf="button.type === 'share'"
+        mat-flat-button
+        color="primary"
+        (click)="shareLink(button.destination)"
+      >
+        <mat-icon>{{ button.icon }}</mat-icon
+        >{{ button.text }}
+      </a>
+    </ng-container>
   </mat-card-actions>
 </mat-card>
