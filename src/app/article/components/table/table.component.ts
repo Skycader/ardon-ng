@@ -30,6 +30,5 @@ export class TableComponent {
 
   ngOnInit() {
     this.dataSource = this.matrixToObject(this.item.table);
-    console.log(this);
   }
 }

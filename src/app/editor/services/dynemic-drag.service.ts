@@ -7,10 +7,7 @@ export class DynemicDragService {
   public ids: string[] = [];
   private debug = false;
   constructor() {
-    if (this.debug)
-      setInterval(() => {
-        console.log(this.ids);
-      }, 1000);
+    if (this.debug) setInterval(() => { }, 1000);
   }
 
   public generateId(prefix: string) {
@@ -20,7 +17,6 @@ export class DynemicDragService {
   }
 
   public getIds() {
-    console.log(this.ids.sort().reverse());
     return this.ids.sort().reverse();
   }
 

@@ -290,10 +290,7 @@ export class EditorService {
 
   public updateArticle() {
     this.article.themeImageSrc = '';
-    console.log('ARTICLE PREVIEW', this.articlePreview);
     this.article.blocks = this.articlePreview.map((item: EditBlockType) => {
-      console.log('RENDER DICTIONARY', this.renderDictionary[item.type](item));
-
       return this.renderDictionary[item.type](item);
     });
 

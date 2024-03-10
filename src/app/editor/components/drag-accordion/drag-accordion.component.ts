@@ -33,7 +33,7 @@ export class DragAccordionComponent {
     private dragList: DragListService,
     private dynemicDrag: DynemicDragService,
     public readonly editorService: EditorService,
-  ) {}
+  ) { }
 
   public dropItem(item: any) {
     this.detectChanges.emit(1);
@@ -58,7 +58,6 @@ export class DragAccordionComponent {
 
   importBlocks() {
     const result: any = this.item.content.blocks.map((block: any) => {
-      console.log('IMPORTING BLOCK', block);
       return {
         icon: block.icon,
         title: block.title,
