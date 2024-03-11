@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import _ from 'lodash';
 import { PhotoViewerService } from '../../../ardon-common/services/photo-viewer.service';
@@ -25,12 +25,16 @@ export class ArticleViewComponent {
     blocks: [],
   };
 
+  @ViewChild('articleBody') articleBody: ElementRef = new ElementRef(
+    'articleBody'
+  );
+
   constructor(
     public articleService: ArticleService,
     public photoViewer: PhotoViewerService,
     public activatedRoute: ActivatedRoute,
-    public router: Router,
-  ) { }
+    public router: Router
+  ) {}
 
   public found = true;
 
@@ -43,9 +47,10 @@ export class ArticleViewComponent {
       }
 
       this.article = response['article'];
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      });
     });
-
-    window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
   public renderBlockContent(content: any): any {
