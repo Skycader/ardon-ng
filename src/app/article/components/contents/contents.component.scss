@@ -6,3 +6,25 @@ mat-list {
 mat-list-item {
   cursor: pointer !important;
 }
+
+//
+
+mat-expansion-panel-header {
+  background: #3f51b5 !important;
+}
+
+.mat-expansion-panel-header-title {
+  color: white !important;
+}
+
+.mat-expansion-indicator::after {
+  color: white !important;
+}
+
+:host {
+  --mat-expansion-header-indicator-color: white !important;
+}
+
+.mat-expansion-panel-body {
+  padding: 0px !important;
+}
