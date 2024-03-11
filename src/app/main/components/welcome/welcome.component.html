@@ -24,7 +24,6 @@
       *ngFor="let button of configService.config.startButtons"
       mat-raised-button
       [routerLink]="button.destionation"
-      (click)="openFeedback()"
     >
       {{ button.title }}</a
     >
