@@ -26,9 +26,9 @@
       "type": "collage",
       "content": {
         "photos": [
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/Png2K4d.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/zInqh72.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/PHFsMpE.png" }
+          { "imageSrc": "https://i.imgur.com/PHFsMpE.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/zInqh72.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/Png2K4d.png", "imageTitle": "" }
         ]
       }
     },
@@ -75,8 +75,8 @@
       "type": "collage",
       "content": {
         "photos": [
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/6F8GbvG.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/lOPrqiv.png" }
+          { "imageSrc": "https://i.imgur.com/6F8GbvG.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/lOPrqiv.png", "imageTitle": "" }
         ]
       }
     },
@@ -107,10 +107,10 @@
       "type": "collage",
       "content": {
         "photos": [
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/ATuJE9T.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/FFscFmo.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/5G2A4Aq.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/37aa0xn.png" }
+          { "imageSrc": "https://i.imgur.com/ATuJE9T.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/FFscFmo.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/5G2A4Aq.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/37aa0xn.png", "imageTitle": "" }
         ]
       }
     },
@@ -126,8 +126,8 @@
       "type": "collage",
       "content": {
         "photos": [
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/WqVFriJ.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/Hj2Gipe.png" }
+          { "imageSrc": "https://i.imgur.com/WqVFriJ.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/Hj2Gipe.png", "imageTitle": "" }
         ]
       }
     },

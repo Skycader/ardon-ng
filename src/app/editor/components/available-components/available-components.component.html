@@ -8,23 +8,23 @@
     #todoList="cdkDropList"
     [cdkDropListData]="availableComponents$ | async"
     [cdkDropListConnectedTo]="connectedTo"
-    class="example-list"
+    class="example-list components-list"
     (cdkDropListDropped)="dropItem($event)"
   >
     @for (item of availableComponents$ | async; track item) {
-    <mat-toolbar class="example-box" cdkDrag [cdkDragData]="item">
-      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+      <mat-toolbar class="example-box" cdkDrag [cdkDragData]="item">
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
 
-      <div *cdkDragPreview class="drag-preview">
-        <mat-icon>{{ item.icon }}</mat-icon>
-      </div>
+        <div *cdkDragPreview class="drag-preview">
+          <mat-icon>{{ item.icon }}</mat-icon>
+        </div>
 
-      <div class="component">
-        <mat-icon>{{ item.icon }}</mat-icon>
-        <span>{{ item.title }}</span>
-      </div>
-      <ardon-drag-handle />
-    </mat-toolbar>
+        <div class="component">
+          <mat-icon>{{ item.icon }}</mat-icon>
+          <span>{{ item.title }}</span>
+        </div>
+        <ardon-drag-handle />
+      </mat-toolbar>
     }
   </div>
   <br />

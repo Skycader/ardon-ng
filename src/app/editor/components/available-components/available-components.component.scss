@@ -14,6 +14,10 @@
   display: block;
 }
 
+.components-list {
+  overflow: auto;
+  max-height: calc(90vh - 160px);
+}
 .minify {
   transform: scale(0.5);
 }

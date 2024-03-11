@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, of, switchMap } from 'rxjs';
 import { ArdonConfigInterface } from '../../../ardon-common/models/ardonConfig.interface';
 import { ConfigService } from '../../../ardon-core/services/config.service';
@@ -15,9 +16,17 @@ export class WelcomeComponent {
     }),
   );
 
-  constructor(public configService: ConfigService) {}
+  constructor(
+    public configService: ConfigService,
+    private router: Router,
+  ) {}
 
   public scrollToRecentArticles() {
     document.querySelector('.recent-articles')?.scrollIntoView();
+  }
+
+  public goTo(route: string[] | undefined) {
+    if (!route) return;
+    this.router.navigate(route);
   }
 }

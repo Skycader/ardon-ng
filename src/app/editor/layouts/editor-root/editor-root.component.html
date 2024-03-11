@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row">
-    <mat-tab-group (selectedTabChange)="tabSelect$.next($event.index)">
+    <mat-tab-group
+      (selectedTabChange)="tabSelect$.next($event.index)"
+      [selectedIndex]="selectedIndex"
+    >
       <mat-tab label="Редактор">
         <ardon-editor
           [article]="article"
@@ -35,3 +38,24 @@
   [article]="article"
   *ngIf="editorService.isPreview$ | async"
 />
+
+<button
+  mat-mini-fab
+  class="scroll-up"
+  color="secondary"
+  (click)="scrollUp()"
+  aria-label="Example icon button with a home icon"
+>
+  <mat-icon>keyboard_arrow_up</mat-icon>
+</button>
+
+<button
+  mat-mini-fab
+  class="toggle-tab"
+  color="secondary"
+  (click)="toggleTab()"
+  aria-label="Example icon button with a home icon"
+>
+  <mat-icon *ngIf="selectedIndex === 0">keyboard_arrow_right</mat-icon>
+  <mat-icon *ngIf="selectedIndex === 1">keyboard_arrow_left</mat-icon>
+</button>

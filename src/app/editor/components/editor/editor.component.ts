@@ -25,7 +25,7 @@ export class EditorComponent {
 
   @HostBinding('class.grabbing') grabbing: boolean = false;
 
-  constructor(public editorService: EditorService) { }
+  constructor(public editorService: EditorService) {}
 
   ngOnInit() {
     this.editorService.article = this.article;
