@@ -2,7 +2,7 @@
   "heading": "Освещение участка",
   "subheader": "Услуга",
   "coverImageSrc": "https://i.imgur.com/wYZFhsw.png",
-  "themeImageSrc": "https://i.imgur.com/eXOvY1l.png",
+  "themeImageSrc": "https://i.imgur.com/c1sU63H.png",
   "blocks": [
     {
       "type": "text",
@@ -53,22 +53,21 @@
       "type": "carousel",
       "content": {
         "slides": [
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/MDlfhzY.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/Vf1063J.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/oatUMZD.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/JU2CF4y.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/m7gPXLU.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/p2VRiFZ.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/fjIRyPC.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/bPwrVq2.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/zbqHmBY.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/mosF5TY.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/PbN1fYp.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/VuZxaRX.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/mWGY2Ip.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/BLkgfxW.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/LtOaE1n.png" },
-          { "imageTitle": "", "imageSrc": "https://i.imgur.com/oct5jkt.png" }
+          { "imageSrc": "https://i.imgur.com/MDlfhzY.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/Vf1063J.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/JU2CF4y.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/m7gPXLU.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/p2VRiFZ.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/fjIRyPC.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/bPwrVq2.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/zbqHmBY.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/mosF5TY.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/PbN1fYp.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/VuZxaRX.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/mWGY2Ip.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/BLkgfxW.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/LtOaE1n.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/oct5jkt.png", "imageTitle": "" }
         ]
       }
     }
