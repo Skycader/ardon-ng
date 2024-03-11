@@ -4,6 +4,7 @@ import { Observable, of, switchMap } from 'rxjs';
 import { ArdonConfigInterface } from '../../../ardon-common/models/ardonConfig.interface';
 import { PhotoViewerService } from '../../../ardon-common/services/photo-viewer.service';
 import { ConfigService } from '../../../ardon-core/services/config.service';
+import { FormViewerService } from '../../../ardon-common/services/form-viewer.service';
 
 @Component({
   selector: 'ardon-welcome',
@@ -20,7 +21,7 @@ export class WelcomeComponent {
   constructor(
     public configService: ConfigService,
     private router: Router,
-    private photo: PhotoViewerService,
+    private formViewer: FormViewerService,
   ) {}
 
   public scrollToRecentArticles() {
@@ -35,5 +36,10 @@ export class WelcomeComponent {
     this.router.navigate(route);
   }
 
-  public openForm() {}
+  public openFeedback() {
+    this.formViewer.open({
+      type: 'iframe',
+      url: 'https://forms.yandex.ru/cloud/65ef16d45d2a06139b15dfbd/?iframe=1',
+    });
+  }
 }

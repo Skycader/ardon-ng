@@ -1,0 +1,39 @@
+<div #photoViewer class="photo-viewer">
+  <div
+    class="offset"
+    [class.darkness]="darkness"
+    (click)="closePhotoView()"
+  ></div>
+  <div class="img bg-body">
+    <p class="toolbar">
+      <mat-toolbar color="primary">
+        <button
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with menu icon"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Форма</span>
+        <span class="example-spacer"></span>
+
+        <button
+          mat-icon-button
+          (click)="closePhotoView()"
+          class="example-icon"
+          aria-label="Example icon-button with share icon"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-toolbar>
+    </p>
+    <div class="photo-container">
+      <div class="image-viewer">
+        <iframe
+          [src]="formViewer.formConfig.url | safePipe: 'resourceUrl'"
+          style="width: 100vw; height: 236px"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</div>

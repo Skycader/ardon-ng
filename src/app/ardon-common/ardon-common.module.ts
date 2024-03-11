@@ -16,6 +16,8 @@ import { PopUpsComponent } from './pop-ups/pop-ups.component';
 import { GetPipe } from './utils/pipes/get.pipe';
 import { MarkUpDirective } from './utils/pipes/mark-up.directive';
 import { MarkUpPipe } from './utils/pipes/mark-up.pipe';
+import { FormPopupComponent } from './components/form-popup/form-popup.component';
+import { SafePipe } from './utils/pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { MarkUpPipe } from './utils/pipes/mark-up.pipe';
     PhotoViewerComponent,
     MarkUpPipe,
     MarkUpDirective,
+    FormPopupComponent,
+    SafePipe,
   ],
   imports: [MaterialModule, CommonModule, RouterModule],
   exports: [
@@ -46,6 +50,7 @@ import { MarkUpPipe } from './utils/pipes/mark-up.pipe';
     PopUpsComponent,
     MarkUpPipe,
     MarkUpDirective,
+    SafePipe,
   ],
 })
 export class ArdonCommonModule {}

@@ -1,3 +1,9 @@
+<ardon-form-popup
+  *ngIf="formViewer.isOpen$ | async"
+  [config]="formViewer.formConfig"
+>
+</ardon-form-popup>
+
 <ardon-photo-viewer
   *ngIf="photoViewer.isOpen$ | async"
   [imageUrl]="photoViewer.src"

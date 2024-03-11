@@ -24,7 +24,7 @@
       *ngFor="let button of configService.config.startButtons"
       mat-raised-button
       [routerLink]="button.destionation"
-      (click)="openForm()"
+      (click)="openFeedback()"
     >
       {{ button.title }}</a
     >
@@ -32,7 +32,7 @@
 
   <br />
   <div class="d-flex p-2">
-    <a mat-raised-button
+    <a mat-raised-button (click)="openFeedback()"
       ><mat-icon>record_voice_over</mat-icon> Заказать звонок</a
     >
   </div>
