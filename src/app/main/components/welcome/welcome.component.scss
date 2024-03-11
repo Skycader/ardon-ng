@@ -1,6 +1,13 @@
+.no-advantages {
+  height: calc(100vh - 64px);
+}
+
+.advantages {
+  height: 500px;
+}
+
 .welcome {
   width: 100%;
-  height: 500px;
   background: #3f51b5;
   transform: translateY(-20px);
   display: flex;
@@ -70,4 +77,29 @@
 a {
   text-decoration: none;
   color: inherit;
+}
+.example-spacer {
+  flex: auto;
+}
+
+.spacer {
+  height: 10px;
+}
+
+.scroll-down {
+  position: absolute;
+  animation: float 5s ease-in-out infinite;
+  bottom: 10px;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
 }

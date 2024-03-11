@@ -1,4 +1,4 @@
-<mat-list>
+<mat-list class="d-none d-sm-none d-md-block d-lg-block">
   <div mat-subheader *ngIf="chapters.length > 0">Содержание</div>
   @for (chapter of chapters; track chapter) {
     <mat-list-item matRipple (click)="scrollTo(chapter.name)">
@@ -7,6 +7,7 @@
       <div matListItemLine>{{ chapter.subname }}</div>
     </mat-list-item>
   }
+
   <mat-divider *ngIf="chapters.length > 0"></mat-divider>
   <div mat-subheader>Действия</div>
   @for (action of actions; track action) {
@@ -16,4 +17,52 @@
       <div matListItemLine>{{ action.count }} {{ action.description }}</div>
     </mat-list-item>
   }
+</mat-list>
+
+<mat-list class="d-block d-sm-block d-md-none d-lg-none">
+  <mat-accordion *ngIf="chapters.length > 0">
+    <mat-expansion-panel
+      (opened)="panelOpenStateContents = true"
+      (closed)="panelOpenStateActions = false"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title> Содержание</mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <p>
+        @for (chapter of chapters; track chapter) {
+          <mat-list-item matRipple (click)="scrollTo(chapter.name)">
+            <mat-icon matListItemIcon>label</mat-icon>
+            <div matListItemTitle>{{ chapter.name }}</div>
+            <div matListItemLine>{{ chapter.subname }}</div>
+          </mat-list-item>
+        }
+      </p>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <div style="height: 8px"></div>
+
+  <mat-accordion>
+    <mat-expansion-panel
+      (opened)="panelOpenStateContents = true"
+      (closed)="panelOpenStateActions = false"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title> Действия</mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <p>
+        @for (action of actions; track action) {
+          <mat-list-item matRipple>
+            <mat-icon matListItemIcon>{{ action.icon }}</mat-icon>
+            <div matListItemTitle>{{ action.name }}</div>
+            <div matListItemLine>
+              {{ action.count }} {{ action.description }}
+            </div>
+          </mat-list-item>
+        }
+      </p>
+    </mat-expansion-panel>
+  </mat-accordion>
 </mat-list>

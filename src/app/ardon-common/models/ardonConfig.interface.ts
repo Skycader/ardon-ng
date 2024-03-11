@@ -1,6 +1,8 @@
 export interface ArdonConfigInterface {
   appName: string; //i.e. Ardon Engine
   appLogo: string; //material logo reference
+  subtitle: string; //subtitle for appBackgroundImage
+  subtitleHref: string; //href for subtitle
   appBackgroundImage: string;
   search: string; //search title such as "Search for articles",
   searchArticles: string; //A list of articles under the search input "Latest articles or Most popular"

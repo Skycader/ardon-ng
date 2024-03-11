@@ -47,4 +47,7 @@ export class ContentsComponent {
   public scrollTo(block: string) {
     document.getElementById(`${block}`)?.scrollIntoView();
   }
+
+  public panelOpenStateContents = true;
+  public panelOpenStateActions = true;
 }

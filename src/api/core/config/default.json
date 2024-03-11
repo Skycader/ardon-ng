@@ -1,8 +1,10 @@
 {
   "appLanguage": "ru",
   "appName": "Ваш Ландшафтник",
+  "subtitle": "+7 911 286-85-36",
+  "subtitleHref": "tel:+79112868536",
   "appLogo": "book",
-  "description": "Старый конь борозды не испортит",
+  "description": "",
   "appBackgroundImage": "assets/images/design.jpg",
   "search": "Поиск услуг",
   "searchArticles": "Наиболее популярно сейчас",
@@ -29,15 +31,9 @@
       "href": "tel:+79112868536"
     }
   ],
-  "navbarButtonsRight": [
-    {
-      "icon": "supervisor_account",
-      "title": "О нас",
-      "routerLink": ["article", "about"],
-      "href": ""
-    }
-  ],
-  "advantages": [
+  "navbarButtonsRight": [],
+  "advantages": [],
+  "advantages-x": [
     {
       "header": "Преимущество 1",
       "text": "Здесь более детальное описание"

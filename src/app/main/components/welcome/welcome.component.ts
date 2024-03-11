@@ -15,5 +15,9 @@ export class WelcomeComponent {
     }),
   );
 
-  constructor(public configService: ConfigService) { }
+  constructor(public configService: ConfigService) {}
+
+  public scrollToRecentArticles() {
+    document.querySelector('.recent-articles')?.scrollIntoView();
+  }
 }
