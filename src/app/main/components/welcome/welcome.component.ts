@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of, switchMap } from 'rxjs';
 import { ArdonConfigInterface } from '../../../ardon-common/models/ardonConfig.interface';
+import { PhotoViewerService } from '../../../ardon-common/services/photo-viewer.service';
 import { ConfigService } from '../../../ardon-core/services/config.service';
 
 @Component({
@@ -19,6 +20,7 @@ export class WelcomeComponent {
   constructor(
     public configService: ConfigService,
     private router: Router,
+    private photo: PhotoViewerService,
   ) {}
 
   public scrollToRecentArticles() {
@@ -26,7 +28,12 @@ export class WelcomeComponent {
   }
 
   public goTo(route: string[] | undefined) {
-    if (!route) return;
+    if (!route) {
+      console.log('Route broken', route);
+      return;
+    }
     this.router.navigate(route);
   }
+
+  public openForm() {}
 }

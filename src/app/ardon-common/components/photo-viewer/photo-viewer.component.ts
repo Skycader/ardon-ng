@@ -41,9 +41,10 @@ export class PhotoViewerComponent {
   }
 
   @Input() imageUrl: string = '';
+  @Input() iframeUrl: string = '';
   public title: string = '';
   @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(
-    event: KeyboardEvent
+    event: KeyboardEvent,
   ) {
     this.closePhotoView();
   }
