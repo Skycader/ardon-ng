@@ -24,6 +24,12 @@ export class WelcomeComponent {
     private formViewer: FormViewerService,
   ) { }
 
+  public startButtons: any[] = [];
+
+  ngOnInit() {
+    this.startButtons = this.configService.config.startButtons;
+  }
+
   public scrollToRecentArticles() {
     document.querySelector('.recent-articles')?.scrollIntoView();
   }

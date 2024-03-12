@@ -21,7 +21,7 @@
 
   <div class="d-flex p-2">
     <a
-      *ngFor="let button of configService.config.startButtons"
+      *ngFor="let button of startButtons"
       mat-raised-button
       [routerLink]="button.destionation"
       (click)="goTo(button.destionation)"
