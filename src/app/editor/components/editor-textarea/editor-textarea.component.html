@@ -54,5 +54,13 @@
   [detectChanges]="detectChanges"
 />
 
-<ardon-drag-table *ngIf="item.type === 'table'" [item]="item" />
-<ardon-drag-accordion *ngIf="item.type === 'accordion'" [item]="item" />
+<ardon-drag-table
+  *ngIf="item.type === 'table'"
+  [item]="item"
+  [detectChanges]="detectChanges"
+/>
+<ardon-drag-accordion
+  *ngIf="item.type === 'accordion'"
+  [item]="item"
+  [detectChanges]="detectChanges"
+/>
