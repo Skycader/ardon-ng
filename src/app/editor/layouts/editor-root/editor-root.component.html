@@ -56,6 +56,6 @@
   (click)="toggleTab()"
   aria-label="Example icon button with a home icon"
 >
-  <mat-icon *ngIf="selectedIndex === 0">keyboard_arrow_right</mat-icon>
-  <mat-icon *ngIf="selectedIndex === 1">keyboard_arrow_left</mat-icon>
+  <mat-icon *ngIf="tabSelect$.getValue() === 0">keyboard_arrow_right</mat-icon>
+  <mat-icon *ngIf="tabSelect$.getValue() === 1">keyboard_arrow_left</mat-icon>
 </button>
