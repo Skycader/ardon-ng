@@ -12,11 +12,11 @@ export class ArticleService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private loadingBarService: LoadingBarService
-  ) {}
+    private loadingBarService: LoadingBarService,
+  ) { }
 
   public getArticle(
-    name: string
+    name: string,
   ): Observable<ArdonArticleInterface | null | any> {
     return this.http.get(`article/${name}.json?${Date.now()}`).pipe(
       tap(() => {
@@ -28,7 +28,7 @@ export class ArticleService {
       }),
       tap(() => {
         this.loadingBarService.loading$.next(false);
-      })
+      }),
     );
   }
 }

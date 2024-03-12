@@ -18,6 +18,7 @@ import { MarkUpDirective } from './utils/pipes/mark-up.directive';
 import { MarkUpPipe } from './utils/pipes/mark-up.pipe';
 import { FormPopupComponent } from './components/form-popup/form-popup.component';
 import { SafePipe } from './utils/pipes/safe.pipe';
+import { LoadingInformerComponent } from './components/loading-informer/loading-informer.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { SafePipe } from './utils/pipes/safe.pipe';
     MarkUpDirective,
     FormPopupComponent,
     SafePipe,
+    LoadingInformerComponent,
   ],
   imports: [MaterialModule, CommonModule, RouterModule],
   exports: [
@@ -51,6 +53,7 @@ import { SafePipe } from './utils/pipes/safe.pipe';
     MarkUpPipe,
     MarkUpDirective,
     SafePipe,
+    LoadingInformerComponent,
   ],
 })
-export class ArdonCommonModule {}
+export class ArdonCommonModule { }
