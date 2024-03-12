@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { interval } from 'rxjs';
+import { LoadingBarService } from '../../services/loading-bar.service';
 
 @Component({
   selector: 'ardon-loading-informer',
@@ -8,4 +9,6 @@ import { interval } from 'rxjs';
 })
 export class LoadingInformerComponent {
   public loadingPercentage = interval(5);
+
+  constructor(public loadingService: LoadingBarService) { }
 }

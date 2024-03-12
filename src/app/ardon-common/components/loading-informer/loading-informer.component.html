@@ -1,4 +1,4 @@
-<div class="bg-body">
+<div class="bg-body" *ngIf="loadingService.loading$ | async">
   <h2>Секундочку...</h2>
   <mat-progress-bar
     mode="determinate"
