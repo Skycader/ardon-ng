@@ -24,6 +24,7 @@
       *ngFor="let button of configService.config.startButtons"
       mat-raised-button
       [routerLink]="button.destionation"
+      (click)="goTo(button.destionation)"
     >
       {{ button.title }}</a
     >

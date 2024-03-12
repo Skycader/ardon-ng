@@ -22,13 +22,14 @@ export class WelcomeComponent {
     public configService: ConfigService,
     private router: Router,
     private formViewer: FormViewerService,
-  ) {}
+  ) { }
 
   public scrollToRecentArticles() {
     document.querySelector('.recent-articles')?.scrollIntoView();
   }
 
   public goTo(route: string[] | undefined) {
+    console.log('[ROUTE SWITCH]', route);
     if (!route) {
       console.log('Route broken', route);
       return;

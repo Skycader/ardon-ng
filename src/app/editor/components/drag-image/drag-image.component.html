@@ -17,6 +17,8 @@
             style="height: auto; outline: none; font-size: 1rem"
             [(ngModel)]="item.content.imageSrc"
             (input)="detectChanges.emit(1)"
+            (change)="detectChanges.emit(1)"
+            (keydown)="detectChanges.emit(1)"
           ></textarea>
           <mat-icon class="add-photo" (click)="fillUrl()"
             >add_photo_alternate</mat-icon
@@ -34,6 +36,8 @@
           style="height: auto; outline: none; font-size: 1rem"
           [(ngModel)]="item.content.imageTitle"
           (input)="detectChanges.emit(1)"
+          (change)="detectChanges.emit(1)"
+          (keydown)="detectChanges.emit(1)"
         ></textarea>
       </div>
       <div class="col-6 image-preview">
