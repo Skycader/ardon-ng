@@ -30,7 +30,7 @@ export class DragCollageComponent {
   constructor(
     private dragList: DragListService,
     private dynemicDrag: DynemicDragService,
-  ) {}
+  ) { }
 
   isPhotoPredicate(item: CdkDrag<EditBlockType>) {
     return item.data.type === 'image';
@@ -59,7 +59,7 @@ export class DragCollageComponent {
     const result: any = this.item.content.photos.map((slide: any) => {
       return {
         icon: 'photo',
-        title: 'Image',
+        title: 'Фото',
         type: 'image',
         content: {
           imageSrc: slide.imageSrc,
