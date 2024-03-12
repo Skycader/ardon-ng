@@ -6,10 +6,19 @@
   background-size: cover;
 }
 
-.background {
+.background-cover {
   max-height: 298px;
   height: 298px;
   background-size: cover;
+  cursor: pointer;
+}
+
+.background-display {
+  max-height: 298px;
+  height: 298px;
+  background-size: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
   cursor: pointer;
 }
 

@@ -68,7 +68,8 @@
       "title": "Проектирование участка",
       "subheader": "Услуга",
       "avatarSrc": "https://i.imgur.com/w5r1Mpl.png",
-      "backgroundSrc": "https://i.imgur.com/w5r1Mpl.png",
+      "backgroundSrc": "https://i.imgur.com/JyVBHbb.png",
+      "backgroundMode": "display",
       "description": "",
       "buttons": [
         {
@@ -123,6 +124,27 @@
           "icon": "share",
           "type": "share",
           "destination": ["/article", "relefnye-resheniya"],
+          "text": "Поделиться"
+        }
+      ]
+    },
+    {
+      "title": "Газон и озеленение",
+      "subheader": "Услуга",
+      "avatarSrc": "https://i.imgur.com/H5Fxvt5.png",
+      "backgroundSrc": "https://i.imgur.com/H5Fxvt5.png",
+      "description": "",
+      "buttons": [
+        {
+          "icon": "import_contacts",
+          "text": "Читать",
+          "type": "visit",
+          "destination": ["/article", "gazon-i-ozelenenie"]
+        },
+        {
+          "icon": "share",
+          "type": "share",
+          "destination": ["/article", "gazon-i-ozelenenie"],
           "text": "Поделиться"
         }
       ]

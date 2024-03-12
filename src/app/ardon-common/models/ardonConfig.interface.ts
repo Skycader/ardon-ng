@@ -47,9 +47,15 @@ export interface ArticlePreviewInterface {
   title: string;
   subheader: string;
   avatarSrc: string;
+  backgroundMode?: BackgroundMode;
   backgroundSrc: string;
   description: string;
   buttons: CardButtonInterface[];
+}
+
+enum BackgroundMode {
+  cover = 'cover',
+  display = 'display',
 }
 
 export interface CardButtonInterface {

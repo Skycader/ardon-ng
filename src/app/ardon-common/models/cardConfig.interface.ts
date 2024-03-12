@@ -3,10 +3,15 @@ export interface CardConfigInterface {
   subheader: string;
   avatarSrc: string;
   backgroundSrc: string;
+  backgroundMode?: BackgroundMode;
   description: string;
   buttons: CardButtonInterface[];
 }
 
+export enum BackgroundMode {
+  cover = 'cover',
+  display = 'display',
+}
 export interface CardButtonInterface {
   icon: string;
   type: ButtonTypes;

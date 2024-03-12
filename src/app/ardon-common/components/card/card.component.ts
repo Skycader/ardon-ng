@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import {
+  BackgroundMode,
   ButtonTypes,
   CardConfigInterface,
 } from '../../models/cardConfig.interface';
@@ -17,7 +18,7 @@ export class CardComponent {
     subheader: 'Услуга',
     avatarSrc: 'https://st3.stblizko.ru/images/product/343/360/457_big.jpg',
     backgroundSrc: 'https://i.imgur.com/HsoU7Cd.jpeg',
-
+    backgroundMode: BackgroundMode.cover,
     description: '',
     buttons: [
       {
@@ -38,6 +39,11 @@ export class CardComponent {
     private router: Router,
     private snackBar: SnackbarService,
   ) { }
+
+  ngOnInit() {
+    if (!this.config.backgroundMode)
+      this.config.backgroundMode = BackgroundMode.cover;
+  }
 
   public goTo(route: string[] | undefined) {
     if (!route) return;

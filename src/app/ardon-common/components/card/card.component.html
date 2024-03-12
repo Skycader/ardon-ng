@@ -10,7 +10,8 @@
   </mat-card-header>
   <a
     matRipple
-    class="background"
+    [class.background-cover]="config.backgroundMode === 'cover'"
+    [class.background-display]="config.backgroundMode === 'display'"
     [routerLink]="config.buttons[0].destination"
     (click)="goTo(config.buttons[0].destination)"
     (keydown)="goTo(config.buttons[0].destination)"
