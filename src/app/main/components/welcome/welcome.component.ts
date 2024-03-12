@@ -46,7 +46,7 @@ export class WelcomeComponent {
   public openFeedback() {
     this.formViewer.open({
       type: 'iframe',
-      url: 'https://forms.yandex.ru/cloud/65ef16d45d2a06139b15dfbd/?iframe=1',
+      url: 'https://docs.google.com/forms/d/e/1FAIpQLSd_j_kAbA1Yqj0a_slDGVuOb-R15YCDNLHo77BW-PW_EiJkJw/viewform?embedded=true',
     });
   }
 }

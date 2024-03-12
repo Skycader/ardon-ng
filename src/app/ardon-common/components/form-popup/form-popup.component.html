@@ -30,8 +30,9 @@
     <div class="photo-container">
       <div class="image-viewer">
         <iframe
+          id="formIframe"
           [src]="formViewer.formConfig.url | safePipe: 'resourceUrl'"
-          style="width: 100vw; height: 320px"
+          style="width: 100vw; height: 627px"
         ></iframe>
       </div>
     </div>
