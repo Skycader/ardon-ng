@@ -26,8 +26,8 @@
       "type": "collage",
       "content": {
         "photos": [
-          { "imageSrc": "https://i.imgur.com/zInqh72.png", "imageTitle": "" },
-          { "imageSrc": "https://i.imgur.com/Png2K4d.png", "imageTitle": "" }
+          { "imageSrc": "https://i.imgur.com/Png2K4d.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/PHFsMpE.png", "imageTitle": "" }
         ]
       }
     },
@@ -44,7 +44,7 @@
       "type": "collage",
       "content": {
         "photos": [
-          { "imageSrc": "https://i.imgur.com/PHFsMpE.png", "imageTitle": "" },
+          { "imageSrc": "https://i.imgur.com/zInqh72.png", "imageTitle": "" },
           { "imageSrc": "https://i.imgur.com/ZjvAR8r.png", "imageTitle": "" }
         ]
       }

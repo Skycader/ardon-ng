@@ -40,7 +40,7 @@ export class DragTableComponent {
     private dragList: DragListService,
     private edit: EditorService,
     private dynemicDrag: DynemicDragService,
-  ) { }
+  ) {}
 
   public syncRowsScroll() {
     if (this.tableRows.toArray().length)
@@ -128,6 +128,7 @@ export class DragTableComponent {
     let headers = this.tableColumns$
       .getValue()
       .map((item: any) => item.content.value);
+
     this.item.content.table = [headers, ...objs];
     this.detectChanges.next(1);
     this.edit.updateArticle();
