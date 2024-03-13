@@ -34,6 +34,9 @@ export class PhotoViewerComponent {
     this.panzoom = Panzoom(elem, {
       maxScale: 10,
       minScale: 0.5,
+      bounds: true,
+      boundsPadding: 1,
+      boundsDisabledForZoom: false,
     });
 
     let interval = setInterval(() => {
