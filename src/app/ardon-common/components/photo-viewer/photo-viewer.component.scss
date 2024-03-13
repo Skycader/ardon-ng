@@ -11,7 +11,7 @@
   border-radius: 10px;
   justify-content: center;
   flex-direction: column;
-  min-height: 80vh;
+  min-height: 85vh;
 }
 
 .photo-viewer {
@@ -45,7 +45,7 @@
     flex-direction: column;
     img {
       border-radius: 10px;
-      height: calc(80vh - 80px);
+      height: calc(85vh - 80px);
     }
     p {
       align-self: center;
