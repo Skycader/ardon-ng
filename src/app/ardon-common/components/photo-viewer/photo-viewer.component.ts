@@ -20,8 +20,12 @@ export class PhotoViewerComponent {
     event.stopPropagation();
   }
   zoom() {
-    this.panzoom.zoom(2, { animate: true });
-    this.panzoom.pan(0, 0, { animate: true });
+    let s =
+      (document.querySelector('.image-viewer') as any).offsetWidth / 2 -
+      this.world.nativeElement.offsetWidth / 2;
+
+    this.panzoom.zoom(1, { animate: true });
+    this.panzoom.pan(s, 0, { animate: true });
   }
 
   initPanzoom() {
@@ -29,14 +33,20 @@ export class PhotoViewerComponent {
 
     this.panzoom = Panzoom(elem, {
       maxScale: 10,
-      minScale: 1,
-      bounds: true,
-      boundsPadding: 1000,
+      minScale: 0.5,
     });
 
-    setTimeout(() => {
-      this.zoom();
+    let interval = setInterval(() => {
+      let s =
+        (document.querySelector('.image-viewer') as any).offsetWidth / 2 -
+        this.world.nativeElement.offsetWidth / 2;
+
+      if (this.world.nativeElement.offsetWidth !== 0) {
+        this.panzoom.pan(s, 0, { animate: false });
+        clearInterval(interval);
+      }
     });
+
     elem.parentElement.addEventListener('wheel', this.panzoom.zoomWithWheel);
   }
 
@@ -62,7 +72,6 @@ export class PhotoViewerComponent {
   public scrollCheck: ReturnType<typeof setInterval> | null = null;
   constructor(public photoViewer: PhotoViewerService) {}
   ngAfterViewInit() {
-    this.initPanzoom();
     ///
     this.scrollCheck = setInterval(() => {
       this.onScroll();
@@ -73,6 +82,8 @@ export class PhotoViewerComponent {
         .querySelector('.photo-viewer')!
         .scrollTo({ top: 1000, behavior: 'smooth' });
     }, 100);
+
+    this.initPanzoom();
   }
 
   public closePhotoView() {
