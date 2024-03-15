@@ -3,7 +3,7 @@
   (click)="closeSideNav()"
   *ngIf="isSideNav"
 ></div>
-<div class="side-nav" [class.closed]="!isSideNav">
+<div class="side-nav" [class.opened]="isSideNav">
   <mat-toolbar color="secondary">
     <mat-toolbar-row class="navigation">
       <span>Навигация</span>

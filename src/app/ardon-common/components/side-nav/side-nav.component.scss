@@ -14,6 +14,7 @@
   z-index: 2000;
   left: 0px;
   max-width: 300px;
+  left: calc(-300px);
 }
 
 .navigation {
@@ -21,8 +22,8 @@
   justify-content: space-between;
 }
 
-.closed {
-  left: calc(-300px);
+.opened {
+  left: 0px;
 }
 
 .side-nav-content {
