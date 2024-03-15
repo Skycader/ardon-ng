@@ -10,12 +10,12 @@ export class profileResolver {
   resolve(route: ActivatedRouteSnapshot): Observable<string> {
     return of('123').pipe(
       tap(() => {
-        this.loadingBarService.loading$.next(true);
+        this.loadingBarService.showLoading();
       }),
       delay(0),
       switchMap(() => of('some profile data')),
       tap(() => {
-        this.loadingBarService.loading$.next(false);
+        this.loadingBarService.hideLoading();
       }),
     );
   }

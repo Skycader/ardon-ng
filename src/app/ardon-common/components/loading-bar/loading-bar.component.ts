@@ -13,7 +13,7 @@ export class LoadingBarComponent {
   public loading$ = new BehaviorSubject<boolean>(false);
   constructor(
     private router: Router,
-    public readonly loadingBarService: LoadingBarService
+    public readonly loadingBarService: LoadingBarService,
   ) {}
 
   public ngOnInit() {

@@ -20,14 +20,14 @@ export class ArticleService {
   ): Observable<ArdonArticleInterface | null | any> {
     return this.http.get(`article/${name}.json?${Date.now()}`).pipe(
       tap(() => {
-        this.loadingBarService.loading$.next(true);
+        this.loadingBarService.showLoading();
       }),
       delay(0),
       catchError((error: any) => {
         return of(null);
       }),
       tap(() => {
-        this.loadingBarService.loading$.next(false);
+        this.loadingBarService.hideLoading();
       }),
     );
   }
