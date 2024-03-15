@@ -13,7 +13,7 @@ export class ArticleService {
     private http: HttpClient,
     private router: Router,
     private loadingBarService: LoadingBarService,
-  ) { }
+  ) {}
 
   public getArticle(
     name: string,
@@ -22,7 +22,7 @@ export class ArticleService {
       tap(() => {
         this.loadingBarService.loading$.next(true);
       }),
-      delay(1000),
+      delay(0),
       catchError((error: any) => {
         return of(null);
       }),

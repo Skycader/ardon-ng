@@ -12,11 +12,11 @@ export class profileResolver {
       tap(() => {
         this.loadingBarService.loading$.next(true);
       }),
-      delay(1000),
+      delay(0),
       switchMap(() => of('some profile data')),
       tap(() => {
         this.loadingBarService.loading$.next(false);
-      })
+      }),
     );
   }
 }
