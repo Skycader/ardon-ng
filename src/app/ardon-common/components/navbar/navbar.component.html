@@ -23,13 +23,11 @@
         let btn of (configService.config$ | async)?.navbarButtonsLeft || []
       "
     >
-      <span
-        class="vr d-none d-sm-block d-lg-block d-md-block d-xl-block"
-      ></span>
-      <mat-icon class="d-none d-sm-block d-lg-block d-md-block d-xl-block">{{
+      <span class="vr d-none d-sm-none d-md-block d-lg-block d-xl-block"></span>
+      <mat-icon class="d-none d-sm-none d-md-block d-lg-block d-xl-block">{{
         btn.icon
       }}</mat-icon>
-      <div class="d-none d-lg-block d-md-block d-xl-block">
+      <div class="d-none d-sm-none d-md-block d-lg-block d-xl-block">
         <a [href]="btn.href">{{ btn.title }}</a>
       </div>
     </ng-container>
@@ -37,27 +35,25 @@
     <span class="example-spacer"></span>
 
     <ng-container
-      class="left"
+      class="right"
       *ngFor="
         let btn of (configService.config$ | async)?.navbarButtonsRight || []
       "
     >
-      <span
-        class="vr d-none d-sm-block d-lg-block d-md-block d-xl-block"
-      ></span>
-      <mat-icon class="d-none d-sm-block d-lg-block d-md-block d-xl-block">{{
+      <span class="d-none d-sm-none d-md-block d-lg-block d-xl-block"></span>
+      <mat-icon class="d-none d-sm-none d-md-block d-lg-block d-xl-block">{{
         btn.icon
       }}</mat-icon>
-      <div class="d-none d-lg-block d-md-block d-xl-block">
+      <div class="d-none d-sm-none d-md-block d-lg-block d-xl-block">
         <a [href]="btn.href" [routerLink]="btn.routerLink">{{ btn.title }}</a>
       </div>
     </ng-container>
 
-    <span class="vr d-none d-sm-block d-lg-block d-md-block d-xl-block"></span>
+    <span class="vr d-none d-sm-block d-md-block d-lg-block d-xl-block"></span>
 
     <button
       mat-icon-button
-      class="example-icon"
+      class="d-none d-sm-block d-lg-block d-md-block d-xl-block example-icon"
       aria-label="Example icon-button with share icon"
     >
       <mat-icon>search</mat-icon>
