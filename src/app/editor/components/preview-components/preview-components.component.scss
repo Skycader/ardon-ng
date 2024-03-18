@@ -176,19 +176,9 @@ ardon-drag-handle:active {
   .toggleBlockOn {
     display: none;
   }
-  .toggleBlockOff {
-    display: inherit;
-  }
-
-  hr {
-    display: inherit;
-  }
 }
 
 .blockIsNotExpanded {
-  .toggleBlockOn {
-    display: inherit;
-  }
   .toggleBlockOff {
     display: none;
   }

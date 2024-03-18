@@ -24,6 +24,9 @@
           [class.blockIsNotExpanded]="
             !['text', 'subheading', 'list'].includes(item.type)
           "
+          [class.blockIsExpanded]="
+            ['text', 'subheading', 'list'].includes(item.type)
+          "
         >
           <div class="row">
             <div class="preview col-10 col-lg-11">
