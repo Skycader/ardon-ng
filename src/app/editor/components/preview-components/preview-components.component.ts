@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { SnackbarService } from '../../../ardon-common/services/snackbar.service';
 import { DragListService } from '../../services/drag-list.service';
+import { DynemicDragService } from '../../services/dynemic-drag.service';
 import { EditorService } from '../../services/editor.service';
 import { MarkUpService } from '../../services/mark-up.service';
-import { DynemicDragService } from '../../services/dynemic-drag.service';
 
 @Component({
   selector: 'ardon-preview-components',
