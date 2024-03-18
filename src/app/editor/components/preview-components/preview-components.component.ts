@@ -32,4 +32,17 @@ export class PreviewComponentsComponent {
   public allowAll() {
     return true;
   }
+
+  public toggleBlock(event: any) {
+    let container =
+      event.target.parentElement.parentElement.parentElement.parentElement;
+
+    if (container.classList.contains('blockIsExpanded')) {
+      container.classList.remove('blockIsExpanded');
+      container.classList.add('blockIsNotExpanded');
+    } else {
+      container.classList.remove('blockIsNotExpanded');
+      container.classList.add('blockIsExpanded');
+    }
+  }
 }

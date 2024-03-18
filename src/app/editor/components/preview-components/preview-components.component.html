@@ -19,7 +19,7 @@
 
         <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
 
-        <div class="container">
+        <div class="container blockIsNotExpanded">
           <div class="row">
             <div class="preview col-10 col-lg-11">
               <div class="component">
@@ -41,6 +41,8 @@
                   (click)="markUp.render(item, 'link')"
                   >link</mat-icon
                 >
+
+                <mat-icon (click)="toggleBlock($event)">expand_more</mat-icon>
                 <!-- <mat-icon *ngIf="item.hide === false">expand_more</mat-icon>
                 <mat-icon *ngIf="item.hide === true">expand_less</mat-icon>   -->
               </div>
@@ -49,7 +51,10 @@
             <ardon-drag-handle cdkDragHandle />
           </div>
           <hr />
-          <div class="row" style="height: auto; white-space: normal">
+          <div
+            class="row blockTextarea"
+            style="height: auto; white-space: normal"
+          >
             <ardon-editor-textarea
               [item]="item"
               (detectChanges)="editorService.updateArticle()"
