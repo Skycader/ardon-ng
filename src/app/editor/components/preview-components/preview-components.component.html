@@ -42,9 +42,12 @@
                   >link</mat-icon
                 >
 
-                <mat-icon (click)="toggleBlock($event)">expand_more</mat-icon>
-                <!-- <mat-icon *ngIf="item.hide === false">expand_more</mat-icon>
-                <mat-icon *ngIf="item.hide === true">expand_less</mat-icon>   -->
+                <mat-icon class="toggleBlockOn" (click)="toggleBlock($event)"
+                  >expand_more</mat-icon
+                >
+                <mat-icon class="toggleBlockOff" (click)="toggleBlock($event)"
+                  >expand_less</mat-icon
+                >
               </div>
             </div>
 
