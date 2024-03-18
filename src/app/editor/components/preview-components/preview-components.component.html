@@ -19,7 +19,12 @@
 
         <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
 
-        <div class="container blockIsNotExpanded">
+        <div
+          class="container"
+          [class.blockIsNotExpanded]="
+            !['text', 'subheading', 'list'].includes(item.type)
+          "
+        >
           <div class="row">
             <div class="preview col-10 col-lg-11">
               <div class="component">
@@ -60,6 +65,7 @@
           >
             <ardon-editor-textarea
               [item]="item"
+              [class.textareaType]="item.type"
               (detectChanges)="editorService.updateArticle()"
             />
           </div>
