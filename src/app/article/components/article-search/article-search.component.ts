@@ -6,6 +6,7 @@ import {
 } from '../../../ardon-common/models/ardonConfig.interface';
 import { ConfigService } from '../../../ardon-core/services/config.service';
 import { HttpClient } from '@angular/common/http';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'ardon-article-search',
@@ -22,5 +23,10 @@ export class ArticleSearchComponent {
   constructor(
     public configService: ConfigService,
     private http: HttpClient,
+    private titleService: Title,
   ) { }
+
+  ngOnInit() {
+    this.titleService.setTitle('Поиск статей');
+  }
 }
