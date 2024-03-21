@@ -4,6 +4,7 @@ import _ from 'lodash';
 import { PhotoViewerService } from '../../../ardon-common/services/photo-viewer.service';
 import { ArdonArticleInterface } from '../../models/article.interface';
 import { ArticleService } from '../../services/article.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'ardon-article-view',
@@ -26,15 +27,17 @@ export class ArticleViewComponent {
   };
 
   @ViewChild('articleBody') articleBody: ElementRef = new ElementRef(
-    'articleBody'
+    'articleBody',
   );
 
   constructor(
     public articleService: ArticleService,
     public photoViewer: PhotoViewerService,
     public activatedRoute: ActivatedRoute,
-    public router: Router
-  ) {}
+    private titleService: Title,
+
+    public router: Router,
+  ) { }
 
   public found = true;
 
@@ -47,6 +50,7 @@ export class ArticleViewComponent {
       }
 
       this.article = response['article'];
+      this.titleService.setTitle(this.article.heading);
       setTimeout(() => {
         window.scrollTo({ top: 0, behavior: 'instant' });
       });
