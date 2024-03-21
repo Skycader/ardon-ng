@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CardConfigInterface } from '../../../ardon-common/models/cardConfig.interface';
 import { ProfileComponentsClass } from '../../data/profile.components.class';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'ardon-profile-layout',
@@ -13,4 +14,9 @@ export class ProfileLayoutComponent {
   };
   public components: CardConfigInterface[] = new ProfileComponentsClass()
     .components;
+
+  constructor(private titleService: Title) { }
+  ngOnInit() {
+    this.titleService.setTitle('Личный кабинет');
+  }
 }
