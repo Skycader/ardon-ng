@@ -25,9 +25,7 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.configService.config$.subscribe((config: ArdonConfigInterface) => {
-      this.titleService.setTitle(config.appName);
-    });
+    this.configService.config$.subscribe((config: ArdonConfigInterface) => { });
 
     this.themeService.applyTheme();
     this.showApp = true;
