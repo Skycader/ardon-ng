@@ -7,7 +7,6 @@
   width: 400px;
   height: 500px;
   min-width: 300px;
-  min-height: 300px;
 }
 
 .example-spacer {
@@ -16,4 +15,8 @@
 
 .example-boundary {
   border: 2px solid red;
+}
+
+.hidden {
+  display: none !important;
 }

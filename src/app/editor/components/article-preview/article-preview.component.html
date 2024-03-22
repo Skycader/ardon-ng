@@ -1,14 +1,13 @@
 <div
   cdkDrag
-  class="article-preview bg-body isResizable"
-  style="
-    position: fixed;
-    top: 0px;
-    width: 400px;
-    height: 600px;
-    z-index: 20000;
-    border: 2px solid #ccc;
-  "
+  id="previewArticle"
+  *ngIf="showPreview"
+  #previewArticle
+  class="article-preview bg-body"
+  [class.isResizable]="showBody"
+  [style.height]="showBody ? '600px' : '68px'"
+  [style.top]="folded ? '903px' : '0px'"
+  style="position: fixed; width: 400px; z-index: 20000; border: 2px solid #ccc"
 >
   <mat-toolbar color="primary" cdkDragHandle>
     <button
@@ -23,6 +22,7 @@
     <button
       mat-icon-button
       class="example-icon"
+      (click)="foldPreview()"
       aria-label="Example icon-button with menu icon"
     >
       <mat-icon>keyboard_arrow_down</mat-icon>
@@ -31,13 +31,25 @@
     <button
       mat-icon-button
       class="example-icon"
+      (click)="refresh()"
       aria-label="Example icon-button with menu icon"
     >
-      <mat-icon>minimize</mat-icon>
+      <mat-icon style="transform: rotateY(-180deg)">flip_to_front</mat-icon>
     </button>
+
     <button
       mat-icon-button
       class="example-icon"
+      aria-label="Example icon-button with menu icon"
+      (click)="minimizePreview()"
+    >
+      <mat-icon>minimize</mat-icon>
+    </button>
+
+    <button
+      mat-icon-button
+      class="example-icon"
+      (click)="maximizePreview()"
       aria-label="Example icon-button with menu icon"
     >
       <mat-icon>crop_square</mat-icon>
@@ -45,13 +57,17 @@
     <button
       mat-icon-button
       class="example-icon"
-      (click)="editorService.isPreview$.next(false)"
+      (click)="closePreview()"
       aria-label="Example icon-button with menu icon"
     >
       <mat-icon>close</mat-icon>
     </button>
   </mat-toolbar>
-  <div style="height: calc(100% - 64px); overflow: auto">
+  <div
+    id="previewArticleBody"
+    [class.hidden]="!showBody"
+    style="height: calc(100% - 64px); overflow: auto"
+  >
     <ardon-article-view
       [displayConfig]="{ title: true, themeImage: true, content: true }"
       [article]="article"
