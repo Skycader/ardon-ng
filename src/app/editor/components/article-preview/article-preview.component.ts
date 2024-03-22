@@ -15,6 +15,9 @@ export class ArticlePreviewComponent {
   @ViewChild('previewArticle') previewArticle!: ElementRef;
   constructor(public editorService: EditorService) { }
 
+  public get requiredHeight() {
+    return window.innerHeight - 66 + 'px';
+  }
   public foldPreview() {
     this.showBody = !this.showBody;
   }
