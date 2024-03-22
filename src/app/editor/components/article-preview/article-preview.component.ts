@@ -31,6 +31,7 @@ export class ArticlePreviewComponent {
   }
 
   public maximizePreview() {
+    this.showBody = true;
     this.minimizePreview();
     this.folded = false;
 
