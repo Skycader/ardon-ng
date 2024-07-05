@@ -3,13 +3,13 @@
   [class.no-advantages]="configService.config.advantages.length === 0"
   [class.advantages]="configService.config.advantages.length > 0"
 >
-  <div class="welcome2" [style.background-image]="bg$ | async"></div>
+  <!-- <div class="welcome2" [style.background-image]="bg$ | async"></div> -->
 
   <div class="title">{{ configService.config | get: "appName" }}</div>
 
   <div class="subtitle">
     <a [href]="configService.config | get: 'subtitleHref'">
-      <mat-icon>phone</mat-icon>{{ configService.config | get: "subtitle" }}</a
+      {{ configService.config | get: "subtitle" }}</a
     >
   </div>
 
@@ -29,21 +29,4 @@
       {{ button.title }}</a
     >
   </div>
-
-  <br />
-  <div class="d-flex p-2">
-    <a mat-raised-button (click)="openFeedback()"
-      ><mat-icon>record_voice_over</mat-icon> Заказать звонок</a
-    >
-  </div>
-
-  <button
-    mat-mini-fab
-    class="scroll-down"
-    color="secondary"
-    aria-label="Example icon button with a home icon"
-    (click)="scrollToRecentArticles()"
-  >
-    <mat-icon>keyboard_arrow_down</mat-icon>
-  </button>
 </div>

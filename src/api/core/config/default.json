@@ -1,8 +1,8 @@
 {
   "appLanguage": "ru",
-  "appName": "Ваш Ландшафтник",
-  "subtitle": "+7 911 286-85-36",
-  "subtitleHref": "tel:+79112868536",
+  "appName": "Ardon Engine",
+  "subtitle": "Make your blog look awesome today",
+  "subtitleHref": "",
   "appLogo": "book",
   "description": "",
   "appBackgroundImage": "assets/images/design.jpg",
@@ -11,40 +11,24 @@
   "searchPlaceholder": "Начните поиск...",
   "startButtons": [
     {
-      "title": "О нас",
+      "title": "Get started",
       "destionation": ["/article", "about"]
-    },
-    {
-      "title": "Наши услуги",
-      "destionation": ["/article", "search"]
-    },
-    {
-      "title": "Цены",
-      "destionation": ["/article", "price-list"]
     }
   ],
-  "navbarButtonsLeft": [
-    {
-      "icon": "phone",
-      "title": "+7 911 286-85-36",
-      "routerLink": [],
-      "href": "tel:+79112868536"
-    }
-  ],
+  "navbarButtonsLeft": [],
   "navbarButtonsRight": [],
-  "advantages": [],
-  "advantages-x": [
+  "advantages": [
     {
-      "header": "Преимущество 1",
-      "text": "Здесь более детальное описание"
+      "header": "Easy to use",
+      "text": "Make your blog in to time"
     },
     {
-      "header": "Преимущество 2",
-      "text": "Здесь более детальное описание"
+      "header": "Versatile",
+      "text": "Lots of components for each and every case"
     },
     {
-      "header": "Преимущество 3",
-      "text": "Здесь более детальное описание"
+      "header": "High quality",
+      "text": "Made with Angular Material"
     }
   ],
   "rootTopic": "welcome.json",

@@ -1,150 +1,22 @@
 {
   "articles": [
     {
-      "title": "Мощение дорожек и площадок",
-      "subheader": "Услуга",
-      "avatarSrc": "https://st3.stblizko.ru/images/product/343/360/457_big.jpg",
-      "backgroundSrc": "https://i.imgur.com/HsoU7Cd.jpeg",
+      "title": "Angular styleguide",
+      "subheader": "Manual",
+      "avatarSrc": "https://i.imgur.com/svWIT3K.png",
+      "backgroundSrc": "https://i.imgur.com/svWIT3K.png",
       "description": "",
       "buttons": [
         {
           "icon": "import_contacts",
           "text": "Читать",
           "type": "visit",
-          "destination": ["/article", "moshchenie-dorozhek"]
+          "destination": ["/article", "angular-styleguide"]
         },
         {
           "icon": "share",
-          "destination": ["/article", "moshchenie-dorozhek"],
+          "destination": ["/article", "angular-styleguide"],
           "type": "share",
-          "text": "Поделиться"
-        }
-      ]
-    },
-    {
-      "title": "Дренаж и система водоотведения",
-      "subheader": "Услуга",
-      "avatarSrc": "https://i.imgur.com/NVGFWjw.png",
-      "backgroundSrc": "https://i.imgur.com/NVGFWjw.png",
-      "description": "",
-      "buttons": [
-        {
-          "icon": "import_contacts",
-          "text": "Читать",
-          "type": "visit",
-          "destination": ["/article", "drenazh-i-sistema-vodootvedeniya"]
-        },
-        {
-          "icon": "share",
-          "type": "share",
-          "destination": ["/article", "drenazh-i-sistema-vodootvedeniya"],
-          "text": "Поделиться"
-        }
-      ]
-    },
-    {
-      "title": "Система полива участка",
-      "subheader": "Услуга",
-      "avatarSrc": "https://i.imgur.com/BcGFe3G.png",
-      "backgroundSrc": "https://i.imgur.com/BcGFe3G.png",
-      "description": "",
-      "buttons": [
-        {
-          "icon": "import_contacts",
-          "text": "Читать",
-          "type": "visit",
-          "destination": ["/article", "sistema-poliva-uchastka"]
-        },
-        {
-          "icon": "share",
-
-          "type": "share",
-          "destination": ["/article", "sistema-poliva-uchastka"],
-          "text": "Поделиться"
-        }
-      ]
-    },
-    {
-      "title": "Проектирование участка",
-      "subheader": "Услуга",
-      "avatarSrc": "https://i.imgur.com/w5r1Mpl.png",
-      "backgroundSrc": "https://i.imgur.com/JyVBHbb.png",
-      "backgroundMode": "display",
-      "description": "",
-      "buttons": [
-        {
-          "icon": "import_contacts",
-          "text": "Читать",
-          "type": "visit",
-          "destination": ["/article", "proektirovanie-uchastka"]
-        },
-        {
-          "icon": "share",
-          "type": "share",
-          "destination": ["/article", "proektirovanie-uchastka"],
-          "text": "Поделиться"
-        }
-      ]
-    },
-    {
-      "title": "Освещение участка",
-      "subheader": "Услуга",
-      "avatarSrc": "https://i.imgur.com/1fcguhG.png",
-      "backgroundSrc": "https://i.imgur.com/1fcguhG.png",
-      "description": "",
-      "buttons": [
-        {
-          "icon": "import_contacts",
-          "text": "Читать",
-          "type": "visit",
-          "destination": ["/article", "osveshchenie-uchastka"]
-        },
-        {
-          "icon": "share",
-          "type": "share",
-          "destination": ["/article", "osveshchenie-uchastka"],
-          "text": "Поделиться"
-        }
-      ]
-    },
-    {
-      "title": "Рельефные решения",
-      "subheader": "Услуга",
-      "avatarSrc": "https://i.imgur.com/zDc6zYn.png",
-      "backgroundSrc": "https://i.imgur.com/zDc6zYn.png",
-      "description": "",
-      "buttons": [
-        {
-          "icon": "import_contacts",
-          "text": "Читать",
-          "type": "visit",
-          "destination": ["/article", "relefnye-resheniya"]
-        },
-        {
-          "icon": "share",
-          "type": "share",
-          "destination": ["/article", "relefnye-resheniya"],
-          "text": "Поделиться"
-        }
-      ]
-    },
-    {
-      "title": "Газон и озеленение",
-      "subheader": "Услуга",
-      "avatarSrc": "https://i.imgur.com/H5Fxvt5.png",
-      "backgroundSrc": "https://i.imgur.com/H5Fxvt5.png",
-      "description": "",
-      "buttons": [
-        {
-          "icon": "import_contacts",
-          "text": "Читать",
-          "type": "visit",
-          "destination": ["/article", "gazon-i-ozelenenie"]
-        },
-        {
-          "icon": "share",
-          "type": "share",
-          "destination": ["/article", "gazon-i-ozelenenie"],
           "text": "Поделиться"
         }
       ]

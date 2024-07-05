@@ -32,6 +32,8 @@
     margin: 15px 5px;
     font-weight: 700;
     z-index: 2000;
+    line-height: 2rem;
+    text-align: center;
 
     a {
       display: flex;
@@ -73,6 +75,18 @@
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
+}
+
+.welcome:before {
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  position: absolute;
+  content: "";
+  background-image: url(https://v16.material.angular.io/angular-white-transparent.d4d5ed2946afa9f1.svg);
+  background-size: 600px;
+  background-repeat: no-repeat;
+  background-position: 80% 20px;
 }
 
 .d-flex {

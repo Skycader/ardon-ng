@@ -10,10 +10,14 @@
     </button>
     <a [routerLink]="['/']">
       <span class="logo"
-        ><mat-icon>{{
-          configService.config$ | async | get: "appLogo"
-        }}</mat-icon></span
-      >
+        ><img
+          _ngcontent-ng-c3202968170=""
+          matbuttonicon=""
+          src="https://v16.material.angular.io/assets/img/homepage/angular-white-transparent.svg"
+          alt="angular"
+          aria-hidden="true"
+          class="logo"
+      /></span>
       <span> {{ configService.config$ | async | get: "appName" }}</span>
     </a>
 
@@ -72,3 +76,4 @@
   </mat-toolbar>
 </p>
 <div class="br"></div>
+
